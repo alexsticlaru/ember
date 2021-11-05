@@ -1,0 +1,21 @@
+<div class="popup__delete-idea confirm-popup" role="dialog" aria-labelledby="accessibility-title">
+	<div class="confirm-popup__close-button">
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+	<div class="confirm-popup__top-container">
+		<span id="accessibility-title" class="confirm-popup__title">
+			{{this.model.title}}
+		</span>
+	</div>
+	<div class="confirm-popup__text">
+		{{this.model.text}}
+	</div>
+	<div class="confirm-popup__button-container">
+		<button type="button" class="btn-civ-black" {{on 'click' this.confirmPopup}}>
+			{{this.model.confirm}}
+		</button>
+		<button type="button" class="btn-civ-black-reverse" {{on 'click' this.closePopup}}>
+			{{this.model.cancel}}
+		</button>
+	</div>
+</div>

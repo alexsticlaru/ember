@@ -1,0 +1,17 @@
+<div class="communities">
+	<div class="communities__banner">
+		<div class="communities__gradient">
+			<span class="communities__title" tabIndex="0">{{t 'communities.communitiesLabel'}}</span>
+			<span class="communities__subtitle" tabIndex="0">{{t 'communities.subTitle'}}</span>
+		</div>
+	</div>
+
+	<div class="communities__content">
+{{!-- 		{{#each @model as | community|}} --}}
+		{{#each this.activeCommunities as | community|}}
+			<CommunityCard @community={{community}}/>
+		{{/each}}
+	</div>
+</div>
+
+

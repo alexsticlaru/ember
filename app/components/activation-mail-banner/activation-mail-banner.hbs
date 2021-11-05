@@ -1,0 +1,13 @@
+<div role="dialog" class='banner__activationmail'>
+    <h2 class="banner__text">{{!Please go to inbox and confirm your email so we can verify your account.}}
+	   {{t "emailValidationFlow.bannerMessage"}}
+       {{#if this.isEmailSent}}
+			<div class="banner__linkactivation">
+				<span>{{t 'activation-popup.sentEmail'}} </span>
+				<span aria-hidden="true">{{inline-svg "images/check.svg" class="icon-small"}}</span>
+			</div>
+		{{else}}
+			<a href="#" class="banner__link" tabindex="0"
+			{{on 'click' this.sendEmailConfirmation}}>{{t 'activation-popup.resendEmail'}}</a>
+		{{/if}}</h2>
+</div>

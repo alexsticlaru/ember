@@ -1,0 +1,41 @@
+.proposition-map-sidepanel {
+  height: 100%;
+  width: 100%;
+
+  &__back-btn{
+    position: absolute;
+    left: 2.4rem;
+    top: 1.3rem;
+  }
+
+  &__title{
+    margin-top: 2.8rem;
+    font-family: Sora;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 112%;
+    text-align: center;
+    letter-spacing: 0.00684685rem;
+    color: #353535;
+  }
+
+  //overriding component styles
+  .propositions-mapview-mobile__map-container{
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    background-color: white;
+  }
+
+  .propositions-mapview-mobile__marker-list{
+    padding: 2rem;
+  }
+
+  .propositions-mapview-mobile__location-button {
+    top: 3rem;
+    right: 3rem;
+  }
+
+
+}

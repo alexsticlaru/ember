@@ -1,0 +1,49 @@
+<div class="admins-management">
+  <SettingsItem
+    @title={{t 'community.adminsManagement.title'}}
+    @tooltip={{t 'community.adminsManagement.titleTooltip'}}>
+    <div class="admins-management__admins-list">
+    {{#each this.adminsList as |admin|}}
+      <div class="admins-management__admins-list-item">
+        <div class="admins-management__admins-list-user-container">
+          <UserAvatar @user={{admin.user}} @dimensions="35"></UserAvatar>
+          <span class="admins-management__admins-list-username">{{admin.user.fullName}}</span>
+        </div>
+        {{#if (eq admin.adminLevel 1)}}
+          <button class="btn-none admins-management__admins-list-button" {{on "click" (fn this.revokeAdmin admin)}}>
+            {{t 'buttons.remove'}}
+          </button>
+        {{/if}}
+      </div>
+    {{/each}}
+    </div>
+  </SettingsItem>
+
+  <SettingsItem
+    @title={{t 'community.adminsManagement.addAdminCommunity'}}
+    @tooltip={{t 'community.adminsManagement.addAdminCommunityTooltip'}}>
+    <LabelTextField
+        @type='text'
+        @placeholder={{t 'community.adminsManagement.addAdminPlaceholder'}}
+        @value={{this.searchString}}
+        @maxlength={{200}}
+        @enterAction={{this.searchUsers}}
+        @onInput={{this.searchUsers}}
+    />
+
+    <div class="admins-management__admins-list">
+    {{#each this.userSuggestions as |suggestion|}}
+      <div class="admins-management__admins-list-item">
+        <div class="admins-management__admins-list-user-container">
+          <UserAvatar @user={{suggestion}} @dimensions="35"></UserAvatar>
+          <span class="admins-management__admins-list-username">{{suggestion.fullName}}</span>
+        </div>
+        <button class="btn-none admins-management__admins-list-button" {{on "click" (fn this.addAdmin suggestion)}}>
+          {{t 'community.adminsManagement.addAdminButton'}}
+        </button>
+      </div>
+    {{/each}}
+    </div>
+  </SettingsItem>
+
+</div>

@@ -1,0 +1,38 @@
+<Dropdown @contentClass="comment-actions" @top={{@top}} @left={{@left}} as |dd|>
+	<dd.trigger>
+		{{yield}}
+	</dd.trigger>
+	<dd.content>
+  {{#if this.userIsGeneralAdmin}}
+    <button type="button" class="comment-actions__item btn-none" {{on "click" this.moderateComment}}>
+      <span aria-hidden="true">{{inline-svg '/images/ideaBox/moderated-alert.svg'}}</span>
+      {{t 'ideaBox.moderate'}}
+    </button>
+	{{else}}
+		{{#if @comment.isFlaggedByCurrentUser}}
+      <button type="button" class="comment-actions__item comment-actions__item--deactivated btn-none">
+        <span aria-hidden="true">{{inline-svg '/images/ideaBox/flag-new.svg'}}</span>
+        {{t 'discussion.reported'}}
+      </button>
+		{{else}}
+			{{#unless this.userCanEditComment}}
+      <button type="button" class="comment-actions__item btn-none" {{on "click" this.flagComment}}>
+        <span aria-hidden="true">{{inline-svg '/images/ideaBox/flag-new.svg'}}</span>
+        {{t 'discussion.report'}}
+      </button>
+			{{/unless}}
+		{{/if}}
+	{{/if}}
+
+  {{#if this.userCanEditComment}}
+    <button type="button" class="comment-actions__item btn-none" {{on "click" @editComment}}>
+      <span aria-hidden="true">{{inline-svg '/images/ideaBox/edit-new.svg'}}</span>
+      {{t 'ideaBox.edit'}}
+    </button>
+    <button type="button" class="comment-actions__item btn-none" {{on "click" this.deleteComment}}>
+      <span aria-hidden="true">{{inline-svg '/images/ideaBox/delete-new.svg'}}</span>
+      {{t 'ideaBox.delete'}}
+    </button>
+  {{/if}}
+</dd.content>
+</Dropdown>

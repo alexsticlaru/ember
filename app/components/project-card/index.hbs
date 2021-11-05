@@ -1,0 +1,88 @@
+<ContainerQuery
+  @features={{hash
+    phone=(cq-width max=this.config.breakpoints.phone)}}
+  as |CQ|
+>
+<div class="{{if CQ.features.phone "project-card-mobile" "project-card"}}">
+	<div class="{{if CQ.features.phone "project-card__cover-mobile" "project-card__cover"}} {{unless this.hasAccessToProject "project-card__cover-private"}}">
+		{{#if this.hasAccessToProject}}
+			<CloudinaryImage
+					aria-hidden="true"
+					class={{if CQ.features.phone "project-card__cover-image-mobile" "project-card__cover-image"}}
+					@publicId={{@project.image}}
+					@options={{hash format='png' transforms='q_auto,f_auto'}}
+			/>
+		{{else}}
+			<div class="project-card__cover-private-image" aria-hidden="true">
+				{{inline-svg "images/community/private.svg"}}
+			</div>
+			<div class="project-card__cover-private-label" tabindex="0">{{t "community.project.privateProject"}}</div>
+		{{/if}}
+	</div>
+
+<div class={{if CQ.features.phone "project-card__details project-card__details-mobile" "project-card__details"}}>
+	{{#if this.hasAccessToProject}}
+		<LinkTo @route="community.participation" @model={{@project.url}} class="link">
+			<h3 class="heading-3">
+				{{@project.name}}
+			</h3>
+		</LinkTo>
+	{{else}}
+		<h3 class="heading-3" tabindex="0">
+			{{@project.name}}
+		</h3>
+	{{/if}}
+	{{#if this.hasAccessToProject}}
+		{{#if @project.description.length}}
+		<div class="project-card__description" tabindex="0">
+			{{line-clamp
+					text=@project.description
+					showMoreButton=false
+					lines=3
+					ellipsis="..."
+			}}
+		</div>
+		{{else}}
+		<div class="project-card__description" aria-hidden="true"></div>
+		{{/if}}
+	<div class="project-card__info-container">
+		<div class="project-card__statistics-box">
+			<span aria-hidden="true">{{inline-svg '/images/community/social-icons/user-icon.svg'}}</span>
+			<span class="project-card__statistics-data" tabindex="0">{{@project.globalRelevancy}} {{t 'communities.members'}}</span>
+		</div>
+		<div class="project-card__statistics-box">
+			<span aria-hidden="true">{{inline-svg '/images/community/social-icons/discussion-icon.svg'}}</span>
+			<span class="project-card__statistics-data" tabindex="0">{{t 'communities.contributions' number=@project.contributionsCount}}</span>
+		</div>
+		{{!--  REMOVED_MARCH
+			<div class="project-card__statistics-box">
+				{{inline-svg '/images/community/social-icons/calendar-icon.svg'}}
+				<span class="project-card__statistics-data">{{t 'communities.closingInDays' number=10}}</span>
+			</div>
+			--}}
+	</div>
+	{{/if}}
+
+<div class="project-card__action-button">
+	{{#if this.hasAccessToProject}}
+		<LinkTo tabindex="-1" @route="community.participation" @model={{@project.url}}>
+			{{#if (eq @project.status "active") }}
+				{{#if @project.private}}
+					<button tabindex="0" type="submit" class="btn-civ-black-reverse btn-none project-card__participate">{{t 'community.project.participatePrivate'}}</button>
+				{{else}}
+					<button tabindex="0" type="submit" class="btn-civ-black-reverse btn-none project-card__participate">{{t 'community.project.participate'}}</button>
+				{{/if}}
+			{{else if (eq @project.status "disabled")}}
+				<button tabindex="0" type="submit" class="btn-none project-card__seeResults">{{t 'community.project.seeResults'}}</button>
+			{{/if}}
+		</LinkTo>
+	{{else}}
+		<button tabindex="0" {{on "click" this.accessWithPassword}} type="submit" class="btn-civ-black-reverse btn-none project-card__participate">{{t 'community.project.accessWithPassword'}}</button>
+	{{/if}}
+</div>
+
+</div>
+</div>
+
+
+</ContainerQuery>

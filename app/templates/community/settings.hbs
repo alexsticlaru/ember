@@ -1,0 +1,49 @@
+<div class="participation-settings">
+	<div class="participation-settings__title-container">
+		<div class="participation-settings__title">
+			{{this.model.community.name}}
+		</div>
+	</div>
+
+	<div class="participation-settings__main-container">
+		<div class="participation-settings__nav-container">
+			<div class="participation-settings__nav-title">
+				{{t 'community.adminsManagement.navInfoTitle'}}
+			</div>
+			<div>
+				<LinkTo class="btn-none participation-settings__nav-item" @route='community.settings.index'>
+					{{t 'community.projectManagement.navTitle'}}
+				</LinkTo>
+			</div>
+			<div>
+				<LinkTo class="btn-none participation-settings__nav-item" @route='community.settings.administrator'>
+					{{t 'community.communityManagement.admins'}}
+				</LinkTo>
+			</div>
+
+
+			<div class="participation-settings__info-container">
+				<div class="participation-settings__info-item">
+					<div>
+						{{t 'community.communityManagement.infoTitle'}} <b>{{this.model.community.name}}</b>
+					</div>
+				</div>
+				<div class="participation-settings__info-item">
+					<div>
+						{{t 'community.projectManagement.infoCompletion'}}
+					</div>
+					<div>
+						{{this.communityProgress}}% <progress value={{this.communityProgress}} max="100"></progress>
+					</div>
+				</div>
+				<button type="button" class="btn-none participation-settings__delete-button" {{on "click" this.deleteCommunity}}>
+					{{t 'community.communityManagement.delete'}}
+				</button>
+			</div>
+
+		</div>
+		<div class="participation-settings__content-container">
+			{{outlet}}
+		</div>
+	</div>
+</div>

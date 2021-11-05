@@ -1,0 +1,218 @@
+.community-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 6.313rem;
+  // max-width: 107.7rem;
+
+  &__cover{
+    display: flex;
+    position: relative;
+    width:54rem;
+    height:30.0rem;
+    justify-items: center;
+    align-items: center;
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+	  border-radius: 4px;
+    }
+  }
+
+  &__logo-section{
+    max-width: 15rem;
+    max-height: 5.6rem;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__title{
+	letter-spacing: 0.01rem;
+	font-family: Sora;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.7rem;
+    line-height: 3.2rem;
+    color: $light-black;
+	margin-top: 1.7rem;
+	margin-bottom: 1.1rem;
+	white-space: nowrap;
+  }
+  @media screen and (max-width: 600px) {
+    &__title {
+      font-size: 1.7rem;
+    }
+  }
+  // &__cover-center-box{
+  //   position: absolute;
+  //   width: 100%;
+  //   color: white;
+  //   font-weight: 600;
+  //   text-align: center;
+  // }
+  //
+  // &__cover-title{
+  //   font-size: 3.6rem;
+  //   font-weight: 600;
+  //   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 0 0 #000, 1px 0 0 #000, 1px 0 2px #141414, 1px 0 3px #141414, 1px 0 5px #141414, 1px 0 7px #141414, 1px 0 10px #141414;
+  //   color: #fff;
+  // }
+  //
+  // &__cover-subtitle{
+  //   font-size: 1.4rem;
+  //   font-weight: 600;
+  //   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 0 0 #000, 1px 0 0 #000, 1px 0 2px #141414, 1px 0 3px #141414, 1px 0 5px #141414, 1px 0 7px #141414, 1px 0 10px #141414;
+  //   color: #fff;
+  //   svg {
+  //     height: 2rem;
+  //     vertical-align: middle;
+  //   }
+  // }
+
+  &__country {
+    display: flex;
+    position: absolute;
+    top: 0; left: 0;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.5rem;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    align-items: center;
+    line-height: 1.2rem;
+  }
+
+  &__description{
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	letter-spacing: 0.0126802rem;
+	position: relative;
+    font-size: 1.5rem;
+    color: $light-black-2;
+    line-height: 160%;
+    text-align: left;
+    padding-top: 0.5rem;
+
+    text-overflow:ellipsis;
+    overflow:hidden;
+    // Addition lines for 2 line or multiline ellipsis
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+
+  &-fader{
+      overflow: hidden;
+      color: transparent;
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 45%, #fff);
+
+    }
+
+    /*We hack here the community.description style : the initial context is from the rich-editor used by the admins with html formatting tools enabled => we need to format them*/
+    h1{
+      // text-align: center;
+      line-height: 3.8rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+  }
+
+  // &__description-see-more {
+  // margin-top: 1rem;
+  // font-size: 1.4rem;
+  // //text-decoration: underline;
+  // color: inherit;
+  // }
+
+  &__flag-picture{
+    height: 1.4rem;
+  }
+
+  &__flag-name{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #373F41;
+    //
+    // font-size: 1.2rem;
+    // font-weight: 700;
+    // line-height: 1.6rem;
+    // letter-spacing: 0.02rem;
+    // text-align: left;
+    // color:#373F41;
+    margin-left: 0.6rem;
+  }
+
+  &__members{
+	padding-left: 1.53rem;
+	padding-right:1.563rem;
+	font-weight: 500;
+	font-size: 1.3rem;
+	line-height: 2.2rem;
+	font-family: Inter;
+	font-style: normal;
+	display: flex;
+	align-items: center;
+	letter-spacing: 0.02rem;
+	color:$light-black;
+  }
+
+  &__projects{
+    padding-left: 0.625rem;
+    padding-right:1.563rem;
+  }
+
+  // &__line {
+  //   border: none;
+  //   background-color: $gray-line-color;
+  //   height: 2px;
+  // }
+
+  &__info-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+  }
+
+  &__statistics-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-basis: 35%;
+    font-size: 1.3rem;
+
+	svg path{
+	  fill:#A4A3B4;
+	}
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    width: 54rem;
+    height:30.0rem;
+  }
+
+  &__action-button {
+    margin-top: 3rem;
+  }
+
+  &__see-projects-btn {
+    display: inline-block;
+    width: 26rem;
+  }
+}

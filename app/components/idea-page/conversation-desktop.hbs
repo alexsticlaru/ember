@@ -1,0 +1,24 @@
+<div class="idea-conversation__comments-container">
+  <div class="idea-conversation__comments-title-container">
+    <span class="idea-conversation__comments-title">
+      {{t 'discussion.conversation'}}
+    </span>
+    <span class="idea-conversation__comments-number">
+    {{@proposition.comments.length}} {{t 'discussion.comments'}}
+    </span>
+  </div>
+
+  <div class="idea-conversation__comment-add-container">
+    <CommentAddForm
+      @usersCanParticipate={{true}}
+      @proposition={{@proposition}}
+    />
+  </div>
+
+  <CommentList
+    @switchToReplyMode={{@replyToComment}}
+    @comments={{@proposition.comments}}
+    @author={{@proposition.user}}
+    @usersCanParticipate={{true}}
+  />
+</div>

@@ -1,0 +1,31 @@
+<div class="act-about-tab__item">
+  <div>
+    <h2 class="heading-2 act-about-tab__item-title">
+      {{t 'ideaBox.descriptionTitle'}}
+    </h2>
+    <p>
+      {{html-safe @issue.description}}
+    </p>
+  </div>
+</div>
+
+{{#if (and @issue.summary @issue.about)}}
+<div class="act-about-tab__item">
+  <div class="act-about-tab__text-left">
+    <h2 class="heading-2 act-about-tab__item-title">
+      {{t 'ideaBox.summaryTitle'}}
+    </h2>
+    <p>
+      {{html-safe @issue.summary}}
+    </p>
+  </div>
+  <div class="act-about-tab__text-right">
+    <h2 class="heading-2 act-about-tab__item-title">
+      {{t 'ideaBox.aboutTitle'}}
+    </h2>
+    <p>
+      {{html-safe @issue.about}}
+    </p>
+  </div>
+</div>
+{{/if}}

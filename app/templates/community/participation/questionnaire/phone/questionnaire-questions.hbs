@@ -1,0 +1,11 @@
+<div class="quest-questions-phone">
+    <div class="quest-questions-phone__header">
+        <button type="button"
+            class="btn-none quest-questions-phone__btn-back"
+            {{on 'click' this.closeSidePanel}}>
+            {{inline-svg "/images/back-arrow.svg"}}
+        </button>
+        <BreadCrumbs @breadCrumbs={{this.breadCrumbs}} class="breadcrumbs--black"/>
+    </div>
+    <QuestionnaireQuestions @model={{@model}}/>
+</div>

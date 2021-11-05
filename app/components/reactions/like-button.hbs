@@ -1,0 +1,43 @@
+<BasicDropdown class="like-button" @verticalPosition="above" @renderInPlace={{true}} ...attributes as |dd|>
+	<dd.Trigger
+		{{on "mousedown" this.prevent}}
+		{{on "mouseenter" (fn this.open dd)}}
+		{{on "focus" (fn this.open dd)}}
+		{{on "mouseleave" (fn this.closeLater dd)}}>
+		{{#if @simple}}
+			<button type="button" class="btn-none {{if this.userReaction "like-button__reactions-item-liked"}}"  {{on "click" (fn this.addReaction "")}}>
+				{{#if this.userReaction}}
+					{{t  (concat 'reactions.type.' this.userReaction.type)}}
+				{{else}}
+					{{t 'reactions.type.like'}}
+				{{/if}}
+			</button>
+		{{else}}
+		<button type="button" class="like-button__main-button btn-none {{if this.userReaction "like-button__reactions-item-liked"}}"  {{on "click" (fn this.addReaction "")}}>
+			{{#if this.userReaction}}
+				<span aria-hidden="true">{{inline-svg this.userReaction.svg}}</span> {{t  (concat 'reactions.type.' this.userReaction.type)}}
+			{{else}}
+					<div class="like-button__like-reaction">
+						<span aria-hidden="true">{{inline-svg "/images/reactions/agree.svg"}}</span>
+						<span class="like-button__like-text">{{t 'reactions.type.like'}}</span>
+					</div>
+			{{/if}}
+		</button>
+		{{/if}}
+	</dd.Trigger>
+	<dd.Content {{on "mouseenter" (fn this.open dd)}} {{on "mouseleave" (fn this.closeLater dd)}} {{on "click" (fn this.closeLater dd)}}
+			class="like-button__reactions-container">
+		{{#each this.reactions.reactionTypes as |reaction|}}
+			<button type="button" class="like-button__reactions-item btn-none" {{on "click" (fn this.addReaction reaction.type)}} aria-label={{t  (concat 'reactions.type.' reaction.type)}}>
+				<span aria-hidden="true">{{inline-svg reaction.svg}}</span>
+				<EmberTooltip
+					@spacing={{1}}
+				    @tooltipClass="like-button__reactions-item-tooltip"
+      				@arrowClass="like-button__reactions-item-tooltip-arrow">
+					{{t  (concat 'reactions.type.' reaction.type)}}
+				</EmberTooltip>
+			</button>
+		{{/each}}
+
+	</dd.Content>
+</BasicDropdown>

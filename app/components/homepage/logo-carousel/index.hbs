@@ -1,0 +1,15 @@
+<Swiper @options={{this.swiperOptions}} @items={{this.items}} as | item |>
+  <div class='homepage-logo-carousel__logo-item'>
+			{{#if item.imageKey}}
+					 <CloudinaryImage @publicId={{item.imageKey}} @options={{hash height='120' width='300' format='png' transforms='q_auto,f_auto,c_fill'}} />
+			{{else}}
+					 {{item.orgName}}
+			{{/if}} 
+      <div class='homepage-logo-carousel__logo-item__text'>
+          <div class='homepage-logo-carousel__logo-item__text__inner-container'>
+            <h5 class='homepage-logo-carousel__logo-item__text__main'>{{item.orgName}}</h5>
+            <h5 class='homepage-logo-carousel__logo-item__text__secondary'>{{item.orgLocation}}</h5>
+          </div>
+      </div>
+  </div>
+</Swiper>

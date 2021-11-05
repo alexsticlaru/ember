@@ -1,0 +1,85 @@
+.flat-popup.show-popup{
+  padding-top: 0;
+}
+.questionnaire-popup{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__a{
+		list-style: none;
+		color: $medium-blue;
+	}  
+
+	&__card{
+		background: $white;
+		height: 32.5rem;
+		width: 52.7rem;
+		border-radius: 0.43rem;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__close-button{
+		position: absolute;
+		top: 1.6rem;
+		right: 1rem;
+	}
+
+	&__question-card{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-left: 0.7rem;
+		padding-top: 3rem;
+	}
+
+	&__question{
+		font-size: 1.3rem;
+		font-weight: 400;
+		line-height: 1.8rem;
+		letter-spacing: 0.01rem;
+		padding:2rem 4rem 2rem 2.1rem;
+		text-align: center;
+		width: 38.4rem;
+	}
+
+	&__buttons-container{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: row;
+		padding-top: 3.5rem;
+		width: 100%;
+		padding: 3.5rem 4.5rem 0;
+	}
+
+	&__btn{
+		width: 20.3rem;
+	}
+
+}
+
+.questionnaire-leave-phone {
+	display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 100%;
+    align-items: center;
+
+	&__btn-back {
+		align-self: flex-start;
+	}
+
+	&__buttons-container{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: row;
+		padding-top: 3.5rem;
+		width: 100%;
+	}
+}

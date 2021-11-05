@@ -1,0 +1,18 @@
+.participation-info {
+    width: 100%;
+    padding: 2rem;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid $light-color;
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+}

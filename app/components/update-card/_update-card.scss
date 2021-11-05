@@ -1,0 +1,93 @@
+.update-card {
+  	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	border-radius: 1rem;
+	background: $white;
+	box-shadow: 0 2px 24px rgb(165 157 143 / 30%);
+	margin: 2rem 1.9rem 2rem 0;
+  	width: 25.7rem;
+	min-width: 25.6rem;
+  	height: 32.2rem;
+	position: relative;
+	&.small {
+	  width: calc(25% - 1.8rem);
+	}
+
+  	&.no-width-limits {
+	  max-width: unset;
+	  min-width: unset;
+	}
+	&__cover-image{
+		object-fit: cover;
+		height: 13.3rem;
+		width: 100%;
+		border-radius: 0.4rem;
+	}
+	&-cover-image-popup{
+	  object-fit: cover;
+	  height: 100%;
+	  width: 100%;
+	  border-radius: 0.4rem;
+
+	  &-spacer{
+		flex: 1 0 0;
+	  }
+	}
+
+
+
+	&__title {
+		color: $dark-black;
+		padding-top: 1rem;
+		height: 8.8rem;
+		font-size: 1.7rem;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 2.2rem;
+		letter-spacing: 0.006846846640110016rem;
+		padding-left: 2.1rem;
+		padding-right: 1.3rem;
+	}
+
+	&__title-truncate {
+		color: $dark-black;
+		padding-top: 1rem;
+		font-weight: bold;
+		line-height: 1.14;
+		height: 8.8rem;
+		overflow: hidden;
+		position: relative;
+		&::before {
+			position: absolute;
+			content: "...";
+			inset-block-end: 0;
+			inset-inline-end: 0;
+			right: 4px;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset-inline-end: 0; /* "right" */
+			width: 1rem;
+			height: 1rem;
+			background: $white;
+		}
+	}
+
+	&__date {
+		font-size: 1.2rem;
+		font-weight: 500;
+		color: #7D7D7D;
+		position: absolute;
+		bottom: 1.9rem;
+		right: 2rem;
+	  	font-style: normal;
+	  	line-height: 1.7rem;
+	  	letter-spacing: 0;
+	  	text-transform: uppercase;
+	}
+}
+
+

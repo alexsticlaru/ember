@@ -1,0 +1,122 @@
+
+<div class="proposition-filters">
+	
+    <div class="proposition-filters__container">
+
+        <div class="proposition-filters__header">
+			<button type="button" class="btn-none proposition-filters__back-button-arrow" {{on 'click' this.closeFilterPanel}} title={{t 'accessibility.goBack'}}>
+				<span aria-hidden="true">{{inline-svg "/images/discussion/back-arrow.svg" }}</span>
+			</button>
+            <h1 class="heading-1--quaternary proposition-filters__filter-title">{{t 'filters.filter'}}</h1>
+			<button type="button" class="btn-none proposition-filters__clear-button" {{on 'click' this.clearFilters}}>{{t 'filters.clearButton'}}</button>
+        </div>
+				<div class="proposition-filters__search-bar">
+				<div class="proposition-filters__icon-search">
+					{{inline-svg '/images/modules/module-icon-search-input.svg'}}
+				</div>
+				 
+    
+				<Input aria-label="{{t 'ideaBox.searchIdeas'}}" class="proposition-filters__search-input"
+					   placeholder="{{t 'ideaBox.searchIdeas'}}"
+					   @value={{this.searchText}}
+					   @enter={{this.searchPropositions}}
+					   @key-up={{this.searchPropositionsKey}}/>
+
+			</div>
+
+
+        <div class="proposition-filters__sort">
+            <h2 class="heading-2--secondary proposition-filters__title-category">{{t 'filters.sortBy'}}</h2>
+            <div class="proposition-filters__row-container">
+                <label class="proposition-filters__label-info" for="date">{{t 'filters.newest'}}</label>
+                <input class="proposition-filters__radio-style"
+                    type="radio" id="date"
+                    checked={{eq this.sortType 'date' }}
+                    {{on "click" (fn this.setSortType "date" )}} />
+            </div>
+			
+            <div class="proposition-filters__row-container">
+                <label class="proposition-filters__label-info" for="filter_date_upvoted">{{t 'filters.mostUpvoted'}}</label>
+                <input id="filter_date_upvoted" class="proposition-filters__radio-style"
+                    type="radio"
+                    checked={{eq this.sortType 'globalRelevancy' }} {{on "click" (fn this.setSortType "globalRelevancy" )}} />
+            </div>
+            </div>
+		{{#if @model.ideaBox}}
+        <div class="proposition-filters__themes">
+            <h2 class="heading-2--secondary proposition-filters__title-category">{{t 'filters.themes'}}</h2>
+            {{#each @model.themes as |theme|}}
+            <div class="proposition-filters__row-container">
+                <label class="proposition-filters__filters-options" for={{theme.id}}>{{theme.name}}</label>
+                <Input id={{theme.id}} class="proposition-filters__checkbox-style" @checked={{isIncluded theme.id
+                    this.themesToFilter}} @type="checkbox" {{on 'click' (fn this.handleThemeFiltering theme.id) }} />
+            </div>
+
+            {{/each}}
+						    
+        </div>
+        	 {{/if}}
+        <div class="proposition-filters__relevancy">
+			<h2 class="heading-2--secondary proposition-filters__title-category">{{t 'filters.relevancy'}}</h2>
+			{{!--
+			<div class="proposition-filters__row-container">
+				<label for="filter_relevancy_answered" class="proposition-filters__filters-options" >{{t 'ideaBox.relevancyAnswered' }}</label>
+				<XToggle @id="filter_relevancy_answered" @theme='ios' @size='large' @value={{this.relevancyAnswered}}
+						 @onToggle={{fn (mut this.relevancyAnswered)}}
+						 class="proposition-filters__toggle"/>
+			</div>
+			--}}
+
+            <div class="proposition-filters__row-container">
+
+                <label for="filter_relevancy_supported" class="proposition-filters__filters-options" >{{t 'ideaBox.relevancySupported' }}</label>
+				<XToggle @id="filter_relevancy_supported" @theme='ios' @size='large' @value={{this.relevancySupported}}
+						 @onToggle={{fn (mut this.relevancySupported)}}
+						 class="proposition-filters__toggle"/>
+					
+            </div>
+			<div class="proposition-filters__row-container">
+				<label for="filter_relevancy_map" class="proposition-filters__filters-options" >{{t 'ideaBox.relevancyMap' }}</label>
+				<XToggle @id="filter_relevancy_map" @theme='ios' @size='large' @value={{this.relevancyMap}}
+						 @onToggle={{fn (mut this.relevancyMap)}}
+						 class="proposition-filters__toggle"/>
+			</div>
+        </div>
+	
+		{{!--
+		<div class="proposition-filters__keys-paticipants">
+			<h2 class="heading-2--secondary proposition-filters__title-category">{{t 'ideaBox.keyParticipants'}}</h2>
+			<div class="proposition-filters__row-container">
+				<label for={{"contributionFromOrganisation"}} class="proposition-filters__filters-options" >{{t 'ideaBox.keyParticipantsContributions.contributionFromOrganisation'}}</label>
+				<XToggle  @id={{"contributionFromOrganisation"}} @theme='ios' @size='large' @value={{this.relevancyByOrganisation}}
+						 @onToggle={{this.changeRelevancyByOrganisation}}
+						 class="proposition-filters__toggle"/>
+			</div>
+			<div class="proposition-filters__row-container">
+				<label for={{"contributionFromUrbanicExperts"}} class="proposition-filters__filters-options" >{{t 'ideaBox.keyParticipantsContributions.contributionFromUrbanicExperts'}}</label>
+				<XToggle  @id={{"contributionFromUrbanicExperts"}} @theme='ios' @size='large' @value={{this.relevancyByOrganisation}}
+						 @onToggle={{this.changeRelevancyByOrganisation}}
+						 class="proposition-filters__toggle"/>
+			</div>
+			<div class="proposition-filters__row-container">
+				<label for={{"contributionFromEnviromental"}} class="proposition-filters__filters-options" >{{t 'ideaBox.keyParticipantsContributions.contributionFromEnviromental'}}</label>
+				<XToggle @id={{"contributionFromEnviromental"}} @theme='ios' @size='large' @value={{this.relevancyByOrganisation}}
+						 @onToggle={{this.changeRelevancyByOrganisation}}
+						 class="proposition-filters__toggle"/>
+			</div>
+			<div class="proposition-filters__row-container">
+				<label for={{"contributionFromCitizen"}} class="proposition-filters__filters-options" >{{t 'ideaBox.keyParticipantsContributions.contributionFromCitizen'}}</label>
+				<XToggle @id={{"contributionFromCitizen"}} @theme='ios' @size='large' @value={{this.relevancyByOrganisation}}
+						 @onToggle={{this.changeRelevancyByOrganisation}}
+						 class="proposition-filters__toggle"/>
+			</div>
+		</div>
+		--}}
+		
+		<button type="button" class="btn-civ-black proposition-filters__btn-apply"
+			{{on 'click' this.applyAllFilters}}>{{t 'ideaBox.applyButton'}}
+		</button>
+
+    </div>
+
+</div>

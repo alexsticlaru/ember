@@ -1,0 +1,139 @@
+<div class="community-management">
+
+  <div class="community-management__breadcrumbs-container">
+    <span class="btn-none community-management__breadcrumbs community-management__breadcrumbs--active" {{on "click" this.cancel}}>
+      {{t 'addDocument.navTitle'}}
+    </span>
+    <span class="community-management__breadcrumbs-icon" aria-hidden="true">
+      {{inline-svg '/images/community/settings/breadcrumbs.svg'}}
+    </span>
+    <span class="community-management__breadcrumbs">
+      {{@section.title}}
+    </span>
+  </div>
+
+  <div class="community-management__update-title-container">
+    <div class="community-management__main-title">
+      {{t 'addDocument.editFormTitle'}}
+    </div>
+    <button class="btn-civ-black" type="button" {{on "click" this.openPreview }}>
+      {{t 'addDocument.preview'}}
+    </button>
+  </div>
+
+    <div class="settings-item">
+      <button type="button" class="btn-none" {{on "click" this.deleteDocument}}>
+        {{t 'addDocument.remove'}}
+      </button>
+    </div>
+
+  <SettingsItem
+    @title={{t 'addDocument.editDocumentTitle'}}
+    @noTooltip={{true}}>
+    <LabelTextField
+        @value={{@section.title}}
+        @maxlength={{200}}
+        @placeholder ={{t 'addDocument.editDocumentTitlePlaceholder'}}
+    />
+  </SettingsItem>
+
+  <SettingsItem
+    @title={{t 'addDocument.editDocumentContent'}}
+    @noTooltip={{true}}>
+    <NewRichEditor
+    @content={{@section.content}}
+    @editorId ={{"document-add-editordescription-create"}}
+    @placeholder ={{t 'addDocument.editDocumentContentPlaceholder'}}
+    />
+  </SettingsItem>
+
+  {{#each this.documentParts as |documentPart|}}
+
+  <!--
+   <div style="display:flex; width:100%;justify-content: space-between">
+    <LabelTextField
+    @value={{@documentPart.summary}}
+    @maxlength={{200}}
+    @redesign={{true}}
+    />
+
+    <button type="button" class="btn-none" {{on "click" @deletePart}}>
+      Delete
+    </button>
+  </div> -->
+
+
+    <div class="project-document-edit-form__attachment">
+      <div class="file-popup__attachment-container">
+        {{#if documentPart.isProcessing}}
+          <CircularProgress
+            @dimensions=60
+          />
+        {{else}}
+          <div class="file-popup__icons-container">
+            <a class="file-popup__view-attachment" href={{documentPart.url}} download aria-label={{t 'buttons.downloadDocument'}}>
+              {{inline-svg "images/community/visualize-icon.svg"}}
+            </a>
+            <a class="file-popup__view-attachment" target="_blank" href={{documentPart.url}} aria-label={{t 'buttons.viewDocument'}}>
+              {{inline-svg "images/community/download-icon.svg"}}
+            </a>
+          </div>
+          <img src={{documentPart.computedImage}} />
+        {{/if}}
+      </div>
+      <div>
+        <button type="button" class="btn-none project-document-edit-form__delete-button" {{on "click" (fn this.deletePart documentPart)}}>
+          {{inline-svg '/images/community/settings/delete-link.svg'}}
+        </button>
+      </div>
+    </div>
+  {{/each}}
+
+  <div>
+    <span class="project-document-edit-form__attachment-button">
+      <ProjectDocumentForm::addAttachment
+      @section={{@section}}
+      @documentParts={{this.documentParts}} />
+    </span>
+    <!-- <span class="project-document-edit-form__attachment-button">
+      Add Text Block
+    </span> -->
+  </div>
+  <!-- <button type="button" class="btn-none project-document-edit-form__attachment-button" {{on "click" this.addAttachmentPart}}>
+    {{inline-svg '/images/community/settings/add-link.svg'}}
+  </button> -->
+
+  <!-- <button type="button" class="btn-none" {{on "click" this.addTextPart}}>
+    {{inline-svg '/images/community/settings/add-link.svg'}}
+  </button> -->
+
+
+  <div class="community-management__save-button-container">
+    {{#if this.processingChanges}}
+      <SpinnerButton
+        @class="btn-civ-black-reverse community-management__save-button"
+        @spinning={{true}}
+        >
+        <span>
+          {{t 'pb.profile.saving'}}
+        </span>
+      </SpinnerButton>
+    {{else if this.changesSaved}}
+      <button class="btn-civ-black community-management__save-button" {{on "click" this.saveDocument}}>
+        <span aria-hidden="true">{{inline-svg '/images/ideaBox/check.svg'}}</span>
+        {{t 'pb.profile.saved'}}
+      </button>
+    {{else}}
+      <button class="btn-civ-black community-management__save-button" {{on "click" this.saveDocument}}>
+        {{t 'addDocument.save'}}
+      </button>
+    {{/if}}
+
+    <!-- <button type="button" class="btn-civ-black community-management__save-button" {{on "click" this.saveDocument}}>
+      {{t 'addDocument.save'}}
+    </button> -->
+    <button type="button" class="btn-none community-management__delete-button" {{on "click" this.cancel}}>
+      {{t 'addUpdate.editDiscard'}}
+    </button>
+  </div>
+</div>

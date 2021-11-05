@@ -1,0 +1,137 @@
+	<div class="proposition-toolbar">
+		<div class="proposition-toolbar__left-container">
+			<Dropdown @contentClass="proposition-toolbar__filters-content"
+			    @triggerClass="proposition-toolbar__sort-trigger"
+                @onContentClose={{this.deactivateSort}}
+                @onContentOpen={{this.activateSort}}
+                @top={{50}} as |dd|>
+				<dd.trigger>
+					<button type="button"
+						class="btn-civ-round {{if this.activeSort 'btn-civ-round--mark-active' (if this.sortOpen  'btn-civ-round--mark-active' '')}}">
+						<span>{{t 'filters.sortByNewest'}}</span>
+						{{inline-svg '/images/ideaBox/sort-by-newest-icon.svg' class="icon-arrow-down"}}
+					</button>
+				</dd.trigger>
+				<dd.content>
+					<div class="proposition-toolbar__sorting">
+							<div class="proposition-toolbar__label-container">
+                                <input class="proposition-toolbar__radio-style"
+                                    type="radio"
+                                    id="date"
+                                    checked={{eq this.sortType 'date' }}
+                                    {{on "click" (fn this.setSortType "date" )}} />
+                                <label class="proposition-toolbar__label-info" for="date">{{t 'ideaBox.newest'}}</label>
+							</div>
+							<div class="proposition-toolbar__label-container">
+								<input id="upvoted" class="proposition-toolbar__radio-style"
+                                    type="radio" name="upvoted"
+                                    checked={{eq this.sortType 'globalRelevancy'}}
+                                    {{on "click" (fn this.setSortType "globalRelevancy")}} />
+								<label class="proposition-toolbar__label-info"  for="upvoted">{{t 'ideaBox.mostUpvoted'}}</label>
+							</div>
+
+							<div class="proposition-toolbar__newest-button-apply-section">
+								<button type="button"
+                                    class="btn-none proposition-toolbar__applyButton"
+                                    {{on "click" this.sortPropositions}}>{{t 'ideaBox.applyButton'}}</button>
+							</div>
+					</div>
+				</dd.content>
+			</Dropdown>
+
+			<Dropdown  @contentClass="proposition-toolbar__filters-content"
+				@triggerClass="proposition-toolbar__trigger"
+                @onContentClose={{this.deactivateThemes}}
+                @onContentOpen={{this.activateThemes}}
+                @top={{50}} as |dd|>
+				<dd.trigger>
+					<button
+						class="btn-civ-round {{if this.activeFilterThemes 'btn-civ-round--mark-active' (if this.themesOpen 'btn-civ-round--mark-active' '')}}"
+						type="button">
+						<span class="proposition-toolbar__title-module">{{t 'ideaBox.themes' }}</span>
+						{{inline-svg '/images/ideaBox/sort-by-newest-icon.svg'}}
+					</button>
+				</dd.trigger>
+				<dd.content>
+					<div class="proposition-toolbar__sorting">
+						<div class="proposition-toolbar__themes-list">
+							{{#each @themesList as |theme|}}
+								<div class="proposition-toolbar__label-container">
+									<Input id={{theme.id}} class="proposition-toolbar__checkbox-style"
+                                    @checked={{isIncluded theme.id this.themesToFilter}}
+                                    @type="checkbox"
+                                    {{on 'click' (fn this.handleThemeFiltering theme.id) }}/>
+									<label class="proposition-toolbar__label-info" for={{theme.id}}>{{theme.labelTranslate}}</label>
+								</div>
+							{{/each}}
+						</div>
+
+
+						<div class="proposition-toolbar__themes-apply-section">
+							<button type="button" class="btn-none proposition-toolbar__clearButton" {{on "click" this.clearThemesSelection}}>{{t 'filters.clearButton'}}</button>
+							<button type="button" class="btn-none proposition-toolbar__applyButton" {{on "click" this.applyThemesFilters}}>{{t 'ideaBox.applyButton'}}</button>
+						</div>
+					</div>
+
+				</dd.content>
+			</Dropdown>
+			<Dropdown  @contentClass="proposition-toolbar__filters-content"
+				@triggerClass="proposition-toolbar__trigger"
+                @onContentClose={{this.deactivateSortRelevancy}}
+                @onContentOpen={{this.activateSortRelevancy}}
+                @top={{50}} as |dd|>
+				<dd.trigger>
+					<button
+						class="btn-civ-round {{if this.activeRelavancy 'btn-civ-round--mark-active' (if this.sortRelevancyOpen 'btn-civ-round--mark-active' '')}}"
+						type="button">
+						<span class="proposition-toolbar__title-module">{{t 'ideaBox.relevancy' }}</span>
+						{{inline-svg '/images/ideaBox/sort-by-newest-icon.svg'}}
+					</button>
+				</dd.trigger>
+				<dd.content>
+                    <div class="proposition-toolbar__sorting proposition-toolbar__sorting--large">
+                        <div class="proposition-toolbar__toggle-row">
+                            <div>{{t 'ideaBox.relevancyByMe' }}</div>
+                            <XToggle @theme='ios' @size='large'
+                            @value={{this.relevancyByMe}}
+                            @onToggle={{fn (mut this.relevancyByMe)}} />
+                        </div>
+                        <div class="proposition-toolbar__toggle-row">
+                            <div>{{t 'ideaBox.relevancyByOrganisation' }}</div>
+                            <XToggle @theme='ios' @size='large'
+                                @value={{this.relevancyByOrganisation}}
+                                @onToggle={{fn (mut this.relevancyByOrganisation)}} />
+                        </div>
+
+                        <div class="proposition-toolbar__newest-button-apply-section">
+                            <button type="button" class="btn-none proposition-toolbar__applyButton" {{on 'click' this.handleFilteringRelevancy}}>
+                                {{t 'ideaBox.applyButton'}}
+                            </button>
+                        </div>
+
+                    </div>
+				</dd.content>
+			</Dropdown>
+		</div>
+
+		<div class="proposition-toolbar__right-container">
+			<div class="proposition-toolbar__search-bar">
+				<div class="proposition-toolbar__icon-search">
+					{{inline-svg '/images/modules/module-icon-search-input.svg'}}
+				</div>
+				<Input aria-label="{{t 'ideaBox.searchIdeas'}}" class="proposition-toolbar__search-input"
+                placeholder="{{t 'ideaBox.searchIdeas'}}"
+                @value={{this.searchText}} @enter={{this.searchPropositions}}/>
+			</div>
+			{{#if @allowMap}}
+				<div  class="proposition-toolbar__show-map">
+					<span class="proposition-toolbar__style-text-showmap">{{t 'ideaBox.showMap' }}</span>
+					<XToggle @theme='ios'
+							 @size='large'
+													 @value={{this.mapView}}
+							 @onToggle={{this.toggleMapView}}
+					/>
+				</div>
+			{{/if}}
+		</div>
+	</div>

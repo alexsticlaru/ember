@@ -1,0 +1,51 @@
+<div class="act-page-phone">
+  <div class="act-page-phone__top-banner">
+    <CloudinaryImage
+    aria-hidden="true"
+	  class="act-page-phone__image-banner"
+      @publicId={{@model.issue.image}}
+      @options={{hash height='100' format='png' transforms='q_auto,f_auto'}}
+    />
+	<div class="act-page-phone__gradient-banner"></div>
+    <div class="act-page-phone__back-button">
+      <LinkTo @route="community.participation" @models={{array @model.project.community.url @model.project.url}} title={{t 'accessibility.goBack'}}>
+        <span aria-hidden="true">{{inline-svg '/images/consultation/back-arrow.svg'}}</span>
+      </LinkTo>
+    </div>
+	<div class="act-page-phone__introduction-container">
+		  <h1 class="heading-1--quaternary act-page-phone__title-banner">{{@model.issue.title}}</h1>
+		  <div class="act-page-phone__introduction-text">
+			  <span>{{html-safe @model.issue.summary}}...<b class="act-page-phone__bold-text" {{on 'click' this.openAboutSection}}>{{t 'discussion.seeMoreButton'}}</b></span>
+		  </div>
+	  </div>
+  </div>
+	<div class="act-page-phone__content-container">
+		<div class="act-page-phone__most-supported-ideas">
+			<button class="act-page-phone__ideas btn-none" {{on 'click' this.openIdeasContainer}} aria-expanded={{if ideasContainer 'true' 'false'}} >
+				<div class="act-page-phone__title-and-icon">
+					<span aria-hidden="true">{{inline-svg '/images/discussion/highlight-idea.svg'}}</span>
+					<span class="act-page-phone__title-supported-ideas">{{t 'discussion.mostSupportedIdeas'}}</span>
+				</div>
+				<div class="act-page-phone__filters">
+					<span aria-hidden="true">{{inline-svg '/images/discussion/filters-arrow.svg'}}</span>
+				</div>
+			</button>
+			<div class="act-page-phone__ideas_container {{if ideasContainer 'isOpened'}}" >
+				{{#each this.bestAssertions as |assertion|}}
+					<AssertionItem @assertion={{assertion}}/>
+				{{/each}}
+			</div>
+		</div>
+		<ContributionAddButton @issue={{@model.issue}} @onAddComment={{this.addCommentToList}}></ContributionAddButton>
+		<div class="act-page-phone__open-filters">
+			<button  class="act-page-phone__title-filters btn-none" {{on 'click' this.openFilterPanel}}>
+        {{t 'discussion.openFilters'}}
+      </button>
+		</div>
+		{{#each @model.comments as |comment|}}
+			<ContributionItem::PreviewMobile @comment={{comment}} @model={{@model}}>
+			</ContributionItem::PreviewMobile>
+		{{/each}}
+		<Pagination @pagedContent={{@model.comments}} />
+	</div>
+</div>

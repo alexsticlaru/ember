@@ -1,0 +1,41 @@
+.location-map-card {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 60%;
+    top: 43%;
+    background-color: #fff;
+    width: 16rem;
+    height: 15rem;
+    box-shadow: .4rem .2rem .6rem .2rem #002d482b;
+    padding: 1rem;
+
+    &__logo {
+        height: 7rem;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    &__name {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        & span {
+            margin-left: .4rem;
+        }
+    }
+
+    &-close {
+        position: absolute;
+        left: 84%;
+        top: 0;
+        border: none;
+        background: transparent;
+        outline: none;
+        & span {
+            font-size: 2rem;
+        }
+    }
+    
+}

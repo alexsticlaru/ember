@@ -1,0 +1,24 @@
+<div class="questionnaire-end">
+    <div class="questionnaire-end__header">
+        <button type="button"
+            class="btn-none quest-questions-phone__btn-back"
+            {{on 'click' this.closeSidePanel}}
+            aria-label={{t "accessibility.goBack"}}>
+            <span aria-hidden="true">{{inline-svg "/images/back-arrow.svg"}}</span>
+        </button>
+        <BreadCrumbs @breadCrumbs={{this.breadCrumbs}} class="breadcrumbs--black"/>
+    </div>
+    <div class="quest-questions-phone__end">
+        <span aria-hidden="true">{{inline-svg '/images/questionnaire/vote-end.svg'}}</span>
+        <h1 class="heading-1--quaternary questionnaire-questions__end-title">{{t 'questionnaire.endInfoTitle'}}</h1>
+        <p class="questionnaire-questions__end-info">{{t 'questionnaire.endInfo'}}</p>
+        <div class="questionnaire-questions__end-nav-container">
+            <button type="button" class="btn-civ-black-reverse questionnaire-questions__end-btn" {{on 'click' this.backToProject}}>
+                {{t 'questionnaire.projectBack' }}
+            </button>
+            <button type="button" class="btn-civ-black questionnaire-questions__end-btn" {{on 'click' this.seeResults}}>
+                {{t 'questionnaire.seeResults'}}
+            </button>
+        </div>
+    </div>
+</div>

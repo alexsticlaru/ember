@@ -1,0 +1,54 @@
+<div class="contribution-item-preview-mobile">
+	<div class="contribution-item-preview-mobile__first-container">
+		<div class="contribution-item-preview-mobile__user">
+			<LinkTo @route="user" @model={{@comment.user}} aria-labelledby="fullUsername">
+				<UserAvatar @user={{@comment.user}} @dimensions={{34}}/>
+			</LinkTo>
+		</div>
+		<div class="contribution-item-preview-mobile__details-user">
+			<span class="contribution-item-preview-mobile__username-style" id="fullUsername">{{@comment.user.firstName}} says</span>
+			<div class="contribution-item-preview-mobile__title">
+				{{html-safe @comment.title}}
+			</div>
+		</div>
+	</div>
+	<div class="contribution-item-preview-mobile__comment">
+		<div class="contribution-item-preview-mobile__comment-text">
+			<div class="contribution-item-preview-mobile__truncate-overflow">
+				{{html-safe @comment.content}}
+			 </div>
+			<LinkTo @route="community.participation.consultation.act.contribution"
+				   @models={{array @model.project.community.url @model.project.url @model.participationPack.id @model.participationPack.url @comment.id}}>
+			   {{t 'buttons.seeMore'}}
+			</LinkTo>
+		</div>
+	</div>
+	{{#each @comment.attachments as |attachment|}}
+		<div class="contribution-item-preview-mobile__image-attachment">
+			{{#if attachment.image}}
+				<img class="attachment-item__preview-image" src={{attachment.image}} />
+			{{else}}
+				{{#if (eq attachment.type "link")}}
+					{{inline-svg '/images/discussion/link-icon.svg'}}
+				{{/if}}
+				{{#if (eq attachment.type "file")}}
+					{{inline-svg '/images/consultation/pdf-attachment.svg'}}
+				{{/if}}
+				{{#if (eq attachment.type "picture")}}
+					{{inline-svg '/images/consultation/picture-attachment.svg'}}
+				{{/if}}
+				{{#if (eq attachment.type "video")}}
+					{{inline-svg '/images/discussion/link-icon.svg'}}
+				{{/if}}
+			{{/if}}
+		</div>
+	{{/each}}
+	<div class="contribution-item-preview-mobile__info-container">
+    <button type="button" class="contribution-item-preview-mobile__reactions btn-none" {{on "click" (fn this.showReactions @comment)}}>
+		<Reactions::Summary @content={{@comment}} @noClick={{true}} class="contribution-item-preview-desktop__emojis"></Reactions::Summary>
+	</button>
+    <button type="button" class="contribution-item-preview-mobile__comments btn-none" {{on "click" this.showConversationTab}}>
+		<span class="contribution-item-preview-mobile__date">&#8226; {{@comment.displayDate}}</span>
+    </button>
+  </div>
+</div>

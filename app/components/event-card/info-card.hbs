@@ -1,0 +1,6 @@
+<div class="event__info-card {{@customClass}}" {{on "click" this.openPopup}}>
+	<div class="event__cover-picture {{@customClass}}"></div>
+	<h1 class="event__info-card-title {{@customClass}}">{{@item.title}}</h1>
+	<span class="event__info-text {{@customClass}}">{{html-safe @item.content}}</span>
+	<div class="event__date {{@customClass}}">{{@item.displayDate}}</div>
+</div>

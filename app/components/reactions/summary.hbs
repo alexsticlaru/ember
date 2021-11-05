@@ -1,0 +1,29 @@
+{{#if @content.reactionCount}}
+	<button type="button" class="reactions-summary btn-none" ...attributes {{on "click" (fn this.showReactions @content)}} aria-label={{t 'pb.accessibility.openReactions'}} tabindex="0">
+		{{#if @detailed}}
+
+			{{#each this.topReactions as |reaction|}}
+				<div class="reactions-summary__reaction-detailed-item-container">
+					<div class="reactions-summary__reaction-detailed-item">
+						<span aria-hidden="true">{{inline-svg reaction.reaction.svg}}</span>
+					</div>
+					<div class="reactions-summary__type">
+						{{t (concat 'reactions.type.' reaction.reaction.type)}}
+					</div>
+				</div>
+			{{/each}}
+
+		{{else}}
+
+			{{#each this.topReactions as |reaction|}}
+				<div class="reactions-summary__reaction-item" aria-hidden="true">
+					{{inline-svg reaction.reaction.svg}}
+				</div>
+			{{/each}}
+
+			<div class="reactions-summary__count">
+				{{@content.reactionCount}}
+			</div>
+		{{/if}}
+	</button>
+{{/if}}

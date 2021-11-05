@@ -1,0 +1,40 @@
+<ContainerQuery
+		@features={{hash
+		phone=(cq-width max=this.config.breakpoints.phone)
+		tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+		desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+		class="cards-container-query"
+		as |CQ|
+>
+	{{#if (or CQ.features.tablet CQ.features.desktop)}}
+		<div class="updates">
+			<BreadCrumbs @breadCrumbs={{this.breadCrumbs}} class="breadcrumbs--black"/>
+			<h1 class="updates__title heading-1">{{t 'participation.updatesTitle'}}</h1>
+			<div class="updates__description-container">
+				<span class="updates__description">{{t 'updates.tipText'}}</span>
+			</div>
+			<CardsSection @model={{@model}}
+						  @cardType="update"
+						  @items={{@model.project.sortedProjectUpdates}}
+			/>
+		</div>
+	{{else}}
+		<div class="updates-mobile">
+			<h1 class="updates-mobile__title heading-1">{{t 'participation.updatesMobile'}}</h1>
+			{{!--
+			<div class="updates-mobile__description-container">
+				<span class="updates-mobile__description">Lorem ipsum dolor sit amet,
+					consectetur adipiscing elit. Vitae porttitor proin dignissim ultrices.
+					Iaculis amet, quis fermentum sit. Non quam etiam.
+				</span>
+			</div>
+			--}}
+			<CardsSection @model={{@model}}
+						  @cardType="update"
+						  @items={{@model.project.sortedProjectUpdates}}
+						  @columnsDisplay={{true}}
+			/>
+			<button class="btn-civ-black-reverse updates-mobile__see-all-updates" type="button">{{t 'pb.projects.seeMoreUpdates'}}</button>
+		</div>
+	{{/if}}
+</ContainerQuery>

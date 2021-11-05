@@ -1,0 +1,23 @@
+<div class="popup__content confirm-popup" role="dialog" aria-labelledby="accessibility-title">
+	<div class="confirm-popup__top-container">
+		<span id="accessibility-title" class="confirm-popup__title">{{this.model.popupTitle}}</span>
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+	<div class="confirm-popup__text">
+		<LabelTextField
+				@type="url"
+				@value={{this.url}}
+				@maxlength={{180}}
+				@id="add-link-input"
+				@showErrorMessage={{this.showErrorMessages}}
+				@errorMessage={{t 'popup.add-link-popup.error'}} />
+	</div>
+	<div class="confirm-popup__button-container">
+		<button type="button" class="btn-civ-black-reverse" {{on 'click' this.closePopup}}>
+			{{this.model.cancel}}
+		</button>
+			<button type="button" class="btn-civ-black" {{on 'click' this.confirmPopup}}>
+				{{this.model.confirm}}
+			</button>
+	</div>
+</div>

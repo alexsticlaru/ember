@@ -1,0 +1,64 @@
+<div class="step-two__container">
+	<button type="button" class="btn-none step-two__arrows" {{on 'click' (fn this.toggleThemesContainer) }}>
+			<span class="step-two__title {{if @isMobile 'step-two__title--small'}}">{{t 'ideaBox.addIdeaPopUp.stepTwo.chooseTheme'}}<b class="step-two__optional-title {{if @isMobile 'step-two__optional-title--small'}}">{{t 'ideaBox.addIdeaPopUp.stepTwo.optional'}}</b></span>
+			{{#if this.showThemesContainer}}
+				{{inline-svg "/images/ideaBox/arrow-up.svg"}}
+			{{else}}
+				{{inline-svg "/images/ideaBox/arrow-down.svg"}}
+			{{/if}}
+	</button>
+	<span class="step-two__no-themes-selected">{{t 'ideaBox.addIdeaPopUp.stepTwo.noThemesSelected'}}</span>
+	<div class="step-two__themes-container {{if this.showThemesContainer "show"}}">
+		{{#each this.themes as |theme|}}
+			{{#if (not theme.isCustom)}}
+				<ThemeItem::select-theme @theme={{theme}} @handleClick={{@handlePropositionThemes}} @customClass="fixed-height"/>
+			{{/if}}
+		{{/each}}
+		{{#each this.customThemes as |theme|}}
+			<ThemeItem::select-theme @theme={{theme}} @handleClick={{this.toggleCustomTheme }} @handleRemove={{this.removeCustomTheme }}   @customClass="fixed-height"/>
+		{{/each}}
+		{{!--
+		{{#if this.showCustomThemeInput}}
+			<Input  @id='custom-theme'
+					@type='text'
+					maxlength='30'
+					class="custom-theme-input"
+					@placeholder=''
+					@value={{this.customThemeValue}}
+					@enter={{this.focusOutAction }}
+					{{on "focusout" this.focusOutAction}}
+					/>
+		{{/if}}
+		<button class="btn-none step-two__add-theme-button" {{on 'click' this.addCustomTheme}}>
+			{{inline-svg "/images/discussion/plus-icon.svg"}}
+			<span>{{t 'ideaBox.addIdeaPopUp.stepTwo.addMyTheme'}}</span>
+		</button>
+		--}}
+	</div>
+
+	<button type="button" class="btn-none step-two__idea-location" {{on 'click' (fn this.toggleMapContainer) }}>
+		<span class="step-two__title {{if @isMobile 'step-two__title--small'}}">{{t 'ideaBox.addIdeaPopUp.stepTwo.ideaLocation'}}<b class="step-two__optional-title {{if @isMobile 'step-two__optional-title--small'}}">{{t 'ideaBox.addIdeaPopUp.stepTwo.optional'}}</b></span>
+		{{#if this.showMapContainer}}
+			{{inline-svg "/images/ideaBox/arrow-up.svg"}}
+		{{else}}
+			{{inline-svg "/images/ideaBox/arrow-down.svg"}}
+		{{/if}}
+	</button>
+	{{#if this.showMapContainer}}
+	<div class="step-two__map-container show">
+		<label class="step-two__click-map-description">{{t 'ideaBox.addIdeaPopUp.stepTwo.clickMapDescription'}}</label>
+		<div class="{{if @isMobile 'step-two__custom-padding'}}">
+			<MapLocationPicker
+					@updateLocation={{@updateLocation}}
+					@lat={{this.model.ideaBox.latitude}}
+					@lng={{this.model.ideaBox.longitude}}
+					@zoom={{this.model.ideaBox.zoomLevel}}/>
+		</div>
+	</div>
+	{{else}}
+	<div class="step-two__map-container">
+	</div>
+
+	{{/if}}
+
+</div>

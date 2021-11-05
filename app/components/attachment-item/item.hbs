@@ -1,0 +1,86 @@
+{{#if (eq @attachment.type "link")}}
+<div class="attachment-item">
+  <a target="_blank" href={{@attachment.url}}>
+      <div class="attachment-item__preview-image-container" aria-hidden="true">
+        {{#if @attachment.image}}
+          <img class="attachment-item__preview-image" src={{@attachment.image}} />
+        {{else}}
+          {{inline-svg '/images/consultation/link-attachment.svg'}}
+        {{/if}}
+      </div>
+      <span class="attachment-item__info-container-right">
+        <div class="attachment-item__title">
+          {{@attachment.name}}
+        </div>
+        <div class="attachment-item__description">
+          {{@attachment.description}}
+        </div>
+      </span>
+  </a>
+</div>
+{{/if}}
+
+{{#if (eq @attachment.type "file")}}
+<div class="attachment-item">
+  <a target="_blank" href={{@attachment.url}}>
+    <span class="attachment-item__item-container">
+      <div class="attachment-item__preview-image-container">
+        <span aria-hidden="true">{{inline-svg '/images/consultation/pdf-attachment.svg'}}</span>
+      </div>
+      <span class="attachment-item__info-container-right">
+        {{#if @attachment.name}}
+          <div class="attachment-item__description">
+            {{@attachment.name}}
+          </div>
+        {{/if}}
+      </span>
+    </span>
+  </a>
+</div>
+{{/if}}
+
+{{#if (eq @attachment.type "picture")}}
+<div class="attachment-item">
+  <div class="attachment-item__image-container">
+    <img class="attachment-item__image" src={{@attachment.image}} alt={{t 'accessibility.image'}} />
+  </div>
+</div>
+{{/if}}
+
+{{#if (eq @attachment.type "video")}}
+  <div class="attachment-item">
+    {{#if this.userHasAgreedToVideoCookies}}
+      <div class="attachment-item__video-container ">
+        <iframe title={{@attachment.name}} width="100%" height="244" src={{@attachment.url}} frameborder="0" allowfullscreen></iframe>
+        <div class="attachment-item__info-container">
+          <div class="attachment-item__title">
+            {{@attachment.name}}
+          </div>
+          <div class="attachment-item__description">
+            {{@attachment.description}}
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <a target="_blank" href={{@attachment.url}}>
+        <span class="attachment-item__item-container">
+          <div class="attachment-item__preview-image-container" aria-hidden="true">
+            {{#if @attachment.image}}
+              <img class="attachment-item__preview-image" src={{@attachment.image}} />
+            {{else}}
+              {{inline-svg '/images/consultation/link-attachment.svg'}}
+            {{/if}}
+          </div>
+          <span class="attachment-item__info-container-right">
+            <div class="attachment-item__title">
+              {{@attachment.name}}
+            </div>
+            <div class="attachment-item__description">
+              {{@attachment.description}}
+            </div>
+          </span>
+        </span>
+      </a>
+    {{/if}}
+  </div>
+{{/if}}

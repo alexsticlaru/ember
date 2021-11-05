@@ -1,0 +1,115 @@
+<div class="community-management">
+  <div class="community-management__breadcrumbs-container">
+    <span class="btn-none community-management__breadcrumbs community-management__breadcrumbs--active" {{on "click" @onUpdateAdded}}>
+      {{t 'addUpdate.navTitle'}}
+    </span>
+    <span class="community-management__breadcrumbs-icon" aria-hidden="true">
+      {{inline-svg '/images/community/settings/breadcrumbs.svg'}}
+    </span>
+    <span class="community-management__breadcrumbs">
+      {{t 'addUpdate.title'}}
+    </span>
+  </div>
+
+    <div class="community-management__title">
+      {{t 'addUpdate.title'}}
+    </div>
+
+    <SettingsItem
+      @title={{t 'addUpdate.newUpdateTitle'}}
+      @noTooltip={{true}}>
+      <LabelTextField
+          @value={{this.newUpdateTitle}}
+          @maxlength={{200}}
+      />
+    </SettingsItem>
+
+    <SettingsItem
+      @title={{t 'addUpdate.newUpdateImage'}}
+      @noTooltip={{true}}>
+      <FileUpload
+        @id="update-image-upload"
+        @fileType="image"
+        @upload={{this.uploadPicture}}>
+        <label for="update-image-upload" class="btn-none" role="button" tabindex="0">
+          <div class="community-management__cover-image-container">
+            <span>
+              {{#if this.newUpdateImage}}
+                <CloudinaryImage
+                      aria-hidden="true"
+                      class={{"participation-settings__item-image"}}
+                      @publicId={{this.newUpdateImage}}
+                      @options={{hash format='png' transforms='q_auto,f_auto'}}
+                />
+              {{else}}
+                <div class="community-management__cover-image-placeholder" aria-hidden="true">
+                  {{inline-svg '/images/community/settings-image.svg'}}
+                </div>
+              {{/if}}
+            </span>
+            <span class="community-management__cover-image-text">
+              {{t 'addUpdate.coverDimensions'}}
+            </span>
+          </div>
+        </label>
+      </FileUpload>
+    </SettingsItem>
+
+    <SettingsItem
+      @title={{t 'addUpdate.newUpdateContent'}}
+      @noTooltip={{true}}>
+      <NewRichEditor
+      @content={{this.newUpdateContent}}
+      @editorId ={{"update-add-editordescription-create"}}
+      />
+    </SettingsItem>
+
+
+	<SettingsItem
+			@noTooltip={{true}}
+	>
+		<div class="settings-option-select">
+			<Input
+					@id="scheduled-checkbox"
+					@type="checkbox"
+					@checked={{this.newUpdateScheduled}}
+			/>
+			<label for="scheduled-checkbox" class="settings-option-select__label">
+				<div class="settings-option-select__title">
+					{{t 'addUpdate.sendLaterCheckbox'}}
+				</div>
+				<div class="settings-option-select__text">
+					{{t 'addUpdate.sendLaterCheckboxContent'}}
+				</div>
+			</label>
+		</div>
+	</SettingsItem>
+
+	{{#if this.newUpdateScheduled}}
+		<SettingsItem
+				@noTooltip={{true}}
+				@title={{t 'addUpdate.scheduledDate'}}>
+			<EmberFlatpickr
+					class="input-text"
+					placeholder={{t 'addUpdate.scheduledDatePlaceholder'}}
+					@date={{this.scheduledDateArray}}
+					@onChange={{this.scheduledDateChanged}}
+					@minDate="today"
+			/>
+		</SettingsItem>
+	{{/if}}
+
+    <div class="community-management__item-container">
+      <div>
+        <button type="button" class="btn-civ-black community-management__save-button" {{on "click" this.addUpdate}}>
+          {{t 'addUpdate.save'}}
+        </button>
+      </div>
+      <div>
+        <button type="button" class="btn-none community-management__delete-button" {{on "click" @onUpdateAdded}}>
+          {{t 'addUpdate.discard'}}
+        </button>
+      </div>
+    </div>
+
+</div>

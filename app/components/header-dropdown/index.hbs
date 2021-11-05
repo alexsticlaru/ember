@@ -1,0 +1,8 @@
+<BasicDropdown @renderInPlace={{true}} @calculatePosition={{this.calculatePosition}} as |dd|>
+  <dd.Trigger class={{this.triggerClass}} ariaLabel={{@ariaLabel}}>
+    {{yield (hash trigger="yield")}}
+  </dd.Trigger>
+  <dd.Content class="header-dropdown">
+    {{yield (hash content="yield" dropdown=dd)}}
+  </dd.Content>
+</BasicDropdown>

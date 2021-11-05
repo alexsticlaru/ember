@@ -1,0 +1,57 @@
+<div class="popup__idea-box-content proposition-add-form" role="dialog" aria-labelledby="accessibility-title">
+	<div class="proposition-add-form__popup-progress-bar">
+		<div class="proposition-add-form__progress" style={{this.progressBarStyle}}></div>
+	</div>
+
+	<div class="proposition-add-form__header-container" style={{this.headerStyle}}>
+		<div class="proposition-add-form__progress-info">
+			{{t 'ideaBox.addIdeaPopUp.confidential.step'}} {{this.currentStep}} /2
+		</div>
+		<div class="proposition-add-form__btn-wrapper">
+			<PopupCloseButton @closePopup={{this.closePopup}} />
+		</div>
+	</div>
+
+	<div class="proposition-add-form__container">
+		<div class="proposition-add-form__top">
+			<div class="proposition-add-form__top-header">
+				{{#if (eq this.currentStep 1)}}
+					<h1 id="accessibility-title" class="heading-1--tertiary proposition-add-form__add-idea">{{t 'ideaBox.addIdeaPopUp.stepOne.titlePopUp'}}</h1>
+				{{else if (eq this.currentStep 2)}}
+					<div class="proposition-add-form__step-two-title-container">
+						<h1 id="accessibility-title" class="heading-1--tertiary proposition-add-form__add-idea-step-two">{{t 'ideaBox.addIdeaPopUp.stepOne.titlePopUpStep2'}}</h1>
+						<span class="proposition-add-form__subtitle">{{t 'ideaBox.addIdeaPopUp.stepOne.titlePopUpSubtitle'}}</span>
+					</div>
+				{{/if}}
+			</div>
+		</div>
+		{{#if (eq this.currentStep 1)}}
+			<AddPropositionStepOne
+					@propositionTitle={{this.propositionTitle}}
+					@propositionSuggestions={{this.propositionSuggestions}}
+					@propositionDescription={{this.propositionDescription}}
+					@model={{this.model}}
+					@titleError={{this.titleError}}
+					@descriptionError={{this.descriptionError}}
+			></AddPropositionStepOne>
+		{{else if (eq this.currentStep 2)}}
+			<AddPropositionStepTwo
+					@model={{this.model}}
+					@handlePropositionThemes={{this.handlePropositionThemes}}
+                	@updateLocation={{this.updateLocation}}
+                	@propositionThemes={{this.propositionThemes}}
+			></AddPropositionStepTwo>
+		{{/if}}
+	</div>
+	<div class="proposition-add-form__footer {{if (eq this.currentStep 2) 'proposition-add-form__footer--end'}}">
+		<div class="proposition-add-form__footer-buttons">
+			<button type="button" class="btn-civ-black-reverse"  {{on 'click' this.closePopup}}>{{t 'ideaBox.addIdeaPopUp.stepOne.cancelButton'}}</button>
+			{{#if (eq this.currentStep 1)}}
+				<!-- @ioana: I think this button should be only grey if description and title are empty -->
+				<button type="button" class="btn-civ-black proposition-add-form__continue-button {{if (and this.propositionTitle.length this.propositionDescription.length) 'proposition-add-form__continue-button--black'}}" {{on 'click' (fn this.changeStep 2)}}>{{t 'ideaBox.addIdeaPopUp.stepOne.continueButton'}}</button>
+			{{else if (eq this.currentStep 2)}}
+				<button type="submit" class="btn-civ-black  proposition-add-form__publish-button" {{on 'click' this.addProposition}}>{{t 'ideaBox.addIdeaPopUp.stepOne.submitButton'}}</button>
+			{{/if}}
+		</div>
+	</div>
+</div>

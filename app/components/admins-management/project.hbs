@@ -1,0 +1,145 @@
+<SettingsItem
+  @title={{t 'community.adminsManagement.title'}}
+  @tooltip={{t 'community.adminsManagement.titleTooltip'}}>
+  <div class="admins-management__admins-list admins-management--deactivated">
+  {{#each @communityAdmins as |admin|}}
+    <div class="admins-management__admins-list-item">
+      <div class="admins-management__admins-list-user-container">
+        <UserAvatar @user={{admin.user}} @dimensions="35"></UserAvatar>
+        <span class="admins-management__admins-list-username">{{admin.user.fullName}}</span>
+      </div>
+      {{#if (eq admin.adminLevel 1)}}
+        <button class="btn-none admins-management__admins-list-button">
+          {{t 'buttons.remove'}}
+        </button>
+      {{/if}}
+    </div>
+  {{/each}}
+  </div>
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.adminsManagement.titleProject'}}
+  @tooltip={{t 'community.adminsManagement.titleProjectTooltip'}}>
+  <div class="admins-management__admins-list">
+  {{#each this.adminsList as |admin|}}
+    <div class="admins-management__admins-list-item">
+      <div class="admins-management__admins-list-user-container">
+        <UserAvatar @user={{admin.user}} @dimensions="35"></UserAvatar>
+        <span class="admins-management__admins-list-username">{{admin.user.fullName}}</span>
+      </div>
+      {{#if (eq admin.adminLevel 1)}}
+        <button class="btn-none admins-management__admins-list-button" {{on "click" (fn this.revokeAdmin admin)}}>
+          {{t 'buttons.remove'}}
+        </button>
+      {{/if}}
+    </div>
+  {{/each}}
+  </div>
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.adminsManagement.addAdmin'}}
+  @tooltip={{t 'community.adminsManagement.addAdminTooltip'}}>
+  <LabelTextField
+      @type='text'
+      @placeholder={{t 'community.adminsManagement.addAdminPlaceholder'}}
+      @value={{this.searchString}}
+      @maxlength={{200}}
+      @enterAction={{this.searchUsers}}
+      @onInput={{this.searchUsers}}
+  />
+
+  <div class="admins-management__admins-list">
+  {{#each this.userSuggestions as |suggestion|}}
+    <div class="admins-management__admins-list-item">
+      <div class="admins-management__admins-list-user-container">
+        <UserAvatar @user={{suggestion}} @dimensions="35"></UserAvatar>
+        <span class="admins-management__admins-list-username">{{suggestion.fullName}}</span>
+      </div>
+      <button class="btn-none admins-management__admins-list-button" {{on "click" (fn this.addAdmin suggestion)}}>
+        {{t 'community.adminsManagement.addAdminButton'}}
+      </button>
+    </div>
+  {{/each}}
+  </div>
+</SettingsItem>
+
+
+<div class="community-management__horizontal-seperator"></div>
+
+<SettingsItem
+  @tooltip={{t 'community.visibilityManagement.tooltip'}}
+  @title={{t 'community.visibilityManagement.title'}}>
+
+  <div class="settings-option-select">
+    <input
+      type="radio"
+      id="public"
+      checked={{this.public}}
+      {{on "click" this.setPrivate}}/>
+    <label for="public" class="settings-option-select__label">
+      <div class="settings-option-select__title">
+        {{t 'community.visibilityManagement.publicTitle'}}
+      </div>
+      <div class="settings-option-select__text">
+        {{t 'community.visibilityManagement.publicExplanation'}}
+      </div>
+    </label>
+  </div>
+
+  <div class="settings-option-select">
+    <input
+    type="radio"
+    id="private"
+    checked={{@project.private}}
+    {{on "click" this.setPrivate}}/>
+    <label for="private" class="settings-option-select__label">
+      <div class="settings-option-select__title">
+        {{t 'community.visibilityManagement.passwordTitle'}}
+      </div>
+      <div class="settings-option-select__text">
+        {{t 'community.visibilityManagement.passwordExplanation'}}
+      </div>
+    </label>
+  </div>
+
+</SettingsItem>
+
+{{#if @project.private}}
+  <SettingsItem
+  @noTooltip={{true}}
+  @title={{t 'community.visibilityManagement.setPassword'}}>
+
+  <LabelTextField
+    @type='text'
+    @placeholder={{"12345"}}
+    @value={{@project.password}}
+    @maxlength={{200}}
+    />
+
+  </SettingsItem>
+{{/if}}
+
+<div class="community-management__save-button-container">
+
+  {{#if this.processingChanges}}
+    <SpinnerButton
+      @class="btn-civ-black-reverse community-management__save-button"
+      @spinning={{true}}
+      >
+      <span>
+        {{t 'pb.profile.saving'}}
+      </span>
+    </SpinnerButton>
+  {{else if this.changesSaved}}
+    <button class="btn-civ-black community-management__save-button" {{on "click" this.saveProject}}>
+      <span aria-hidden="true">{{inline-svg '/images/ideaBox/check.svg'}}</span>
+      {{t 'pb.profile.saved'}}
+    </button>
+  {{else}}
+    <button class="btn-civ-black community-management__save-button" {{on "click" this.saveProject}}>
+      {{t 'pb.profile.save'}}
+    </button>
+  {{/if}}
+</div>

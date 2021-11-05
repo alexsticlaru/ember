@@ -1,0 +1,15 @@
+<button type="button" class="btn-none theme-item {{if @theme.isSelected "theme-item-active"}} {{@customClass}}" {{on "click" (fn @handleClick @theme)}}>
+	{{@theme.name}}
+
+	{{#if @theme.isSelected}}
+		<span class="theme-item__icon">
+			{{inline-svg '/images/discussion/round-check.svg'}}
+		</span>
+	{{/if}}
+
+	{{#if @canDelete}}
+		<button type="button" class="btn-none remove-icon" {{on 'click' (fn @handleDelete @theme)}}>
+			{{inline-svg "/images/ideaBox/remove-icon.svg"}}
+		</button>
+	{{/if}}
+</button>

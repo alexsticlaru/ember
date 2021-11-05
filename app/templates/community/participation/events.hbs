@@ -1,0 +1,41 @@
+<ContainerQuery
+		@features={{hash
+		phone=(cq-width max=this.config.breakpoints.phone)
+		tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+		desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+		class="cards-container-query"
+		as |CQ|
+>
+	{{#if (or CQ.features.tablet CQ.features.desktop)}}
+	<div class="events">
+		<BreadCrumbs @breadCrumbs={{this.breadCrumbs}} class="breadcrumbs--black"/>
+		<h1 class="events__title heading-1">{{t 'participation.eventsTitle'}}</h1>
+		<div class="events__description-container">
+			<span class="events__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae porttitor proin dignissim ultrices. Iaculis amet, quis fermentum sit. Non quam etiam.</span>
+		</div>
+		<div class="events__cards">
+			<EventCard @customClass="small"/>
+			<EventCard @customClass="small"/>
+			<EventCard @customClass="small"/>
+			<EventCard @customClass="small"/>
+			<EventCard @customClass="small"/>
+		</div>
+	</div>
+	{{else}}
+		<div class="events-mobile">
+{{!--			<BreadCrumbs @breadCrumbs={{this.breadCrumbs}} class="breadcrumbs--black"/>--}}
+			<h1 class="events-mobile__title heading-1">{{t 'participation.eventsTitle'}}</h1>
+			<div class="events-mobile__description-container">
+				<span class="events-mobile__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae porttitor proin dignissim ultrices. Iaculis amet, quis fermentum sit. Non quam etiam.</span>
+			</div>
+            <div class="events-mobile__cards">
+				<EventCard @customClass="mobile"/>
+				<EventCard @customClass="mobile"/>
+				<EventCard @customClass="mobile"/>
+				<EventCard @customClass="mobile"/>
+				<EventCard @customClass="mobile"/>
+			</div>
+			<button class="btn-civ-black-reverse updates-mobile__see-all-updates" type="button">See more events</button>
+		</div>
+{{/if}}
+</ContainerQuery>

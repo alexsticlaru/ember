@@ -1,0 +1,33 @@
+.project-document-edit-form{
+
+  &__attachment {
+    margin-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #F7F4F2;
+    display:flex;
+    width:90%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__delete-button:hover {
+    svg path{
+      fill: #353535;
+    }
+  }
+
+  &__attachment-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 90px;
+    border: 1px dashed #A8A8A8;
+    border-radius: 5px;
+    margin-top: 2rem;
+  }
+
+}

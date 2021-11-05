@@ -1,0 +1,9 @@
+{{#if @submitType}}
+	<button type="submit" class="{{@class}}" {{on "click" this.onClick}}>
+		{{yield}}{{#if this.args.spinning}}<Spinner/>{{/if}}
+	</button>
+{{else}}
+	<button class="{{@class}}" {{on "click" this.onClick}}>
+		{{yield}}{{#if this.args.spinning}}<Spinner/>{{/if}}
+	</button>
+{{/if}}

@@ -1,0 +1,38 @@
+{{#if (or this.userService.hasCommunityOwnerRights this.userService.hasProjectAdminRights) }}
+  <div class="idea-add-outcome-desktop-title">
+    {{t "discussion.answerTitle"}}
+  </div>
+  {{#if this.isExpanded}}
+    <div class="idea-add-outcome-desktop">
+      <div class="idea-add-outcome-desktop__comment-content">
+        <Textarea
+        @value={{this.outcomeContent}}
+        />
+        <div class="idea-add-outcome-desktop__avatar">
+          <CloudinaryImage style="border-radius: 50%;" @publicId={{@proposition.participationPack.project.community.logo}}
+          @options={{hash height='30' format='png' transforms='q_auto,f_auto,c_fill'}} aria-hidden="true"/>
+        </div>
+      </div>
+      <button type="button" class="btn-civ-green-icon idea-add-outcome-desktop__button"
+        {{on "click" this.addComment}}
+        aria-label={{t "accessibility.sendComment"}}>
+        <span aria-hidden="true">{{inline-svg "/images/consultation/send-comment.svg"}}</span>
+      </button>
+    </div>
+  {{else}}
+    <div class="idea-add-outcome-preview-desktop">
+      <div class="idea-add-outcome-preview-desktop__title">
+        {{t "ideaBox.addOutcome.title"}}
+      </div>
+      <div class="idea-add-outcome-preview-desktop__text">
+        {{t "ideaBox.addOutcome.text"}}
+      </div>
+      <div class="idea-add-outcome-preview-desktop__button-container">
+        <button type="button" class="btn-civ-black idea-add-outcome-preview-desktop__button"
+          {{on "click" this.expandForm}}>
+          {{t "ideaBox.addOutcome.button"}}
+        </button>
+      </div>
+    </div>
+  {{/if}}
+{{/if}}

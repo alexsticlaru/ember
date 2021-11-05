@@ -1,0 +1,226 @@
+.assertion-item {
+  border: 1px solid $light-gray;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+
+  &.desktop {
+	background: $primary-color;
+	box-shadow: 0 1px 9px rgba(0, 0, 0, 0.11);
+	box-sizing: border-box;
+	border: none;
+	min-height: 5.8rem;
+	display: flex;
+	align-items: center;
+  }
+
+  &__assertion-text{
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.8rem;
+    text-align: left;
+  }
+
+  &__number-of-votes{
+	color: #8A9193;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.1rem;
+	line-height: 1.8rem;
+	letter-spacing: 0.0126802rem;
+	padding-top: 0.6rem;
+  }
+
+  &__delete-button{
+    svg path{
+    fill: #E3E4E8;
+    }
+
+    }
+    &__delete-button:hover{
+      svg path{
+      fill: #373F41;
+      }
+
+      }
+  &__container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	padding: 1.2rem;
+	&.desktop {
+		padding: .3rem 2rem;
+		justify-content: space-between;
+	  	display: flex;
+	  	align-items: center;
+	}
+  }
+
+  &__idea-icon {
+	width: 4rem;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start
+  }
+
+  &__info {
+	//width: calc(100% - 6rem);
+	width: 23.2rem;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding-top: 1.3rem;
+	padding-bottom: 1.3rem;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.3rem;
+	line-height: 1.6rem;
+	letter-spacing: 0.0126802rem;
+	color: $medium-dark-gray;
+  }
+
+  &__vote-ideas {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	button {
+		height: 1.4rem;
+	}
+  }
+
+  &__vote-margin {
+	margin-left: 1rem;
+  }
+
+  &__vote-actions {
+	width: 10rem;
+	display: flex;
+
+	&--inline {
+	  align-items: flex-start;
+	  justify-content: flex-end;
+	}
+	&--column {
+	  flex-direction: column;
+	  align-items: flex-end;
+	  justify-content: flex-start;
+	  .assertion-item__vote-margin {
+		margin-left: 0;
+		margin-top: 1rem;
+	  }
+	}
+  }
+}
+
+.assertion-item-phone {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 19.6rem;
+  flex-shrink: 0;
+  margin-right: 1.1rem;
+  position: relative;
+  overflow: hidden;
+  background: $white;
+  padding: 3.2rem 2.5rem 3.9rem 2.5rem;
+  justify-content: space-between;
+
+  &__buttons-container {
+	width: 100%;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+
+  &__upvote-button {
+	width: 14.4rem;
+	height: 4.5rem;
+	border-radius: 0.3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.4rem;
+	font-weight: 500;
+	color: $light-black;
+	background:$lighter-color;
+	svg {
+	  margin-right: 0.85rem;
+	}
+
+	&--active-state {
+	  color: $white;
+	  background: $green;
+	  box-shadow: 0 2px 10px rgba(46, 157, 70, 0.3);
+	}
+  }
+
+  &__downvote-button {
+	width: 14.4rem;
+	height: 4.5rem;
+	border-radius: 0.3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.4rem;
+	font-weight: 500;
+	background: $lighter-color;
+	color:$medium-dark-gray;
+	svg {
+	  margin-right: 0.85rem;
+	}
+
+	&--active-state {
+	  background: $medium-orange;
+	  color: $white;
+	  box-shadow: 0 2px 10px rgba(187, 66, 27, 0.3);
+	}
+  }
+
+  &__votes {
+	font-weight: 600;
+	font-size: 1.3rem;
+	line-height: 1.8rem;
+	color:$light-black;
+	  &--upvoted-state {
+		color: $green-contrast;
+	  }
+	  &--downvoted-state {
+		color: $dark-orange;
+	  }
+  }
+
+  &__info {
+	background: $white;
+	box-shadow: 0 1px 9px rgb(0 0 0 / 11%);
+	border-radius: 5px;
+	width: 100%;
+	padding: 1.2rem;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 1.6rem;
+	color: $medium-dark-gray;
+	position: relative;
+	max-height: calc(1.4rem * 4);
+	overflow: hidden;
+	&::before {
+	  position: absolute;
+	  content: "...";
+	  //inset-block-end: 0; /* "bottom" */
+	  inset-inline-end: 0; /* "right" */
+	  top: 4.2rem;
+	}
+
+	&::after {
+	  content: "";
+	  position: absolute;
+	  inset-inline-end: 0; /* "right" */
+	  width: 1rem;
+	  height: 1rem;
+	  background: transparent;
+	}
+  }
+}

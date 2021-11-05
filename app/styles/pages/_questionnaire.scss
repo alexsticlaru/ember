@@ -1,0 +1,249 @@
+.questionnaire-phone {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        height: 30rem;
+        background: url(/images/questionnaire/quest-header-phone.png);
+
+        h1 {
+            color: $white;
+            text-align: center;
+        }
+
+    }
+
+    &__intro-row {
+        display: flex;
+        flex-direction: row;
+        padding-top: 3.4rem;
+        width: 26.5rem;
+        justify-content: space-evenly;
+        align-self: center;
+    }
+
+    &__btn-back {
+        & svg {
+            fill: $primary-color;
+        }
+    }
+
+    &__start-container {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        background-color: $all-white;
+    }
+
+    &__info-list {
+        padding-left: 1.63rem;
+    }
+
+    &__main-btn {
+        width: 100%;
+    }
+
+    &__btn-legal {
+        color: $light-blue;
+        &:focus {
+            border-bottom: 1px solid $light-blue !important;
+        }
+    }
+
+    &__navigation {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__answered-mark {
+        background-color: $dark-black;
+        color: $white;
+        padding: 1px 0.5rem;
+        border-radius: 3px;
+        position: absolute;
+        right: 14px;
+    }
+
+    &__description {
+        max-width: 55.3rem;
+        font-size: 1.7rem;
+        margin: 2rem 0;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        background-color: $white;
+        justify-content: space-between;
+        padding: 2rem;
+    }
+
+    &__info-participation {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+    }
+
+    &__info-legal {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+        margin-top: 2rem;
+    }
+
+}
+
+.questionnaire {
+    display: flex;
+    flex-direction: column;
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 50rem;
+        background-image: url(/images/questionnaire/questionnaire-header.png);
+        @include respond(tab-land) {
+            height: 64rem;
+        }
+    }
+
+    &__intro-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 41rem;
+        width: 79.4rem;
+        background-color: rgb($white, .7);
+        border-radius: 1rem;
+        position: relative;
+
+        h1 {
+            margin: 2rem 0;
+        }
+    }
+
+    &__answered-mark {
+        position: absolute;
+        background-color: $dark-gray;
+        color: $primary-color;
+        border-radius: 3px;
+        top: 1.8rem;
+        left: 1.8rem;
+        font-size: 1.3rem;
+        padding: .6rem 1.8rem;
+
+    }
+
+    &__intro-row {
+        display: flex;
+        flex-direction: row;
+        padding-top: 3.4rem;
+        width: 26.5rem;
+        justify-content: space-evenly;
+    }
+
+    &__description {
+        max-width: 55.3rem;
+        font-size: 1.3rem;
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    &__intro-square {
+        display: flex;
+        flex-direction: column;
+        background-color: $white;
+        align-items: center;
+        justify-content: center;
+        width: 10.1rem;
+        height: 7rem;
+        border-radius: 2rem;
+        line-height: 1.2;
+        & span:first-child {
+            font-weight: 700;
+            font-size: 2.4rem;
+            font-family: Sora;
+        }
+    }
+
+  	&__share-button{
+	  position: absolute;
+	  right: 0;
+	  top: 0;
+	  margin-top: 2.5rem;
+	  margin-right: 2.6rem;
+	}
+
+  	&__share-button-title{
+	  font-style: normal;
+	  font-weight: 500;
+	  font-size: 1.4rem;
+	  line-height: 160.2%;
+	  letter-spacing: 0.0126802rem;
+	  color: $medium-blue;
+	  display: flex;
+	  align-items: center;
+
+	  svg{
+		margin-right: 0.9rem;
+	  }
+	}
+
+    &__intro-status {
+        display: flex;
+        flex-direction: column;
+        background-color: $white;
+        align-items: center;
+        justify-content: center;
+        width: 13.9rem;
+        height: 7rem;
+        border-radius: 2rem;
+        line-height: 1.2;
+        font-family: Sora;
+        font-weight: 700;
+        font-size: 2.4rem;
+    }
+
+    &__start-btn {
+        width: 26.5rem;
+    }
+
+    &__info {
+        height: 27.3rem;
+        display: flex;
+        flex-direction: row;
+        background-color: $white;
+        padding: 6rem 28rem;
+        justify-content: space-between;
+        @include respond(tab-land) {
+            padding: 6rem 14rem;
+        }
+
+        @include respond(tab-port) {
+            padding: 4rem 8rem;
+        }
+    }
+
+    &__info-participation {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+    }
+
+    &__info-legal {
+        display: flex;
+        flex-direction: column;
+        width: 38.3rem;
+        font-size: 1.3rem;
+    }
+
+    &__info-list {
+        padding-left: 1.7rem;
+        font-size: 1.3rem;
+    }
+}

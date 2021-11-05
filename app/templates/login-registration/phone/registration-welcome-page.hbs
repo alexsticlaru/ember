@@ -1,0 +1,16 @@
+<div class="phone-page__content">
+	<ClickOutside @action={{this.onOutsideClick}}>
+		<div class="welcome__header">
+			<button {{on 'click' this.closePage}} type="button" class="btn-close" data-dismiss="modal" aria-label="{{t 'buttons.close'}}">
+					<span aria-hidden="true">{{inline-svg "images/close.svg" class="icon-close"}}</span>
+			</button>
+		</div>
+		<div class="welcome__message">
+			<h1 class="heading-1--tertiary">{{t 'registration-popup.title'}}</h1>
+			<p>{{t 'registration-popup.message'}}</p>
+			<a  href="#" class="link" {{on 'click' this.sendEmailConfirmation}}>{{t 'register.validationButton'}}</a>
+		</div>
+
+	</ClickOutside>
+
+</div>

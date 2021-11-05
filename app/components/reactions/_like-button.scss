@@ -1,0 +1,67 @@
+.like-button {
+
+  display: inline-block;
+
+  &__reactions-container {
+	display: flex;
+	flex-direction: row;
+	border: 1px solid $medium-gray;
+	border-radius: 3rem;
+	padding-top: 4px;
+  }
+
+  &__reactions-item {
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 22px;
+	&:hover, &:focus {
+		transform: scale(1.2)
+	}
+
+	&:focus {
+		box-shadow: none;
+	}
+  }
+
+  &__reactions-item-tooltip {
+	border-radius: 3rem;
+  }
+
+  &__reactions-item-tooltip-arrow {
+	  display: none;
+  }
+
+  &__like-reaction{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+  }
+
+  &__like-text{
+	padding-top: 0.6rem;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 2.1rem;
+	letter-spacing: 0;
+	color:  #5E617C;
+  }
+
+  &__main-button {
+	display: flex;
+	align-items: center;
+	height: 4rem;
+	padding: .5rem .8rem .5rem .5rem;
+	border-radius: .5rem;
+	background-color: $extra-light-gray;
+	svg {
+	  transform: scale(0.7);
+	}
+
+	&:focus {
+		box-shadow: none;
+	}
+  }
+}

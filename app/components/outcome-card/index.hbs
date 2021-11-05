@@ -1,0 +1,44 @@
+<div class="outcome-card">
+	<LinkTo class="outcome-card__read-all" @route="community.participation.consultation.act.outcome"
+			@model={{1234}} aria-labelledby="commentTitle-{{1234}}">
+		{{t 'issue.outcome.readFullOutcomes'}}
+	</LinkTo>
+	<div class="outcome-card__top-section">
+		<div class="outcome-card__icon-circle"></div>
+		<div class="outcome-card__organisation-section">
+			<!--//Dummy data here! We need region outcome-card here from BE//-->
+			<span class="outcome-card__title">Ville de Lyon</span>
+			<span class="outcome-card__badge">{{t 'participation.outcomes.OrganisationBadge'}}</span>
+		</div>
+	</div>
+	<div>
+		<h1 class="heading-1 outcome-card__title-discussion">
+			<!--//Dummy data here! We need title outcome-card here from BE//-->
+			[Outcome] Greening streets against global warming
+		</h1>
+		<span class="outcome-card__description">
+			<!--//Dummy data here! We need description outcome-card here from BE//-->
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus nec ipsum lectus sit mauris at urna,
+			tincidunt. Elit consequat non fermentum massa. Elementum imperdiet viverra pharetra venenatis
+			ullamcorper massa. Integer quis tellus ut at in faucibus imperdiet adipiscing. Eu fusce convallis...
+		</span>
+		<!--//Dummy data here! We need image outcome-card here from BE//-->
+		<div class="outcome-card__image-content"></div>
+	</div>
+
+	<div class="outcome-card__reactions-container">
+		{{#if @comment.reactionCount}}
+			<Reactions::Summary @detailed={{true}} @content={{@comment}}></Reactions::Summary>
+		{{else}}
+			{{t "discussion.noReactions"}}
+		{{/if}}
+		<div>
+			<!--//Dummy data here! We need people-participating outcome-card here from BE//-->
+			<span>37 {{t 'discussionPreview.peopleParticipating'}}</span>
+			<span>&#8226;</span>
+			<!--//Dummy data here! We need display date outcome-card here from BE//-->
+			<span>3 days ago {{@comment.displayDate}}</span>
+		</div>
+	</div>
+</div>
+

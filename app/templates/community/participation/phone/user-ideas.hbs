@@ -1,0 +1,26 @@
+<div class="user-ideas">
+	<div class="user-ideas__header">
+		<button type="button" class="btn-none user-ideas__back-button" {{on 'click' this.closeIdeasPanel}}  aria-label={{t 'buttons.close'}}>
+			<span aria-hidden="true">{{inline-svg "/images/discussion/back-arrow.svg" }}</span>
+		</button>
+		<div class="user-ideas__icon-and-title">
+			<span aria-hidden="true">{{inline-svg '/images/consultation/ideas.svg'}}</span>
+			<h3 class="heading-3 heading-3--secondary user-ideas__title">
+				{{t "discussion.userIdea" username=@model.user.firstName}}
+			</h3>
+		</div>
+		{{#if @model.assertions}}
+			<span class="user-ideas__name-user">{{t "discussion.userIdeasTitle" username=@model.user.firstName}}</span>
+		{{else}}
+			<span class="user-ideas__name-user">{{t "discussion.NoUserIdeasTitle" username=@model.user.firstName}}</span>
+		{{/if}}
+	</div>
+	<div class="user-ideas__ideas-container">
+		{{#each @model.assertions as |assertion|}}
+			<AssertionItem
+					@assertion={{assertion}}
+					@removeAssertion={{this.removeAssertion}}
+			/>
+		{{/each}}
+	</div>
+</div>

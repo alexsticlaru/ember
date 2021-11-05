@@ -1,0 +1,35 @@
+.participation-menu {
+    display: flex;
+    flex-direction: column;
+
+    &__top {
+        border-bottom: 1px solid $light-color;
+    }
+
+    &__tab {
+        font-size: 1.9rem;
+        font-weight: 500;
+        margin-left: 2rem;
+        padding-bottom: 3px;
+        &--active {
+            border-bottom: 2px solid $light-blue;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    &__link {
+		display: flex;
+		min-height: 9rem;
+		background: $light-color;
+		margin-bottom: 1rem;
+		border-radius: .5rem;
+		padding: 1rem;
+		font-weight: 600;
+		align-items: center;
+	}
+}

@@ -1,0 +1,114 @@
+{{#unless @proposition.isDeleted}}
+
+{{#if this.editMode}}
+	<PropositionItem::edit
+	@proposition={{@proposition}}
+	@enableEditProposition={{this.enableEditProposition}}/>
+{{else}}
+
+<div class={{this.classNames}} id={{concat 'proposition-id-' @proposition.id}}>
+	<div class="proposition-item__actions">
+		<PropositionActions
+			@top={{30}} @left={{-150}}
+			@proposition={{@proposition}}
+			@enableEditProposition={{this.enableEditProposition}}>
+			<button type="button" class="btn-none" aria-label={{t "pb.accessibility.openDropdown"}}>
+				<span aria-hidden="true">{{inline-svg "/images/ideaBox/gray-dots.svg"}}</span>
+			</button>
+		</PropositionActions>
+	</div>
+
+	<div class="proposition-item__content">
+		<div>
+			<div class="proposition-item__title">
+					<span class="proposition-item__title-idea">{{@proposition.title}}</span>
+			</div>
+
+			<div class="proposition-item__description">
+				{{#if @proposition.moderationMessage}}
+					{{html-safe @proposition.moderationMessage}}
+				{{else}}
+					{{html-safe @proposition.description}}
+				{{/if}}
+			</div>
+
+			<div class="proposition-item__user">
+				<span class="proposition-item__username-style">{{@proposition.user.fullName}}</span>
+				<span class="proposition-item__bullet" aria-hidden="true"> • </span>
+				<span class="proposition-item__display-date">{{@proposition.displayDate}}</span>
+			</div>
+
+			{{#if @proposition.themes.length}}
+			<div class="proposition-item__theme-container">
+				{{#each @proposition.themes as |theme|}}
+				<span class="proposition-item__themes">
+					{{theme.name}}
+				</span>
+				{{/each}}
+			</div>
+			{{/if}}
+
+		</div>
+
+		<div class="proposition-item__info-graphic-container">
+		  <IdeaInfoGraphic @progress={{@proposition.globalRelevancy}} @maxProgress={{@proposition.participationPack.ideaBox.upvotesNeeded}} @dimensions={{60}} @user={{@proposition.user}} />
+		</div>
+
+	</div>
+
+
+
+	<div class="proposition-item__bottom-buttons">
+		<div class="proposition-item__button-container">
+			<button class="btn-none proposition-item__button" type="button" {{on "click" this.shareProposition}}>
+				<span aria-hidden="true">{{inline-svg '/images/ideaBox/share.svg'}}</span>
+				<span class="proposition-item__button-text">{{t 'ideaBox.share'}}</span>
+			</button>
+		</div>
+
+		<span aria-hidden="true">{{inline-svg '/images/ideaBox/seperator.svg'}}</span>
+
+		{{#if @proposition.latitude}}
+			<div class="proposition-item__button-container">
+				<button class="btn-none proposition-item__button" type="button" {{on "click" this.showOnMap}}>
+					<span aria-hidden="true">{{inline-svg '/images/see-on-map-icon.svg'}}</span>
+					<span class="proposition-item__button-text">{{t 'ideaBox.seeOnMap'}}</span>
+				</button>
+			</div>
+
+			<span aria-hidden="true">{{inline-svg '/images/ideaBox/seperator.svg'}}</span>
+		{{/if}}
+
+		{{#if this.reachedMaxUpvotes}}
+			<div class="proposition-item__button-container">
+				<button class="btn-none proposition-item__button proposition-item__button--active" type="button" {{on "click" this.goToDiscussion}}>
+					<span aria-hidden="true">{{inline-svg '/images/conversation-icon.svg'}}</span>
+					<span class="proposition-item__button-text">{{t 'ideaBox.conversation'}}</span>
+				</button>
+			</div>
+		{{else if @proposition.isUpvoted}}
+			<div class="proposition-item__button-container">
+				<button class="btn-none proposition-item__button proposition-item__button--active" type="button" {{on "click" this.downvoteProposition}}>
+					<span aria-hidden="true">{{inline-svg '/images/upvote-icon.svg'}}</span>
+					<span class="proposition-item__button-text">{{t 'ideaBox.upvote'}}</span>
+					<EmberTooltip>
+						{{t 'ideaBox.unvoteTooltip'}}
+					</EmberTooltip>
+				</button>
+			</div>
+		{{else}}
+			<div class="proposition-item__button-container">
+				<button class="btn-none proposition-item__button" type="button" {{on "click" this.upvoteProposition}}>
+					<span aria-hidden="true">{{inline-svg '/images/upvote-icon.svg'}}</span>
+					<span class="proposition-item__button-text">{{t 'ideaBox.upvote'}}</span>
+				</button>
+			</div>
+		{{/if}}
+
+	</div>
+
+</div>
+
+{{/if}}
+
+{{/unless}}

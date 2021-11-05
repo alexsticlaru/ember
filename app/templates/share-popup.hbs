@@ -1,0 +1,22 @@
+<div class="popup__share-idea-popup share_popup" role="dialog" aria-labelledby="accessibility-title">
+	<div class="share_popup__close-button">
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+
+	<div class="share_popup__top-container">
+		<div id="accessibility-title">
+			<h1 class="share_popup__title">{{t "ideaBox.addIdeaPopUp.shareIdeaPopup.shareTitle"}}</h1>
+			<span class="share_popup__short-description">{{t "ideaBox.addIdeaPopUp.shareIdeaPopup.shareDescription"}}</span>
+		</div>
+		{{#if this.model.popupExplanation}}
+			<div class="share_popup__sub-title">
+				{{this.model.popupExplanation}}
+			</div>
+		{{/if}}
+	</div>
+
+<SocialShare
+	@url={{this.model.url}}
+	@shareInfo={{this.model.shareInfo}}
+	@message={{this.model.shareMessage}}/>
+</div>

@@ -1,0 +1,197 @@
+<?php
+/*This is an hidden backdoor for the backend to send back the translations files once modified.
+The BMP picture (Civocracy 2020/2021 logo) is outputed with the needed headers if the query doesn't match the needed POST method and some query vars including secret issued by the backend.
+
+We choose .bmp as it is an extenstion we'll never use for images stored on our frontend servers. Therefore the php engine will not be usually triggered and will not use unecessary resources.
+Of course it implies some changes in php.ini / php-fpm.ini or in php-fpm.d/www.conf :
+<code>
+; Default Value: .php
+;security.limit_extensions = .php .php3 .php4 .php5 .php7
+
+;Spec Civocracy translation tool :
+security.limit_extensions = .php .bmp
+</code>
+
+and some in nginx conf (still to figure out but here is the httpd/apache version:
+<code>
+<VirtualHost 127.0.1.1:80>
+   [...]
+   <FilesMatch "\.(php|bmp)$">
+     #SetHandler "proxy:unix:/home/%user%/run/php56-fpm.sock|fcgi://localhost"
+     SetHandler "proxy:fcgi://127.0.0.1:7127"
+   </FilesMatch>
+   [...]
+</VirtualHost>
+</code>
+)
+*/
+/*
+echo '<br>\nserver:';
+var_dump($_SERVER);
+echo '<br>\npost:';
+var_dump($_POST);
+echo '<br>\n';
+flush();
+*/
+
+if( //true|| //--TEST with a get query
+( isset($_POST) && count($_POST) && isset($_POST['locale']) && isset($_POST['ZADLKJ5efz4efzSAnqba54757poieroFKs7saaaLMHX9132']) && $_POST['ZADLKJ5efz4efzSAnqba54757poieroFKs7saaaLMHX9132'] === 'dza64gez321bgfnfZdaFERX' )
+){
+	$verbose = false;
+	if($verbose){
+		echo 'pong!';
+ 		flush();
+	}
+// 	echo var_dump($_SERVER);
+// echo $_SERVER['HTTP_USER_AGENT'].'<br>';
+// flush();
+// echo var_dump($_POST);
+	$Ember_ENV = trim(mb_substr($_SERVER['HTTP_USER_AGENT'],7));
+	switch($_SERVER['HTTP_USER_AGENT']){
+		case 'Edward local':
+			$backendUrl = 'http://admin.civocracy.local:8000/';
+			break;
+		case 'Edward beta':
+			$backendUrl = 'https://beta-back.civocracy.org/';
+			break;
+		case 'Edward development':
+			$backendUrl = 'https://beta-back.civocracy.org/';
+			break;
+		case 'Edward preproduction':
+			$backendUrl = 'https://beta-back.civocracy.org/';
+			break;
+
+		case 'Edward prod':
+// 			$backendUrl = 'https://admin.civocracy.org/';
+			//at the moment we use only beta-back for translations as we translate from pr1 or pr2 => we retrieve the updates from there
+			$backendUrl = 'https://beta-back.civocracy.org/';
+			break;
+		case 'Edward production':
+// 			$backendUrl = 'https://admin.civocracy.org/';
+			//at the moment we use only beta-back for translations as we translate from pr1 or pr2 => we retrieve the updates from there
+			$backendUrl = 'https://beta-back.civocracy.org/';
+			break;
+
+		default:
+			$backendUrl = 'http://admin.civocracy.local:8000/';
+			$locale = 'fr';
+			break;
+	}
+	if( isset($backendUrl) ){
+		if($backendUrl){
+			echo "<br>\n".date('Y-m-d H:i:s T')."<br>\nRetrieving on BE :$backendUrl<br>\n";
+			flush();
+		}
+		//No foo security on the backend side as the translations files have no need to be secured nor hidden : simple get query to download the file
+		//eg: civb/web/Translations/fr.json
+		if(!isset($_POST['locale']))$locale = $_GET['locale'];//testing only!
+ 		else $locale = $_POST['locale'];
+ 		if( $Ember_ENV === "local" )
+			$url = $backendUrl.'Translations/'.strtolower($locale).'.json';
+ 		/*if( $locale==="en" )
+			$url = $backendUrl.'Translations/en.translator.json';*/
+ 		else
+			$url = $backendUrl.'Translations/'.strtolower($locale).'.min.json';
+		/* No need to curl it, file_get_contents(); should be simpler
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$result = curl_exec($ch);
+		curl_close($ch);
+		*/
+
+		set_time_limit(120 * 2);
+		ini_set('default_socket_timeout', 120 * 2);
+		try{
+			if($verbose){
+				echo "retrieving $url<br>\n";
+				flush();
+			}
+			if(true){//should be quicker than curl
+				$json = @file_get_contents($url); //getting the file content
+				if($json==false)
+				{
+					throw new Exception( 'Something really gone wrong');
+				}
+			}else{
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				if( ($json = curl_exec($ch) ) === false)
+				{
+					echo 'Curl error: ' . curl_error($ch);
+				}else{
+					echo 'Operation completed without any errors';
+				}
+				curl_close($ch);
+// 				echo \toString($json);
+			}
+			if($verbose){
+				echo "gotit! ".mb_strlen($json)."<br>\n";
+				flush();
+			}
+		}catch( Exception $e ){
+			echo "ERROR:";
+			var_dump($e);
+			echo "<br>
+			ABORTING!<br>\n";
+			exit;
+		}
+		//$jsonObj = json_decode($json);
+		$prefx = '../../';//local servers
+		if(!realpath($prefx . 'translations/'))
+			$prefx = '../';//built code on online servers
+		$current = $prefx.'translations/'.strtolower($locale).'.json';
+		$backup = $prefx.'translations/'.strtolower($locale).'.json.backup-'.time();
+		echo "current dir pwd:".exec('pwd')."<br>\n";
+		echo "dir : realpath('".$prefx."translations/'):".realpath($prefx.'translations/')."<br>\n";
+		echo "realpath($current):".realpath($current)."<br>\n";
+		echo "realpath($backup):".realpath($backup)."<br>\n";
+		if( file_exists($current) ){
+			if($verbose){
+				echo "Renaming the backup in $backup !<br>\n";
+				echo "Create the new file in $current !<br>\n";
+				flush();
+			}
+			rename( $current , $backup );//moving to backup : anyway all bckups will disappear at the next code build
+		}
+		file_put_contents($current, $json);
+		if($verbose){
+			echo 'DONE!';
+ 			flush();
+		}
+		$me = str_ireplace( "Edward", "Ember", $_SERVER['HTTP_USER_AGENT'] );
+// 		Noticing the backend for this server being now synced (as uploading the json file doesn't update the backend's related TranslationsSync entity) :
+
+		$posts = [
+			'dzadRE578zaCDEAnqba54757poieroFKs7saaaLMHX9132' => 'eded479XAf321bgfnfZdaFERX',//security before anything else ! :p
+			'sync' => true,
+			'locale' => $locale
+		];
+		$headers = [
+			"User-Agent: $me",
+			"Content-Type: application/x-www-form-urlencoded",
+			"Host: ".$_SERVER['SERVER_NAME'],
+			"Origin: ".$_SERVER['REQUEST_SCHEME']."://".$_SERVER['SERVER_NAME'],
+			"Referer: ".$_SERVER['REQUEST_SCHEME']."://".$_SERVER['SERVER_NAME']."/".$_SERVER['REQUEST_URI']
+		];
+// 		$cmd = 'curl -d "dzadRE578zaCDEAnqba54757poieroFKs7saaaLMHX9132=eded479XAf321bgfnfZdaFERX&sync=true&locale=en" -H "Content-Type: application/x-www-form-urlencoded" -H "User-Agent: '.$me.'" -X POST '.$backendUrl.'api/v7/translationstrings';
+		$post = "";
+		foreach($posts as $k=>$v)$post.="$k=$v&";
+		$cmd = 'curl -d "'.mb_substr($post,0,-1).'" ';
+
+// 		foreach($headers as $k=>$v)//$cmd .= '-H "'.$k.': '.$v.'"';
+		$header = implode('" -H "', $headers);
+		$header =  '-H "'.$header.'"';
+		$cmd .= $header;
+		$cmd .= ' -X POST '.$backendUrl.'api/v7/translationstrings';
+
+		echo "CMD=".$cmd."<br>\n<br>\n";
+		exec($cmd . " > /dev/null &");//fire & forget
+// 		exec($cmd);
+		//$svg_marker = ' smt="1"';//this is a return that the BE can read from the answer to know if all gets right or if an error occured ( integer < 0 for error flags )
+	}//else $svg_marker = ' smt="-1"';
+}else{
+	header('Content-Type: image/bmp;');//! very important, otherwise, like any bmp file interpreted through php, you will get "Content-Type: text/html; charset=UTF-8" and a broken image
+	readfile ( './civocracy_logo-100x27.bmp' );//output binary image content
+}
+?>

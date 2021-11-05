@@ -1,0 +1,27 @@
+
+{{#if this.showInput}}
+    <div class="other__input-wrapper">
+        <Input id="otherId" aria-label="{{t 'questionnaire.questions.otherLabel'}}" class="input-text other__input"
+            placeholder="{{t 'questionnaire.questions.otherPlaceholder'}}" 
+            @value={{this.textAnswered}}
+            maxlength={{30}} 
+            {{on 'focusout' (fn this.handleAnswer this.textAnswered)}} 
+            {{on 'click' this.handleOtherClick}}
+            {{did-insert this.focus}}/>
+            {{inline-svg "images/check.svg" class="icon-small icon-small--white"}}
+    </div>
+    <div class="counter">
+		<span class="counter__number {{if (eq this.textAnswered.length 30 ) 'counter__number-limit'}}">{{minus 30 this.textAnswered.length}}</span>
+	</div>
+{{else}}
+    <button type="button" class="btn-civ-answer {{if this.isTextAnswered 'btn-civ-answer--active' 'btn-civ-answer--white'}} other__btn"
+        {{on 'click' this.handleOtherClick}}>
+        {{#if this.isTextAnswered}}
+            {{inline-svg "images/check.svg" class="icon-small icon-small--white"}}
+            {{this.textAnswered}}
+        {{else}}
+            <span class="icon-square"/>
+            {{t 'questionnaire.questions.otherLabel'}}
+        {{/if}}
+    </button>
+{{/if}}

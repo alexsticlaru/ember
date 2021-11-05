@@ -1,0 +1,59 @@
+.user-settings-profile{
+	margin-top: 9rem;
+	max-width: 63rem;
+	padding: 2rem;
+
+	&__title {
+		// font-family: Lato;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 3rem;
+	}
+
+	&__item-container {
+	margin-bottom: 4rem;
+}
+
+	&__joined-date {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.4rem;
+	color: #A8A8A8;
+	margin-bottom: 3rem;
+}
+
+&__label {
+	// font-family: Lato;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	letter-spacing: 0.2px;
+	color: #373F41;
+	margin-bottom: 1rem;
+
+}
+
+&__save-button-container{
+	margin-top: 3rem;
+
+}
+
+&__save-button {
+	// font-family: Lato;
+font-style: normal;
+font-weight: bold;
+font-size: 1.8rem;
+	background: #3C64B1;
+	color: white;
+	padding: 1.6rem 5rem 1.6rem 5rem;
+
+}
+
+&__save-button--deactivated {
+opacity: 0.5;
+}
+
+
+}

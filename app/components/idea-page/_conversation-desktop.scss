@@ -1,0 +1,35 @@
+.idea-conversation {
+
+  &__comments-container{
+    background: $white;
+    border: 1px solid $light-white-border;
+    box-sizing: border-box;
+    border-radius: 7px;
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+
+  &__comment-add-container{
+    margin: 2rem;
+  }
+
+  &__comments-title-container{
+    margin-left: 3rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &__comments-title{
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  &__comments-number{
+    margin-left: 2rem;
+    font-size: 1.2rem;
+    color:$medium-dark-gray;
+    padding-top: 0.4rem;
+  }
+}

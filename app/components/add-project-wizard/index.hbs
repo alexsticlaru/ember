@@ -1,0 +1,33 @@
+{{#if (eq this.activeStep 1)}}
+<div class="add-project-wizard__progress-step1">
+</div>
+{{else if (eq this.activeStep 2)}}
+<div class="add-project-wizard__progress-step2">
+</div>
+{{else if (eq this.activeStep 3)}}
+<div class="add-project-wizard__progress-step3">
+</div>
+{{/if}}
+
+<div class="add-project-wizard">
+  <div class="add-project-wizard__left-container">
+    {{#if (eq this.activeStep 1)}}
+      <AddProjectWizard::stepOne @project={{this.project}} @nextStep={{this.nextStep}}/>
+    {{else if (eq this.activeStep 2)}}
+      <AddProjectWizard::stepTwo @project={{this.project}} @previousStep={{this.previousStep}} @nextStep={{this.nextStep}} @adminsList={{this.adminsList}}/>
+    {{else if (eq this.activeStep 3)}}
+      <AddProjectWizard::stepThree @project={{this.project}} @previousStep={{this.previousStep}} @nextStep={{this.saveProject}} @participationPack={{this.participationPack}}/>
+    {{/if}}
+  </div>
+  <div class="add-project-wizard__right-container" aria-hidden="true">
+    <div class="add-project-wizard__active-step">
+      {{t 'community.newProject.step'}} {{this.activeStep}}/3
+    </div>
+
+    <div class="add-project-wizard__right-title">
+      {{t 'community.newProject.examplePage'}}
+    </div>
+
+    <img class="add-project-wizard__right-image" src="/images/community/settings/project-preview.png" aria-hidden="true">
+  </div>
+</div>

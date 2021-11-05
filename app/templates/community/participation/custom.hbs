@@ -1,0 +1,36 @@
+<div class="introduction">
+	<div class="introduction__custom-input" >
+		<div class="introduction__title-container">
+			{{#if this.previewMode}}
+				<span class="introduction__title-project">{{this.model.title}}</span>
+			{{else}}
+				<input class="introduction__input-element"
+					   type="text"
+					   placeholder="Pour vous c'est quoi la nature dans la cite?"
+					   value={{this.model.title}} {{on "change" this.updateValue}}
+				/>
+			{{/if}}
+		</div>
+	</div>
+
+	<div class="introduction__content">
+		{{#if this.previewMode }}
+			<div>{{html-safe @model.description}}</div>
+			<div class="introduction__button-section">
+				<button type="button" class="introduction__button-participe">{{t 'buttons.participate'}}</button>
+			</div>
+		{{else}}
+			<RichEditor
+					@id="section-editor"
+					@editorId ="section-editorplace-create"
+					@initialHeight = "auto"
+					@minHeight = {{400}}
+					@content={{this.model.description}}
+			/>
+			<div class="introduction__buttons-ritcheditor">
+				<button type="submit" class="introduction__button-save">{{t 'buttons.saveAsDraft'}}</button>
+				<button type="submit" class="introduction__button-publish">{{t 'buttons.publish'}}</button>
+			</div>
+		{{/if}}
+	</div>
+</div>

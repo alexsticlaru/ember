@@ -1,0 +1,52 @@
+<form {{on "submit" this.authenticate}} class="login-form">
+  <LabelTextField
+  @redesign={{true}}
+    @labelText={{t 'login.email'}}
+    @id="identification"
+    @value={{this.identification}}
+    @placeholder={{t 'login.placeholder.email'}}
+    @maxlength={{180}}
+    @showErrorMessage={{and this.showErrorMessages (not this.isEmailValid)}}
+    @errorMessage={{t 'login.emailRequired'}} />
+  <LabelTextField
+  @redesign={{true}}
+    @labelText={{t 'login.password'}}
+    @id="password"
+    @value={{this.password}}
+    @placeholder={{t 'login.placeholder.password'}}
+    @maxlength={{255}}
+    @type='password'
+    @showErrorMessage={{and this.showErrorMessages (not this.isPasswordValid)}}
+    @errorMessage={{t 'login.passwordRequired'}} />
+  {{#if this.errorMessage}}
+    <p class="login-form__error-message">{{this.errorMessage}}</p>
+  {{/if}}
+
+  {{!-- implémenter ici:
+	- créer l''action onPasswordLostClick en s''inspirant du lien sur la partie gauche "Haven't signed up yet"
+	- styler le lien
+  <div>
+	<a {{on "click" @onPasswordLostClick}}>
+		{{t 'login.forgotPassword'}}
+	</a>
+  </div>
+  --}}
+  <div class="login-form__password-lost-btn__container">
+	<button {{on 'click' this.onPasswordLostClick}} type="button" class="btn-none login-form__password-lost-btn">
+			{{t 'login.forgotPassword'}}
+	</button>
+  </div>
+  	<SpinnerButton
+		@submitType={{true}}
+		@class="btn-civ-black login-form__btn"
+		@spinning={{this.showSpinner}}
+	>
+		<span>{{t 'login.buttons.login'}}</span>
+	</SpinnerButton>
+{{!--
+  <button type="submit" class="btn-civ-black login-form__btn">
+      <span>{{t 'login.buttons.login'}}</span>
+  </button>
+--}}
+
+</form>

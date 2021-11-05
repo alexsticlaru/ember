@@ -1,0 +1,109 @@
+.idea-page-mobile {
+  background: #FFFFFF;
+  min-height: 86vh;
+
+  &__back-button{
+    margin-left: 2.4rem;
+    margin-bottom: 2.5rem;
+  }
+
+  &__title{
+    font-family: Sora;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 112%;
+    letter-spacing: 0.00684685rem;
+    color: #353535;
+    margin-top: 2.3rem;
+    margin-bottom: 2.1rem;
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+
+  &__description{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 160.2%;
+    letter-spacing: 0.0126802rem;
+    color: #5E617C;
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+
+  &__username{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02rem;
+    color: #5E617C;
+
+    margin-top: 1.1rem;
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+
+  }
+
+  &__info-graphic-container{
+    float: right;
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    // right: 2rem;
+    // top: 2rem;
+  }
+
+
+  &__info-graphic{
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+  }
+
+  &__avatar{
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+  }
+
+  &__share-button{
+    width: 100%;
+  }
+
+  &__share-button-container{
+    margin-top: 1.8rem;
+    margin-bottom: 1.8rem;
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+
+  &__comment-add-container{
+    margin: 2rem;
+  }
+
+  &__comments-title-container{
+    margin-left: 3rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &__comments-title{
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  &__comments-number{
+    margin-left: 2rem;
+    font-size: 1.2rem;
+    color:$medium-dark-gray;
+    padding-top: 0.4rem;
+  }
+}

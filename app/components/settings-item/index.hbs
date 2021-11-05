@@ -1,0 +1,29 @@
+<div class="settings-item">
+  <div class="settings-item__item-header">
+    {{#if @id}}
+      <label for={{@id}} class="settings-item__label">
+        {{@title}}
+      </label>
+    {{else}}
+      <div class="settings-item__label">
+        {{@title}}
+      </div>
+    {{/if}}
+    
+    {{#unless @noTooltip}}
+    <div>
+      <span aria-hidden="true">{{inline-svg "/images/community/settings/tooltip.svg"}}</span>
+      <EmberTooltip
+        @event="hover"
+        @hideOn="mouseleave"
+        @side="right"
+      >
+        {{@tooltip}}
+       </EmberTooltip>
+     </div>
+     {{/unless}}
+  </div>
+  <div class="settings-item__item-content">
+    {{yield}}
+  </div>
+</div>

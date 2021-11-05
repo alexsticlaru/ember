@@ -1,0 +1,13 @@
+<ClickOutside @onClickOutside={{this.onOutsideClick}}>
+	<LeafletMap style="width: 56rem; height: 56rem" @lat={{this.model.latitude}}
+		@lng={{this.model.longitude}} @zoom={{10}} as
+		|layers|>
+		<layers.tile @url="http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png" />
+		<layers.marker @lat={{this.model.latitude}} @lng={{this.model.longitude}} @icon={{this.model.icon}}
+		as |marker|>
+			<marker.popup>
+				<PropositionMapPopup @proposition={{this.model}} />
+			</marker.popup>
+		</layers.marker>
+	</LeafletMap>
+</ClickOutside>

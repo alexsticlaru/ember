@@ -1,0 +1,30 @@
+.welcome {
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-top: 1rem;
+        padding-right: 1.5rem;
+
+        & button {
+            font-size: 3.4rem;
+        }
+    }
+
+    &__message {
+        padding: 4rem;
+
+        h2 {
+          margin: 0;
+          padding: 0;
+          color: $secondary-color;
+          text-align: center;
+        }
+    
+        p {
+          margin: 0;
+          margin-top: 2rem;
+          font-size: 1.6rem;
+        }
+    }
+}

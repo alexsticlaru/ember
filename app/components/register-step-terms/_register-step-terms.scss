@@ -1,0 +1,27 @@
+
+////
+/// This stylesheet defines styles for the
+/// TERMS & CONDITIONS REGISTER STEP.
+////
+
+#modal-popup .modal-dialog,
+#login-popup .register-step-terms {
+
+	.scrollable {
+		overflow-y: scroll ;
+		padding: 0px 10px ;
+		margin-bottom: 20px ;
+		margin-top: 10px ;
+		max-height: 400px ;
+
+		h3 {
+			font-size: 18px ;
+			margin-top: 10px ;
+		}
+		p {
+			font-size: 15px ;
+			text-align: left ;
+		}
+	}
+
+}

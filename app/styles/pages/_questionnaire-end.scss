@@ -1,0 +1,35 @@
+.questionnaire-end {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+    &__header {
+        flex-grow: 0;
+        display: flex;
+    }
+    &__body {
+        display: flex;
+        flex-grow: 1;
+        h1 {
+            text-align: center;
+            align-self: center;
+        }
+    }
+
+    &__footer {
+        flex-grow: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__project-link {
+        width: 100%;
+        text-align: center;
+        color: $light-blue;
+        margin-bottom: 1.5rem;
+    }
+
+    &__results-btn {
+        width: 100%;
+    }
+}

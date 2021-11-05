@@ -1,0 +1,19 @@
+<ContainerQuery
+@features={{hash
+  phone=(cq-width max=this.config.breakpoints.phone)
+  tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+  desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+  as |CQ|
+  >
+{{#if (or CQ.features.tablet CQ.features.desktop)}}
+  <IdeaPage::desktop
+    @proposition={{this.model}}
+    @replyToComment={{this.replyToComment}}
+    @shareIdea={{this.shareIdea}} />
+{{else}}
+  <IdeaPage::mobile
+    @proposition={{this.model}}
+    @replyToComment={{this.replyToComment}}
+    @shareIdea={{this.shareIdea}} />
+{{/if}}
+</ContainerQuery>

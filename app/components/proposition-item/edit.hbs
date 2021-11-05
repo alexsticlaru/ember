@@ -1,0 +1,55 @@
+<div class="proposition-item">
+	<div class="proposition-item__actions">
+		<PropositionActions
+			@top={{30}} @left={{-150}}
+			@proposition={{@proposition}}
+			@enableEditProposition={{@enableEditProposition}}>
+			<button type="button" class="btn-none" aria-label={{t "pb.accessibility.openDropdown"}}>
+				<span aria-hidden="true">{{inline-svg "/images/ideaBox/gray-dots.svg"}}</span>
+			</button>
+		</PropositionActions>
+	</div>
+
+	<div class="proposition-item__edit-content">
+			<div class="proposition-item__title-edit">
+				<LabelTextField
+					@noborder={{true}}
+					@placeholder={{t "accessibility.changeTitle"}}
+					aria-label={{t "accessibility.changeTitle"}}
+					@value={{@proposition.title}}/>
+			</div>
+
+			<div class="proposition-item__description-edit">
+				<LabelTextField
+					@noborder={{true}}
+					@type="textarea"
+					@placeholder={{t "accessibility.changeDescription"}}
+					aria-label={{t "accessibility.changeDescription"}}
+					@value={{@proposition.description}}/>
+			</div>
+
+			{{#if @proposition.themes.length}}
+			<div class="proposition-item__theme-container">
+				{{#each @proposition.themes as |theme|}}
+				<span class="proposition-item__themes">
+					{{theme.labelTranslate}}
+				</span>
+				{{/each}}
+			</div>
+			{{/if}}
+		</div>
+
+	<div class="proposition-item__bottom-buttons">
+		<div class="proposition-item__button-container">
+			<button class="btn-none proposition-item__button" type="button" {{on "click" @enableEditProposition}}>
+				<span class="proposition-item__button-text">{{t "buttons.cancel"}}</span>
+			</button>
+		</div>
+		<span aria-hidden="true">{{inline-svg '/images/ideaBox/seperator.svg'}}</span>
+		<div class="proposition-item__button-container">
+			<button class="btn-none proposition-item__button proposition-item__button--active" type="button" {{on "click" this.saveEditedProposition}}>
+				<span class="proposition-item__button-text">{{t "buttons.save"}}</span>
+			</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,279 @@
+<div class="questionnaire-question-edit">
+  <div class="questionnaire-question-edit__container">
+
+  <div class="questionnaire-question-edit__top-container">
+    <span>{{t 'community.questionnaireManagement.question'}} {{@question.orderNr}}/{{@questionnaire.questions.length}}</span>
+    <button type="button" class="btn-none questionnaire-question-edit__delete-button" {{on "click" @onQuestionDelete}} title="Delete">
+      <span aria-hidden="true">{{inline-svg "images/questionnaire/trash.svg"}}</span>
+    </button>
+  </div>
+
+  <div class="settings-item settings-item__two-items">
+    <div class="settings-item__two-items-item">
+      <div class="settings-item__item-header">
+        <div class="settings-item__label">
+          {{t 'community.questionnaireManagement.questionType'}}
+        </div>
+      </div>
+      <div>
+        <select onchange={{action "changeQuestionType" value="target.value"}} class="input-text">
+          <option value="text" selected={{eq "text" @question.fieldType}}>{{t "questionnaire.question-type.text"}}</option>
+          <option value="choice" selected={{eq "choice" @question.fieldType}}>{{t "questionnaire.question-type.choice"}}</option>
+          <option value="multiple_choices" selected={{eq "multiple_choices" @question.fieldType}}>{{t "questionnaire.question-type.multiple_choices"}}</option>
+          <option value="order_choice" selected={{eq "order_choice" @question.fieldType}}>{{t "questionnaire.question-type.order_choice"}}</option>
+          <option value="email" selected={{eq "email" @question.fieldType}}>{{t "questionnaire.question-type.email"}}</option>
+          <option value="text_attachment" selected={{eq "text_attachment" @question.fieldType}}>{{t "questionnaire.question-type.text_attachment"}}</option>
+          <option value="yes_no" selected={{eq "yes_no" @question.fieldType}}>{{t "questionnaire.question-type.yes_no"}}</option>
+          <option value="range" selected={{eq "range" @question.fieldType}}>{{t "questionnaire.question-type.range"}}</option>
+          <option value="statement" selected={{eq "statement" @question.fieldType}}>{{t "questionnaire.question-type.statement"}}</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <span aria-hidden="true">{{inline-svg "/images/community/settings/tooltip.svg"}}</span>
+      <EmberTooltip
+        @event="hover"
+        @hideOn="mouseleave"
+        @side="right"
+      >
+        {{t 'community.questionnaireManagement.questionTypeTooltip'}}
+       </EmberTooltip>
+     </div>
+    <div class="settings-item__two-items-item">
+      <div class="settings-item__item-header">
+        <div class="settings-item__label">
+          {{t 'community.questionnaireManagement.required'}}
+        </div>
+      </div>
+      <div>
+        <select onchange={{action "changeQuestionRequired"}} class="input-text">
+          <option value="false" selected={{eq true @question.required}}>
+            {{t "questionnaire.yesAnswer"}}
+          </option>
+          <option value="true" selected={{eq false @question.required}}>
+            {{t "questionnaire.noAnswer"}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <span aria-hidden="true">{{inline-svg "/images/community/settings/tooltip.svg"}}</span>
+      <EmberTooltip
+        @event="hover"
+        @hideOn="mouseleave"
+        @side="right"
+      >
+        {{t 'community.questionnaireManagement.requiredTooltip'}}
+       </EmberTooltip>
+     </div>
+  </div>
+  <!--
+  <SettingsItem
+    @title={{t 'community.questionnaireManagement.questionType'}}
+    @tooltip={{t 'community.questionnaireManagement.questionTypeTooltip'}}>
+    <select onchange={{action "changeQuestionType" value="target.value"}} class="input-text">
+      <option value="text" selected={{eq "text" @question.fieldType}}>{{t "questionnaire.question-type.text"}}</option>
+      <option value="choice" selected={{eq "choice" @question.fieldType}}>{{t "questionnaire.question-type.choice"}}</option>
+      <option value="multiple_choices" selected={{eq "multiple_choices" @question.fieldType}}>{{t "questionnaire.question-type.multiple_choices"}}</option>
+      <option value="order_choice" selected={{eq "order_choice" @question.fieldType}}>{{t "questionnaire.question-type.order_choice"}}</option>
+      <option value="email" selected={{eq "email" @question.fieldType}}>{{t "questionnaire.question-type.email"}}</option>
+      <option value="text_attachment" selected={{eq "text_attachment" @question.fieldType}}>{{t "questionnaire.question-type.text_attachment"}}</option>
+      <option value="yes_no" selected={{eq "yes_no" @question.fieldType}}>{{t "questionnaire.question-type.yes_no"}}</option>
+      <option value="range" selected={{eq "range" @question.fieldType}}>{{t "questionnaire.question-type.range"}}</option>
+      <option value="statement" selected={{eq "statement" @question.fieldType}}>{{t "questionnaire.question-type.statement"}}</option>
+    </select>
+  </SettingsItem>
+
+  <SettingsItem
+    @title={{t 'community.questionnaireManagement.required'}}
+    @tooltip={{t 'community.questionnaireManagement.requiredTooltip'}}>
+    <select onchange={{action "changeQuestionRequired"}} class="input-text">
+      <option value="false" selected={{eq true @question.required}}>
+        {{t "questionnaire.yesAnswer"}}
+      </option>
+      <option value="true" selected={{eq false @question.required}}>
+        {{t "questionnaire.noAnswer"}}
+      </option>
+    </select>
+  </SettingsItem> -->
+
+
+  {{#if (eq "range" @question.fieldType)}}
+    <SettingsItem
+      @title={{t 'community.questionnaireManagement.startNumber'}}
+      @noTooltip={{true}}>
+      <select disabled=true class="input-text">
+        <option value="1">
+          1
+        </option>
+      </select>
+    </SettingsItem>
+
+    <SettingsItem
+      @title={{t 'community.questionnaireManagement.endNumber'}}
+      @noTooltip={{true}}>
+      <select onchange={{action "changeQuestionRange" value="target.value"}} class="input-text">
+        <option value="1" selected={{eq "1" @question.rangeEnd}}>
+          1
+        </option>
+        <option value="2" selected={{eq "2" @question.rangeEnd}}>
+          2
+        </option>
+        <option value="3" selected={{eq "3" @question.rangeEnd}}>
+          3
+        </option>
+        <option value="4" selected={{eq "4" @question.rangeEnd}}>
+          4
+        </option>
+        <option value="5" selected={{eq "5" @question.rangeEnd}}>
+          5
+        </option>
+        <option value="6" selected={{eq "6" @question.rangeEnd}}>
+          6
+        </option>
+        <option value="7" selected={{eq "7" @question.rangeEnd}}>
+          7
+        </option>
+        <option value="8"  selected={{eq "8" @question.rangeEnd}}>
+          8
+        </option>
+        <option value="9"  selected={{eq "9" @question.rangeEnd}}>
+          9
+        </option>
+        <option value="10" selected={{eq "10" @question.rangeEnd}}>
+          10
+        </option>
+      </select>
+    </SettingsItem>
+  {{/if}}
+
+  <div>
+    <div class="questionnaire-question-edit__question-input">
+      <Input  @type={{"text"}}
+              @value={{@question.question}}
+              @placeholder={{t 'community.questionnaireManagement.questionPlaceholder'}}
+      {{on "focusout" this.saveQuestion}}/>
+    </div>
+  </div>
+
+
+  <div>
+    <div class="questionnaire-question-edit__description-input">
+      <Input  @type={{"text"}}
+              @value={{@question.content}}
+              @placeholder={{t 'community.questionnaireManagement.questionDescriptionPlaceholder'}}
+      {{on "focusout" this.saveQuestion}}/>
+    </div>
+  </div>
+
+
+  {{#unless (or (eq "text" @question.fieldType) (eq "range" @question.fieldType) (eq "statement" @question.fieldType))}}
+    {{#each @question.sortedAnswers as |answer|}}
+      <div class="questionnaire-question-edit__answer">
+		  {{#if (eq "yes_no" @question.fieldType)}}
+			  {{#if (eq answer.orderNr 0)}}
+				  <Input @type={{"text"}}
+						 @value={{t 'questionnaire.yesAnswer'}}
+						 readonly/>
+			  {{else if (eq answer.orderNr 1)}}
+				  <Input @type={{"text"}}
+						 @value={{t 'questionnaire.noAnswer'}}
+						 readonly/>
+			  {{/if}}
+		  {{else}}
+			  <Input @type={{"text"}}
+					 @value={{answer.answer}}
+				  {{on "focusout" (fn this.saveAnswer answer)}}/>
+		  {{/if}}
+        <button class="btn-none questionnaire-question-edit__delete-button" {{on "click" (fn this.deleteAnswer answer)}} title="Delete">
+          {{#unless (eq "yes_no" @question.fieldType)}}
+            <span aria-hidden="true">{{inline-svg "images/ideaBox/delete.svg"}}</span>
+          {{/unless}}
+        </button>
+      </div>
+    {{/each}}
+    {{#if @question.allowOpenAnswer}}
+      <div class="questionnaire-question-edit__answer">
+        {{t 'community.questionnaireManagement.other'}}
+        <button class="btn-none questionnaire-question-edit__delete-button" {{on "click" this.removeOther}} title="Delete">
+          <span aria-hidden="true">{{inline-svg "images/ideaBox/delete.svg"}}</span>
+        </button>
+      </div>
+    {{/if}}
+  {{/unless}}
+
+  {{#unless (or (eq "text" @question.fieldType) (eq "range" @question.fieldType) (eq "statement" @question.fieldType) (eq "yes_no" @question.fieldType) (eq "email" @question.fieldType) (eq "text_attachment" @question.fieldType))}}
+    <div class="questionnaire-question-edit__answer questionnaire-question-edit__answer-dashed" {{on "click" this.addAnswer}}>
+      {{t 'community.questionnaireManagement.addAnswer'}}
+    </div>
+
+    {{#if (eq "multiple_choices" @question.fieldType)}}
+      {{#unless @question.allowOpenAnswer}}
+        <div class="questionnaire-question-edit__answer questionnaire-question-edit__answer-dashed" {{on "click" this.addOther}}>
+          {{t 'community.questionnaireManagement.addOther'}}
+        </div>
+      {{/unless}}
+    {{/if}}
+
+    <!-- <div class="questionnaire-question-edit__add-answer">
+      <span {{on "click" this.addAnswer}} class="questionnaire-question-edit__add-answer-button">
+        {{t 'community.questionnaireManagement.addAnswer'}}
+      </span>
+      {{#if (eq "multiple_choices" @question.fieldType)}}
+        <span>
+          {{t 'community.questionnaireManagement.orAdd'}}
+        </span>
+        <span {{on "click" this.addOther}} class="questionnaire-question-edit__add-answer-button">
+          {{t 'community.questionnaireManagement.addOther'}}
+        </span>
+      {{/if}}
+    </div> -->
+  {{/unless}}
+
+
+  {{#if (eq "range" @question.fieldType)}}
+    <div class="range-choice__container">
+      {{#each this.rangeValues as |range|}}
+        <button class="btn-civ-answer range-choice__button">
+          {{range}}
+        </button>
+      {{/each}}
+    </div>
+  {{/if}}
+
+    {{!-- Not implemented yet! --}}
+    {{!-- {{#if (eq "yes_no" @question.fieldType)}}
+    {{#each @question.answers as |answer|}}
+      <div class="community-management__item-container">
+        <div class="community-management__label">
+          If selected “{{answer.answer}}”, jump to question:
+        </div>
+
+        <select onchange={{action (fn this.changeGoToQuestion answer value="target.value")}} >
+          {{#each @questionnaire.questions as |item|}}
+            <option value={{item.orderNr}}>
+              {{item.orderNr}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+    {{/each}}
+  {{/if}} --}}
+
+  </div>
+	<div class="questionnaire-question-edit__reorder-container">
+		{{#if (gt @question.orderNr 1)}}
+			<button type="button" class="btn-none" {{on "click" @onQuestionMoveUp}}>
+				{{inline-svg "images/arrow-down.svg" class="svg-arrow-up"}}
+			</button>
+		{{/if}}
+		<div class="questionnaire-question-edit__reorder-index">
+			{{@question.orderNr}}
+		</div>
+		{{#if (not-eq @question.orderNr @questionnaire.questions.length)}}
+			<button type="button" class="btn-none" {{on "click" @onQuestionMoveDown}}>
+				{{inline-svg "images/arrow-down.svg" class="svg-arrow-down"}}
+			</button>
+		{{/if}}
+	</div>
+</div>

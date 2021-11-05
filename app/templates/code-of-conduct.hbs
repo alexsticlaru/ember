@@ -1,0 +1,45 @@
+<div class="simple-page">
+	<div class="simple-page__content">
+		<h1 class="heading-1 simple-page__title">{{t 'moderation.title'}}</h1>
+
+		<div class="simple-page__section">
+	    <h5 class="heading-5 simple-page__section__title">{{t 'moderation.punchline1'}}</h5>
+	    <div class="simple-page__section__content">
+				<p>{{t  'moderation.p1'}}</p>
+				<p>{{t  'moderation.p2'}}</p>
+			</div>
+	  </div>
+
+		<div class="simple-page__section">
+	    <h5 class="simple-page__section__title">{{t 'moderation.punchline2'}}</h5>
+	    <div class="simple-page__section__content">
+				<ol class="simple-page__section__content__list">
+					<li>{{t 'moderation.tenet1'}}</li>
+					<li>{{t 'moderation.tenet2'}}</li>
+					<li>{{t 'moderation.tenet3'}}</li>
+					<li>{{t 'moderation.tenet4'}}</li>
+					{{#if (or (eq this.intl.locale 'fr') (eq this.intl.locale 'nl'))}}
+						<li>{{t 'moderation.tenet10'}}</li>
+					{{/if}}
+					<li>{{t 'moderation.tenet5'}}</li>
+					<li>{{t 'moderation.tenet6.title'}}
+						<ul class="simple-page__section__content__list">
+							<li>{{t 'moderation.tenet6.arg1'}}</li>
+							<li>{{t 'moderation.tenet6.arg2'}}</li>
+							<li>{{t 'moderation.tenet6.arg3'}}</li>
+						</ul>
+					</li>
+					<li>{{t 'moderation.tenet7'}}</li>
+					<li>{{t 'moderation.tenet8'}}</li>
+					<li>{{t 'moderation.tenet9'}}</li>
+				</ol>
+				<p>{{t  'moderation.p3'}}</p>
+				<p>{{t  'moderation.p4'}} <a href="mailto:moderation@civocracy.org">moderation@civocracy.org</a>.</p>
+			</div>
+	  </div>
+
+		<div class="simple-page__section">
+	    <h5 class="simple-page__section__title">{{t 'moderation.punchline3'}}</h5>
+	  </div>
+	</div>
+</div>

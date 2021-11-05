@@ -1,0 +1,170 @@
+
+
+/**
+
+ @DEPRECATED !
+
+ Use the community service
+
+**/
+
+
+
+
+import {
+  and,
+  or,
+  notEmpty,
+  filterBy,
+  setDiff,
+  equal
+} from '@ember/object/computed';
+import Service, { inject as service } from '@ember/service';
+import { observer, computed } from '@ember/object';
+import config from 'civ/config/environment' ;
+
+const { APP: { CUSTOMERS } } = config ;
+
+/**
+ * This service gives information about current
+ * community's customer.
+ *
+ * IMPORTANT:
+ *
+ * This service is meant to be ONLY injected
+ * into entities that either:
+ *	 - can't access the current community model,
+ *   - need access to config.APP.CUSTOMERS
+ *
+ */
+export default class Customer extends Service {
+
+	@service store;
+	@service('debug') dbgS;
+
+	/**
+	 * Current community
+	 * @property {DS.Model} current
+	 */
+	current = null;
+	//currentCommunity: computed.alias('current'),
+	polls = null;
+	issues = null;
+
+	/**
+	 * Updates the current community.
+	 * @method notifyCommunityChange
+	 * @param {DS.Model} community The new community
+	 * @param {DS.Model} poll A poll to display on register
+	 * @param {DS.Model} issues Community Issues, as loaded by the route community
+	 */
+	notifyCommunityChange = function (community, poll, issues) {
+this.get('dbgS').notify("notifyCommunityChange(", community, poll, issues,")");
+		const current = this.get('current') ;
+		if ( !current || community.get('id') !== current.get('id') ) {
+			this.set('registerPoll', poll) ;
+			this.set('current', community) ;
+			this.set('issues', issues) ;
+		}
+	}
+
+	clearCurrentCustomer = function () {
+		this.set('registerPoll', null) ;
+		this.set('current', null) ;
+		this.set('issues', null) ;
+	}
+
+	/**
+	 * Does the current customer have custom logo + color?
+	 */
+	hasBranding = and('current.branded', '_hasColorOrLogo');
+	_hasColorOrLogo = or('_hasLogo', '_hasColor');
+	_hasColor = notEmpty('current.colorMain')
+	_hasLogo = notEmpty('current.logo');
+	hasRegisterStepPoll = notEmpty('current.poll');
+
+	/**
+	 * these are used by the mixin sections.js
+	 */
+	hasUpdates = notEmpty('current.communityUpdates');
+	hasCommunityAssociations = notEmpty('current.associations');
+	officialIssues = filterBy('issues', 'official');
+	hasOfficialIssues = notEmpty('officialIssues');
+	citizenIssues = setDiff('issues', 'officialIssues');
+	hasCitizenIssues = notEmpty('citizenIssues');
+	hasStatistics = computed('current.stats', function () {
+		let stats = this.get('current.stats.1');
+		return Boolean(stats);
+	})
+
+	isActive = setDiff('current.status', 'active');
+	isPrivate = setDiff('current.status', 'private');
+	isDeleted = setDiff('current.status', 'deleted');
+
+	/**
+	 * Is the current community part of
+	 * Friends Of Europe - Security Jam 2017
+	 * group?
+	 */
+	isLyon = computed('current', function () {
+		const current = this.get('current.id') ;
+		return CUSTOMERS.VILLEDELYON === current ;
+	})
+
+	/**
+	 * Is the current community part of
+	 * Friends Of Europe - Security Jam 2017
+	 * group?
+	 */
+	isFriendsOfEurope = computed('current', function () {
+		let belongsToFriendsOfEurope = false;
+		const url = this.get('current.url');
+		if (
+			url == 'dsplus' ||
+			url == 'hybrid' ||
+			url == 'europe' ||
+			url == 'migration' ||
+			url == 'arms-control' ||
+			url == 'crime-terror-nexus' ||
+			url == 'scenarios-future'
+		) {
+			belongsToFriendsOfEurope = true;
+		}
+			return belongsToFriendsOfEurope ;
+	})
+	isDSLandingPage = equal('current.id', '29443');
+
+	/**
+	 * Latest poll of type 'register' for the current community.
+	 * @property {DS.Model} registerPoll
+	 */
+	registerPoll = null;
+
+	onCustomerChange = observer(
+		'current.id', 'registerPoll.community.id',
+		function () {
+			const _this = this;
+			const store = this.get('store') ;
+
+			// Check if poll already loaded (eg. in community route)
+			if (
+				this.get('hasRegisterStepPoll') &&
+				this.get('registerPoll.community.id') !== this.get('current.id')
+			) {
+
+				store.queryRecord('poll', {
+					filters: {
+						"community.url": this.get('current.url'),
+						type: 'register',
+						status: "active"
+					},
+					"order_by[date]": "DESC"
+				}).then( function (poll) {
+					_this.set('registerPoll', poll) ;
+				}) ;
+
+			}
+		}
+	)
+
+}

@@ -1,0 +1,58 @@
+.user-settings-saved{
+	margin-top: 9rem;
+	max-width: 63rem;
+	min-height: 63rem;
+	padding: 2rem;
+
+	&__title {
+		// font-family: Lato;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 3rem;
+	}
+
+	&__tabs-container {
+		margin-top: 5.5rem;
+		border-bottom: 1px solid #C4C4C4;
+		padding-bottom: 1.5rem;
+
+	}
+
+	&__tabs-item {
+
+		font-family: Inter;
+		font-style: normal;
+		// font-weight: bold;
+		font-size: 1.8rem;
+		line-height: 2.2rem;
+
+		/* identical to box height */
+		letter-spacing: 0.02rem;
+
+		/* Light / Black */
+		color: #373F41;
+		margin-right: 2.2rem;
+		padding-bottom: 1.2rem;
+	}
+	&__tabs-item--active {
+		font-weight: bold;
+		border-bottom: 4px solid #FF7F47;
+
+	}
+
+	&__content-container {
+		margin-top: 5.5rem;
+
+		font-family: Inter;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.8rem;
+
+		/* or 133% */
+		letter-spacing: 0.02rem;
+
+		color: #A8A8A8;
+
+	}
+
+}

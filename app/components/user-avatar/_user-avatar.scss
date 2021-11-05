@@ -1,0 +1,56 @@
+////
+/// This stylesheet defines styles for the
+/// USER AVATAR COMPONENT.
+////
+.user-avatar{
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+		
+	span{
+		display: none;
+		position: absolute;
+		right: 0;
+		bottom: 4px;
+		border: 1px solid white;
+		width: 20px;
+		height: 20px;
+		border-radius: 10px;
+	}
+	.general-admin{
+		display: block;
+		color: white;
+		background-color:  $secondary-color;
+		line-height: 20px;
+		padding-left: 4px;
+		padding-top: 0px;
+		font-size: 9px;
+		overflow: hidden;
+		font-family: 'fontAwesome';
+		&:before{
+			content: "";
+		}
+	}
+	.community-admin{
+		display: block;
+		top:auto;
+		background-color: $secondary-color;
+		color: white;
+		font-size: 10px;
+		padding-top: 3px;
+		&:before{
+			padding-left: 4px;
+		}
+	}
+	.issue-admin{
+		display: block;
+		top:auto;
+		background-color: $secondary-color;
+		color: white;
+		font-size: 10px;
+		padding-top: 4px;
+		&:before{
+			padding-left: 4px;
+		}
+	}
+}

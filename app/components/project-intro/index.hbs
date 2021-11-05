@@ -1,0 +1,123 @@
+<ContainerQuery
+		@features={{hash
+		phone=(cq-width max=this.config.breakpoints.phone)
+		tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+		desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+		class="cards-container-query"
+		as |CQ|
+>
+
+	{{#if (or CQ.features.tablet CQ.features.desktop)}}
+		<div class="project-intro">
+			<div class="project-intro__cover" aria-hidden="true">
+				<CloudinaryImage class="project-intro__image"
+								 @publicId={{@model.project.image}}
+								 @options={{hash format='png' transforms='q_auto,f_auto'}}
+				/>
+			</div>
+			<div class="project-intro__info-cover">
+				<div class="project-intro__community-name-style btn-none">
+					<LinkTo @route="community" @models={{array @model.community.url}}>
+						<div class="project-intro__logo-container">
+							<CloudinaryImage @publicId={{@model.community.logo}}
+								 @options={{hash  format='png' transforms='q_auto,f_auto,c_fill'}} aria-hidden="true"/>
+						</div>
+						{{@model.community.name}}
+						<span class="project-intro__days-left">&#8226; 23 days left</span>
+					</LinkTo>
+					<button type="button" class="btn-none project-intro__share-button-user" {{on "click" this.shareProject}}>
+						<span aria-hidden="true" class="btn-none project-intro__share-button-user-title">{{inline-svg '/images/community/share-icon.svg'}} {{t 'participation.shareButton'}}</span>
+					</button>
+				</div>
+				
+				<h1 class="heading-1 project-intro__title-info-cover">{{@model.project.name}}</h1>
+				<div class="project-intro__info-description">
+					<div class="project-intro__truncate-overflow-community">
+						<p class="project-intro__info-description-style">{{html-safe @model.project.htmlDescription}}</p>
+						<button type="button" class="btn-none project-intro__button-learn-more" {{on "click" @scrollToInfos}}>{{t 'participation.learnMore'}}</button>
+					</div>
+				</div>
+					<div class="project-intro__buttons-container">
+						{{#if (and (or this.userService.isDeveloper this.userService.isGlobalAdmin) this.hasIdeaBox)}}
+							<button class="project-intro__share-an-ideea btn-none" type="button" {{on "click" this.participateAction}}>
+								{{inline-svg "/images/discussion/highlight-idea.svg"}}
+								<span class="project-intro__idea-title">{{t 'community.newProject.ideaTitle'}}</span>
+							</button>
+						{{/if}}
+						{{!-- Excpected behavior : project admins are mandatory following the project BUT not community owners : they can choose to opt-in/out  We must discriminate here pure project admins from community owners that get the same behavior optin/out than simple users --}}
+						{{#if (and this.userService.hasProjectAdminRights this.userFollowsProject)}}
+							<button class="project-intro__button-info-side user-is-admin btn-none" type="button">
+								{{t 'participation.followingProjectAsAdmin'}}
+							</button>
+						{{else if (and this.userService.isAuthenticated this.userFollowsProject)}}
+							<button class="project-intro__button-info-side btn-none" type="button" {{on "click" this.removeFollow}}>{{t 'participation.followingProject'}}</button>
+						{{else}}
+							<button class="project-intro__button-info-side btn-none" type="button" {{on "click" this.followProject}}>{{t 'participation.followForUpdates'}}</button>
+						{{/if}}
+					</div>
+					<div class="project-intro__settings-container">
+						{{#if (or this.userService.hasCommunityOwnerRights this.userService.hasProjectAdminRights) }}
+							<LinkTo class="btn-none project-intro__settings-button" @route='community.participation.settings.index'>
+								<span aria-hidden="true">{{inline-svg '/images/community/settings/settings-icon.svg'}}</span> <span class="project-intro__settings-button-text">{{t 'participation.goToSettings'}}</span>
+							</LinkTo>
+						{{/if}}
+					</div>
+			</div>
+		</div>
+	{{else}}
+		<div class="project-intro-mobile">
+			<div class="project-intro-mobile__cover" aria-hidden="true">
+				<CloudinaryImage class="project-intro-mobile__image"
+								 @publicId={{@model.project.image}}
+								 @options={{hash format='png' transforms='q_auto,f_auto'}}
+				/>
+			</div>
+			
+			<div class="project-intro-mobile__phone-width">
+				<p class="project-intro-mobile__community-name-style btn-none">
+					<LinkTo @route="community" @models={{array @model.community.url}}>
+						{{@model.community.name}}
+					</LinkTo>
+					
+				</p>
+				
+				<h1 class="heading-1 project-intro-mobile__title-info-cover">{{@model.project.name}}</h1>
+				<div class="project-intro-mobile__info-description">
+					<div class="project-intro-mobile__truncate-overflow-community">
+						<p>{{html-safe @model.project.description}}
+								
+						</p>
+						<button type="button" class="btn-none project-intro-mobile__button-learn-more" {{on "click" @scrollToInfos}}>{{t 'participation.learnMore'}}</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="project-intro-mobile__buttons-container">
+
+				{{#if (and (or this.userService.isDeveloper this.userService.isGlobalAdmin) this.hasIdeaBox)}}
+					<button class="project-intro__share-an-ideea btn-none" type="button" {{on "click" this.participateAction}}>
+						{{inline-svg "/images/discussion/highlight-idea.svg"}}
+						<span class="project-intro__idea-title">{{t 'community.newProject.ideaTitle'}}</span>
+					</button>
+				{{/if}}
+				{{! Watchout : we must discriminate here pure project admins than community owners that get the same behavior optin/out than simple users }}
+				{{#if (and this.userService.hasProjectAdminRights this.userFollowsProject)}}
+					<div class="project-intro-mobile__user-is-admin">
+						{{t 'participation.followingProjectAsAdmin'}}
+					</div>
+				{{else if (and this.userService.isAuthenticated this.userFollowsProject)}}
+					<button class="project-intro-mobile__button-info-side btn-none" type="button" {{on "click" this.removeFollow}}>{{t 'participation.followingProject'}}</button>
+				{{else}}
+					<button class="project-intro-mobile__button-info-side btn-none" type="button" {{on "click" this.shareProject}}>{{t 'participation.shareAnIdea'}}</button>
+					<button class="project-intro-mobile__button-info-sides btn-none" type="button" {{on "click" this.followProject}}>{{t 'participation.followProject'}}</button>
+				{{/if}}
+		</div>
+
+		{{#if (or this.userService.hasCommunityOwnerRights this.userService.hasProjectAdminRights) }}
+			<LinkTo class="btn-none project-intro__settings-button" @route='community.participation.settings.index'>
+				<span aria-hidden="true">{{inline-svg '/images/community/settings/settings.svg'}}</span> <span class="project-intro__settings-button-text">{{t 'participation.goToSettings'}}</span>
+			</LinkTo>
+		{{/if}}
+
+	{{/if}}
+</ContainerQuery>

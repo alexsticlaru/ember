@@ -1,0 +1,88 @@
+@mixin testimonial-foldup-breakpoint {
+  @media (min-width: 730px) {
+    @content;
+  }
+}
+
+.homepage-testimonial-blocks {
+  font-size: 14px;
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+
+  &__item {
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: 30px 50px;
+    margin: 10px 0;
+    opacity: 0;
+
+    .visible & {
+      opacity: 1;
+    }
+
+    &:first-of-type {
+      transition: opacity .5s linear;
+    }
+
+    &:nth-of-type(2) {
+      transition: opacity .5s linear .4s;
+    }
+
+    &:last-of-type {
+      transition: opacity .5s linear .8s;
+    }
+
+    &__text {
+      color: white;
+      background-color: $homepage-blue-transparent;
+      padding: 20px 20px;
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: bold;
+
+      @include respond(tab-port) {
+        line-height: 1.6rem;
+        font-size: 1rem;
+      }
+
+      &__highlight {
+        color: $homepage-light-blue;
+        display: block;
+        font-size: 2rem;
+
+        @include respond(tab-port) {
+          line-height: 1.8rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    @include testimonial-foldup-breakpoint {
+      border: 7px solid $homepage-light-grey;
+      width: 55%;
+      position: relative;
+      margin: 0;
+
+      &:first-of-type {
+        border: none;
+        padding-right: 15%;
+      }
+
+      &:nth-of-type(2) {
+        text-align: right;
+        position: absolute;
+        right: 0;
+        top: 17%;
+        z-index: 5;
+        width: 50%;
+      }
+
+      &:last-of-type {
+        left: 14%;
+        padding-right: 21%;
+      }
+    }
+  }
+
+}

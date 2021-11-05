@@ -1,0 +1,111 @@
+<div class="quest-questions-phone__body">
+	{{#each @questionsSortByOrder as |question|}}
+		{{#if (and (eq question.fieldType 'statement')(eq question.orderNr @currentQuestionOrderNr))}}
+			<Question::Statement @question={{question}}>
+				<h1 class="heading-1--quaternary statement">{{question.question}}</h1>
+			</Question::Statement>
+		{{else if (and (eq question.fieldType 'multiple_choices')(eq question.orderNr @currentQuestionOrderNr))}}
+			<Question::MultipleChoices @question={{question}}
+									   @anonymousUser={{@anonymousUser}}
+									   @savedAnswers={{@model.partialSavedAnswers}}
+									   @onAddAnswer={{@onAddAnswer}}
+									   @onUpdateAnswer={{@onUpdateAnswer}}
+									   @onRemoveAnswer={{@onRemoveAnswer}}>
+				<h1 class="heading-1--quaternary title"><span class="question-nr">{{question.questionNr}}
+					.</span>{{html-safe question.question}}</h1>
+			</Question::MultipleChoices>
+		{{else if (and (eq question.fieldType 'choice')(eq question.orderNr @currentQuestionOrderNr))}}
+			<Question::OneChoice @question={{question}}
+								 @anonymousUser={{@anonymousUser}}
+								 @savedAnswers={{@model.partialSavedAnswers}}
+								 @onAddAnswer={{@onAddAnswer}}
+								 @onRemoveAnswer={{@onRemoveAnswer}}>
+				<h1 class="heading-1--quaternary title"><span class="question-nr">{{question.questionNr}}
+					.</span>{{html-safe question.question}}</h1>
+			</Question::OneChoice>
+		{{else if (and (eq question.fieldType 'order_choice')(eq question.orderNr @currentQuestionOrderNr))}}
+			<Question::OrderChoice @question={{question}}
+								   @anonymousUser={{@anonymousUser}}
+								   @savedAnswers={{@model.partialSavedAnswers}}
+								   @onAddAnswer={{@onAddAnswer}}
+								   @onUpdateAnswer={{@onUpdateAnswer}}
+								   @onRemoveAnswers={{@onRemoveAnswers}}
+								   @phone={{true}}>
+				<h1 class="heading-1--quaternary title"><span class="question-nr">{{question.questionNr}}
+					.</span>{{html-safe question.question}}</h1>
+			</Question::OrderChoice>
+		{{else if (and (eq question.fieldType 'yes_no')(eq question.orderNr @currentQuestionOrderNr))}}
+			<Question::OneChoice @question={{question}}
+								 @anonymousUser={{@anonymousUser}}
+								 @savedAnswers={{@model.partialSavedAnswers}}
+								 @onAddAnswer={{@onAddAnswer}}
+								 @onRemoveAnswer={{@onRemoveAnswer}}>
+				<h1 class="heading-1--quaternary title"><span class="question-nr">{{question.questionNr}}
+					.</span>{{html-safe question.question}}</h1>
+			</Question::OneChoice>
+		{{else if (and (eq question.fieldType 'text')(eq question.orderNr @currentQuestionOrderNr))}}
+			<Question::Text @question={{question}}
+							@anonymousUser={{@anonymousUser}}
+							@savedAnswers={{@model.partialSavedAnswers}}
+							@onUpdateAnswer={{@onUpdateAnswer}}
+							@onRemoveAnswer={{@onRemoveAnswer}}
+			>
+				<h1 class="heading-1--quaternary title"><span class="question-nr">{{question.questionNr}}
+					.</span>{{html-safe question.question}}</h1>
+			</Question::Text>
+		{{else if (and (eq question.fieldType 'text_attachment')(eq question.orderNr @currentQuestionOrderNr))}}
+			<Question::TextWithAttachment @question={{question}}
+										  @anonymousUser={{@anonymousUser}}
+										  @savedAnswers={{@model.partialSavedAnswers}}
+										  @onUpdateAnswer={{@onUpdateAnswer}}
+										  @onRemoveAnswer={{@onRemoveAnswer}}>
+				<h1 class="heading-1--quaternary title"><span class="question-nr">{{question.questionNr}}
+					.</span>{{html-safe question.question}}</h1>
+			</Question::TextWithAttachment>
+		{{else if (and (eq question.fieldType 'range')(eq question.orderNr @currentQuestionOrderNr))}}
+			<Question::Range @question={{question}}
+							 @anonymousUser={{@anonymousUser}}
+							 @savedAnswers={{@model.partialSavedAnswers}}
+							 @onUpdateAnswer={{@onUpdateAnswer}}
+							 @onRemoveAnswer={{@onRemoveAnswer}}
+			>
+				<h1 class="heading-1--quaternary title"><span class="question-nr">{{question.questionNr}}
+					.</span>{{html-safe question.question}}</h1>
+			</Question::Range>
+		{{else if (and (eq question.fieldType 'email')(eq question.orderNr @currentQuestionOrderNr))}}
+			<Question::Email @question={{question}}
+							 @anonymousUser={{@anonymousUser}}
+							 @savedAnswers={{@model.partialSavedAnswers}}
+							 @onUpdateAnswer={{@onUpdateAnswer}}
+							 @onRemoveAnswer={{@onRemoveAnswer}}>
+				<h1 class="heading-1--quaternary title quest-questions-phone__email-title">{{html-safe
+						question.question}}</h1>
+			</Question::Email>
+		{{/if}}
+
+	{{/each}}
+	{{#if @isSubmit}}
+		<button type="button" class="btn-civ-black quest-questions-phone__submit"
+			{{on 'click' @submitQuestionnaire}}>
+			<span>{{t 'questionnaire.submitBtn'}}</span>
+		</button>
+	{{/if}}
+</div>
+<div class="quest-questions-phone__footer">
+	<div class="quest-questions-phone__step-nav-box">
+		<span>{{@currentStep}}/{{@totalSteps}}</span>
+		<div class="quest-questions-phone__navigation">
+			<button type="button" class="btn-civ-square {{if (eq @currentStep 0) 'btn-civ-square--disabled'}}"
+				{{on 'click' @previousQuestion}}>
+				{{t 'questionnaire.questions.previous'}}
+			</button>
+			<button type="button"
+					disabled={{or @isSubmit @isQuestionRequired}}
+					class="btn-civ-square"
+				{{on 'click' @nextQuestion}}>
+				{{t 'questionnaire.questions.next'}}
+			</button>
+		</div>
+	</div>
+	<div style={{@progress}} class="questionnaire-questions__progress-bar"/>
+</div>

@@ -1,0 +1,41 @@
+<div class="contribution-more">
+  <button type="button" class="btn-none contribution-more__back-btn" {{on 'click' this.closeMorePanel}} aria-label={{t 'buttons.close'}}>
+    <span aria-hidden="true">{{inline-svg "/images/back-arrow.svg"}}</span>
+  </button>
+
+  <h2 class="contribution-more__title">
+    {{t 'issue.morePage.headingParticipants'}}
+  </h2>
+
+  <div>
+    <div class="contribution-more__profile">
+      <span class="contribution-more__profile-text">
+        {{this.model.project.community.name}}
+      </span>
+      <span class="contribution-more__organisation-label">
+        {{t 'issue.morePage.organisation'}}
+      </span>
+    </div>
+    {{#each this.model.issue.profiles as |profile|}}
+      <div class="contribution-more__profile">
+        <span class="contribution-more__profile-text">
+          {{profile.title}}
+          {{inline-svg "images/consultation/profile.svg"}}
+        </span>
+      </div>
+    {{/each}}
+    <div class="contribution-more__profile">
+      <span class="contribution-more__profile-text">
+        {{t 'issue.morePage.citizens'}}
+      </span>
+    </div>
+  </div>
+
+  <div class="contribution-more__info-container">
+    <h2 class="contribution-more__title">
+      {{t 'issue.morePage.headingInfo'}}
+    </h2>
+    {{{t 'issue.morePage.InfoText'}}}
+  </div>
+
+</div>

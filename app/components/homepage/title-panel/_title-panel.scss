@@ -1,0 +1,104 @@
+.homepage-title-panel {
+  position: relative;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: table;
+  width: 100%;
+  text-align: center;
+  z-index: 1001;
+  min-height: 0;
+
+  @include respond(tab-port) {
+    min-height: 375px;
+  }
+
+  &__video-container {
+    position: static;
+    top: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+  }
+
+  &__video {
+   min-width: 0;
+   min-height: 0;
+   width: 100%;
+   position: static;
+   top: 50%;
+   left: 50%;
+  }
+
+  &__background-mask {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 5px);
+    opacity: 0.4;
+    background: $dark-black;
+    z-index: 5;
+    min-height: 0;
+
+    @include respond(tab-port) {
+      min-height: 10px;
+    }
+  }
+
+  &__middle {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  &__text {
+    max-width: 70rem;
+    margin: auto;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out 1.5s;
+
+    &.show-text {
+      opacity: 1;
+    }
+
+    &__main, &__secondary {
+      color: $homepage-white;
+    }
+
+    &__main {
+      text-shadow: 0px 0px 30px $dark-black;
+      font-weight: bold;
+      font-size: 5.7rem;
+      margin-top: 0;
+
+      @include respond(tab-port) {
+        font-size: 3.2rem;
+      }
+
+      @include respond(big-desktop) {
+        font-size: 6rem;
+      }
+    }
+
+    &__secondary {
+      text-shadow: 0px 0px 20px $dark-black;
+      margin: 15px 20px 0;
+      font-size: 2rem;
+      font-weight: bold;
+      line-height: 1.4;
+
+      @include respond(tab-port) {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin: 3ren 2rem 0;
+      }
+
+      @include respond(big-desktop) {
+        font-size: 2.8rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<ContainerQuery
+		@features={{hash
+		phone=(cq-width max=this.config.breakpoints.phone)
+		tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+		desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+		class="cards-container-query"
+		as |CQ|
+>
+	{{#if (or CQ.features.tablet CQ.features.desktop)}}
+<button class="btn-none event__info-item {{if @customClass (concat 'event__info-item--' @customClass)}}" {{on "click" this.openPopup}}>
+	<div class="event__calendar-items">
+			<span class="event__month-info-item">MAR</span>
+			<span class="event__day">31</span>
+	</div>
+	<div class="event__description-info-container">
+		<span>Video conference about gardens in the city</span>
+		<span class="event__publish-hour">13:15</span>
+	</div>
+	{{inline-svg "images/community/right-arrow.svg" class="event__arrow"}}
+</button>
+	{{else}}
+		<button class="btn-none event-card-mobile__info-item" {{on "click" this.openPopup}}>
+			<div class="event-card-mobile__calendar-items">
+				<span class="event-card-mobile__month-info-item">MAR</span>
+				<span class="event-card-mobile__day">31</span>
+			</div>
+			<div class="event-card-mobile__description-info-container">
+				<span>Video conference about gardens in the city</span>
+				<span class="event-card-mobile__publish-hour">13:15</span>
+			</div>
+			{{inline-svg "images/community/right-arrow.svg" class="event__arrow"}}
+		</button>
+	{{/if}}
+</ContainerQuery>

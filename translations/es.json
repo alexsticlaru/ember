@@ -1,0 +1,238 @@
+{
+ "bubble": {
+  "error": {
+   "unknown": "Uy, algo salió mal. Si sucede de nuevo,  ¡háznoslos saber por favor!"
+  },
+  "login": {
+   "confirm": {
+    "before": "Bienvenido a bordo, ",
+    "title": "¡Hola!"
+   }
+  },
+  "logout": {
+   "confirm": "Te deseamos un buen día. ¡Esperamos tu próxima visita!",
+   "confirm.title": "¡Hasta pronto!"
+  },
+  "notfound": {
+   "community": "Oops intentaste visitar una página que no existe."
+  },
+  "password": {
+   "recovery": {
+    "confirm": "Revisa tu mail: ¡un mensaje está en camino!",
+    "confirm.title": "¡Woooooooosh!"
+   }
+  }
+ },
+ "buttons": {
+  "cancel": "Cancelar",
+  "changeEmail": "Guardar email",
+  "changePassword": "Salvar contraseña",
+  "delete": "Eliminar",
+  "login": "Identificarme",
+  "loginEmail": "Identíficate con correo electrónico",
+  "logout": "Se déconnecter",
+  "propositionDeleteCancel": "Cancelar",
+  "propositionDeleteConfirm": "Eliminar",
+  "remove": "Eliminar",
+  "save": "Salvar",
+  "signup": "Regístrate",
+  "signupEmail": "Regístrate con correo electrónico",
+  "updateEmail": "Cambiar email"
+ },
+ "community": {
+  "addModules": {
+   "navTitle": "+ Add participation module"
+  },
+  "consultationManagement": {
+   "coverDimensions": "Recommended format: PNG 1440 x 500 pixels"
+  },
+  "propositionManagement": {
+   "allowMap": "Allow ideas with location (e-mapping)",
+   "chooseCenter": "Choose E-Map center"
+  }
+ },
+ "delete": {
+  "confirmMessage": {
+   "account": "¿Estás seguro de que deseas eliminar tu cuenta?"
+  }
+ },
+ "footer": {
+  "bottomSection": {
+   "registeredBusiness": "Civocracy es una empresa registrada tanto en los Países Bajos (B.V.) como en Alemania (Zweigniederlassung). Nuestra dirección principal es Oldenburger Strasse 6, 10551 Berlín, Alemania. Puede comunicarse con nosotros por correo electrónico en contact@civocracy.org."
+  },
+  "sectionItems": {
+   "about": "Sobre nosotros",
+   "blog": "Blog",
+   "caseStudies": "Estudios de caso",
+   "codeOfConduct": "Código de conducta",
+   "jobs": "Equipo",
+   "press": "Prensa",
+   "services": "Servicios",
+   "termsOfUse": "Términos de uso"
+  },
+  "sectionTitles": {
+   "legal": "Legal",
+   "whatWeDo": "Qué hacemos",
+   "whoWeAre": "Quiénes somos"
+  }
+ },
+ "home": {
+  "header": {
+   "sliding": {
+    "item": {
+     "1": "tu ciudad"
+    }
+   },
+   "subtitle": "Determina el futuro de",
+   "title": "No dejes que otros decidan sin ti"
+  }
+ },
+ "homepage": {
+  "landing": {
+   "subtitle": "Crea comunidades inclusivas a través de la toma de decisiones colaborativa.",
+   "title": "Participación ciudadana.<br>Mejores decisiones.<br>Mejores sociedades."
+  },
+  "process": {
+   "step1": {
+    "line1": "Compartir y co-desarrollar",
+    "line2": "ideas sobre temas",
+    "line3": "que te importan"
+   },
+   "step2": {
+    "line1": "Todas las contribuciones",
+    "line2": "son revisadas",
+    "line3": "y analizadas"
+   },
+   "step3": {
+    "line1": "Implementa proyectos",
+    "line2": "basados en lo que",
+    "line3": "la comunidad quiere"
+   }
+  },
+  "sectionTitles": {
+   "locations": "Dónde trabajamos",
+   "partners": "Nuestros colaboradores",
+   "process": "",
+   "register": "Únete a la conversación",
+   "successes": "Las ciudades te necesitan"
+  },
+  "successes": {
+   "auvergne": {
+    "closing": "fueron leídas por el gobierno local",
+    "highlightedText": "96% de las contribuciones ciudadanas",
+    "location": "En Auvergne-Ródano-Alpes,"
+   },
+   "northHolland": {
+    "closing": "sobre biodiversidad se convirtieron en recomendaciones de políticas",
+    "highlightedText": "10 ideas ciudadanas",
+    "location": "En los Países Bajos,"
+   },
+   "strasbourg": {
+    "closing": "participaron en una discusión oficial para mejorar la educación local",
+    "highlightedText": "40% de los padres de la ciudad",
+    "location": "En Estrasburgo,"
+   }
+  }
+ },
+ "issue": {
+  "learn": {
+   "overview": "Vista previa de la discusión",
+   "readBy": "{percent}% de contribuciones leídas por {community}"
+  },
+  "status": {
+   "closed": "Completado"
+  }
+ },
+ "login": {
+  "forgotPassword": "¿Olvidaste tu contraseña?",
+  "register": "¿No tienes cuenta?",
+  "title": "Entrar"
+ },
+ "moderation": {
+  "form": {
+   "abusive": "abusivo",
+   "advertising": "publicidad",
+   "inappropriate": "inapropiado",
+   "submit": "Guardar mensaje",
+   "title": "Mensaje de moderación"
+  },
+  "message": {
+   "abusive": "Este contenido viola el <a href='https://www.civocracy.org/code-of-conduct'>Código de Conducta de Civocracy</a> por abusivo",
+   "advertising": "Este contenido viola el <a href=\"/code-of-conduct\" target=\"_blank\">Código de Conducta de Civocracy</a> sobre publicidad",
+   "inappropriate": "Este contenido viola el <a href='https://www.civocracy.org/code-of-conduct'>Código de Conducta de Civocracy</a> por inapropiado"
+  },
+  "p1": "En las próximas páginas encontrarás una cantidad de discusiones y proyectos en los que puedes involucrarte. Dependiendo del tipo de problemática puedes discutir, expresar tu opinión o aportar tus destrezas y conocimientos",
+  "p2": "Esta plataforma vive a través de ti y tus contribuciones. Todos pueden participar, y todos deberían sentirse cómodos",
+  "p3": "Por favor respeta y aplica estas reglas. Déjanos liderar discusiones constructivas.",
+  "p4": "¿Tienes alguna pregunta sobre la manera en la que moderamos? Envía un mail a",
+  "punchline1": "¡Bienvenidos a Civocracy! Esto se trata de ti y tus ideas para la tu ciudad, comunidad y mundo",
+  "punchline2": "Los 9 postulados de Civocracy para un camino al impacto sin problemas:",
+  "punchline3": "Ya, tiempo de hacer un cambio: ¡hemos estado esperando por ti! ¡Te deseamos intercambios estimulantes, muchas buenas ideas, colaboración y empoderamiento!",
+  "tenet1": "Si un comentario no coincide con tus deseos o convicciones, manejalo apropiadamente. Si vas a responder, <b>hazlo respetuosamente</b>",
+  "tenet2": "Se lo más <b>claro</b> y <b>constructivo</b> posible en tus comentarios. Ten en cuenta que la ironía no es siempre entendida y que puede ser malinterpretada.",
+  "tenet3": "Esta consciente de la <b>repetición</b>. Es posible que tu idea o punto de vista ya haya sido mencionado en artículos y comentarios de otros usuarios. De ser así, usa los botones de relevancia para apoyar a los otros participantes.",
+  "tenet4": "Comentarios <b> abusivos, difamatorios, ofensivos</b> y <b>racistas</b> están prohibidos en nuestra plataforma y por tanto serán eliminados por nuestro equipo de moderación. Estamos abiertos a y estimulamos diferentes opiniones, creencias y puntos de vista, siempre y cuando sean respetuosos.",
+  "tenet5": "Civocracy <b>no es una plataforma publicitaria</b>. Todo contenido comercial será removido por el equipo de moderación. Referencias a tu página no comercial o blog deben ser pertinentes al tema y contexto. Te pedimos que lo hagas con conciencia.",
+  "tenet6": {
+   "arg1": "darle más fuerza a tu argumento",
+   "arg2": "ser reconocido como un ciudadano activo por tu comunidad",
+   "arg3": "La información personal que proveas durante el proceso de registro jamás será publicada o usada sin tu permiso.",
+   "title": "Recomendamos encarecidamente que uses <b>tu nombre real</b> a fin de:"
+  },
+  "tenet7": "Por favor asegúrate de que no estas violando ni los <b>derechos de autor</b> ni los derechos personales de terceros cuando publiques un link",
+  "tenet8": "No olvides <b>añadir fuentes</b> cuando incluyas citas en comentarios",
+  "tenet9": "¡<b>Diviértete</b>, aprende, explora, comparte, sorpréndete, conecta, y más!",
+  "title": "Queridos participantes y agentes de cambio"
+ },
+ "password": {
+  "change": {
+   "title": "Cambia tu contraseña"
+  },
+  "recovery": {
+   "title": "Restaura tu contraseña"
+  },
+  "reset": {
+   "title": "Escoge una nueva contraseña"
+  }
+ },
+ "pb": {
+  "projects": {
+   "savedChanges": "Cambios guardados"
+  }
+ },
+ "placeholder": {
+  "email": "contacto@ejemplo.com",
+  "newPassword": "Nueva contraseña",
+  "newPasswordRepeat": "Repite la nueva contraseña",
+  "oldPassword": "Contraseña anterior",
+  "password": "Introduce tu contraseña"
+ },
+ "questionnaire": {
+  "noAnswer": "No",
+  "question-type": {
+   "choice": "Selección única",
+   "multiple_choices": "Respuesta múltiple",
+   "range": "Rango",
+   "statement": "Página intermedia",
+   "text": "Respuesta de texto",
+   "yes_no": "Sí/No"
+  },
+  "yesAnswer": "Sí"
+ },
+ "register": {
+  "captchaError": "Por favor, haga clic en el cuadro de arriba",
+  "login": "¿Ya tienes una cuenta?",
+  "privacyAgreement": "Conozco la <a href=\"/data-privacy\" target=\"_new\"> Política de datos y privacidad </a> de Civocracy",
+  "termsAgreement": "Acepto los <a href=\"/terms-and-conditions\" target=\"_blank\"> Términos y condiciones </a> de Civocracy",
+  "termsError": "Por favor acepte los términos anteriores antes de continuar",
+  "title": "Regístrate"
+ },
+ "registration-popup": {
+  "message": "Antes de comenzar a discutir el futuro de su ciudad, necesitamos confirmar su dirección de correo electrónico: revise su bandeja de entrada ahora para continuar.",
+  "title": "¡Gracias por unirte a Civocracy!"
+ },
+ "top-header": {
+  "settings": "Paramètres",
+  "yourCommunities": "Vos communautés"
+ }
+}

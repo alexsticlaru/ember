@@ -1,0 +1,102 @@
+<div class="popup__content">
+	{{#if (eq this.currentStep 1)}}
+	<div class="proposition-confidential-form__progress-step1">
+	</div>
+	{{else if (eq this.currentStep 2)}}
+	<div class="proposition-confidential-form__progress-step2">
+	</div>
+	{{/if}}
+
+	<div>
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+
+	<div class="proposition-confidential-form__progress-info">
+		{{t 'ideaBox.addIdeaPopUp.confidential.step'}} {{this.currentStep}} /2
+	</div>
+
+	<div class="proposition-confidential-form">
+			<h1 class="proposition-confidential-form__top-title">
+				{{#if (eq this.currentStep 1)}}
+					{{t 'ideaBox.addIdeaPopUp.confidential.titleStep1'}}
+				{{else}}
+					{{t 'ideaBox.addIdeaPopUp.confidential.titleStep2'}}
+				{{/if}}
+			</h1>
+			<div class="proposition-confidential-form__explanation">
+				{{#if (eq this.currentStep 1)}}
+					{{t 'ideaBox.addIdeaPopUp.confidential.explanationStep1'}}
+				{{else}}
+					{{t 'ideaBox.addIdeaPopUp.confidential.explanationStep2'}}
+				{{/if}}
+			</div>
+
+		{{#if (eq this.currentStep 1)}}
+			<div class="proposition-confidential-form__container">
+				<LabelTextField
+						class="proposition-confidential-form__label"
+						@labelText={{t 'ideaBox.addIdeaPopUp.stepOne.title'}}
+						@id="title"
+						@redesign="true"
+						@value={{this.propositionTitle}}
+						@maxlength={{60}}
+						@showErrorMessage={{this.titleError}}
+						@errorMessage={{t 'ideaBox.addIdeaPopUp.stepOne.errorTitle'}}
+						@enterAction={{this.searchForExistingProposition }}
+						@focusOutAction={{this.searchForExistingProposition }}
+				/>
+
+				<div class="proposition-confidential-form__description-details-info">
+					<div class="proposition-confidential-form__description-details">
+						<span class="proposition-confidential-form__info">
+							{{t 'ideaBox.addIdeaPopUp.stepOne.info'}} {{t 'ideaBox.addIdeaPopUp.stepOne.example'}} {{t 'ideaBox.addIdeaPopUp.stepOne.exampleDescription'}}
+						</span>
+					</div>
+					<div class="proposition-confidential-form__description-length">
+						<span class="proposition-confidential-form__number-count">{{minus 60 this.propositionTitle.length}}</span>
+					</div>
+				</div>
+
+					<LabelTextField
+						@type={{"textarea"}}
+						@labelText={{t 'ideaBox.addIdeaPopUp.stepOne.addDescription'}}
+						@redesign="true"
+						@id="proposition-add-editor"
+						@height={{"20"}}
+						@value={{this.propositionDescription}}
+						@maxlength={{250}}
+						@showErrorMessage={{this.descriptionError}}
+						@errorMessage={{t 'ideaBox.addIdeaPopUp.stepOne.errorTitle'}}
+					/>
+
+
+				<div class="proposition-confidential-form__description-details-info">
+					<div class="proposition-confidential-form__description-details">
+						<span class="proposition-confidential-form__info">
+							{{t 'ideaBox.addIdeaPopUp.stepOne.summariseText'}}<LinkTo @route="code-of-conduct" target="_blank" class="proposition-confidential-form__code-of-conduct">{{t 'ideaBox.addIdeaPopUp.stepOne.codeOfConduct'}}</LinkTo> {{t 'ideaBox.addIdeaPopUp.stepOne.moreTips'}}
+						</span>
+					</div>
+					<div class="proposition-confidential-form__description-length">
+						<span class="proposition-confidential-form__number-count">{{minus 250 this.propositionDescription.length}}</span>
+					</div>
+				</div>
+			</div>
+
+		{{else if (eq this.currentStep 2)}}
+			<AddPropositionStepTwo
+					@model={{this.model}}
+					@handlePropositionThemes={{this.handlePropositionThemes}}
+                	@updateLocation={{this.updateLocation}}
+                	@propositionThemes={{this.propositionThemes}}
+			></AddPropositionStepTwo>
+		{{/if}}
+		<div class="proposition-confidential-form__footer-buttons">
+			<button type="button" class="btn-civ-black-reverse proposition-confidential-form__footer-button"  {{on 'click' this.closePopup}}>{{t 'ideaBox.addIdeaPopUp.stepOne.cancelButton'}}</button>
+			{{#if (eq this.currentStep 1)}}
+				<button type="button" class="btn-civ-black proposition-confidential-form__footer-button" {{on 'click' (fn this.changeStep 2)}}>{{t 'ideaBox.addIdeaPopUp.stepOne.continueButton'}}</button>
+			{{else if (eq this.currentStep 2)}}
+				<button type="submit" class="btn-civ-black proposition-confidential-form__footer-button" {{on 'click' this.addProposition}}>{{t 'ideaBox.addIdeaPopUp.confidential.submitButton'}}</button>
+			{{/if}}
+		</div>
+	</div>
+</div>

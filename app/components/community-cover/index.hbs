@@ -1,0 +1,188 @@
+<ContainerQuery
+  @features={{hash
+	phone=(cq-width max=this.config.breakpoints.phone)
+    tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+    desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+  as |CQ|
+>
+
+{{!--{{#if CQ.features.desktop}}--}}
+{{#if 1}}
+  <div class="{{if CQ.features.phone "community-cover-mobile" "community-cover"}}">
+      <div class="community-cover__cover">
+          <div class="community-cover__cover-overlay"></div>
+          <CloudinaryImage aria-hidden="true"
+                           class="community-cover__image"
+                           @publicId={{@model.community.cover}}
+                           @options={{hash format='png' transforms='q_auto,f_auto'}}
+          />
+{{!-- a Communities link is already in the top-header : we remove this one
+          <LinkTo @route="communities" class="community-cover__back-button-container">
+              <div class="community-cover__back-button">
+                  <span aria-hidden="true">{{inline-svg "/images/white-arrow.svg" class="act-page__arrow-icon"}}</span>
+                  <p class="contribution-page__text-back-button">
+					  {{t 'communities.communitiesBackButton'}}
+				  </p>
+              </div>
+          </LinkTo>
+--}}
+      </div>
+      <div class="community-cover__details">
+          <div class="community-cover__title-and-logo">
+              <div class="community-cover__logo-and-social-icons">
+                  <div class="community-cover__logo-container">
+                      <CloudinaryImage @publicId={{@model.community.logo}}
+                                       @options={{hash height='100' format='png' transforms='q_auto,f_auto,c_fill'}} aria-hidden="true"/>
+                  </div>
+                  <div class="community-cover__social-media-icons">
+                    {{#if @model.community.homepageUrl}}
+                      <a target="_blank" rel="noopener noreferrer" href={{@model.community.homepageUrl}} aria-label="{{t 'accessibility.gotoCommunityWebsite'}}">
+                        <span aria-hidden="true">{{inline-svg "/images/community/social-icons/globe-icon.svg" class="community-cover__icon-style"}}</span>
+                      </a>
+                    {{/if}}
+                    {{#if @model.community.twitterUrl}}
+                      <a target="_blank" rel="noopener noreferrer" href={{@model.community.twitterUrl}} aria-label="{{t 'accessibility.gotoCommunityTwitter'}}">
+                        <span aria-hidden="true">{{inline-svg "/images/community/social-icons/twitter-icon.svg"  class="community-cover__icon-style"}}</span>
+                      </a>
+                    {{/if}}
+                    {{#if @model.community.linkedinUrl}}
+                      <a target="_blank" rel="noopener noreferrer" href={{@model.community.linkedinUrl}} aria-label="{{t 'accessibility.gotoCommunityLinkedin'}}">
+                        <span aria-hidden="true">{{inline-svg "/images/community/social-icons/linkedin-icon.svg"  class="community-cover__icon-style"}}</span>
+                      </a>
+                    {{/if}}
+                    {{#if @model.community.youtubeUrl}}
+                      <a target="_blank" rel="noopener noreferrer" href={{@model.community.youtubeUrl}} aria-label="{{t 'accessibility.gotoCommunityYoutube'}}">
+                        <span aria-hidden="true">{{inline-svg "/images/community/social-icons/youtube-icon.svg"  class="community-cover__icon-style"}}</span>
+                      </a>
+                    {{/if}}
+                    {{#if @model.community.facebookUrl}}
+                      <a target="_blank" rel="noopener noreferrer" href={{@model.community.facebookUrl}} aria-label="{{t 'accessibility.gotoCommunityFacebook'}}">
+                        <span aria-hidden="true">{{inline-svg "/images/community/social-icons/fb-icon-grey.svg"  class="community-cover__icon-style"}}</span>
+                      </a>
+                    {{/if}}
+                  </div>
+              </div>
+              {{#if (or this.userService.isDeveloper this.userService.isTranslator)}}
+			  <button type="button" class="btn-none community-cover__share-button" {{on "click" this.shareProject}}>
+				  <span class="community-cover__share-title" aria-hidden="true">{{inline-svg '/images/community/share-icon.svg'}} {{t 'participation.shareButton'}}</span>
+			  </button>
+			  {{/if}}
+          </div>
+          <div class="community-cover__title-container">
+              <h1 class="heading-1 community-cover__title-custom" tabIndex="0">{{@model.community.name}}
+              <span aria-label="{{t 'accessibility.certifiedCommunity'}}">{{inline-svg "/images/community/social-icons/check-verify.svg" class="community-cover__icon-style"}}</span></h1>
+          </div>
+          <div class="community-cover__description" tabIndex="0">
+              {{my-line-clamp
+                      text=@model.community.htmlDescription
+                      showMoreButton=true
+                      seeMoreText= "Learn more..."
+                      showLessButton = true
+                      seeLessText= "See less"
+                      lines=4
+                      ellipsis=""
+                      stripText=false
+              }}
+			{{!--<HtmlMaxChar not really implemented : we tweaked ember-line-clamp to better handle html...
+				@text={{@model.community.htmlDescription}}
+				@maxChar=300
+				@showMoreButton=true
+				@showMoreAction=this.goToShowMore
+			/>--}}
+          </div>
+          <div class="community-cover__details-info">
+              <div class="community-cover__info-container">
+                  <span aria-hidden="true">{{inline-svg "/images/community/social-icons/file-icon.svg" class="community-cover__details-icons"}}</span>
+                  <span class="community-cover__number" tabIndex="0">{{@model.projects.length}} {{t 'communities.projects'}}</span>
+              </div>
+              <div class="community-cover__info-container">
+                  <span aria-hidden="true">{{inline-svg "/images/community/social-icons/people-icon.svg" class="community-cover__details-icons"}}</span>
+				  <span class="community-cover__number" tabIndex="0">{{this.membersCount}} {{t 'communities.members'}}</span>
+              </div>
+          </div>
+		<div class="community-cover__settings-container">
+			{{#if this.userService.hasCommunityOwnerRights}}
+				<LinkTo class="btn-none community-cover__settings-button-community" @route='community.settings'>
+					<span aria-hidden="true">{{inline-svg '/images/community/settings/settings-icon.svg'}}</span> <span class="project-intro__settings-button-text">{{t 'participation.goToSettings'}}</span>
+				</LinkTo>
+			{{/if}}
+		</div>
+
+      </div>
+  </div>
+
+{{else }}
+{{! DEPRECATED FOR NOW - dead code, should be removed at some point }}
+
+<LinkTo @route="communities" class="community-cover__back-button-container-mobile">
+    <div class="community-cover__back-button">
+        <span aria-hidden="true">{{inline-svg "/images/white-arrow.svg" class="act-page__arrow-icon"}}</span>
+        <p class="contribution-page__text-back-button">{{t 'communities.communitiesBackButton'}}</p>
+    </div>
+</LinkTo>
+
+<CloudinaryImage aria-hidden="true"
+                 class="community-cover__image"
+                 @publicId={{@model.community.cover}}
+                 @options={{hash format='png' transforms='q_auto,f_auto'}}
+/>
+
+<div class="community-cover__mobile-container">
+ 
+  <div class="community-cover__social-media-icons">
+    {{#if @model.community.homepageUrl}}
+      <a target="_blank" rel="noopener noreferrer" href={{@model.community.homepageUrl}} aria-label="Website">
+        <span aria-hidden="true">{{inline-svg "/images/community/social-icons/globe-icon.svg"  class="community-cover__icon-style"}}</span>
+      </a>
+    {{/if}}
+    {{#if @model.community.twitterUrl}}
+      <a target="_blank" rel="noopener noreferrer" href={{@model.community.twitterUrl}} aria-label="Twitter">
+        <span aria-hidden="true">{{inline-svg "/images/community/social-icons/twitter-icon.svg"  class="community-cover__icon-style"}}</span>
+      </a>
+    {{/if}}
+    {{#if @model.community.linkedinUrl}}
+      <a target="_blank" rel="noopener noreferrer" href={{@model.community.linkedinUrl}} aria-label="Linkedin">
+        <span aria-hidden="true">{{inline-svg "/images/community/social-icons/linkedin-icon.svg"  class="community-cover__icon-style"}}</span>
+      </a>
+    {{/if}}
+    {{#if @model.community.youtubeUrl}}
+      <a target="_blank" rel="noopener noreferrer" href={{@model.community.youtubeUrl}} aria-label="Youtube">
+        <span aria-hidden="true">{{inline-svg "/images/community/social-icons/youtube-icon.svg"  class="community-cover__icon-style"}}</span>
+      </a>
+    {{/if}}
+    {{#if @model.community.facebookUrl}}
+      <a target="_blank" rel="noopener noreferrer" href={{@model.community.facebookUrl}} aria-label="Facebook">
+        <span aria-hidden="true">{{inline-svg "/images/community/social-icons/fb-icon-grey.svg"  class="community-cover__icon-style"}}</span>
+      </a>
+    {{/if}}
+  </div>
+
+  <div class="community-cover__title-container">
+    <h1 class="heading-1 community-cover__title-custom">{{@model.community.name}}</h1>
+    <span aria-hidden="true">{{inline-svg "/images/community/social-icons/check-verify.svg" class="community-cover__icon-style"}}</span>
+  </div>
+  <div class="community-cover__description-mobile">
+      {{line-clamp
+              text=@model.community.htmlDescription
+              showMoreButton=false
+              lines=4
+              ellipsis="..."
+      }}
+  </div>
+  
+
+  <div class="community-cover__details-info-mobile">
+      <div class="community-cover__info-container">
+          <span aria-hidden="true">{{inline-svg "/images/community/social-icons/file-icon.svg" class="community-cover__details-icons"}}</span>
+          <span class="community-cover__number">{{@model.projects.length}} {{t 'communities.projects'}}</span>
+      </div>
+      <div class="community-cover__info-container">
+          <span aria-hidden="true">{{inline-svg "/images/community/social-icons/people-icon.svg" class="community-cover__details-icons"}}</span>
+		  <span class="community-cover__number">{{this.membersCount}} {{t 'communities.members'}}</span>
+      </div>
+  </div>
+</div>
+
+{{/if}}
+
+</ContainerQuery>

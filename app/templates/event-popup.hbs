@@ -1,0 +1,92 @@
+<ContainerQuery
+		features={{hash
+		phone=(cq-width max=this.config.breakpoints.phone)
+		tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+		desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+		class="cards-container-query"
+		as |CQ|
+>
+	{{#if (or CQ.features.tablet CQ.features.desktop)}}
+<div class="popup__content event_popup" role="dialog" aria-labelledby="accessibility-title">
+	<div class="event_popup__popup-header">
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+	<div class="event_popup__big-container">
+		<div class="event_popup__calendar-container">
+			<h3 class="event_popup__month">MAR</h3>
+			<h1>31</h1>
+		</div>
+		<div class="event_popup__container">
+			<h1 id="accessibility-title" >Video conference about gardens in the city</h1>
+			<div class="event_popup__time-hour">
+				<div class="event_popup__time-container">
+					<span class="event_popup__title">{{t 'participation.eventsTime'}}</span>
+					<span class="event_popup__hour">13:15</span>
+				</div>
+				<div class="event_popup__line-container">
+					{{inline-svg "/images/community/calendar-line.svg"}}
+				</div>
+				<div class="event_popup__place-container">
+					<span class="event_popup__title">{{t 'participation.eventsPlace'}}</span>
+					<span class="event_popup__hour">{{t 'participation.statusEvents'}} - <a href="">{{t 'participation.linkEvent'}}</a></span>
+				</div>
+			</div>
+			<div>
+				<!--//// WAITING FOR DATA FROM BE HERE ////-->
+				<span class="event_popup__description"></span>
+			</div>
+		</div>
+		<div class="event_popup__right-container">
+			<div class="event_popup__image-event"></div>
+			<div class="event_popup__bottom-container">
+				<span class="event_popup__description">74 {{t 'participation.peopleAreParticipating'}}</span>
+				<button type="button" class="event_popup__participate-button">{{t 'participation.participateButton'}}</button>
+			</div>
+		</div>
+	</div>
+</div>
+	{{else}}
+		<div class="popup__content-mobile event-popup-mobile">
+			<div class="event-popup-mobile__popup-header">
+				<button class="share_popup__close-button" type="button" {{on "click" this.closePopup}} aria-label={{t 'buttons.close'}}>
+					<span aria-hidden="true">{{inline-svg "images/ideaBox/close-icon.svg" class="icon-close"}}</span>
+				</button>
+			</div>
+			<div class="event-popup-mobile__image-event"></div>
+
+			<div class="event-popup-mobile__calendar-container">
+				<div class="event-popup-mobile__items-calendar">
+					<span class="event-popup-mobile__month">MAR</span>
+					<span class="event-popup-mobile__month-date">31</span>
+				</div>
+				<h1 class="heading-1 event-popup-mobile__title-event">Video conference about gardens in the city</h1>
+			</div>
+			<div class="event-popup-mobile__big-container">
+				<div class="event-popup-mobile__container">
+					<div class="event-popup-mobile__time-hour">
+						<div class="event-popup-mobile__time-container">
+							<span class="event-popup-mobile__title">{{t 'participation.eventsTime'}}</span>
+							<span class="event-popup-mobile__hour">13:15</span>
+						</div>
+						<div class="event-popup-mobile__line-container">
+							{{inline-svg "/images/community/line-mobile.svg"}}
+						</div>
+						<div class="event-popup-mobile__place-container">
+							<span class="event-popup-mobile__title">{{t 'participation.eventsPlace'}}</span>
+							<span class="event-popup-mobile__hour">{{t 'participation.statusEvents'}} - <a href="">{{t 'participation.linkEvent'}}</a></span>
+						</div>
+					</div>
+					<button class="btn-civ-black-reverse event-popup-mobile__participate-button" type="button">{{t 'buttons.participate'}}</button>
+					<div class="event-popup-mobile__container-people-participating">
+						<!--//// WAITING FOR DATA FROM BE HERE ////-->
+						<span class="event-popup-mobile__people-participating"></span>
+					</div>
+					<div>
+						<!--//// WAITING FOR DATA FROM BE HERE ////-->
+						<p class="event-popup-mobile__description"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/if}}
+</ContainerQuery>

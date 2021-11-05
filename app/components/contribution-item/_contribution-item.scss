@@ -1,0 +1,360 @@
+.contribution-item {
+  margin-left: 1.6rem;
+  margin-right: 2rem;
+
+  &__top-container {
+	display: block;
+	margin-top: 2.14rem;
+	margin-left: 1.6rem;
+	margin-bottom: 2.4rem;
+  }
+
+  &__back-button{
+    float:left;
+  }
+
+  &__edit-button{
+    float:right;
+  }
+
+  &__title{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.01rem;
+    padding-bottom: 0.6rem;
+  }
+
+  &__user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 1.2rem;
+  }
+  &__username-style{
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2rem;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+  }
+
+  &__bullet{
+    padding-right: 0.5rem;
+  }
+
+  &__comment-text{
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    text-align: left;
+  }
+
+  &__custom-padding{
+	padding: 0 1.6rem 0 1.6rem;
+  }
+
+  &__themes-container{
+	display: flex;
+	flex-direction: row;
+	width: auto;
+	flex-wrap: wrap;
+	padding-top: 0.8rem;
+  }
+
+  &__attachment-container{
+	margin-top: 1rem;
+  margin-bottom: 1rem;
+  }
+
+  &__user-info-container{
+    width: 100%;
+    display: inline-flex;
+  }
+
+  &__user-info-item{
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    text-align: left;
+    color: #6B6C76;
+    padding-top: 1rem;
+    width: 50%;
+  }
+
+  &__action-container{
+	//height: 3.9rem;
+    display: flex;
+	flex-direction: row;
+    width: 100%;
+	justify-content: space-between;
+  }
+
+  &__action-item{
+	height: 4.5rem;
+	width: 15.5rem;
+	border-radius: 5px;
+	background: #F4F3F5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 2.1rem;
+	letter-spacing: 0;
+	color: #5E617C;
+  }
+
+  &__share-button{
+	padding: 0.6rem 2rem;
+	background: #F4F3F5;
+	border-radius: 0.5rem;
+	font-size: 1.3rem;
+	color: #5E617C;
+  }
+
+  &__action-item{
+	display: flex;
+	align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.10rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+	span {
+	  margin-left: 0.5rem;
+	}
+  }
+
+  &__custom-svg {
+	margin-bottom: 0.5rem;
+  }
+
+  &__info-container{
+    display: inline-flex;
+    width: 100%;
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+  }
+
+  &__stats-container{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	align-items: center;
+	margin: 1.8rem 0;
+  }
+
+  &__stats-item{
+	display: flex;
+	align-items: center;
+	font-size: 1.4rem;
+	font-weight: 400;
+	line-height: 1.8rem;
+	text-align: left;
+	color: $dark-gray;
+	padding-top: 1rem;
+	width: 50%;
+  }
+
+  &__stats-icon {
+	margin-right: 0.5rem;
+  }
+
+
+  &__info-item{
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem;
+    text-align: center;
+    width: 50%;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+  }
+
+  &__check-icon{
+	padding-right:0.8rem;
+	width: 2.5rem;
+	height: 2.5rem;
+  }
+
+  &__reply-container{
+	display: flex;
+	position: sticky;
+	z-index: 99;
+	padding-top: 1.4rem;
+	padding-bottom: 1.4rem;
+	overflow-x: scroll;
+	bottom: 0;
+	background: $primary-color;
+	border-top: 1px solid $light-gray;
+  }
+
+  &__reactions-container {
+	position: absolute;
+  }
+  &__comment-container{
+	padding: 0 2.5rem;
+	margin-top: 1.7rem;
+	margin-bottom: 3.1rem;
+	//width: 100%;
+	//display: flex;
+	//position: sticky;
+	//z-index: 99;
+	//padding: 1.4rem 0;
+	//overflow-x: scroll;
+	//bottom: 0;
+	//background: $primary-color;
+	//border-top: 1px solid $light-gray;
+	//justify-content: space-between;
+	//align-items: center;
+  }
+
+  &__comments-header {
+	display: flex;
+	margin-bottom: 1.7rem;
+	align-items: center;
+	height: 0.6rem;
+  }
+
+  &__comments-title {
+	font-size: 1.6rem;
+	font-weight: 600;
+	color: #434343
+
+  }
+
+  &__comments-container{
+	background: transparent;
+	//border: 1px solid #F3EFE6;
+	//box-sizing: border-box;
+	border-radius: 7px;
+	width: 100%;
+  }
+
+  &__comments-title-container{
+	margin-left: 3rem;
+	margin-top: 2rem;
+  }
+
+  &__comments-title{
+	font-weight: 600;
+	font-size: 2rem;
+  }
+
+  &__comments-number{
+	margin-left: 2rem;
+	font-size: 1.2rem;
+	color: #6B6C76;
+  }
+
+
+  &__comment-add-container{
+	//margin: 2rem;
+	display: flex;
+	flex-direction: column;
+  }
+
+  &__comments-conversation{
+	padding-bottom: 1.7rem;
+
+  }
+
+  &__comments-count {
+	font-size: 1.2rem;
+	font-weight: 500;
+	color: #6B6C76;
+	margin-left: 1.2rem;
+  }
+
+  &__user-container {
+	margin-top: 0.3rem;
+  }
+
+  &__container-elements{
+	background: #FFFFFF;
+	border: 1px solid #F3F1EB;
+	box-sizing: border-box;
+	border-radius: 9px;
+	display: flex;
+	padding-left: 2.2rem;
+	padding-right: 0.6rem;
+	width: 100%;
+	height: 4.6rem;
+  }
+
+  &__reply-input{
+	width: 80%;
+	border: none;
+	background: transparent;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	font-weight: 400;
+	padding-bottom: 0.1rem;
+  }
+
+  &__comment-input{
+	width: 100%;
+	border: none;
+	background: transparent;
+	font-size: 1.4rem;
+	font-weight: 400;
+  }
+
+
+
+  &__add-reply{
+	color: $button-blue;
+	font-size: 1.6rem;
+	font-weight: 500;
+	line-height: 2.4rem;
+	letter-spacing: 0.01rem;
+	border: none;
+	background: transparent;
+	opacity: 0.5;
+	margin-left: 1rem;
+  }
+
+  &__isButtonActive{
+	color: $button-blue;
+	font-size: 1.6rem;
+	font-weight: 800;
+	opacity: 100%;
+  }
+
+  &__avatar-circle{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1.5rem;
+	background-color: $medium-gray;
+	margin-right: 1.5rem;
+  }
+
+  &__container-action-elements{
+	//position: fixed;
+	//z-index: 99;
+	//bottom: 0;
+	width: 100%;
+	background-color:#FBFAF9;
+	padding-bottom: 5.9rem;
+  }
+
+  &__date{
+	line-height: 1.8rem;
+	padding-top: 1rem;
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: #5E617C;
+  }
+
+}

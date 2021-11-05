@@ -1,0 +1,18 @@
+.propositions-2-lists {
+  display: flex;
+  flex-direction: row;
+  padding-top: 3rem;
+  justify-content: space-between;
+  &__column {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+  }
+
+}
+
+.propositions-list {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+} 

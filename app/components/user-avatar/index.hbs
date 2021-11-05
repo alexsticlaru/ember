@@ -1,0 +1,11 @@
+{{#if @user}}
+  <div class={{this.avatarClass}} aria-hidden="true">
+    <CloudinaryImage
+      style="border-radius: 50%;"
+      @publicId={{@user.image}}
+      @options={{hash width=@dimensions height=@dimensions format='png' radius="max" dpr="2.0" transforms='q_auto,f_auto,f_png'}} />
+	  {{#if @showBadge}}
+		  <span class="{{this.badgeClass}}"></span>
+	  {{/if}}
+  </div>
+{{/if}}

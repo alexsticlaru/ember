@@ -1,0 +1,16 @@
+<button role="button" class="btn-none document {{if @customClass (concat 'document--' @customClass)}}" {{on "click" this.openPopup}} tabindex="0" aria-labelledby={{@section.id}}>
+	{{#if @hasImage}}
+		<div class="document__image-container" aria-hidden="true">
+			{{inline-svg "images/community/file-icon-white.svg"}}
+		</div>
+	{{/if}}
+	<div class="document__description-info-container">
+		<h3 class="document__description-text" id={{@section.id}}>{{{@section.title}}}</h3>
+		<div class="document__bottom-info">
+			<div class="{{if @hasImage 'document__hide-icon' }}" aria-hidden="true">
+				{{inline-svg "images/community/file-icon.svg" class="document__icon"}}
+			</div>
+			<p>{{@section.displayDate}}</p>
+		</div>
+	</div>
+</button>

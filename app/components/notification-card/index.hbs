@@ -1,0 +1,27 @@
+<button type="button" class="btn-none notification-card__info-items-container" {{on "click" @openPopupEvents}}>
+	<div class="notification-card__info-item">
+		<div class="notification-card__description-info-container">
+			<span>{{@item.title}}</span>
+			<span class="notification-card__publish-hour">{{@item.dateAndTime}}</span>
+		</div>
+		{{#if (eq @type 'event')}}
+			<div class="notification-card__calendar-items">
+				{{inline-svg "images/community/calendar-line.svg" class="notification-card__line-calendar"}}
+				<div class="notification-card__month-info-container">
+					<span class="notification-card__month-info-item">MAR</span>
+					<span class="notification-card__date">31</span>
+				</div>
+			</div>
+		{{else if (eq @type 'info')}}
+			<div class="notification-card__calendar-items">
+				{{inline-svg "images/community/info-icon.svg" class="notification-card__info-notification"}}
+				{{inline-svg "images/community/info-line.svg" class="notification-card__month-info-container"}}
+			</div>
+		{{else if (eq @type 'document')}}
+			<div class="notification-card__calendar-items">
+				{{inline-svg "images/community/file-icon.svg" class="notification-card__info-notification"}}
+				{{inline-svg "images/community/file-line.svg" class="notification-card__month-info-container"}}
+			</div>
+		{{/if}}
+	</div>
+</button>

@@ -1,0 +1,155 @@
+span.translateHiddenLabel{
+	display:none;
+}
+
+span.translateHiddenEnd{
+	display:none;
+}
+
+.translateEditing{
+	border: dashed 2px red;
+}
+
+.translateEdited{
+	border: dashed 2px orange;
+}
+
+.translateSaved{
+	border: dashed 2px green;
+}
+
+.translateEditable .handle{
+/* Hazardous to do the handle appearing on mouse over => we now always show them in translation mode
+	display: none;
+	overflow: hidden;
+*/
+	display: block;
+	overflow: visible;
+	position: absolute;
+	height: 0;
+	width: 0;
+}
+.translateEditable .handle .container{
+	position: relative;
+	top: -0.4em;
+	left: -1em;
+	cursor: pointer;
+}
+.translateEditable:hover .handle{
+	display: block;
+	overflow: visible;
+}
+
+.translateHiddenEditor{
+	position: absolute;
+	z-index: 10100;
+	background: #fff8bf;
+	border: dotted 1px orange;
+	font-size: 1.6rem;
+	padding: 1rem;
+	min-width: 340px;
+
+	.close{
+		cursor: pointer;
+		font-size: 2.2rem;
+		font-weight: bold;
+		float: right;
+	}
+
+	h1{
+		font-size: 2rem;
+		margin-top: 1rem;
+	}
+
+	h2{
+		font-size: 2rem;
+		font-style: italic;
+	}
+
+	div{
+		margin: 0.8rem 0;
+	}
+
+	label{
+		white-space: nowrap;
+		font-size: 1.4rem;
+		font-weight: normal;
+		text-transform: uppercase;
+		.locale{
+			display: inline-block;
+			width:2em;
+		}
+		&.translateEdited{
+			border: solid 0;
+		}
+		&.translateEdited textarea{
+			border: dashed 2px orange;
+		}
+
+		&.translateSaved{
+			border: solid 0;
+		}
+		&.translateSaved textarea{
+			border: dashed 2px green;
+		}
+	}
+
+	textarea{
+		vertical-align: top;
+		width:85%;
+		margin-left: 1rem;
+		&.disabled{
+			background-color: #dedede;
+		}
+	}
+
+	button{margin-left:40%}
+}
+
+.top-header__translation-item{
+	&.selected{
+		font-weight: bold;
+	}
+}
+
+.translateHiddenEditor label
+{
+	font-weight: bold;
+}
+
+.translations-summary-popup{
+	position: absolute;
+	z-index: 10101;
+	background: #fffde4;
+	border: dotted 1px orange;
+	font-size: 1.6rem;
+	padding: 1rem;
+	min-width: 340px;
+
+	.close{
+		cursor: pointer;
+		font-size: 2.2rem;
+		font-weight: bold;
+		float: right;
+	}
+
+	li{
+		margin-left:  1.4rem;
+
+		label{
+			font-weight: bold;
+			font-style: italic;
+		}
+
+		div{
+			background: #ffe300;
+		}
+		button.applied{
+			text-decoration: line-through;
+		}
+		button.applied::after{
+			content: " Saved!";
+		}
+	}
+
+}

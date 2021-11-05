@@ -1,0 +1,36 @@
+.phone-filter-toolbar {
+
+  &__toolbar-navigation {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid $light-color;
+    border-bottom: 1px solid $light-color;
+	width: 100%;
+  }
+
+  &__toolbar-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 1rem;
+      &--bordered {
+        border-left: 1px solid $light-color;
+        border-right: 1px solid $light-color;
+      }
+
+  }
+
+  &__filters{
+	font-style: normal;
+	font-weight: 400;
+	line-height: 2.4rem;
+	color:$dark-gray-color;
+	padding-top: 0.5rem;
+  }
+
+  &__filters{
+	  padding-top: 0.5rem;
+  }
+}

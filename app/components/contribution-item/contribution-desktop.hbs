@@ -1,0 +1,137 @@
+<div class="contribution-desktop" id="contribution-item">
+  <div class="contribution-desktop__wrapper">
+    <div class="contribution-desktop__left-column">
+      <div class="contribution-desktop__user">
+        <LinkTo @route="user" @model={{@comment.user}} title={{@comment.user.fullName}}>
+          <UserAvatar @user={{@comment.user}} @dimensions={{44}}></UserAvatar>
+        </LinkTo>
+      </div>
+		{{#if this.user.isAuthenticated}}
+      <div class="contribution-desktop__edit-buttons">
+        {{#if @comment.issue.usersCanParticipate}}
+          {{#if (eq @comment.assertions.length 3)}}
+			  <div class="contribution-desktop__highlight-button">
+				  <button type="button" class="btn-none contribution-desktop__padding-style" aria-label={{t "ideaBox.highlightPopup.maxHighlightsUsed"}}>
+					  <span aria-hidden="true">{{inline-svg "/images/consultation/highlight-icon-consultation.svg"}}</span>
+					  <EmberTooltip
+							  @event="click"
+							  @hideOn="mouseleave"
+							  @side="right"
+					  >
+						  {{t "ideaBox.highlightPopup.maxHighlightsUsed"}}
+					  </EmberTooltip>
+				  </button>
+			  </div>
+          {{else}}
+			  <div class="contribution-desktop__highlight-button">
+				  <button type="button" class="btn-none contribution-desktop__padding-style" {{on "click" this.highlightContribution}} aria-label={{t "pb.accessibility.highlight"}}>
+					  <span aria-hidden="true">{{inline-svg "/images/consultation/highlight-icon-consultation.svg"}}</span>
+					  <EmberTooltip
+							  @tooltipClass="white-tooltip"
+							  @arrowClass="white-tooltip-arrow">
+						  {{t "discussion.hightlightTooltip"}}
+					  </EmberTooltip>
+				  </button>
+			  </div>
+          {{/if}}
+        {{/if}}
+
+		  <button type="button" class="btn-none contribution-desktop__padding-style" aria-label={{t "pb.accessibility.bookmark"}} {{on "click" this.bookmarkContribution}}>
+			  <span aria-hidden="true">{{inline-svg "/images/consultation/bookmark.svg"}}</span>
+        <EmberTooltip
+          @tooltipClass="white-tooltip"
+          @arrowClass="white-tooltip-arrow">
+            {{t "discussion.saveTooltip"}}
+        </EmberTooltip>
+		  </button>
+
+      <CommentActions @comment={{@comment}} @editComment={{this.editContribution}} @onDelete={{@onDelete}} @top={{30}} @left={{15}}>
+        <button type="button" class="btn-none" aria-label={{t "pb.accessibility.openDropdown"}}>
+          <span aria-hidden="true">{{inline-svg "/images/consultation/edit.svg"}}</span>
+          <EmberTooltip
+            @tooltipClass="white-tooltip"
+            @arrowClass="white-tooltip-arrow">
+              {{t "discussion.moreTooltip"}}
+          </EmberTooltip>
+        </button>
+      </CommentActions>
+      </div>
+		{{/if}}
+    </div>
+
+    <div class="contribution-desktop__main-column">
+
+      <div class="contribution-desktop__user-info">
+        {{t "discussion.userSays" username=@comment.user.firstName}}
+      </div>
+
+      <h1 class="heading-1 heading-1--quaternary">
+        {{html-safe @comment.title}}
+      </h1>
+
+      <div class="contribution-desktop__comment-text">
+        {{#if @comment.moderationMessage}}
+          {{html-safe @comment.moderationMessage}}
+        {{else}}
+          {{html-safe @comment.content}}
+        {{/if}}
+      </div>
+
+      <div class="contribution-desktop__attachment-container">
+        {{#each @comment.attachments as |attachment|}}
+        <AttachmentItem::item @attachment={{attachment}}/>
+        {{/each}}
+      </div>
+
+      <div class="contribution-desktop__actions-container">
+          {{#if @comment.issue.usersCanParticipate}}
+            <Reactions::LikeButton @content={{@comment}} class="contribution-desktop__action-item"></Reactions::LikeButton>
+          {{/if}}
+		      <Reactions::Summary @content={{@comment}} class="contribution-desktop__action-item"></Reactions::Summary>
+          <span>
+            {{@comment.displayDate}}
+          </span>
+          <button type="button" class="contribution-desktop__share-button btn-none" {{on "click" this.shareContribution}}>
+            <span aria-hidden="true">{{inline-svg "/images/consultation/share.svg"}}</span>
+            <span class="contribution-desktop__share-button-text">
+              {{t 'buttons.shareButton'}}
+            </span>
+          </button>
+      </div>
+
+
+		{{#if (not @comment.issue.usersCanParticipate)}}
+			<div class="contribution-desktop__closed-discussion">
+				<span class="contribution-desktop__closed-text">{{t 'participation.outcomes.messageClosedDiscussion'}}</span>
+			</div>
+		{{/if}}
+
+
+      <div class="contribution-desktop__comments-container">
+        <div class="contribution-desktop__comments-title-container">
+          <span class="contribution-desktop__comments-title">
+            {{t 'discussion.conversation'}}
+          </span>
+          <span class="contribution-desktop__comments-number">
+            {{@comment.commentCount}} {{t 'discussion.comments'}}
+          </span>
+        </div>
+
+        <div class="contribution-desktop__comment-add-container">
+            <CommentAddForm
+              @usersCanParticipate={{@comment.issue.usersCanParticipate}}
+              @rootComment={{@comment}}
+            />
+        </div>
+
+        <CommentList
+          @switchToReplyMode={{this.replyToComment}}
+          @comments={{@comment.comments}}
+          @author={{@comment.user}}
+          @usersCanParticipate={{@comment.issue.usersCanParticipate}}
+		>
+        </CommentList>
+      </div>
+    </div>
+  </div>
+</div>

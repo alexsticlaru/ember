@@ -1,0 +1,72 @@
+.comment-add-form {
+  background: $white;
+  border: 1px solid $medium-primary-color;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+  transition: height 0.4s linear;
+  height: 5.6rem;
+
+  &__comment-content{
+    flex-grow: 1;
+	display: flex;
+	margin-top: 2rem;
+	margin-left: 2rem;
+	justify-content: center;
+	align-items: center;
+  }
+
+  textarea {
+    border: 0 solid $black !important;
+    resize: none;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color:$lighter-gray;
+
+    &::placeholder{
+      font-weight: 400 !important;
+      font-size: 1.4rem !important;
+      color:$lighter-gray;
+    }
+    &:disabled{
+      background-color: inherit;
+    }
+  }
+
+
+  &__avatar {
+	  padding: 0.6rem 0 0 1.6rem;
+  }
+  .user-avatar{
+    margin: 0;
+    padding: 0;
+  }
+
+
+  &__controls{
+    display: flex;
+    flex-direction: column;
+    // width: 8rem;
+    overflow: hidden;
+  }
+  &__add-comment {
+    display: flex;
+    align-self: flex-end;
+	margin-top: 3rem;
+	margin-right: 0.8rem;
+	svg{
+	  width: 6rem;
+	  height: 6rem;
+	}
+  }
+
+  &--expanded {
+      height: 16rem;
+  }
+}

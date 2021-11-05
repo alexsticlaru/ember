@@ -1,0 +1,51 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      #nodejs: 14.12.0
+      nodejs: latest
+  pre_build:
+    commands:
+      #- node -v
+      #- curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+      #- export NVM_DIR="$HOME/.nvm"
+      #- chmod 777 ~/.nvm/nvm.sh
+      #- ~/.nvm/nvm.sh
+      #- chmod 777 ~/.nvm/bash_completion
+      #- ~/.nvm/bash_completion
+      #- export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+      #- [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+      #- source ~/.profile
+      #- nvm install 14.12.0
+      #- npm install npm@14.12.0 -g
+      - npm install -g bower
+      - npm install -g ember-cli
+      #- npm install -g phantomjs
+  build:
+    commands:
+      - node -v
+      - npm set progress=false
+      #- npm set loglevel=warn
+      - npm set loglevel=error
+      - npm install
+      - bower install --allow-root
+      - echo $BUILD_ENVIRONMENT
+      - ember build --environment "$BUILD_ENVIRONMENT"
+      # to activate in case of error while building (if no error it will break the build process on AWS...(because cat will not found files and will send an exit 1)) : - cat /tmp/error.dump.*.log
+      # - rm -rf tmp #node_modules bower_components # opti: keep modules for next builds
+  post_build:
+    commands:
+      - echo $BUILD_ENVIRONMENT
+      #- export BUILD_ENVIRONMENT="$BUILD_ENVIRONMENT"
+      #- dir /
+      #- pwd
+      #- dir dist/
+      - touch dist/env-"$BUILD_ENVIRONMENT"
+
+artifacts:
+  files:
+    - 'dist/**/*'
+    - 'appspec.yml'
+    - 'scripts/BeforeInstall.sh'
+    - 'scripts/AfterInstall.sh'

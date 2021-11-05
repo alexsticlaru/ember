@@ -1,0 +1,110 @@
+.highlight-comment-popup {
+	border-radius: 2rem !important;
+
+	&__selected-text{
+		background-color: yellow;
+	}
+
+	&__top-container{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+	padding: 3rem 3.5rem 4rem 4rem;
+	}
+
+	&__left-container{
+		max-width: 45%;
+	}
+
+	&__title{
+		// font-family: Pulp Display;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 3.2rem;
+		line-height: 110%;
+		/* or 35px */
+		color: #373F41;
+	  svg {
+		width: 3.6rem;
+		height: 3.6rem;
+	  }
+	}
+	&__sub-title{
+		margin-top: 2rem;
+		font-family: Inter;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.5rem;
+		line-height: 2.2rem;
+		color: #6B6C76;
+	}
+
+	&__right-container{
+		width: 50%;
+		margin-left: 4rem;
+		padding-left: 4rem;
+		border-left: 1px solid #ECECEC;
+	}
+
+	&__preview-title{
+		font-family: Inter;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.3rem;
+		line-height: 2.2rem;
+		text-transform: uppercase;
+		color: #6B6C76;
+	}
+
+	&__contribution{
+		max-height: 30rem;
+		overflow-y: scroll;
+		padding-left: 4rem;
+		padding-right: 4rem;
+
+		::selection {
+			background: yellow;
+		}
+	}
+
+	&__bottom-container{
+		background: #FFFFFF;
+		box-shadow: 0px -2px 14px rgba(0, 0, 0, 0.13);
+		display: flex;
+		justify-content: space-between;
+		padding: 1.2rem 3rem 1.2rem 4rem;
+	}
+
+	&__highlights-left-info{
+		font-family: Inter;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.3rem;
+		line-height: 2.2rem;
+		text-transform: uppercase;
+		color: #6B6C76;
+	}
+
+	&__share-highlight-button{
+		color: #FFFFFF;
+		background: #353535;
+		border-radius: 3px;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	&__share-highlight-button--disabled{
+		background: #F4F3F5;
+	}
+
+	&__close-button{
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+
+	}
+
+}

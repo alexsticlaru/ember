@@ -1,0 +1,9 @@
+{{#if @issue.usersCanParticipate}}
+	<div class="contribution-add-form-button">
+		<button class="contribution-add-form-button__action btn-none" type="button" {{on "click" this.addContribution}}>{{t 'buttons.whatIsYourOpinion'}}</button>
+		<LinkTo class="contribution-add-form-button__avatar" @route="user" @model={{this.currentUser}}>
+			<UserAvatar @hideBadge={{true}} @user={{this.currentUser}} @dimensions={{34}}></UserAvatar>
+		</LinkTo>
+	</div>
+{{/if}}
+

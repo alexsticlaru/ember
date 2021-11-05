@@ -1,0 +1,17 @@
+<div class="multiple-choices">
+    {{yield}}
+    <p class="multiple-choices__description">{{html-safe @question.content}}</p>
+    <span class="multiple-choices__indication">{{t 'questionnaire.questions.multipleIndication'}} </span>
+    {{#each @question.answers as |answer|}}
+        <button id={{answer.id}} type="button" class="btn-civ-answer {{if (isIncluded answer.id this.answersIds) 'btn-civ-answer--active'}}"
+                {{on 'click' (fn this.handleAnswer answer)}}>
+                    {{#if (isIncluded answer.id this.answersIds)}}
+                        {{inline-svg "images/check.svg" class="icon-small icon-small--white"}}
+                    {{else}}
+                        <span class="icon-square"/>    
+                    {{/if}}
+                    {{answer.answer}}
+        </button>
+    {{/each}}
+    <Question::Other @answer={{this.otherRecord}} @onAnswerEntered={{this.handleOtherAnswer}}/>
+</div>

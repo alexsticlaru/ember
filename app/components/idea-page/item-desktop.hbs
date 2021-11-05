@@ -1,0 +1,42 @@
+  <div class="idea-item-desktop__top-row">
+  	<span>
+      {{t "discussion.userSays" username=@proposition.user.fullName}}
+  	</span>
+  	<span>
+  		{{@proposition.displayDate}}
+  	</span>
+  </div>
+
+  <div class="idea-item-desktop__content-container">
+  	<div class="idea-item-desktop__content">
+  		<div class="idea-item-desktop__title">
+  			{{@proposition.title}}
+  		</div>
+
+  		<div class="idea-item-desktop__description">
+  			{{html-safe @proposition.description}}
+  		</div>
+
+  		{{#if @proposition.themes.length}}
+  		<div class="idea-item-desktop__theme-container">
+  			{{#each @proposition.themes as |theme|}}
+  			<span class="idea-item-desktop__themes">
+  				{{theme.labelTranslate}}
+  			</span>
+  			{{/each}}
+  		</div>
+  		{{/if}}
+  	</div>
+  	<div class="idea-info-graphic__info-graphic-container" >
+<IdeaInfoGraphic  @progress={{@proposition.globalRelevancy}} @maxProgress={{@proposition.participationPack.ideaBox.upvotesNeeded}} @dimensions={{60}} @user={{@proposition.user}} />
+  	</div>
+  </div>
+
+
+
+  <button type="button" class="btn-civ-grey idea-item-desktop__share-button" {{on "click" @shareIdea}}>
+  	<span aria-hidden="true">{{inline-svg "/images/consultation/share.svg"}}</span>
+  	<span>
+  		{{t 'buttons.shareButton'}}
+  	</span>
+  </button>

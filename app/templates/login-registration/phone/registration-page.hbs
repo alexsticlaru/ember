@@ -1,0 +1,29 @@
+<div class="phone-page__content" aria-label={{this.modalTitle}} >
+	<div class="phone-page__header">
+		<span/>
+		<h1 class="heading-1--quaternary" id="accessibilityHook2" tabindex="0" {{did-insert this.focusOnPopup}}>{{this.modalTitle}}</h1>
+		<button {{on 'click' this.closePage}} type="button" class="btn-close" data-dismiss="modal" aria-label="{{t 'buttons.close'}}">
+				<span aria-hidden="true">{{inline-svg "images/close.svg" class="icon-close"}}</span>
+		</button>
+	</div>
+	<div class="phone-page__body">
+		{{#if this.isCompletingFbAuth }}
+			<div class="phone-page__processing">
+				<Spinner @customClass="phone-page__fb-processing"/>
+				<span class="processing">{{t 'login.processing'}}...</span>
+			</div>
+		{{else}}
+			{{#if this.showRegisterChooser}}
+				<RegistrationPopup::RegisterChooser
+					@onRegistrationClick={{this.showRegisterForm}}
+					@onAlreadyHaveAccountClick={{this.showLogin}}
+					@onFacebookRegistration={{this.registerWithFacebook}}
+				/>
+			{{else if this.isRegisterForm}}
+				<RegistrationPopup::RegisterForm
+					@isPhone={{true}}
+					@onAlreadyHaveAccountClick={{this.showLogin}}/>
+			{{/if}}
+		{{/if}}
+	</div>
+</div>

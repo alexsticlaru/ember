@@ -1,0 +1,44 @@
+<div class="map-location-picker">
+
+  <LeafletMap
+    @lat={{this.lat}}
+    @lng={{this.lng}}
+    @zoom={{zoom}}
+    @attributionControl={{false}}
+    @onClick={{this.addSearchMarker}}
+    as |layers|>
+    <layers.tile @url="http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png" />
+
+  		<layers.marker
+        @icon={{this.icon}}
+        @lat={{this.newMarkerLat}}
+        @lng={{this.newMarkerLong}}
+        @draggable=true
+        @onDragend={{this.updateLocation}}
+        @onAdd={{this.updateLocation}}
+        @zIndexOffset=100
+  			as |marker|>
+      </layers.marker>
+  </LeafletMap>
+
+  <div class="map-location-picker__address-search-container">
+    <span {{on 'click' this.addressSearch}} role="button" aria-label={{t "participatoryMap.searchAddress"}} class="map-location-picker__address-search-button">
+      <span aria-hidden="true">{{inline-svg '/images/ideaBox/search.svg'}}</span>
+    </span>
+    <span class="map-location-picker__address-search-input">
+      <Input
+        @value={{this.addressSearchString}}
+        @placeholder={{t "participatoryMap.searchAddress"}}
+        @enter={{this.addressSearch}}/>
+		</span>
+	</div>
+
+		<span {{on 'click' this.getUserLocation}} role="button" title={{t "participatoryMap.userLocation"}} class="map-location-picker__location-button">
+      <span aria-hidden="true" >{{inline-svg '/images/ideaBox/arrow.svg'}}</span>
+		</span>
+
+  <div class="map-location-picker__attribution">
+    Map Data © <a href="https://www.openstreetmap.org">Open Street Maps</a> contributors - <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>
+  </div>
+
+</div>

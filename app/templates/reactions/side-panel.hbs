@@ -1,0 +1,34 @@
+<div class="reactions-side-panel">
+	<div class="reactions-side-panel__top-container">
+		<div class="reactions-side-panel__top-left">
+			<button type="button" class="btn-close" {{on "click" this.closePanel}} aria-label={{t 'buttons.close'}}>
+				<span aria-hidden="true">{{inline-svg "/images/back-arrow.svg"}}</span>
+			</button>
+			<h1 class="heading-1--quaternary">
+				{{t "reactions.title"}}
+			</h1>
+		</div>
+	</div>
+
+	<div class="reactions-side-panel__body">
+		<div class="reactions-side-panel__stats">
+			{{#each this.reactionCounts as |reaction|}}
+				<button type="button" class="reactions-side-panel__stats-item btn-none" {{on "click" (fn this.switchReaction reaction.reaction.type)}}>
+					{{inline-svg reaction.reaction.svg}} {{reaction.count}}
+					<EmberTooltip>
+						{{t (concat 'reactions.type.' reaction.reaction.type)}}
+					</EmberTooltip>
+				</button>
+			{{/each}}
+		</div>
+
+		{{#each this.filteredReactions as |reaction|}}
+			<div class="reactions-side-panel__user-container">
+				<UserAvatar @user={{reaction.user}} @dimensions={{35}}></UserAvatar>
+				<div class="reactions-side-panel__user-name">
+					{{reaction.user.fullName}}
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</div>

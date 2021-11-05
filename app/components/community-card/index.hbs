@@ -1,0 +1,72 @@
+<div class="community-card">
+	<div class="community-card__cover">
+		<CloudinaryImage aria-hidden="true" @publicId={{@community.cover}} @options={{hash format='png' height='300' transforms='q_auto,f_auto,c_fill'}} />
+		<div class="community-card__country">
+			{{#if @community.countryFlagFilename}}
+				<span aria-hidden="true">{{inline-svg @community.countryFlagFilename title=@community.countryName class="community-card__flag-picture"}}</span>
+			{{/if}}
+			<span class="community-card__flag-name">{{@community.countryName}}</span>
+		</div>
+{{!--		&lt;!&ndash; <div class="community-card__cover-center-box">-->
+<!--			<div class="community-card__cover-title">{{@community.countryName}}</div>-->
+<!--			<div class="community-card__cover-subtitle">-->
+<!--				<span aria-hidden="true">{{inline-svg '/images/official.svg'}}</span>-->
+<!--				{{t 'communities.officialProfile'}}-->
+<!--			</div>-->
+<!--		</div> &ndash;&gt;--}}
+	</div>
+	<div class="community-card__details">
+		<div class="community-card__logo-section" aria-hidden="true">
+		{{#if @community.logo}}
+			<CloudinaryImage @publicId={{@community.logo}} @options={{hash  format='png'
+				transforms='q_auto,f_auto,c_fill'}} />
+		{{else}}
+			<CloudinaryImage @publicId="communities/image/default.png" @options={{hash  format='png'
+				transforms='q_auto,f_auto,c_fill'}} />
+		{{/if}}
+		</div>
+		<div class="community-card__title" tabIndex="0">
+			{{@community.name}} <span aria-label="{{t 'accessibility.certifiedCommunity'}}">{{inline-svg '/images/communities/icons/check.svg'}}</span>
+		</div>
+
+		<div class="community-card__description" tabIndex="0">
+			{{#if this.isLongDescription}}
+			<div class="community-card__description-fader">
+			</div>
+			{{/if}}
+			{{#if @community.description}}
+				{{html-safe this.cleanedCommunityDescription }}
+			{{else}}
+				{{html-safe this.cleanedCommunityIntroMessage }}
+			{{/if}}
+		</div>
+		{{!--{{#if this.isLongDescription}}
+			<span class="community-card__description-see-more" tabIndex="0">
+				{{t 'communities.buttons.seeMore'}}
+			</span>
+		{{/if}}--}}
+
+
+		<div class="community-card__info-container">
+		{{#if @community.v7redirect}}
+			<div class="community-card__statistics-box">
+					<span aria-hidden="true">{{inline-svg '/images/projects.svg'}}</span>
+					<span class="community-card__projects" tabIndex="0">{{this.projectsCount}} {{t 'communities.projects'}}</span>
+			</div>
+		{{/if}}
+			<div class="community-card__statistics-box">
+				<span aria-hidden="true">{{inline-svg '/images/community/social-icons/user-icon.svg'}}</span>
+				{{#if @community.participantsCount}}
+					<span class="community-card__members" tabIndex="0">{{t 'communities.participants' number=@community.participantsCount}}</span>
+				{{else}}
+					<span class="community-card__members" tabIndex="0">{{t 'communities.participants' number=@community.globalRelevancy}}</span>
+				{{/if}}
+			</div>
+		</div>
+		<div class="community-card__action-button">
+			<LinkTo tabindex="-1" @route="community" @model={{@community.url}}>
+				<button tabindex="0" type="submit" class="btn-civ-black-reverse community-card__see-projects-btn">{{#if @community.v7redirect}}{{t 'communities.buttons.seeProjects'}}{{else}}{{t 'communities.buttons.viewCommunity'}}{{/if}}</button>
+			</LinkTo>
+		</div>
+	</div>
+</div>

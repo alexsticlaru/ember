@@ -1,0 +1,73 @@
+<div class="questionnaire">
+    <div class="questionnaire__header" style={{safe-cloudinary-url @model.questionnaire.image width="1900" height="600" transforms = "q_auto,f_auto,c_fill"}}>
+        <LinkTo @route="community.participation" class="link-back-btn" @models={{array @model.project.community.url @model.project.url}}>
+            <span aria-hidden="true">{{inline-svg "/images/white-arrow.svg" class="link-back-btn__arrow-icon"}}</span>
+            <p class="link-back-btn__text-back-button">{{t 'buttons.projectBy'}} {{@model.project.community.name}}</p>
+        </LinkTo>
+        <div class="questionnaire__intro-box">
+            {{#if @model.questionnaire.userDidComplete}}
+                <span class="questionnaire__answered-mark">{{t 'questionnaire.youAnswered'}}</span>
+            {{/if}}
+            <div class="questionnaire__intro-row">
+                {{#if (eq @model.questionnaire.status 'closed')}}
+                    <span class="questionnaire__intro-status">{{capitalize @model.questionnaire.status}}</span>
+                {{else}}
+                    <div class="questionnaire__intro-square">
+                        <span>{{@model.questionnaire.questions.length}}</span>
+                        <span>{{uppercase (t 'questionnaire.questionsNr')}}</span>
+                    </div>
+                    <div class="questionnaire__intro-square">
+                        <span>{{this.minLong}}</span>
+                        <span>{{uppercase (t 'questionnaire.questionsTime')}}</span>
+                    </div>
+                {{/if}}
+            </div>
+            <h1 class="heading-1">{{@model.questionnaire.title}}</h1>
+            <button type="button" class="btn-none questionnaire__share-button" {{on "click" this.shareQuestionnaire}}>
+              <span aria-hidden="true" class="questionnaire__share-button-title">{{inline-svg '/images/community/share-icon.svg'}} {{t 'participation.shareButton'}}</span>
+            </button>
+            <p class="questionnaire__description">{{@model.questionnaire.description}}</p>
+            {{#if @model.questionnaire.userDidComplete}}
+                <button type="button" class="btn-civ-black questionnaire__start-btn" {{on "click" this.seeResults}}>
+                    {{t 'questionnaire.seeResults'}}
+                </button>
+            {{else}}
+                <button type="button" class="btn-civ-black questionnaire__start-btn" {{on "click" this.startQuestionnaire}}>
+                    <span>{{t 'questionnaire.takeBtn'}}</span>
+                </button>
+            {{/if}}
+        </div>
+    </div>
+    <div class="questionnaire__info">
+        <div class="questionnaire__info-participation">
+            <h3 class="heading-3">{{t 'questionnaire.participationTitle'}}</h3>
+            <ul class="questionnaire__info-list">
+                <li>
+                    <span>{{t 'questionnaire.info.1st'}}</span>
+                </li>
+                <li>
+                    <span>{{t 'questionnaire.info.2nd'}}</span>
+                </li>
+                <li>
+                    <span>{{t 'questionnaire.info.3rd'}}</span>
+                </li>
+                <li>
+                    <span>{{t 'questionnaire.info.4th'}}</span>
+                </li>
+                <li>
+                    <span>{{t 'questionnaire.info.5th'}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="questionnaire__info-legal">
+            <h3 class="heading-3">{{t 'questionnaire.legalTitle'}}</h3>
+            <span>
+                {{t 'questionnaire.legalNotice'}}
+            </span>
+        </div>
+    </div>
+    {{#if this.showQuestions}}
+        <QuestionnaireQuestions @model={{@model}} @anonymousUser={{this.anonymousUser}}/>
+    {{/if}}
+    {{outlet}}
+</div>

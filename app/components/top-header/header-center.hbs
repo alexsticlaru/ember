@@ -1,0 +1,54 @@
+<div class="top-header__center">
+	{{#if showAdminsMenu}}
+		{{!-- Deactivated until dashboard is ready
+		<div class="top-header__tabs-item-container">
+			<LinkTo @route="home" class="link-btn top-header__tabs-item">
+					<span aria-hidden="true">{{inline-svg 'images/dashboard' class="top-header__tabs-item-icon"}}</span>
+					<span>{{t 'top-header.dashboard'}}</span>
+			</LinkTo>
+		</div> --}}
+
+		<div class="top-header__tabs-item-container">
+			<LinkTo @route="community" @model={{this.communityService.currentCommunity.url}} class="{{this.selectCommunity}}link-btn top-header__tabs-item">
+					<span aria-hidden="true">{{inline-svg 'images/users' class="top-header__tabs-item-icon"}}</span>
+					<span>{{t 'top-header.yourCommunity'}}</span>
+			</LinkTo>
+		</div>
+
+		<HeaderDropdown @triggerClass="{{this.selectProjects}}link-btn top-header__tabs-item top-header__tabs-item-container" as |dd|>
+			<dd.trigger>
+					<span aria-hidden="true">{{inline-svg 'images/projects' class="top-header__tabs-item-icon"}}</span>
+					<span>{{t 'top-header.projects'}}</span>
+					<span aria-hidden="true">{{inline-svg 'images/arrow-down'}}</span>
+			</dd.trigger>
+			<dd.content>
+				<TopHeader::ProjectsMenu/>
+			</dd.content>
+		</HeaderDropdown>
+
+		<div class="top-header__tabs-item-container">
+			<LinkTo @route="how-it-works" class="{{this.selectHowItWorks}}link-btn top-header__tabs-item">
+					<span>{{t 'top-header.howTo'}}</span>
+			</LinkTo>
+		</div>
+
+	{{else}}
+
+		{{#unless this.loggedUser}}
+		<div class="top-header__tabs-item-container">
+			<a href="https://www.civocracy.com" class="link-btn top-header__tabs-item" target="_blank" rel="noopener noreferrer">
+				<span aria-hidden="true">{{inline-svg 'images/network' class="top-header__tabs-item-icon"}}</span>
+				<span>{{t 'top-header.organization'}}</span>
+			</a>
+		</div>
+
+		{{/unless}}
+		<div class="top-header__tabs-item-container">
+			<LinkTo @route="communities" class="link-btn top-header__tabs-item">
+				<span aria-hidden="true">{{inline-svg 'images/users' class="top-header__tabs-item-icon"}}</span>
+				<span>{{t 'top-header.communities'}}</span>
+			</LinkTo>
+		</div>
+	{{/if}}
+
+</div>

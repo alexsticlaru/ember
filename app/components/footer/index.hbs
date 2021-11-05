@@ -1,0 +1,25 @@
+<ContainerQuery
+  id="footer-query"
+  @features={{hash
+    phone=(cq-width max=this.config.breakpoints.phone)
+    tabPort=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabPort)
+    tabLand=(cq-width min=this.config.breakpoints.tabPort max=this.config.breakpoints.tabLand)
+    desktop=(cq-width min=this.config.breakpoints.tabLand max=this.config.breakpoints.bigDesktop)
+    bigDesktop=(cq-width min=this.config.breakpoints.bigDesktop)}}
+    class="top-header-container-query"
+  as |CQ|
+>
+  {{#if (or CQ.features.bigDesktop CQ.features.desktop)}}
+	<footer class="footer desktop">
+		<Footer::Desktop/>
+	</footer>
+  {{else if CQ.features.tabLand}}
+	<footer class="footer tabland">
+		<Footer::Desktop/>
+	</footer>
+  {{else if CQ.features.tabPort}}
+	<Footer::Phone/>
+  {{else}}
+	<Footer::Phone/>
+  {{/if}}
+</ContainerQuery>

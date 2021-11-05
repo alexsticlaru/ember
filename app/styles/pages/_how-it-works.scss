@@ -1,0 +1,106 @@
+.how-it-works{
+  padding-bottom: 10rem;
+  padding-top: 8rem;
+background: #FBFAF9;
+
+  &__title{
+    font-family: Sora;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4.5rem;
+    letter-spacing: 0.00684685rem;
+    color: #373F41;
+    text-align: center;
+  }
+
+  &__subtitle{
+    font-family: Sora;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.2rem;
+    text-align: center;
+    letter-spacing: 0.00684685rem;
+    color: #373F41;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  &__help{
+    font-family: Sora;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.0rem;
+    line-height: 3.0rem;
+    color: #373F41;
+    text-align: center;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+  }
+
+  &__card-container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 130rem;
+    margin: auto;
+      justify-content: center;
+  }
+
+  &__card{
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #E4E4E4;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 28rem;
+    height: 43rem;
+    margin: 1.7rem;
+  }
+
+  &__card-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 17.4rem;
+    width: 28rem;
+  }
+
+  &__card-title{
+    font-family: Sora;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.7rem;
+    line-height: 138.9%;
+    letter-spacing: 0.0126802rem;
+    color: #373F41;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 1.2rem;
+
+  }
+
+  &__card-explanation{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 160.2%;
+    letter-spacing: 0.0126802rem;
+    color: #5E617C;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  &__card-link{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: #2A6DE8;
+
+    position: absolute;
+    bottom: 2.9rem;
+    right: 1.2rem;
+  }
+
+}

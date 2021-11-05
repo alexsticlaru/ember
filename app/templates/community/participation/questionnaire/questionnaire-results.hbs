@@ -1,0 +1,19 @@
+<div class="questionnaire-results">
+    <h1 class="heading-1 questionnaire-results__title-header">{{t 'questionnaire.resultsTitle'}}</h1>
+    <div class="questionnaire-results__body">
+        {{#each @model.questionnaire.questions as |question|}}
+            {{#if (isIncluded question.fieldType (array 'multiple_choices' 'yes_no' 'choice'))}}
+                <Question::ChoiceResults @question={{question}} @user={{this.user}}/>
+            {{else if (eq question.fieldType 'range')}}
+                <Question::RangeResults @question={{question}} @user={{this.user}}/>
+            {{else if (eq question.fieldType 'order_choice')}}
+                <Question::OrderChoiceResults @question={{question}} @user={{this.user}}/>  
+            {{/if}}
+        {{/each}}
+    </div>
+    <div class="questionnaire-results__footer">
+        <button type="button" class="btn-civ-black-reverse questionnaire-questions__end-btn" {{on 'click' this.backToProject}}>
+            {{t 'questionnaire.projectBack' }}
+        </button>
+    </div>
+</div>

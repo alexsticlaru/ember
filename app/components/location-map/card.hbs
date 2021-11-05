@@ -1,0 +1,10 @@
+<LinkTo class="location-map-card" @route="community" @model={{this.communityUrl}} >
+    <CloudinaryImage @publicId={{@location.logo}} @options={{hash width='170' format='png' transforms='q_auto,f_auto'}} class="location-map-card__logo" />
+    <button type="button" class="location-map-card-close" {{on 'click' this.handleCardClose }}>
+        {{inline-svg "images/close.svg" class="icon-close"}}
+    </button>
+    <div class="location-map-card__name">
+        <div class="arrow-right arrow-right--orange"></div>
+        <span>{{@location.name}}</span>
+    </div>
+</LinkTo>

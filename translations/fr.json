@@ -1,0 +1,648 @@
+{
+ "accessibility": {
+  "goBack": "Retour",
+  "image": "Image téléchargée par l'utilisateur",
+  "languageSelector": "Changer la langue",
+  "openMenu": "Menu",
+  "ratingAccessibilityInfo": "{number} participants soutiennent cette idée",
+  "sendComment": "Envoyer un commentaire"
+ },
+ "activation-popup": {
+  "email": "Indiquez nouvelle adresse email",
+  "emailRequired": "Merci d'indiquer une adresse email valide.",
+  "message": "Avant de participer, vous devez vérifier votre compte. Veuillez confirmer l'e-mail que nous vous avons envoyé dans votre boîte mail.",
+  "password": "Votre mot de passe",
+  "passwordRequired": "Indiquez votre mot de passe pour pouvoir modifier votre email",
+  "resendEmail": "Renvoyer l'email de confirmation",
+  "sentEmail": "Email de confirmation envoyé",
+  "title": "Il semblerait que votre email n'ait pas été encore confirmé."
+ },
+ "addDocument": {
+  "editDocumentContent": "Contenu du document* :",
+  "editDocumentContentPlaceholder": "Ex : \"La Ville de Lyon souhaite vous impliquer en lançant une grande consultation citoyenne à propos du changement climatique. Le résultat de cette consultation enrichira le prochain Plan Climat de la Ville de Lyon 2020-2030. Le changement climatique nous concerne tous ! Nous vous remercions par avance pour vos idées, propositions et témoignages. \"",
+  "editDocumentTitle": "Titre du document",
+  "editFormTitle": "Modifier le document",
+  "navTitle": "Documents",
+  "newDocumentButton": "Ajouter un document",
+  "newDocumentContent": "Contenu du document :",
+  "newDocumentContentPlaceholder": "\"La Ville de Lyon souhaite vous impliquer en lançant une grande consultation citoyenne à propos du changement climatique. Le résultat de cette consultation enrichira le prochain Plan Climat de la Ville de Lyon 2020-2030. Le changement climatique nous concerne tous ! Nous vous remercions par avance pour vos idées, propositions et témoignages.\"",
+  "newDocumentTitle": "Titre du document :",
+  "preview": "Aperçu",
+  "remove": "Supprimer le document",
+  "save": "Sauvegarder le document",
+  "title": "Ajouter un document"
+ },
+ "addUpdate": {
+  "coverDimensions": "Format recommandé: PNG 205 x 265 pixels",
+  "discard": "Annuler",
+  "edit": "Modifier",
+  "editDiscard": "Ignorer les changements",
+  "editFormTitle": "Modifier actualité",
+  "editUpdateContent": "Contenu actualité*:",
+  "editUpdateTitle": "Titre actualité*:",
+  "navTitle": "Actualités",
+  "newUpdateButton": "Ajouter une actualité",
+  "newUpdateContent": "Contenu de l'actualité :",
+  "newUpdateImage": "Image :",
+  "newUpdateTitle": "Titre de l'actualité :",
+  "remove": "Supprimer l'actualité",
+  "save": "Enregistrer",
+  "scheduledDate": "Date:",
+  "scheduledDatePlaceholder": "Date d'envoi",
+  "sendLaterCheckbox": "Envoyer plus tard",
+  "sendLaterCheckboxContent": "Vous pouvez choisir une date spécifique. Votre communauté recevra toutes les actualités à 14h.",
+  "sendNow": "Envoyer \nl'actualité",
+  "title": "Ajouter une actualité"
+ },
+ "breadcrumbs": {
+  "documents": "Documents"
+ },
+ "buttons": {
+  "changeEmail": "Changer l'email",
+  "close": "Fermer",
+  "commentCount": "{number, plural, one {1 commentaire} other {# commentaires}}",
+  "downloadDocument": "Télécharger un document",
+  "login": "Connexion",
+  "loginEmail": "Connexion e-mail",
+  "logout": "Se déconnecter",
+  "propositionDeleteCancel": "Annuler",
+  "propositionDeleteConfirm": "Supprimer",
+  "remove": "Supprimer",
+  "shareButton": "Partager",
+  "signup": "Inscription",
+  "signupEmail": "Inscription par e-mail",
+  "viewDocument": "Lire document",
+  "whatIsYourOpinion": "Quel est votre avis sur le sujet ?"
+ },
+ "communities": {
+  "buttons": {
+   "viewCommunity": "Voir les projets"
+  },
+  "communitiesBackButton": "Communautés",
+  "communitiesLabel": "Communautés",
+  "contributions": "{number} participations",
+  "currentProjects": "Projets en cours",
+  "currentProjectsMessage": "Vous pouvez participer à ces projets.",
+  "members": "Membres",
+  "noOpenedProjects": "Il semble qu'il n'y ait pas de projets en cours pour le moment, mais vous pouvez toujours accéder aux {customText} !",
+  "participants": "{number} Membres",
+  "pastProjects": "Projets terminés",
+  "projects": "Projets",
+  "questions": "{number} Questions",
+  "subTitle": "Là où se rassemblent les citoyen·nes, décideur·euses et expert·es\npour inventer des solutions aux enjeux de chez nous"
+ },
+ "community": {
+  "addModules": {
+   "addButton": "Ajouter",
+   "discussionExplanation": "La discussion permet à vos participants d'aller plus loin dans le débat. Ils peuvent écrire de longues contributions et soutenir les autres avec les commentaires, soutiens et réactions. En savoir plus",
+   "discussionSubtitle": "\"Je souhaite débattre en profondeur sur ce sujet.\"",
+   "discussionTitle": "Discussion",
+   "explanation": "Vous pouvez ajouter des modes ici, ils apparaîtront sur la liste à gauche.",
+   "navTitle": "+ Ajouter module de participation",
+   "questionareExplanation": "Le questionnaire vous permet de recueillir des réponses sur des questions spécifiques, pour mieux comprendre les membres de votre communauté et leurs opinions, ce qui facilite votre prise de décision. En savoir plus",
+   "questionareSubtitle": "\"Je veux recueillir des informations sur mes participants.\"",
+   "questionareTitle": "Questionnaire",
+   "title": "Ajouter des modes de participation"
+  },
+  "adminsManagement": {
+   "addAdmin": "Ajouter un utilisateur Civocracy en tant qu'administrateur projet",
+   "addAdminButton": "Ajouter un administrateur",
+   "addAdminCommunity": "Ajouter un utilisateur Civocracy en tant qu'administrateur communauté :",
+   "addAdminCommunityTooltip": "Ajouter un administrateur <br>• Vous pouvez inscrire leur email, ils recevront une invitation. S'ils sont déjà membres de Civocracy, vous pouvez les ajouter en écrivant leur nom.",
+   "addAdminPlaceholder": "Ex : Marie Lassalle",
+   "addAdminTooltip": "Ajouter un administrateur <br>• Vous pouvez inscrire leur email, ils recevront une invitation. S'ils sont déjà membres de Civocracy, vous pouvez les ajouter en écrivant leur nom.",
+   "navInfoTitle": "INFORMATIONS GÉNÉRALES",
+   "navPublishedTitle": "Modes de participation publiés",
+   "navTitle": "Administrateur & visibilité",
+   "navUnpublishedExplanation": "Il n'y a pas encore de modules non publiés",
+   "navUnpublishedTitle": "Modes de participation non publiés",
+   "title": "Administrateurs communauté :",
+   "titleProject": "Administrateurs projet :",
+   "titleProjectTooltip": "Administrateurs projet <br>• Vous pouvez donner les droits administratifs aux membres de votre équipe pour accéder aux statistiques et modérer les projets. En savoir plus >",
+   "titleTooltip": "Administrateurs communauté <br>• Vous pouvez donner les droits administratifs aux membres de votre équipe pour accéder aux statistiques, modérer les projets et modifier votre page communauté. En savoir plus >"
+  },
+  "communityManagement": {
+   "admins": "Administrateurs communauté",
+   "country": "Pays* :",
+   "cover": "Photo de couverture* :",
+   "coverDimensions": "Format recommandé :<br>PNG 725 x 400 pixels",
+   "coverTooltip": "Photo de couverture de la communauté <br>• Ajoutez une photo de couverture pour votre communauté. Elle prendra de la place sur votre page alors faites en sorte qu'elle représente bien votre communauté.",
+   "delete": "Supprimer la communauté",
+   "deleteProject": "Supprimer projet",
+   "description": "Description* :",
+   "descriptionTooltip": "Description de votre communauté <br>• Décrivez l'objectif de votre communauté. Parlez de vos projets, de l'impact que vous souhaitez créer avec les membres de votre communauté et expliquez à quoi serviront les résultats.",
+   "facebook": "Facebook :",
+   "infoTitle": "Communauté :",
+   "language": "Langue* :",
+   "linkedin": "LinkedIn :",
+   "logo": "Logo* :",
+   "logoDimensions": "Format recommandé :<br>PNG 180 x 80 pixels",
+   "logoTooltip": "Logo de votre communauté <br>• Le logo apparaîtra en haut de la page et devrait représenter votre communauté. Si possible, utilisez votre logo officiel.",
+   "name": "Nom de la communauté* :",
+   "nameTooltip": "Nom de la communauté <br>• Si possible, utilisez le nom officiel de votre organisation.",
+   "obligatoryFields": "* Champs obligatoires",
+   "twitter": "Twitter :",
+   "type": "Type de communauté* :",
+   "typeOrg": "Organisation",
+   "url": "URL de la communauté* :",
+   "urlTooltip": "URL de la communauté <br>• Une fois la communauté créée, le seul moyen de changer son URL est de contacter l'équipe technique Civocracy.",
+   "website": "Site internet :"
+  },
+  "consultationManagement": {
+   "about": "Dites-nous en plus...",
+   "aboutTooltip": "Dites-nous en plus... <br>• Écrivez quelques questions pour inspirer vos participants.",
+   "ConsultationExplanation": "Une discussion est un lieu de débat approfondi autour d'un sujet que vous avez choisi. Laissez les membres de votre communauté interagir, partager leur opinion et discuter autour des suggestions des autres. En savoir plus",
+   "context": "Contexte :",
+   "contextTooltip": "Contexte <br>• Expliquez le contexte de cette discussion et pourquoi vous avez choisi ce sujet en quelques lignes très simples et claires.",
+   "cover": "Image de couverture* :",
+   "coverDimensions": "Format recommandé : PNG 1440 x 500 pixels",
+   "coverTooltip": "Photo de couverture <br>• Choisissez une image positive et engageante, représentative du sujet de la discussion. Elle image doit inspirer vos participants et leur donner des idées.",
+   "delete": "Supprimer",
+   "durationTooltip": "Durée <br>• La durée idéale d'une discussion est d'entre 4 et 8 semaines. Toutes les discussions s'ouvrent à 10h du matin et ferment à minuit.",
+   "name": "Titre de la discussion* :",
+   "nameTooltip": "Titre <br>• Le titre doit être accrocheur et représentatif du sujet de la discussion. Il est idéalement sous forme de question.",
+   "purpose": "Objectif de la discussion :",
+   "purposeTooltip": "Objectif <br>• Expliquez l'objectif de la discussion et ce que vous comptez faire avec les résultats."
+  },
+  "newProject": {
+   "examplePage": "Exemple page projet",
+   "explanation": "Un projet traite d'un sujet spécifique. Vous pouvez y ajouter les modes de participation que vous voulez à l'étape suivante. \nEn savoir plus",
+   "ideaTitle": "Boîte à idées",
+   "ideaVisibility": "Choisir la visibilité :",
+   "ideaVisibilityConfidential": "Idées confidentielles",
+   "ideaVisibilityConfidentialExplanation": "Les idées des participants ne seront pas ouvertes au vote et seulement visibles par les administrateurs.",
+   "ideaVisibilityPublicExplanation": "Tous les membres de Civocracy peuvent ajouter des idées et voir celles des autres.",
+   "ideaVisibilityTooltip": "Confidentialité <br>• Nous vous recommandons de garder la Boîte à idées ouverte au public pour créer plus d'impact.",
+   "next": "Suivant",
+   "step": "Étape",
+   "title": "Nouveau projet",
+   "upvotesNeeded": "Définir le nombre maximum de soutiens :"
+  },
+  "project": {
+   "accessWithPassword": "Accéder avec le mot de passe",
+   "participate": "Participer",
+   "passwordPopup": {
+    "button": "Accéder au projet"
+   },
+   "privateProject": "Projet privé"
+  },
+  "projectManagement": {
+   "cover": "Photo de couverture* :",
+   "coverDimensions": "Format recommandé : PNG 205 x 265 pixels",
+   "coverTooltip": "Photo de couverture <br>• Choisissez une photo colorée, engageante et représentative de votre projet. Elle doit être agréable à regarder et inspirer les participants. Des mots peuvent être écrits dessus pour encourager la participation.",
+   "dateBegin": "Date de début :",
+   "dateEnd": "Date de fin :",
+   "description": "À propos de ce projet* :",
+   "descriptionPlaceholder": "Ex : \"La Ville de Lyon souhaite vous impliquer en lançant une grande consultation citoyenne à propos du changement climatique. Le résultat de cette consultation viendra enrichir le prochain Plan Climat Énergie Territorial de la Ville de Lyon pour la période 2020-2030. Le changement climatique nous concerne tous ! Nous vous remercions par avance pour vos idées, propositions et témoignages. N'hésitez pas à parler de cette consultation autour de vous !\"",
+   "descriptionTooltip": "À propos du projet <br>• Définissez l'objectif du projet.<br><br>• Résumez le projet en une dizaine de lignes, avec des mots simples et des phrases courtes. Expliquez en quoi ce projet pourrait impacter les participants.<br><br>• Pourquoi avez-vous choisi ce projet en particulier ? Pourquoi les participants devraient-ils s'engager ? Quel est l'impact global de votre projet ?",
+   "infoCompletion": "Finalisation :",
+   "infoTitle": "Projet :",
+   "name": "Nom du projet* :",
+   "nameTooltip": "Nom du projet <br>• Choisissez un nom court, accrocheur et qui attirera l'attention des utilisateurs.",
+   "navTitle": "À propos",
+   "obligatoryFields": "* Champs obligatoires",
+   "outcomeBenefits": "À quoi serviront les résultats :",
+   "outcomeBenefitsPlaceholder": "Ex : \"Les résultats de cette discussion seront pris en compte dans notre nouveau programme 2020-2030 contre le changement climatique. Merci pour votre participation et votre implication dans votre ville !\"",
+   "outcomeBenefitsTooltip": "Résultats <br>• Attention ! Les participants sont motivés s'ils comprennent l'impact de leur contribution. Soyez concrets et utilisez des mots simples. Expliquez comment leur participation impactera vos décisions.",
+   "publish": "Publier",
+   "url": "URL du projet* :",
+   "urlTooltip": "Écrivez l'URL du projet."
+  },
+  "propositionManagement": {
+   "allowMap": "Autoriser la localisation des idées sur la carte",
+   "chooseCenter": "Choisir le centre de la carte",
+   "chooseCenterTooltip": "Choisissez le centre de la carte en bougeant l'icône sur la carte"
+  },
+  "questionnaireManagement": {
+   "addAnswer": "+ Ajouter réponse",
+   "addQuestion": "Ajouter question",
+   "cover": "Image de couverture",
+   "coverDimensions": "Format recommandé : PNG 727 x 400 pixels",
+   "delete": "Supprimer",
+   "description": "Description",
+   "descriptionPlaceholder": "Ex : Ex. Dans votre vie quotidienne, faites-vous attention à votre consommation d'énergie et d'eau ? Si oui, quels sont les gestes et actions que vous avez déjà adoptés ? Si non, pourquoi ?",
+   "descriptionTooltip": "Description <br>• Décrivez l'objectif de votre questionnaire en quelques lignes très simples.",
+   "endNumber": "Chiffre de fin",
+   "exportCsv": "Export données .csv",
+   "exportOds": "Extraction données .ods",
+   "exportXlsx": "Extraction données .xlsx",
+   "name": "Titre du questionnaire* :",
+   "other": "Autre",
+   "question": "Question",
+   "questionDescriptionPlaceholder": "Description (facultatif)",
+   "QuestionnaireExplanation": "Le questionnaire vous permet de recueillir des réponses sur des questions spécifiques, ce qui vous permet de mieux comprendre les membres de votre communauté, et vous facilite la prise de décision. En savoir plus",
+   "questionPlaceholder": "Ecrivez votre question ici",
+   "QuestionsTab": "Questions",
+   "questionType": "Type de question :",
+   "questionTypeTooltip": "Type de question <br>• Vous avez le choix entre 8 types de questions. En savoir plus",
+   "required": "Obligatoire :",
+   "requiredTooltip": "Requis <br>• Nous vous conseillons de toujours sélectionner \"Non\" pour laisser à vos participants le choix de répondre ou non.",
+   "ResultsTab": "Export des données",
+   "SetUpTab": "Paramétrer",
+   "startNumber": "Chiffre de début",
+   "withoutRegistration": "Questionnaire sans inscription",
+   "withoutRegistrationDescription": "Idéal pour les actions sur le terrain, vos participants n'ont pas besoin de compte Civocracy pour répondre au questionnaire. Attention ! Ils pourront y répondre plusieurs fois."
+  },
+  "visibilityManagement": {
+   "passwordExplanation": "Seuls les membres avec ce lien et mot de passe pourront accéder à votre projet.",
+   "passwordTitle": "Visiteurs avec mot de passe",
+   "publicExplanation": "Permet à tous les visiteurs de Civocracy d'accéder à votre projet. Ils devront se créer un compte pour participer.",
+   "publicTitle": "Tout le monde",
+   "title": "Une fois votre projet publié, il sera visible par :",
+   "tooltip": "Visibilité du projet <br>• Nous vous recommandons rendre votre page visible par tous pour toucher plus de monde et avoir plus d'impact."
+  }
+ },
+ "cookie": {
+  "agreeButton": "Accepter les cookies",
+  "manageButton": "Gérer mes préférences",
+  "necessaryButton": "Cookies nécessaires",
+  "preferenceTitle": "Gérer mes préférences",
+  "saveButton": "Sauvegarder mes préférences",
+  "statisticsText": "Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre plateforme, en collectant et en rapportant des informations anonymes comme les visites des utilisateurs et les fonctionnalités qu'ils utilisent. Civocracy utilise Matomo-Piwik, un outil de statistiques recommandé par les autorités nationales de protection des données.",
+  "statisticsTitle": "Cookies statistiques",
+  "technicalText": "Ces cookies sont nécessaires pour le bon fonctionnement de la plateforme. Ils vous permettent d’utiliser les fonctionnalités importantes et de naviguer aisément. Ils incluent aussi les fonctionnalités de sécurité et d’accessibilité.",
+  "technicalTitle": "Cookies nécessaires",
+  "text": "Lorsque vous naviguez sur la plateforme Civocracy, certaines données sont récupérées depuis votre navigateur, généralement sous la forme de cookies. Ces données anonymes sont utilisées pour améliorer votre expérience sur notre plateforme et s’assurer qu’elle fonctionne correctement. Civocracy ne collecte que les cookies nécessaires à une navigation optimale et ne les utilise pas à des fins commerciales ou publicitaires.",
+  "videoText": "Ces cookies déposés via des services de partage vidéo tiers permettent à l'utilisateur de regarder le contenu multimédia directement sur le site web. En refusant ces cookies, vous serez redirigé vers ces sites tiers et ne pourrez pas regarder le contenu multimédia sur la plateforme Civocracy.",
+  "videoTitle": "Cookies vidéo"
+ },
+ "countries": {
+  "Africa": "Afrique",
+  "DE": "Allemagne",
+  "ES": "Espagne",
+  "FR": "France",
+  "France": "France",
+  "GF": "Guyane Française",
+  "HR": "Croatie",
+  "NL": "Pays-Bas"
+ },
+ "discussion": {
+  "answerTitle": "Réponse de l'Organisation",
+  "bookmarkConfirmed": "Cette contribution a été ajoutée à votre liste.",
+  "comments": "commentaires",
+  "conversation": "Conversation",
+  "noReactions": "Cette contribution n'a pas encore reçu de réactions.",
+  "noThemes": "Cette contribution n'a pas de thèmes.",
+  "noUserIdea": "{username} n'a pas surligné d'idées. Vous voulez l'aider ?",
+  "organisationBadge": "Organisation",
+  "seeMoreButton": "See more",
+  "themes": "Thèmes",
+  "topReactions": "Réactions les plus utilisées",
+  "userIdea": "Les idées de {username}",
+  "userSays": "{username} dit"
+ },
+ "discussionPreview": {
+  "discussionBackButton": "Discussion",
+  "projectBy": "Projet par",
+  "userSays": "dit"
+ },
+ "emailValidationFlow": {
+  "bannerMessage": "Merci de bien vouloir confirmer votre e-mail afin que nous puissions vérifier votre compte."
+ },
+ "filters": {
+  "clearButton": "Effacer",
+  "filter": "filtre",
+  "moreFilters": "Tous les filtres",
+  "mostUpvoted": "Les plus votés",
+  "newest": "Les plus récents",
+  "oldest": "Les plus anciens",
+  "popularity": "Popularité",
+  "relevancy": "Pertinence",
+  "sortBy": "Trier par",
+  "sortedByGlobalRelevancy": "Triés par les plus votés",
+  "sortedByNewest": "Plus récents",
+  "sortedByOldest": "Triés par les plus anciens",
+  "themes": "Thèmes"
+ },
+ "footer": {
+  "bottomSection": {
+   "registeredBusiness": "Civocracy SAS est une société privée à responsabilité limitée, de droit français, dont le siège social est à Lyon, France, et dont l'adresse est 84, rue Deleuvre, 69004 Lyon.\nElle est inscrite au registre du commerce et des sociétés sous le numéro 890 397 375 R.C.S, Lyon et sous le numéro de TVA : FR 26890397375. L'accès à la Plateforme Civocracy ne confère aucun droit de propriété intellectuelle relatif à tout élément de la Plateforme, qui reste la propriété exclusive de Civocracy."
+  },
+  "contact": "Contactez-nous",
+  "email": "contact@civocracy.org",
+  "helpButton": "Besoin d'aide ?",
+  "languages": "Choisir la langue",
+  "sectionItems": {
+   "about": "Notre histoire",
+   "accessibilityNotice": "Notice d'accessibilité",
+   "blog": "Blog",
+   "caseStudies": "Études de cas",
+   "codeOfConduct": "Code de conduite",
+   "findYourCommunities": "Trouvez vos communautés",
+   "gettingStarted": "C'est parti !",
+   "jobs": "Carrières",
+   "legalNotice": "Identification",
+   "manageYourCookies": "Gestion des cookies",
+   "participate": "Participer",
+   "press": "Presse",
+   "privacyNotice": "Données & confidentialité",
+   "services": "Services",
+   "termsOfUse": "Conditions d'utilisation"
+  },
+  "sectionTitles": {
+   "legal": "Légal",
+   "other": "Autre",
+   "resources": "Ressources",
+   "whatWeDo": "Notre offre",
+   "whoWeAre": "Qui sommes-nous ?"
+  }
+ },
+ "homepage": {
+  "landing": {
+   "subtitle": "L’intelligence collective pour une société plus inclusive.",
+   "title": "Une gouvernance partagée.\nDes citoyens engagés.\nUne société reconnectée."
+  },
+  "sectionTitles": {
+   "process": ""
+  }
+ },
+ "howItWorks": {
+  "createExplanation": "Votre communauté Civocracy rassemble des personnes autour de projets pour réfléchir et trouver ensemble des solutions à vos enjeux. Présentez votre organisation et montez vos différents projets.",
+  "createTitle": "1. Créer votre communauté",
+  "engageExplanation": "Engagez votre communauté avant, pendant et après chaque projet en  envoyant des actualités régulièrement et en communiquant sur vos événements en ligne et hors ligne. Gardez votre communauté active !",
+  "engageTitle": "4. Engager votre communauté",
+  "help": "Nous sommes là pour vous aider tout au long de vos projets.  <br> Vous pouvez toujours nous envoyer un mail à <b>help@civocracy.org</b>",
+  "learnMore": "En savoir plus",
+  "setupExplanation": "Un projet traite d'un seul sujet et se divise en plusieurs modules de participation. Choisissez votre sujet, vos modes, vos dates et écrivez une description claire. Les membres de votre communauté seront informés de chaque projet qu'ils suivent.",
+  "setupTitle": "2. Monter vos projets",
+  "subtitle": "Voici ce que vous pouvez faire sur Civocracy :",
+  "title": "Bienvenue !"
+ },
+ "ideaBox": {
+  "aboutTab": "À propos",
+  "aboutTitle": "Dites-nous en plus...",
+  "addAnIdea": "Ajouter une idée",
+  "addIdeaPopUp": {
+   "stepOne": {
+    "continueButton": "Continue"
+   },
+   "stepTwo": {
+    "noThemesSelected": "Choisissez des thèmes pour améliorer le filtrage des idées."
+   }
+  },
+  "addOutcome": {
+   "button": "Écrire une réponse",
+   "text": "Votre réponse est importante ! Répondez aux <br>idées les plus soutenues pour montrer que vous êtes à l'écoute et que vous vous intéressez à la question.",
+   "title": "Vous n'avez pas encore répondu à cette idée."
+  },
+  "applyButton": "Appliquer",
+  "clearButton": "Effacer",
+  "descriptionTitle": "Contexte",
+  "discussionTab": "Discussion",
+  "emptyList": "Pas d'idées pour le moment. Vous voulez ajouter la première ?",
+  "highlightPopup": {
+   "highlightsLeft": "Plus que ({number}) sélections possibles",
+   "preview": "Aperçu",
+   "submit": "Partager sélection",
+   "subTitle": "Sélectionnez et surlignez les meilleures propositions de {username} pour les mettre en valeur. (140 caractères max)",
+   "title": "Mode surlignage"
+  },
+  "moderate": "Signaler",
+  "moreFilters": "Plus de filtres",
+  "mostUpvoted": "Plus soutenu",
+  "newest": "Plus récent",
+  "shareButton": {
+   "actShare": "Partager cette discussion",
+   "buttonsExplanation": "Ou partager sur",
+   "communityShare": "Partager cette communauté",
+   "copyAndPaste": "Copier le lien",
+   "copyLink": "Copier le lien",
+   "explanationShare": "Partagez cette idée autour de vous pour avoir plus d'impact !",
+   "facebook": "Facebook",
+   "facebookMessenger": "Facebook Messenger",
+   "message": "Look at this cool proposition on Civocracy",
+   "projectShare": "Partager ce projet",
+   "titleShare": "Partager cette idée",
+   "twitter": "Twitter",
+   "whatsapp": "WhatsApp"
+  },
+  "sortByNewest": "Trier par plus récent"
+ },
+ "issue": {
+  "contributionAddForm": {
+   "addAttachment": "Ajouter pièce jointe",
+   "addImage": "Ajouter image",
+   "addLink": "Ajouter lien",
+   "addLinkPopupCancel": "Annuler",
+   "addLinkPopupConfirm": "Confirmer",
+   "addLinkPopupTitle": "Ajouter lien",
+   "addPdf": "Ajouter pdf",
+   "addThemes": "+ Ajouter thèmes",
+   "addThemesExplanation": "Sélectionnez des thèmes pour améliorer le filtrage de votre contribution.",
+   "closedBadgeTitle": "[Terminée]"
+  },
+  "learn": {
+   "numberOfContributions": "{contributions} Contributions",
+   "overview": "Aperçu de la discussion",
+   "participants": "{number} Participants",
+   "readBy": "{percent}% des contributions lues par {community}"
+  },
+  "morePage": {
+   "citizens": "Citoyens",
+   "headingInfo": "Comment participer ?",
+   "headingParticipants": "Participants clés",
+   "InfoText": "<br>• Écrire votre propre publication <br>• Surligner les idées principales de votre publication pour obtenir plus de votes <br>• Lire et commenter les publications d’autres participants<br>• Montrer votre soutien ou votre désaccord avec les différentes réactions<br>• Discuter avec d’autres participants \n• Lire les conseils du Code de conduite pour un comportement exemplaire<br>• Sauvegarder une publication pour être notifié⸱e des réponses<br>• Partager une publication sur les réseaux sociaux pour en parler autour de vous<br>",
+   "InfoTextTitle": "<b>En tant que participant, vous pouvez :</b>",
+   "organisation": "Organisation",
+   "topIdeas": "Sélections les plus soutenues"
+  },
+  "status": {
+   "closed": "Terminé",
+   "closingIn": "Clôture",
+   "started": "Commencé le"
+  }
+ },
+ "login": {
+  "buttons": {
+   "login": "Connexion",
+   "withFacebook": "Se connecter avec Facebook"
+  },
+  "email": "Email",
+  "emailRequired": "Veuillez entrer votre adresse email",
+  "forgotPassword": "Mot de passe oublié ?",
+  "goBackToLogin": "Retour identifiants de connexion",
+  "modeSeparator": "Ou se connecter par email",
+  "password": "Entrez votre mot de passe",
+  "passwordRequired": "Veuillez indiquer votre mot de passe",
+  "passwordRequiredLength": "Le mot de passe doit faire au moins 6 caractères",
+  "placeholder": {
+   "email": "contact@example.com"
+  },
+  "register": "Pas de compte ?",
+  "signInTitle": "Connexion",
+  "title": "Se connecter",
+  "validEmailRequired": "Veuillez entrer une adresse e-mail valide."
+ },
+ "moderation": {
+  "form": {
+   "title": "Moderation"
+  }
+ },
+ "participation": {
+  "aboutOrganization": "À propos de l'Organisation",
+  "aboutProject": "À propos du projet",
+  "addProject": "Créer un nouveau projet",
+  "allDocumentsButton": "Tous les documents",
+  "allUpdatesButton": "Toutes les actus",
+  "discussionType": "Discussion",
+  "documentsDescription": "Trouvez ici toutes les informations qui vous aideront à mieux comprendre le projet.",
+  "documentsTitle": "DOCUMENTS",
+  "followForUpdates": "Suivre et recevoir les actualités",
+  "followingProjectAsAdmin": "Vous suivez ce projet en tant qu'administrateur",
+  "goToSettings": "Paramètres >",
+  "learnMore": "En savoir plus...",
+  "noUpdates": "Pour l'instant aucune actualité n'a été publiée",
+  "outcomes": {
+   "closedStatus": "Terminée",
+   "messageClosedDiscussion": "Cette discussion est terminée."
+  },
+  "participants": "Participants",
+  "participateButton": "Participer",
+  "questionnaireType": "Questionnaire",
+  "shareButton": "Partager",
+  "updatesTitle": "Actualités",
+  "whatsUpTitle": "Quoi de neuf ?",
+  "whatWillHappen": "À quoi serviront les résultats"
+ },
+ "participatoryMap": {
+  "userLocation": "Montrer la localisation actuelle"
+ },
+ "password": {
+  "recovery": {
+   "sendResetLinkInMail": "Envoyer le lien par email"
+  }
+ },
+ "pb": {
+  "accessibility": {
+   "bookmark": "Enregistrer cette contribution",
+   "downvoteAssertion": "Déclasser cette idée",
+   "openDropdown": "Ouvrir menu pour modifier ou signaler cette publication",
+   "openReactions": "Afficher les réactions des participants"
+  },
+  "profile": {
+   "contributionsTab": "Contributions",
+   "emptyIdeas": "Vous n'avez pas d'idées sauvegardées pour le moment.",
+   "ideasTab": "Idées",
+   "joinedDate": "a rejoint Civocracy",
+   "linkeding": "Profil LinkedIn de {username}",
+   "navProfile": "Profil",
+   "navSaved": "Sauvegarde",
+   "navSeePublic": "Voir mon profil public",
+   "navSettings": "Paramètres",
+   "noAbout": "{username} n'a pas encore ajouté de biographie.",
+   "photoUpload": "Modifier photo",
+   "save": "Sauvegarder",
+   "saved": "Changements sauvegardés",
+   "section": {
+    "about": "Biographie"
+   },
+   "title": "Profile:"
+  },
+  "projects": {
+   "savedChanges": "Changements sauvegardés"
+  },
+  "settings": {
+   "changeEmail": "Modifier email",
+   "changePassword": "Modifier mot de passe",
+   "deleteAccount": "Supprimer mon compte",
+   "email": "Votre email*:",
+   "password": "Votre mot de passe*:",
+   "title": "Paramètres"
+  }
+ },
+ "placeholder": {
+  "email": "contact@exemple.com",
+  "newPassword": "Nouveau mot de passe",
+  "newPasswordRepeat": "Indiquez de nouveau votre nouveau mot de passe",
+  "oldPassword": "Ancien mot de passe",
+  "password": "Tapez votre mot de passe"
+ },
+ "questionnaire": {
+  "addAnswerHere": "Vous pouvez ajouter votre réponse ici",
+  "chooseOnlyOne": "Ne sélectionnez qu’une réponse",
+  "endInfo": "Votre avis est très apprécié.",
+  "endInfoTitle": "Merci pour votre participation !",
+  "info": {
+   "1st": "Vous ne pouvez répondre qu’une fois au questionnaire",
+   "2nd": "Les résultats du questionnaire sont publics et 100% anonymes",
+   "3rd": "Les champs obligatoires sont marqués d’une *",
+   "4th": "Si vous quittez le questionnaire avant la fin, vos réponses ne seront pas sauvegardées",
+   "5th": "En répondant à ce questionnaire, vous acceptez l’utilisation de vos données"
+  },
+  "legalNotice": "Les informations collectées dans ce questionnaire seront traitées de manière confidentielle : elles feront l’objet d’une analyse statistique et votre anonymat sera parfaitement respecté. Les données seront uniquement utilisées dans le cadre de ce projet.",
+  "legalTitle": "100% anonyme",
+  "nextQuestionInfo": "Cliquer pour continuer",
+  "participants": "participants",
+  "participationTitle": "Comment participer ?",
+  "projectBack": "Retour au projet",
+  "question-type": {
+   "choice": "Choix unique",
+   "email": "Email",
+   "multiple_choices": "Choix multiples",
+   "order_choice": "Ordonner les choix",
+   "range": "Echelle",
+   "statement": "Message",
+   "text": "Texte court",
+   "text_attachment": "Texte court avec pièce jointe",
+   "yes_no": "Oui/Non"
+  },
+  "questions": {
+   "next": ">",
+   "previous": "<"
+  },
+  "questionsNr": "Questions",
+  "questionsTime": "Minutes",
+  "seeResults": "Voir les résultats",
+  "submitBtn": "Soumettre mes réponses",
+  "takeBtn": "C'est parti"
+ },
+ "reactions": {
+  "type": {
+   "agree": "Je suis d'accord",
+   "disagree": "Je ne suis pas d'accord",
+   "inspiring": "Super inspirant!",
+   "like": "Je suis d'accord",
+   "needs": "Sujet important",
+   "think": "À réfléchir"
+  }
+ },
+ "register": {
+  "and": "et",
+  "captchaError": "Veuillez cliquer sur la case ci-dessus",
+  "cookiesAgreement": "Politique pour les cookies",
+  "firstName": "",
+  "firstNameRequired": "Veuillez indiquer votre prénom",
+  "lastName": "",
+  "lastNameRequired": "Veuillez indiquer votre nom",
+  "login": "Déjà inscrit(e)",
+  "privacyAgreement": "Politique données et confidentialité",
+  "termsAgreement": "Conditions d'utilisation",
+  "termsAgreementPrefix": "J'accepte les",
+  "termsError": "Veuillez accepter les conditions ci-dessus avant de continuer",
+  "title": "Inscription",
+  "validationButton": "Renvoyer l'e-mail d'activation"
+ },
+ "registration-popup": {
+  "message": "Avant de commencer à partager votre opinion sur Civocracy, veuillez confirmez votre adresse mail. Vérifiez votre boîte de réception, et on se revoit tout de suite ici !",
+  "title": "Merci d'avoir rejoint Civocracy !"
+ },
+ "top-header": {
+  "communities": "Communautés",
+  "currentProjects": "projets en cours",
+  "howTo": "Comment ça marche",
+  "noCurrentProjects": "Il n'y a aucun projet en cours en ce moment",
+  "noPastProjects": "Il n'y a aucun projet terminé pour le moment",
+  "noProjects": "Vous ne suivez aucun projet pour le moment",
+  "organization": "Je suis une Organisation",
+  "pastProjects": "projets terminés",
+  "profile": "Profil",
+  "projects": "Projets",
+  "settings": "Paramètres",
+  "yourCommunities": "Vos communautés",
+  "yourCommunity": "Votre communauté",
+  "yourProjects": "Vos projets"
+ },
+ "updates": {
+  "tipText": ""
+ }
+}

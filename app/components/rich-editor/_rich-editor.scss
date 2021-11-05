@@ -1,0 +1,107 @@
+/*.fr-image-progress-bar-layer.fr-layer.fr-active,
+.fr-image-progress-bar-layer.fr-layer.fr-active:after,
+.fr-image-progress-bar-layer.fr-layer.fr-active:before,
+.fr-quick-insert.fr-visible{
+  display: none!important;
+}*/
+
+
+.fr-box.fr-fullscreen{
+  top:65px;
+}
+
+/*.fr-image-upload-layer .fr-form input{
+  pointer-events: none;
+}*/
+
+.error .fr-element.fr-view{
+  // box-shadow: inset 0px 0px 15px -4px #a90325;
+}
+
+.fr-element.fr-view{
+	min-height: 100px;
+	height: auto !important;
+	overflow: auto;
+}
+
+.jodit-edit{
+	display: inline;
+	height: auto;
+}
+.jodit-container {
+	color: #000;
+}
+.jodit-popup{/*The popup that is used to display emojis choice*/
+	max-width: 600px !important;
+
+	.jodit-civ-emoji-container{
+		width: auto;
+		overflow: auto;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.jodit-civ-emoji-container button{
+		width: 30px;
+		height: 30px;
+		padding: 0;
+		margin: 0;
+		border: solid 1px #fff;
+		background-color: #fff;
+		/*font-family: "Lato", Arial, sans-serif;*/
+		font-family: initial;
+		font-size: 20px;
+	}
+
+	.jodit-civ-emoji-container button:hover{
+		border: outset 1px #ded;
+		background-color: #e8e8e8;
+	}
+
+	.jodit-civ-emoji-category{
+		margin-bottom: 6px;
+	}
+}
+
+.jodit-wysiwyg{/*That's the jodit editor content container (the textarea value)*/
+	span.emoji{/*The emojis are not well displayed in Lato or Arial etc. We set here a font family compliant with how we want the emojis to be like*/
+		font-family: "Times New Roman", Times, serif;
+		font-size:18px;
+	}
+	[data-jodit_iframe_wrapper]:after{
+		display: block !important;
+	}
+
+  width: 100%;
+}
+
+.jodit-dialog__box{/*The jodit popup/dialog box shown when editing image advanced properties etc*/
+	z-index: 9010 !important;
+}
+
+.jodit-popup, .jodit-popup_strategy_leftbottom{
+	z-index: 9011 !important;
+}
+
+[data-jodit_iframe_wrapper]:after{
+/*  position:absolute;
+  content:"";
+  z-index:1;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  cursor:pointer;
+  display:block;
+  background:transparent;
+*/
+  display: none !important;
+}
+
+.fr-view .fr-file::after {
+    content: "";
+}
+
+.richeditor-filelink::before, .fr-view .fr-file::before{
+    content: url("https://res.cloudinary.com/civocracy/image/upload/v1600258702/UI/Icons/icon-paperclip.png");
+    padding-right: 3px;
+}

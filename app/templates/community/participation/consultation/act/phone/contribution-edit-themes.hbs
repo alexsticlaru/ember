@@ -1,0 +1,18 @@
+<div class="contribution-add-form">
+	<div class="contribution-add-form__top-container">
+		<span class="contribution-add-form__back-button">
+			<button type="button" class="btn-close" {{on "click" this.closePopup}} aria-label={{t 'buttons.close'}}>
+				<span aria-hidden="true">{{inline-svg "/images/back-arrow.svg"}}</span>
+			</button>
+		</span>
+		<button type="button" class="btn-none contribution-add-form__add-button" {{on "click" this.closePopup}}>
+			{{t 'issue.contributionAddForm.addThemesTitle'}}
+		</button>
+	</div>
+	<br>
+	<div class="contribution-add-form__contribution-themes">
+		{{#each this.model.issue.themes as |theme|}}
+			<ThemeItem::select-theme @theme={{theme}} @handleClick={{this.selectTheme}}/>
+		{{/each}}
+	</div>
+</div>

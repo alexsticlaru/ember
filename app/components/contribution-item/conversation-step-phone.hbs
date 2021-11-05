@@ -1,0 +1,20 @@
+{{#if @comment.issue.usersCanParticipate}}
+	<div class="contribution-item__comment-container">
+		<div class="contribution-item__comments-conversation">
+          <span class="contribution-item__comments-title">
+			  {{t 'discussion.conversation'}}
+		  </span>
+			<span class="contribution-item__comments-number">
+            {{@comment.commentCount}} {{t 'discussion.comments'}}
+          </span>
+		</div>
+		<div class="contribution-item__comments-container">
+			<div class="contribution-item__comment-add-container">
+				<CommentAddForm
+				@usersCanParticipate={{@comment.issue.usersCanParticipate}}
+				@rootComment={{@comment}}/>
+			</div>
+		</div>
+	</div>
+{{/if}}
+<CommentList @switchToReplyMode={{@replyToComment}} @comments={{@comment.comments}} @author={{@comment.user}}></CommentList>

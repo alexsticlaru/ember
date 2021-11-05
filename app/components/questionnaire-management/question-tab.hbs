@@ -1,0 +1,43 @@
+<div class="community-management__item-container">
+  {{!--
+  -- Old drag&drop feature --
+  <SortableObjects @sortableObjectList={{this.questionnaire.questions}} @sortEndAction={{fn this.dragEnd}} @useSwap={{false}}
+      @enableSort={{true}} >
+    {{#each this.questions as |question index|}}
+      <DraggableObject @content={{question}} @isSortable={{true}} >
+        <QuestionnaireManagement::QuestionEdit @question={{question}} @questionnaire={{this.questionnaire}}
+          @onQuestionDelete={{fn this.deleteQuestion question}}/>
+      </DraggableObject>
+    {{/each}}
+  </SortableObjects>
+  --}}
+
+	{{#each this.questions as |question index|}}
+		<QuestionnaireManagement::QuestionEdit @question={{question}}
+											   @questionnaire={{this.questionnaire}}
+											   @onQuestionDelete={{fn this.deleteQuestion question}}
+											   @onQuestionMoveUp={{fn this.moveQuestionUp question}}
+											   @onQuestionMoveDown={{fn this.moveQuestionDown question}}
+		/>
+	{{/each}}
+
+  <button type="button" class="btn-civ-black-reverse community-management__save-button" {{on "click" this.addQuestion}}>
+    {{t 'community.questionnaireManagement.addQuestion'}}
+  </button>
+
+  {{#if this.processingChanges}}
+	  <button style="margin-top: 1rem" class="btn-civ-black-reverse community-management__save-button">
+		  {{t 'pb.profile.saving'}} <Spinner/>
+	  </button>
+  {{else if this.changesSaved}}
+    <button style="margin-top: 1rem" class="btn-civ-black community-management__save-button" {{on "click" this.saveQuestionnaire}}>
+      <span aria-hidden="true">{{inline-svg '/images/ideaBox/check.svg'}}</span>
+      {{t 'pb.profile.saved'}}
+    </button>
+  {{else}}
+    <button style="margin-top: 1rem" class="btn-civ-black community-management__save-button" {{on "click" this.saveQuestionnaire}}>
+      {{t 'pb.profile.save'}}
+    </button>
+  {{/if}}
+
+</div>

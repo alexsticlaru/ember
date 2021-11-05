@@ -1,0 +1,74 @@
+<div class="popup__content confirm-popup" role="dialog" aria-labelledby="accessibility-title">
+
+	<div class="confirm-popup__close-button">
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+	<div class="confirm-popup__top-container">
+		<span id="accessibility-title" class="confirm-popup__title">
+			{{this.model.flagTitle}}
+		</span>
+	</div>
+
+	<div class="confirm-popup__text">
+		{{this.model.flagText}}
+	</div>
+
+	<div class="proposition-flag-popup__select-container">
+		<div class="proposition-flag-popup__label-container">
+			<input class="proposition-flag-popup__radio-style"
+					type="radio"
+					id="advertising"
+					checked={{eq this.reportType 'advertising' }}
+					{{on "click" (fn this.setReportType "advertising" )}} />
+			 <label class="proposition-flag-popup__label-info" for="advertising">
+				 <div class="proposition-flag-popup__label-title">
+	 		    {{t 'ideaBox.flagPopup.select1title'}}
+	 		  </div>
+	 		  <div class="proposition-flag-popup__label-text">
+	 		    {{t 'ideaBox.flagPopup.select1text'}}
+	 		  </div>
+				</label>
+		</div>
+
+		<div class="proposition-flag-popup__label-container">
+			<input class="proposition-flag-popup__radio-style"
+					type="radio"
+					id="abusive"
+					checked={{eq this.reportType 'abusive' }}
+					{{on "click" (fn this.setReportType "abusive" )}} />
+			 <label class="proposition-flag-popup__label-info" for="abusive">
+				 <div class="proposition-flag-popup__label-title">
+					{{t 'ideaBox.flagPopup.select2title'}}
+				</div>
+				<div class="proposition-flag-popup__label-text">
+					{{t 'ideaBox.flagPopup.select2text'}}
+				</div>
+			 </label>
+		</div>
+
+		<div class="proposition-flag-popup__label-container">
+			<input class="proposition-flag-popup__radio-style"
+					type="radio"
+					id="inappropriate"
+					checked={{eq this.reportType 'inappropriate' }}
+					{{on "click" (fn this.setReportType "inappropriate" )}} />
+			 <label class="proposition-flag-popup__label-info" for="inapropriate">
+				 <div class="proposition-flag-popup__label-title">
+					{{t 'ideaBox.flagPopup.select3title'}}
+				</div>
+				<div class="proposition-flag-popup__label-text">
+					{{t 'ideaBox.flagPopup.select3text'}}
+				</div>
+			</label>
+		</div>
+	</div>
+
+	<div class="proposition-flag-popup__button-container">
+		<button type="button" class="btn-civ-black-reverse" {{on "click" this.closePopup}}>
+			{{t 'ideaBox.flagPopup.cancelButton'}}
+		</button>
+		<button type="button" class="btn-civ-black" {{on "click" this.flag}}>
+			{{t 'ideaBox.flagPopup.submitButton'}}
+		</button>
+	</div>
+</div>

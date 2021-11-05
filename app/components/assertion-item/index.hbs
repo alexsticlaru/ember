@@ -1,0 +1,18 @@
+<div class="assertion-item-phone">
+	<div class="assertion-item-phone__info">
+		{{html-safe @assertion.text}}
+	</div>
+	<div class="assertion-item-phone__buttons-container">
+		<button type="button" class="btn-none assertion-item-phone__downvote-button {{if @assertion.isDownvoted 'assertion-item-phone__downvote-button--active-state'}}" {{on "click" this.downvoteAssertion}} disabled={{@assertion.isDownvoted}}>
+			<span aria-hidden="true">{{inline-svg "images/discussion/downvote-icon.svg"}}</span>
+			{{t 'ideaBox.downvoteButton'}}
+		</button>
+		<span class="assertion-item-phone__votes {{if @assertion.isUpvoted 'assertion-item-phone__votes--upvoted-state'}} {{if @assertion.isDownvoted 'assertion-item-phone__votes--downvoted-state'}}" title={{t 'accessibility.ratingAccessibilityInfo' number=@assertion.globalRelevancy}}>
+			{{@assertion.globalRelevancy}}
+		</span>
+		<button type="button" class="btn-none assertion-item-phone__upvote-button {{if @assertion.isUpvoted 'assertion-item-phone__upvote-button--active-state'}}" {{on "click" this.upvoteAssertion}} disabled={{@assertion.isUpvoted}}>
+			<span aria-hidden="true">{{inline-svg "images/discussion/upvote-icon.svg"}}</span>
+			{{t 'ideaBox.upvote'}}
+		</button>
+	</div>
+</div>

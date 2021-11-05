@@ -1,0 +1,90 @@
+{{#if @items.length}}
+<ContainerQuery
+		@features={{hash
+		phone=(cq-width max=this.config.breakpoints.phone)
+		tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+		desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+		class="cards-container-query"
+		as |CQ|
+>
+	{{#if (or CQ.features.tablet CQ.features.desktop)}}
+		<div class="cards-section">
+
+			{{#if (or @title @route)}}
+				<div class="cards-section__header">
+					<h2 class="cards-section__participate-title-style">{{@title}}</h2>
+					{{#if @route}}
+						<LinkTo tabindex="0" @route={{if @items.length @route}} @models={{array @model.project.community.url @model.project.url}} class="btn-civ-black-reverse cards-section__header-button link-btn {{unless @items.length 'link-btn--disabled'}}">
+							{{@buttonLabel}}
+						</LinkTo>
+					{{/if}}
+				</div>
+			{{/if}}
+			<div class="cards-section__body">
+				{{#if @items.length}}
+					{{#if (eq @cardType "event") }}
+						{{#each @items as |item|}}
+							<EventCard @item={{item}}/>
+						{{/each}}
+					{{else if (eq @cardType "update") }}
+						{{#each @items as |item|}}
+							<UpdateCard @item={{item}}/>
+						{{/each}}
+					{{else if (eq @cardType "document") }}
+						{{#each @items as |item|}}
+							<DocumentCard @hasImage={{false}} @section={{item}}/>
+						{{/each}}
+					{{else if (eq @cardType "module") }}
+						{{#each @items as |item|}}
+							<CommunityModuleCard @model={{@model}} @item={{item}} />
+						{{/each}}
+					{{/if}}
+				{{else}}
+					<p class="cards-section__empty-body-message">
+						{{t (concat 'pb.projects.emptyCardsBody.' @cardType)}}
+					</p>
+				{{/if}}
+			</div>
+		</div>
+	{{else}}
+		<div class="cards-section">
+			{{#if (or @title @route)}}
+				<div class="cards-section-mobile__header">
+					<h2 class="cards-section__participate-title-style">{{@title}}</h2>
+					{{#if @route}}
+						<LinkTo @route={{if @items.length @route}} @models={{array @model.project.community.url @model.project.url}} class="btn-civ-black-reverse cards-section__header-button link-btn {{unless @items.length 'link-btn--disabled'}}">
+							{{@buttonLabel}}
+						</LinkTo>
+					{{/if}}
+				</div>
+			{{/if}}
+			<div class="{{if @columnsDisplay 'cards-section__columns-body' 'cards-section__scrollable-body'}}">
+			{{#if @items.length}}
+					{{#if (eq @cardType "event") }}
+						{{#each @items as |item|}}
+							<EventCard @item={{item}} @customClass={{'mobile'}}/>
+						{{/each}}
+					{{else if (eq @cardType "update") }}
+						{{#each @items as |item|}}
+							<UpdateCard @item={{item}} @customClass={{if @columnsDisplay 'no-width-limits'}}/>
+						{{/each}}
+					{{else if (eq @cardType "document") }}
+						{{#each @items as |item|}}
+							<DocumentCard @hasImage={{false}} @section={{item}} @customClass={{'mobile'}}/>
+						{{/each}}
+					{{else if (eq @cardType "module") }}
+						{{#each @items as |item|}}
+							<CommunityModuleCard @model={{@model}} @item={{item}} />
+						{{/each}}
+					{{/if}}
+					{{else}}
+					<p class="cards-section__empty-body-message">
+						{{t (concat 'pb.projects.emptyCardsBody.' @cardType)}}
+					</p>
+				{{/if}}
+			</div>
+		</div>
+	{{/if}}
+</ContainerQuery>
+
+{{/if}}

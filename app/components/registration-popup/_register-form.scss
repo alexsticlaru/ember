@@ -1,0 +1,94 @@
+.register-form {
+    //display: flex;//
+	flex-direction: column;
+	font-weight: 500;
+
+    &__name-box {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__btn-signup {
+        width: 80%;
+		margin-top: 2rem;
+		margin-bottom: 7rem;
+    }
+
+    &__btn-login {
+        justify-content: center;
+        color: $medium-blue;
+        font-weight: 600;
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+
+    &__error-message {
+        color: $color-problem;
+        font-style: italic;
+    }
+
+    &__captcha {
+        display: flex;
+        justify-content: center;
+       transform: scale(0.9);
+       margin-bottom:2rem;
+
+    }
+
+    &__agreement-box {
+        display: flex;
+        flex-direction: row;
+		justify-content: center;
+    }
+
+    &__agreement-check {
+        margin-right: .5rem;
+        margin-top: .5rem;
+    }
+
+    &__label-agree {
+        font-weight: normal;
+		font-size: .9em;
+    }
+
+    &__submit{
+		display: flex;
+		justify-content: center;
+	}
+
+    &__email-exist {
+        display: flex;
+
+        & p {
+            margin-right: 1px;
+        }
+    }
+    &__leftside {
+		float: left;
+		/*display: flex;*/
+		align-items: center;
+		min-height: 30rem;
+		border-bottom: 1px solid $gray-color;
+		justify-content: space-around;
+		background-color:#F7F7F7;;
+		width: 36rem!important;
+	}
+	&__rightside {
+		float: left;
+		/*display: flex;*/
+		align-items: center;
+		min-height: 30rem;
+		border-bottom: 1px solid $gray-color;
+		justify-content: space-around;
+		background-color: white;
+		width: 36rem!important;
+	}
+
+	&__column {
+		float: left;
+		width: 50%;
+
+
+	}
+}

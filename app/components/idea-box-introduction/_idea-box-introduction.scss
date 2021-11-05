@@ -1,0 +1,210 @@
+.idea-box-component {
+
+  &__introduction-wrapper {
+	width: 100%;
+	padding: 5.4rem 12rem 6.9rem;
+	height: 28.8rem;
+	margin-bottom: 4rem;
+	flex-wrap: wrap;
+
+	@include respond(phone) {
+	  padding-left: 1rem !important;
+	  padding-right: 1rem !important;
+	}
+
+	@include respond(tab-port) {
+	  padding-left: 4rem !important;
+	  padding-right: 4rem !important;
+	}
+  }
+
+  &__introduction-container {
+	max-width: 1440px;
+	margin: 0 auto;
+	position: relative;
+  }
+
+  &__separator{
+	color:$light-gray;
+	margin-left: 0.8rem;
+	margin-right: 0.8rem;
+  }
+
+  &__breadcrumb-container {
+	display: flex;
+	flex-direction: row;
+  }
+
+  &__logo-container {
+	width: 7.2rem;
+	height: 2.4rem;
+	img {
+	  object-fit: contain;
+	  width: 100%;
+	  height: 100%;
+	}
+  }
+
+  &__container{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 2rem;
+
+	@include respond(tab-port) {
+	  flex-direction: column;
+	  align-items: flex-start;
+	}
+  }
+
+
+
+  &__title-and-description{
+	display: flex;
+	flex-direction: row;
+	margin-top: 3.8rem;
+  }
+
+  &__line {
+	width: 3px;
+	//height: 8.3rem;
+	background: #F0ECE3;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+	margin-right: 2.4rem;
+  }
+
+  &__title-project{
+	font-size:3.4rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 3.4rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 0.9rem;
+	svg {
+	  margin-right: 1.4rem;
+	}
+  }
+
+  &__description{
+	max-width: 60rem;
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: 0.01268022209405899rem;
+	color: $light-black-2;
+	padding-right: 2rem;
+  }
+
+  &__right-side {
+	svg {
+	  position: absolute;
+	  top: -2.6rem;
+	  right: 5rem;
+	}
+  }
+
+  &__add-idea-button {
+	width: 23.5rem;
+	height: 6rem;
+	margin-right: 11.2rem;
+	margin-top: 1.3rem;
+	@include respond(tab-port) {
+	  margin-top: 1.9rem;
+	}
+  }
+
+  &__title-button{
+	font-weight: 300;
+	color: $white;
+  }
+
+
+}
+
+
+
+
+.idea-box-component-mobile {
+  width: 100%;
+
+  &__header {
+   padding: 5.2rem 4.4rem 2.1rem 6.1rem;
+   height: 25.8rem;
+   position: relative;
+   background: #F8F7F5;
+  }
+
+  &__back {
+	z-index: 2;
+	position: absolute;
+	top: 1.667rem;
+	left: 2.4rem;
+
+	svg {
+	  //fill: $primary-color;
+	}
+  }
+
+  &__title {
+
+	font-style: normal;
+	font-weight: bold;
+	line-height: 112%;
+	letter-spacing: 0.00684685rem;
+	color: #373F41;
+	font-size:2.2rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 1.4rem;
+	svg {
+		margin-right: 0.576rem;
+	  }
+	}
+
+  &__intro-description {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.2rem;
+	line-height: 160.2%;
+	letter-spacing: 0.0126802rem;
+	color: #76797B;
+	max-width: 58rem;
+	margin-bottom: 1.9rem;
+
+	}
+
+	&__mailbox {
+	  svg {
+		position: absolute;
+		right:0;
+		top: 14.9rem;
+		//opacity: 0.2;
+		z-index: 99;
+	  }
+	}
+
+  	&__add-idea {
+	  border-radius: 3px;
+	  width: 17.2rem;
+	  height: 4.5rem;
+	  margin-right: 11.2rem;
+	  margin-top: 1.3rem;
+	}
+
+	&__title-button-mobile{
+	  font-style: normal;
+	  font-weight: 500;
+	  font-size: 1.4rem;
+	  line-height: 2rem;
+	  text-align: center;
+	  color: #FFFFFF;
+	}
+
+
+}

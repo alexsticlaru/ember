@@ -1,0 +1,348 @@
+.ember-chimp {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 20.3em;
+
+  & label{
+	width: 85%;
+  }
+
+  & input {
+    height: 3.4em;
+    width: 32em;
+    background: transparent;
+    border: 1px solid $white;
+    border-radius: 9px;
+    padding-left: 2em;
+    color: $white;
+  }
+
+  & button {
+    position: absolute;
+    top: 13px;
+	left: 0;
+    background-image: url(/images/arrow-right.svg);
+    border: none;
+    width: 19px;
+    height: 20px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &.idle, &.loading {
+    .chimp-says {
+      display: none;
+    }
+  }
+
+  &.success {
+    .chimp-says {
+      font-weight: bold;
+    }
+    input, button {
+      display: none;
+    }
+  }
+
+  &.error {
+    .chimp-says {
+      color: #d33e3e;
+      font-weight: bold;
+    }
+    input {
+      border-color: #d33e3e;
+    }
+  }
+}
+
+.footer {
+  background-color: $dark-black;
+  //padding: 0 3em 0 9em;
+  font-size: 1.4rem;
+  color: $white;
+
+  &__content {
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 0 12.5rem;
+  }
+
+  &.tabland .footer__content {
+	  padding: 0 1rem;
+  }
+
+  &__label {
+    font-weight: 600;
+	font-size: 1.2em;
+  }
+  &__logo {
+    margin-right: 3em;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $extra-dark-black;
+	padding-bottom: 1em;
+	&-logo{
+		margin-top: 1em;
+	}
+  }
+
+  &__top-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+	//flex-wrap: wrap;
+	justify-content: space-between;
+	*{
+		align-self: flex-start;
+	}
+	&.first{
+		margin-top: 3em;
+		width: 100%;
+	}
+  }
+
+  &__languages-container {
+    display: flex;
+    flex-direction: column;
+	margin: 0 0 0.5em .6em;
+/* 	max-width: 28em; */
+  }
+
+  &__languages {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &__translation-item {
+    display: flex;
+    font-size: 1em;
+    color: $medium-gray;
+    margin-right: 1.5em;
+    margin-top: .8em;
+		&:hover {
+      font-weight: bold;
+		}
+
+    & svg path {
+      fill: $white;
+    }
+
+    & svg {
+      padding-top: 2px;
+    }
+  }
+
+  &__civ-contact-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6em;
+	@include respond(tab-land) {
+		margin-left: 2em;
+	}
+    & a {
+      margin-bottom: 1em;
+      color: $medium-gray;
+      font-size: 1em;
+    }
+  }
+
+  &__civ-help-and-social-container{
+	margin: .7em 0 0 6em;
+	display: flex;
+	flex-direction: row;
+	flex-grow: 2;
+	justify-content: end;
+	@include respond(tab-land) {
+		margin: 0.7rem 0 0 2em;
+	}
+  }
+
+  &__help-btn {
+	height: 3.3em;
+    width: 15em;
+	font-size: .9em;
+    margin-right: 2em;
+  }
+
+  &__social-icon {
+    margin-left: 2em;
+  }
+
+  &__middle {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 4em 0;
+    justify-content: space-between;
+  }
+
+  &__columns {
+    display: flex;
+    flex-direction: row;
+	flex-wrap: wrap;
+  }
+
+  &__column {
+    padding-bottom: 0;
+    flex: 1 1 auto;
+	margin: 0 4em 2.4em 0;
+  }
+
+  &__title {
+      color: $white;
+      font-weight: bold;
+      font-size: 1.1em;
+  }
+
+  &__email-info {
+    font-size: .85em;
+    color: $medium-gray;
+	margin-top: .6em;
+  }
+
+  &__list-items {
+	  white-space: nowrap;
+  }
+
+  &__list-item {
+      color: $medium-gray;
+      margin-top: .2em;
+      font-size: 1em;
+      cursor: pointer;
+      display: table;
+
+/*      @include respond(tab-port) {
+        font-size: 1em;
+        margin-top: rem;
+      }
+*/
+
+      &:hover {
+        color: $white;
+      }
+  }
+
+  &__subscribe {
+    display: flex;
+    flex-direction: column;
+/*    margin: 3em 0;
+	width: 20em;*/
+  }
+
+  &__bottom {
+    display: flex;
+    padding-bottom: 4em;
+    font-size: .9em;
+    color: $medium-gray;
+  }
+
+  .ember-chimp {
+	  width: auto;
+	& label{
+		width: auto;
+	}
+
+	& input{
+		width: 100%;
+	}
+
+	& button {
+		position: absolute;
+		top: 13px;
+		left: 85%;
+	}
+  }
+
+}
+
+.footer-phone {
+  background-color: $dark-black;
+  padding: 2rem;
+  font-size: 1.6rem;
+  color: $white;
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $extra-dark-black;
+    margin-bottom: 2em;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: row;
+	flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+	*{
+		align-self: flex-start;
+	}
+	&.first{
+		margin-top: .4em;
+		margin-bottom: 0;
+	}
+  }
+
+  .footer__logo{
+	  margin-bottom: 2em;
+  }
+
+  .footer__column {
+    padding-bottom: 0;
+    flex: 1 1 auto;
+	margin: 0 4em 2.4em 0;
+  width: 25%;
+    float: left;
+  }
+
+  &__civ-contact-container {
+    display: flex;
+    flex-direction: column;
+	margin-left: 1em;
+    & a {
+      margin-bottom: 1em;
+      color: $medium-gray;
+      font-size: 1.1em;
+    }
+  }
+
+  &__help-btn {
+	height: 3.3em;
+    width: 14.5em;
+	font-size: 1.1em;
+  margin-left: 10rem;
+  margin-top: -7rem;
+  }
+
+  &__subscribe {
+    display: flex;
+    flex-direction: column;
+    margin: 3em 0;
+  }
+
+  .ember-chimp {
+	  width: auto;
+	& label{
+		width: auto;
+	}
+
+	& input{
+		width: 100%;
+	}
+
+	& button {
+		position: absolute;
+		top: 13px;
+		left: 90%;
+	}
+  }
+}
+

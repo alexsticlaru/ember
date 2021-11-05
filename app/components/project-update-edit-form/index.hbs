@@ -1,0 +1,147 @@
+<div class="community-management">
+
+  <div class="community-management__breadcrumbs-container">
+    <LinkTo class="btn-none community-management__breadcrumbs community-management__breadcrumbs--active" @route='community.participation.settings.updates'>
+      {{t 'addUpdate.navTitle'}}
+    </LinkTo>
+    <span class="community-management__breadcrumbs-icon" aria-hidden="true">
+      {{inline-svg '/images/community/settings/breadcrumbs.svg'}}
+    </span>
+    <span class="btn-none community-management__breadcrumbs community-management__breadcrumbs--active" {{on "click" @toggleEditForm}}>
+      {{@update.title}}
+    </span>
+    <span class="community-management__breadcrumbs-icon" aria-hidden="true">
+      {{inline-svg '/images/community/settings/breadcrumbs.svg'}}
+    </span>
+    <span class="community-management__breadcrumbs">
+      {{t 'addUpdate.editFormTitle'}}
+    </span>
+  </div>
+
+  <div class="community-management__title">
+    {{t 'addUpdate.editFormTitle'}}
+  </div>
+
+  <SettingsItem
+    @title={{t 'addUpdate.editUpdateTitle'}}
+    @noTooltip={{true}}>
+    <LabelTextField @type="text"
+      @value={{@update.title}}
+      @maxlength=100
+      />
+  </SettingsItem>
+
+  <SettingsItem
+    @title={{t 'addUpdate.newUpdateImage'}}
+    @noTooltip={{true}}>
+    <FileUpload
+      @id="update-image-upload"
+      @fileType="image"
+      @upload={{this.uploadPicture}}>
+      <label for="update-image-upload" class="btn-none" role="button" tabindex="0">
+        <div class="community-management__cover-image-container">
+          <span>
+            {{#if @update.image}}
+              <CloudinaryImage
+                    aria-hidden="true"
+                    class={{"participation-settings__item-image"}}
+                    @publicId={{@update.image}}
+                    @options={{hash format='png' transforms='q_auto,f_auto'}}
+              />
+            {{else}}
+              <div class="community-management__cover-image-placeholder" aria-hidden="true">
+                {{inline-svg '/images/community/settings-image.svg'}}
+              </div>
+            {{/if}}
+          </span>
+          <span class="community-management__cover-image-text">
+            {{t 'addUpdate.coverDimensions'}}
+          </span>
+        </div>
+      </label>
+    </FileUpload>
+  </SettingsItem>
+
+  <SettingsItem
+    @title={{t 'addUpdate.editUpdateContent'}}
+    @noTooltip={{true}}>
+    <NewRichEditor
+    @content={{@update.content}}
+    @editorId ={{"update-add-editordescription-create"}}
+    />
+</SettingsItem>
+
+	{{#if @update.notificationSent}}
+		{{t 'addUpdate.notificationSent'}}
+		<br><br>
+	{{/if}}
+
+	{{#unless @update.notificationSent}}
+	<SettingsItem
+			@noTooltip={{true}}
+	>
+		<div class="settings-option-select">
+			<Input
+					@id="scheduled-checkbox"
+					@type="checkbox"
+					@checked={{@update.scheduled}}
+			/>
+			<label for="scheduled-checkbox" class="settings-option-select__label">
+				<div class="settings-option-select__title">
+					{{t 'addUpdate.sendLaterCheckbox'}}
+				</div>
+				<div class="settings-option-select__text">
+					{{t 'addUpdate.sendLaterCheckboxContent'}}
+				</div>
+			</label>
+		</div>
+	</SettingsItem>
+
+	{{#if @update.scheduled}}
+		<SettingsItem
+				@noTooltip={{true}}
+				@title={{t 'addUpdate.scheduledDate'}}>
+			<EmberFlatpickr
+					class="input-text"
+					placeholder={{t 'addUpdate.scheduledDatePlaceholder'}}
+					@date={{this.scheduledDateArray}}
+					@onChange={{this.scheduledDateChanged}}
+					@minDate="today"
+			/>
+		</SettingsItem>
+	{{/if}}
+	{{/unless}}
+
+  <div class="community-management__item-container">
+    <div>
+      {{#if this.processingChanges}}
+        <SpinnerButton
+          @class="btn-civ-black-reverse community-management__save-button"
+          @spinning={{true}}
+          >
+          <span>
+            {{t 'pb.profile.saving'}}
+          </span>
+        </SpinnerButton>
+      {{else if this.changesSaved}}
+        <button class="btn-civ-black community-management__save-button" {{on "click" this.saveUpdate}}>
+          <span aria-hidden="true">{{inline-svg '/images/ideaBox/check.svg'}}</span>
+          {{t 'pb.profile.saved'}}
+        </button>
+      {{else}}
+        <button class="btn-civ-black community-management__save-button" {{on "click" this.saveUpdate}}>
+          {{t 'addUpdate.save'}}
+        </button>
+      {{/if}}
+      <!--
+      <button type="button" class="btn-civ-black community-management__save-button" {{on "click" this.saveUpdate}}>
+        {{t 'addUpdate.save'}}
+      </button> -->
+    </div>
+    <div>
+      <button type="button" class="btn-none community-management__delete-button" {{on "click" @toggleEditForm}}>
+        {{t 'addUpdate.editDiscard'}}
+      </button>
+    </div>
+  </div>
+</div>

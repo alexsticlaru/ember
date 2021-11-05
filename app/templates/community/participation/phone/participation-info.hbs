@@ -1,0 +1,30 @@
+<div class="participation-info">
+    <div class="participation-info__header">
+        <h1 class="heading-1--secondary">{{t 'participation.infoTitle' type=(capitalize @model.type)}}</h1>
+        <button type="button" class="btn-none" {{on 'click' this.closePanel}} aria-label={{t 'buttons.close'}}>
+            <span aria-hidden="true">{{inline-svg "/images/close.svg" class="icon-close"}}</span>
+        </button>
+    </div>
+    <p>{{t 'participation.infoSubtitle' type=(capitalize @model.type)}}</p>
+    <div class="participation-info__section">
+        <h2 class="heading-2--secondary">{{t 'participation.shareOpinion.question'}}</h2>
+        <p>{{t 'participation.shareOpinion.answer'}}</p>
+    </div>
+    <div class="participation-info__section">
+        <h2 class="heading-2--secondary">{{t 'participation.otherWays.question'}}</h2>
+        <p>{{t 'participation.otherWays.answer'}}</p>
+    </div>
+    <div class="participation-info__section">
+        <h2 class="heading-2--secondary">{{t 'participation.orgInvolved.question'}}</h2>
+        <p>{{t 'participation.orgInvolved.answer'}}</p>
+    </div>
+    <div class="participation-info__section">
+        <h2 class="heading-2--secondary">{{t 'participation.outcomes.question'}}</h2>
+        <p>{{t 'participation.outcomes.answer'}}</p>
+    </div>
+    <div class="participation-info__section">
+        <h2 class="heading-2--secondary">{{t 'participation.closed.question'}}</h2>
+        <p>{{t 'participation.closed.answer'}}</p>
+    </div>
+
+</div>

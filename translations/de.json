@@ -1,0 +1,722 @@
+{
+ "accessibility": {
+  "languageSelector": "Change Language",
+  "ratingAccessibilityInfo": " users agreed with this insight"
+ },
+ "activation-popup": {
+  "email": "Write new email",
+  "emailRequired": "Please write a valid new email.",
+  "message": "Before participating you should verify your account. Please go to inbox and confirm the email we’ve sent you.",
+  "password": "Your password",
+  "passwordRequired": "Password required in order to change the email.",
+  "resendEmail": "Resend activation email",
+  "sentEmail": "Activation email sent",
+  "title": "Oops! Looks like you haven’t confirmed your email yet"
+ },
+ "addDocument": {
+  "navTitle": "Dokumente"
+ },
+ "addUpdate": {
+  "navTitle": "Neuigkeiten",
+  "sendLaterCheckboxContent": "Sie können ein bestimmtes Datum wählen. Ihre Community erhält alle Nachrichten um 14 Uhr."
+ },
+ "bubble": {
+  "error": {
+   "unknown": "Oops, something went wrong. If it happens again, please let us know!"
+  },
+  "login": {
+   "confirm": {
+    "before": "Herzlich willkommen, ",
+    "title": "Hallo!"
+   }
+  },
+  "logout": {
+   "confirm": "Wir wünschen Ihnen einen schönen Tag und freuen uns auf Ihren nächsten Besuch.",
+   "confirm.title": "Bis bald!"
+  },
+  "notfound": {
+   "community": "Oops! you tried to visit a page that does not exist."
+  },
+  "password": {
+   "recovery": {
+    "confirm": "Check your mailbox: an email is flying there!",
+    "confirm.title": "Woooooooosh!"
+   }
+  }
+ },
+ "buttons": {
+  "cancel": "Cancel",
+  "changeEmail": "Change email",
+  "changePassword": "Save password",
+  "close": "Close",
+  "commentCount": "{number, plural, one {1 Kommentar} other {# Kommentare}}",
+  "delete": "Delete",
+  "login": "Einloggen",
+  "loginEmail": "Mit E-Mail einloggen",
+  "logout": "Ausloggen",
+  "projectBy": "Projekt von",
+  "propositionDeleteCancel": "Cancel",
+  "propositionDeleteConfirm": "Delete",
+  "remove": "Remove",
+  "save": "Speichern",
+  "seeMore": "Mehr",
+  "shareButton": "Teilen",
+  "signup": "Registrieren",
+  "signupEmail": "Mit E-Mail registrieren",
+  "updateEmail": "Update email",
+  "whatIsYourOpinion": "Wie ist Ihre Meinung?"
+ },
+ "communities": {
+  "buttons": {
+   "viewCommunity": "Community besuchen"
+  },
+  "closedProjectsMessage": "Sie können an diesen Projekten leider nicht mehr teilnehmen.",
+  "communitiesBackButton": "Communities",
+  "communitiesLabel": "Communities",
+  "contributions": "{number} Beiträge",
+  "currentProjects": "Laufende Projekte",
+  "currentProjectsMessage": "Sie können an diesen Projekten teilnehmen.",
+  "members": "Mitglieder",
+  "noOpenedProjects": "Looks like there are no opened projects at this time, but please do check {customText}!",
+  "participants": "{number} participants",
+  "pastProjects": "Abgeschlossene Projekte",
+  "projects": "Projekt",
+  "subTitle": "Civocracy communities create impact on the important matters in cities"
+ },
+ "community": {
+  "addModules": {
+   "addButton": "Hinzufügen",
+   "discussionExplanation": "Das Diskussionsmodul ermöglicht es Ihren Teilnehmer:Innen, tiefer in die Debatte einzusteigen. Sie können lange Beiträge schreiben und andere durch Kommentare, Upvoting oder Reaktionen unterstützen",
+   "discussionSubtitle": "\"Ich will tiefer gehen\"",
+   "discussionTitle": "Diskussion",
+   "explanation": "Sie können hier weitere Module hinzufügen, die dann in der Liste auf der linken Seite erscheinen.",
+   "navTitle": "+ Beteiligungsformat hinzufügen",
+   "questionareExplanation": "Mit einem Fragebogen können Sie Antworten zu bestimmten Themen sammeln und so ein besseres Verständnis für die Mitglieder und Meinungen Ihrer Community gewinnen, was wiederum die Entscheidungsfindung unterstützt. Mehr erfahren",
+   "questionareSubtitle": "\"Ich brauche Feedback\"",
+   "questionareTitle": "Fragebogen",
+   "title": "Module hinzufügen"
+  },
+  "adminsManagement": {
+   "addAdmin": "Ernennen Sie einen Civocracy User zum Projekt Administrator",
+   "addAdminButton": "Administrator hinzufügen",
+   "addAdminCommunity": "Ernennen Sie einen Civocracy User zum Community Administrator",
+   "addAdminCommunityTooltip": "Administrator hinzufügen <br> Sie können Ihren Admin in spe per E-Mail Adresse einladen. Wenn Ihr Kandidat schon Civocracy  User ist, reicht es, den Nutzernamen einzutippen.",
+   "addAdminPlaceholder": "Z.B. Roland Greifeld",
+   "addAdminTooltip": "Administrator hinzufügen <br> Sie können Ihren Admin in spe per E-Mail Adresse einladen. Wenn Ihr Kandidat schon Civocracy  User ist, reicht es, den Nutzernamen einzutippen.",
+   "navInfoTitle": "ALLGEMEINE INFOMRATIONEN",
+   "navPublishedTitle": "VERÖFFENTLICHTE FORMATE",
+   "navTitle": "Administratoren und Sichtbarkeit",
+   "navUnpublishedExplanation": "Es gibt derzeit keine unveröffentlichten Module",
+   "navUnpublishedTitle": "Nicht veröffentlichte Formate",
+   "title": "Community Administratoren",
+   "titleProject": "Projekt Administratoren",
+   "titleProjectTooltip": "Projekt Administratoren <br> Sie können Administratoren-Rechte vergeben, mit denen man Statistiken einsehen und Projekte moderieren kann. Mehr erfahren >",
+   "titleTooltip": "<br> Sie können Administratoren-Rechte vergeben, mit denen man Statistiken einsehen, Projekte moderieren und die Community Seite editieren kann. Mehr erfahren >"
+  },
+  "communityManagement": {
+   "admins": "Community Owner",
+   "country": "Land*",
+   "cover": "Titelbild*",
+   "coverDimensions": "Empfohlenes Format <br>PNG 725 x 400 pixel",
+   "coverTooltip": "Titel<br> Wählen Sie ein Titelbild für Ihre Community. Es wird sehr auffällig sein, also stellen Sie am besten sicher, dass es Ihre Community gut verkörpert.",
+   "delete": "Community löschen",
+   "deleteProject": "Projekt löschen",
+   "description": "Beschreibung*",
+   "descriptionPlaceholder": "Beteiligen Sie sich an der Gestaltung einer besseren Zukunft für alle. Wir sind davon überzeugt, dass wir unser Ziel, eine Plattform für die nachhaltige Stadt zu schaffen, nur gemeinsam mit unseren Bürgern erreichen können. Bitte teilen Sie uns Ihre Meinung mit, damit wir beginnen können.",
+   "descriptionTooltip": "Beschreibung Ihrer Community. <br> Beschreiben Sie den Sinn der Community. Sie können auch etwas über die Projekte sagen, welche Wirkung Sie erzielen wollen und was mit den Ergebnissen passiert.",
+   "facebook": "Facebook",
+   "infoTitle": "Community",
+   "language": "Sprache*",
+   "linkedin": "LinkedIn",
+   "logo": "Logo*",
+   "logoDimensions": "Empfohlenes Format <br>PNG 180 x 80 pixel",
+   "logoTooltip": "Community Logo <br> Das Logo wird oben auf Ihrer Seite erscheinen und sollte Ihre Community verkörpern. Falls vorhanden, nehmen Sie am besten Ihr offizielles Logo.",
+   "name": "Name der Community*",
+   "nameTooltip": "Community Name <br>am besten nehmen Sie den offiziellen Namen.",
+   "obligatoryFields": "* Pflichtfelder",
+   "propositionPlaceholder": "Posten Sie so viele Ideen, wie Sie möchten. Sobald eine Idee 50 Unterstützungen erhält, wird sie automatisch zu einer Diskussion.",
+   "twitter": "Twitter",
+   "type": "Art der Community*",
+   "typeGov": "Regierung/ Verwaltung",
+   "typeOrg": "Organisation",
+   "url": "Community URL*",
+   "urlTooltip": "Community URL <br> Wenn die Community erstellt wurde, kann die URL nur noch durch unser Support Team geändert werden.",
+   "website": "Webseite",
+   "websiteTooltip": "Platzhalter",
+   "youtube": "YouTube"
+  },
+  "consultationManagement": {
+   "about": "Erzählen Sie uns von...",
+   "aboutPlaceholder": "Beispiel. Achten Sie in Ihrem täglichen Leben auf Ihren Energie- und Wasserverbrauch? Wenn ja, welche Maßnahmen haben Sie bereits ergriffen? Wenn nicht, warum?\n",
+   "coverDimensions": "Recommended format: PNG 1440 x 500 pixels"
+  },
+  "newProject": {
+   "examplePage": "Projektseite Beispiel",
+   "explanation": "Ein Projekt befasst sich mit einem bestimmten Thema und nutzt unter anderem die Beteiligungsmodule. Sie können sie im nächsten Schritt hinzufügen. Mehr erfahren",
+   "ideaTitle": "Ideenmodul",
+   "ideaVisibility": "Sichtbarkeit wählen",
+   "ideaVisibilityConfidential": "Vertrauliche Ideen",
+   "ideaVisibilityConfidentialExplanation": "Die Ideen der Teilnehmer:Innen sind nur für Administrator:Innen sichtbar.",
+   "ideaVisibilityPublic": "Öffentlich",
+   "ideaVisibilityPublicExplanation": "Alle Civocracy Mitglieder können Ideen posten und die Ideen der anderen sehen.",
+   "ideaVisibilityTooltip": "Privatsphäre <br> Wir empfehlen, das Ideenmodul auf öffentlich zu schalten, um mehr Wirkung zu erzielen.",
+   "missingName": "Bitte geben Sie dem Projekt einen Namen, um fortzufahren.",
+   "next": "Weiter",
+   "step": "Schritt",
+   "title": "Neues Projekt"
+  },
+  "project": {
+   "accessWithPassword": "Zugang mit Passwort",
+   "participate": "Teilnehmen",
+   "seeResults": "See Results"
+  },
+  "projectManagement": {
+   "cover": "Titelbild*:",
+   "coverDimensions": "Empfohlenes Format: PNG 205 x 265 Pixel",
+   "coverTooltip": "Titelbild <br> Wählen Sie ein buntes, aktivierendes Bild, das Ihr Projekt verkörpert. Denken Sie daran, dass es die Nutzer:Innen aktivieren soll. Es kann auch Text darauf sein. Das kann zusätzlich aktivieren!",
+   "dateBegin": "Start",
+   "dateEnd": "Ende",
+   "description": "Über das Projekt*:",
+   "descriptionPlaceholder": "ZB.: \"Die Stadt Berlin möchte Sie einbeziehen und stärker mit Ihnen zusammenarbeiten, indem sie eine große Bürgerbefragung zum Thema Klimawandel durchführt. Das Ergebnis dieser Diskussion wird den nächsten territorialen Klima-Energieplan der Stadt Berlin bereichern. Er wird für den Zeitraum 2020-2030 erstellt und wird zum Klimaplan der Metropole Berlin beitragen. Der Klimawandel geht uns alle an! Wir danken Ihnen im Voraus für Ihre Ideen, Vorschläge und Ihr Feedback. Zögern Sie nicht, in Ihrem Umfeld über diese Diskussion zu sprechen!\"",
+   "descriptionTooltip": "Über das Projekt <br> Definieren Sie den Sinn Ihres Projektes <br><br>Fassen Sie das Projekt in wenigen Sätzen zusammen. Nutzen Sie dazu einfache Sprache und kurze Sätze. Erklären Sie, warum das Projekt für die Teilnehmer:Innen relevant ist. <br><br> Warum bearbeitet Ihr Projekt das Thema? Warum sollten die Menschen teilnehmen? Was ist der Effekt Ihres Projekts?",
+   "infoCompletion": "Fortschritt:",
+   "infoTitle": "Projekt:",
+   "name": "Name des Projekts*:",
+   "nameTooltip": "Name des Projektes <br>Wählen Sie einen kurzen, eingängigen Namen, der die Aufmerksamkeit der User:Innen erregt.",
+   "navTitle": "Über das Projekt",
+   "obligatoryFields": "* Pflichtfelder",
+   "outcomeBenefits": "Was passiert mit den Ergebnissen?:",
+   "outcomeBenefitsPlaceholder": "Z.B:: \"Die Ergebnisse dieser Diskussion werden in unser neues Programm 2020-2030 gegen den Klimawandel einfließen. Durch Ihre Teilnahme helfen Sie uns und unserer Stadt zu einem besseren Plan im Kampf gegen die Klimakrise.\"",
+   "outcomeBenefitsTooltip": "Ergebnisse <br> Seien Sie hier vorsichtig! Denken Sie daran, dass die Menschen beeindruckt sein werden, wenn sie merken, dass ihr Beitrag wichtig ist. Versuchen Sie, so konkret wie möglich zu sein und einfache Worte zu benutzen. Betonen Sie die Auswirkungen ihrer Beteiligung auf Ihren Entscheidungsprozess.",
+   "publish": "Veröffentlichen",
+   "url": "Projekt URL*:",
+   "urlTooltip": "Projekt URL bestimmen"
+  },
+  "questionnaireManagement": {
+   "addAnswer": "+ Antwort hinzufügen",
+   "addQuestion": "Frage hinzufügen",
+   "cover": "Titelbild*",
+   "delete": "Löschen",
+   "description": "Beschreibung",
+   "descriptionPlaceholder": "Beispiel. Achten Sie in Ihrem täglichen Leben auf Ihren Energie- und Wasserverbrauch? Wenn ja, welche Maßnahmen haben Sie bereits ergriffen? Wenn nicht, warum?\n",
+   "descriptionTooltip": "Beschreibung <br> Beschreiben Sie das Ziel des Fragebogens in wenigen Sätzen.",
+   "endNumber": "Letzte Zahl",
+   "exportCsv": "Daten in .csv exportieren",
+   "exportOds": "Daten in .ods exportieren",
+   "exportXlsx": "Daten in .xlsx exportieren",
+   "name": "Fragebogen Titel",
+   "other": "Sonstige",
+   "question": "Frage",
+   "questionDescriptionPlaceholder": "Beschreibung (optional)",
+   "QuestionnaireExplanation": "Mit einem Fragebogen können Sie Antworten zu bestimmten Themen sammeln und so ein besseres Verständnis für die Mitglieder und Meinungen Ihrer Community gewinnen, was wiederum die Entscheidungsfindung unterstützt. Mehr erfahren",
+   "questionPlaceholder": "Geben Sie die Frage ein",
+   "QuestionsTab": "Fragen",
+   "questionType": "Fragen-Typ",
+   "questionTypeTooltip": "Fragen-Typ<br> Sie können zwischen verschiedenen Arten von Fragen wählen. Mehr erfahren.",
+   "required": "Pflichtfeld",
+   "requiredTooltip": "Pflichtfeld <br> Wir raten Ihnen, immer \"nein\" zu wählen und die Teilnehmer:Innen selbst entscheiden zu lassen, ob sie antworten.",
+   "ResultsTab": "Daten Export",
+   "SetUpTab": "Einrichtung",
+   "startNumber": "Erste Zahl",
+   "withoutRegistration": "Fragebogen ohne Registrierung",
+   "withoutRegistrationDescription": "Ideal für Vor-Ort-Aktionen: Ihre Teilnehmer:Innen brauchen kein Civocracy-Konto, um den Fragebogen zu beantworten. Aber seien Sie vorsichtig! Da wir keine Daten sammeln, könnten Teilnehmer:Innen den Fragebogen mehrfach ausfüllen."
+  },
+  "visibilityManagement": {
+   "passwordExplanation": "Nur Mitglieder mit Link und Passwort können an dem Projekt teilnehmen.",
+   "passwordTitle": "Besucher mit Passwort",
+   "publicExplanation": "Lässt jeden Besucher von Civocracy auf Ihr Projekt zugreifen. Sie müssen sich jedoch registrieren, um teilnehmen zu können.\n",
+   "publicTitle": "Jede(r)",
+   "setPassword": "Passwort",
+   "title": "Wenn Sie Ihr Projekt veröffentlichen, ist es sichtbar für:",
+   "tooltip": "Projekt Sichtbarkeit <br>Wir empfehlen Ihnen, das Projekt für alle sichtbar zu machen, um mehr Menschen zu erreichen und so mehr Wirkung zu erzielen."
+  }
+ },
+ "cookie": {
+  "agreeButton": "Alle Cookies akzeptieren",
+  "manageButton": "Einstellungen verwalten",
+  "necessaryButton": "Nur notwendige Cookies",
+  "text": "Während Sie die Civocracy Plattform nutzen, werden Daten gespeichert und von Ihrem Browser abgerufen, im Allgemeinen in Form von Cookies. Diese anonymen Daten werden verwendet, um Ihre Erfahrung auf unserer Plattform zu verbessern und die Funktionalität zu gewährleisten. Civocracy verwendet nur Cookies, die für die Optimierung der Navigation notwendig sind und sammelt sie nicht für kommerzielle oder werbliche Zwecke."
+ },
+ "countries": {
+  "DE": "Germany",
+  "FR": "France",
+  "GF": "French Guiana",
+  "NL": "Netherlands"
+ },
+ "delete": {
+  "confirmMessage": {
+   "account": "Are you sure you want to deactivate your account?",
+   "communityText": "Sind Sie sicher, dass Sie diese Community löschen wollen?",
+   "communityTitle": "Community löschen",
+   "propositionText": "Are you sure you want to delete this idea?",
+   "propositionTitle": "Delete idea"
+  }
+ },
+ "discussion": {
+  "addComment": "Was denken Sie über {username}s Beitrag?",
+  "comments": "Kommentare",
+  "conversation": "Debatte",
+  "highlightIdeas": "Eine Idee markieren",
+  "noReactions": "Dieser Beitrag hat noch keine Reaktionen",
+  "noThemes": "Dieser Beitrag ist keiner Kategorie zugeordnet.",
+  "noUserIdea": "{username} hat noch keine Ideen hinzugefügt. Wollen Sie {username} helfen und eine Idee hinzufügen?",
+  "themes": "Kategorien",
+  "topReactions": "Häufgste Reaktionen",
+  "userIdea": "{username}'s Ideen",
+  "userSays": "{username} sagt"
+ },
+ "discussionPreview": {
+  "discussionBackButton": "Diskussion",
+  "projectBy": "Projekt von",
+  "userSays": "sagt"
+ },
+ "footer": {
+  "bottomSection": {
+   "registeredBusiness": "Civocracy SAS ist eine Gesellschaft mit beschränkter Haftung nach französischem Recht mit Hauptsitz in Lyon, Frankreich mit der Adresse 84, rue Deleuvre, 69004 Lyon. Handelsregisternummer: 890 397 375 R.C.S, Lyon und USt-ID: FR 26890397375. Zugang zu der Civocracy Platform überträgt keine geistigen Eigentumsrechte in Bezug auf Elemente der Plattform, die das exklusive Eigentum von Civocracy bleibt."
+  },
+  "contact": "Schreiben Sie uns",
+  "email": "contact@civocracy.org",
+  "helpButton": "Brauchen Sie Hilfe?",
+  "languages": "Sprache wählen",
+  "sectionItems": {
+   "about": "Unsere Geschichte",
+   "accessibilityNotice": "Hinweis zur Barrierefreiheit",
+   "blog": "Blog",
+   "caseStudies": "Referenzen",
+   "codeOfConduct": "Verhaltensregeln",
+   "findYourCommunities": "Communities finden",
+   "gettingStarted": "Erste Schritte",
+   "jobs": "Jobs",
+   "legalNotice": "Rechtlicher Hinweis",
+   "manageYourCookies": "Cookie verwalten",
+   "participate": "Mitmachen",
+   "press": "Presse",
+   "privacyNotice": "Datenschutz",
+   "services": "Leistungen",
+   "termsOfUse": "AGBs"
+  },
+  "sectionTitles": {
+   "legal": "Rechtliches",
+   "other": "Sonstige",
+   "resources": "Ressourcen",
+   "whatWeDo": "Das machen wir",
+   "whoWeAre": "Das sind wir"
+  }
+ },
+ "home": {
+  "header": {
+   "sliding": {
+    "item": {
+     "1": "your city"
+    }
+   },
+   "subtitle": "Shape the future of",
+   "title": "Don't let others decide without you."
+  }
+ },
+ "homepage": {
+  "landing": {
+   "subtitle": "Creating inclusive communities through collaborative decision making.",
+   "title": "Collaborative governance. Empowered citizens. Better societies."
+  },
+  "process": {
+   "step1": {
+    "line1": "Share and co-develop",
+    "line2": "ideas on topics",
+    "line3": "you care about"
+   },
+   "step2": {
+    "line1": "All contributions",
+    "line2": "are reviewed",
+    "line3": "and analysed"
+   },
+   "step3": {
+    "line1": "Projects are implemented",
+    "line2": "based on what your",
+    "line3": "community wants"
+   }
+  },
+  "sectionTitles": {
+   "locations": "Where we work",
+   "partners": "Our partners",
+   "process": "",
+   "register": "Mitreden",
+   "successes": "Cities need you"
+  },
+  "successes": {
+   "auvergne": {
+    "closing": "were read by the city government",
+    "highlightedText": "96% of citizen contributions",
+    "location": "In Auvergne-Rhône-Alpes,"
+   },
+   "northHolland": {
+    "closing": "on biodiversity became policy recommendations",
+    "highlightedText": "10 citizen ideas",
+    "location": "In North Holland,"
+   },
+   "strasbourg": {
+    "closing": "participated in an official discussion to improve local education",
+    "highlightedText": "40% of the city’s parents",
+    "location": "In Strasbourg,"
+   }
+  }
+ },
+ "howItWorks": {
+  "modesExplanation": "Sie können verschiedene, sich ergänzende Beteiligungsformen nutzen: Diskussion, Ideen, E-Mapping und Fragebogen. Wählen Sie die passenden Module für Ihr Projekt.\n"
+ },
+ "ideaBox": {
+  "aboutTab": "Über",
+  "aboutTitle": "Erzählen Sie uns von...",
+  "addAnIdea": "Add an idea",
+  "addIdeaPopUp": {
+   "stepOne": {
+    "addDescription": "Add a short description*",
+    "cancelButton": "Cancel",
+    "codeOfConduct": "Code of conduct",
+    "continueButton": "Continue",
+    "errorDescription": "Please write a short description",
+    "errorTitle": "Please write a title",
+    "example": "Example:",
+    "exampleDescription": "'Limit car access to the city center on weekends",
+    "info": "Keep it short and and focus on the solution.",
+    "moreTips": "for more tips",
+    "obligatoryFields": "*Obligatory fields",
+    "submitButton": "Submit",
+    "suggestionInfo": "Oh! Looks like there are already some ideas with these keywords. In order to maximise the impact we prefer not having double ideas. Please check if one of these fits enough into your idea and make sure to upvote it. If not, go ahead and create a new one. :)",
+    "summariseText": "Summarise in a few sentences the main aspects of your idea. You can be critical and direct, just make sure to do it with respect. See our ",
+    "title": "Write the title for your idea*",
+    "titlePopUp": "Add an idea"
+   },
+   "stepTwo": {
+    "chooseTheme": "Choose themes",
+    "clickMapDescription": "Click on the map or type the address into search bar.",
+    "ideaLocation": "Your idea has a location",
+    "noThemesSelected": "No themes selected",
+    "optional": "(Optional)"
+   }
+  },
+  "applyButton": "Ok",
+  "bookmark": "Speichern",
+  "bookmarkConfirmed": "The idea was saved to your list",
+  "bookmarkRemove": "Unsave idea",
+  "clearButton": "Clear",
+  "delete": "Löschen",
+  "descriptionTitle": "Kontext",
+  "discussionTab": "Diskussion",
+  "edit": "Bearbeiten",
+  "emptyList": "No ideas at this time. Do you want to add the first one?",
+  "filter": "Filter",
+  "flagPopup": {
+   "cancelButton": "Cancel"
+  },
+  "highlightPopup": {
+   "highlightsLeft": "Nur ({number}) Ideen übrig",
+   "preview": "Vorschau",
+   "submit": "Idee markieren",
+   "subTitle": "Markieren und teilen Sie die Ideen von {username}, die Sie für besonders wichtig halten. (maximal 140 Zeichen)",
+   "title": "Markierungsmodus"
+  },
+  "map": "Map",
+  "moderate": "Moderieren",
+  "moreFilters": "Mehr Filter",
+  "mostUpvoted": "Beliebteste",
+  "newest": "Neueste",
+  "relevancy": "Relevanz",
+  "report": "Melden",
+  "search": "Search",
+  "searchIdeas": "Suche",
+  "seeOnMap": "See on map",
+  "share": "Share",
+  "shareButton": {
+   "copiedLink": "Copied",
+   "copyLink": "Copy link",
+   "facebook": "Facebook",
+   "message": "Look at this cool proposition on Civocracy",
+   "titleShareButton": "Share this idea to create more impact",
+   "twitter": "Twitter",
+   "whatsapp": "WhatsApp"
+  },
+  "showMap": "Show map",
+  "sortBy": "Sort by",
+  "sortByNewest": "Neueste zuerst",
+  "summaryTitle": "Ziel der Diskussion",
+  "themes": "Kategorien",
+  "unvoteTooltip": "Click again to remove your vote",
+  "upvote": "Upvote"
+ },
+ "issue": {
+  "comment": {
+   "reply": "Reply"
+  },
+  "contributionAddForm": {
+   "addAttachment": "Add an Attachment",
+   "addImage": "Add an Image",
+   "addLink": "Add a Link",
+   "addLinkPopupCancel": "Cancel",
+   "addLinkPopupConfirm": "Confirm",
+   "addLinkPopupTitle": "Add Link",
+   "addThemes": "+ Kategorien hinzufügen",
+   "addThemesExplanation": "Wählen Sie Kategorien aus, die zu Ihrem Beitrag passen",
+   "contentPlaceholder": "Schreiben Sie hier Ihren Beitrag. Lassen Sie alle Teilnehmer:Innen wissen, wie Sie über das Thema denken!",
+   "titlePlaceholder": "Titel"
+  },
+  "learn": {
+   "numberOfContributions": "{contributions} Beiträge",
+   "overview": "Diskussionsübersicht",
+   "participants": "{number} Teilnehmer:Innen",
+   "readBy": "Veranstalter:In hat {percent}% der Beiträge gelesen"
+  },
+  "morePage": {
+   "citizens": "Bürger:Innen",
+   "headingInfo": "Teilnahmemöglichkeiten",
+   "headingParticipants": "Schlüsselteilnehmer:Innen ",
+   "InfoText": "<br>• Beiträge schreiben <br>• Die wichtigsten Ideen in ihren Beiträgen hervorheben um mehr Unterstützung zu erhalten <br>• Die Beiträge anderer User:Innen lesen und kommentieren <br>• Beiträgen per Emoji zustimmen, widersprechen oder anderweitig reagieren <br>• Mit anderen Teilnehmer:Innen ins Gespräch kommen <br>• In den <a href=\"/code-of-conduct\" target=\"_blank\">Verhaltensregeln</a> Tipps für guten Umgang miteinander erfahren <br>• Beiträge speichern und Benachrichtigungen  erhalten wenn sich bei diesem etwas tut <br>• Einen Beitrag auf Social Media teilen und so in die Welt tragen",
+   "InfoTextTitle": "<b>Als Diskussionsteilnehmer können Sie:</b>",
+   "organisation": "Organisation",
+   "topIdeas": "Beliebteste Ideen",
+   "topThemes": "Beliebteste Kategorien"
+  },
+  "status": {
+   "closed": "Completed"
+  }
+ },
+ "login": {
+  "buttons": {
+   "login": "Einloggen",
+   "withFacebook": "Mit Facebook einloggen"
+  },
+  "differentPasswords": "Oops! Your passwords are different.",
+  "email": "E-Mail",
+  "emailRequired": "Bitte geben Sie die E-Mail Adresse ein.",
+  "forgotPassword": "Passwort vergessen?",
+  "goBackToLogin": "Zurück zur Registrierung",
+  "modeSeparator": "Oder mit E-Mail registrieren",
+  "newPassword": "Neues Passwort",
+  "newPasswordRepeat": "Neues Passwort wiederholen",
+  "oldPassword": "Altes Passwort",
+  "password": "Passwort",
+  "passwordRequired": "Password field is empty.",
+  "passwordRequiredLength": "Password should be at least 6 characters long.",
+  "placeholder": {
+   "email": "kontakt@example.com",
+   "password": "Geben Sie Ihr Passwort ein"
+  },
+  "register": "Keinen Account?",
+  "signInTitle": "Registrieren",
+  "title": "Einloggen",
+  "validEmailRequired": "Please add a valid email address."
+ },
+ "moderation": {
+  "form": {
+   "abusive": "it's abusive",
+   "advertising": "it's advertising",
+   "inappropriate": "it's inappropriate",
+   "nomoderation": "i don't want to moderate this idea",
+   "submit": "Save",
+   "text": "Why do you want to moderate this idea?",
+   "title": "Moderation"
+  },
+  "message": {
+   "abusive": "This content violated Civocracy's <a href=\"/code-of-conduct\" target=\"_blank\">Code of Conduct</a> about abusive content",
+   "advertising": "This content violated Civocracy's <a href=\"/code-of-conduct\" target=\"_blank\">Code of Conduct</a> about advertising",
+   "inappropriate": "This content violated Civocracy's <a href=\"/code-of-conduct\" target=\"_blank\">Code of Conduct</a> about inappropriate content"
+  },
+  "p1": "You will find on the following pages a number of discussions, projects and challenges in which you can get involved. Depending on the topic you can discuss and express your opinion, or engage your creativity and expertise.",
+  "p2": "This platform lives through you and your contributions. Everybody can participate; and everyone should feel comfortable here.",
+  "p3": "Please respect and apply these rules. Let’s lead constructive discussions in a collaborative way.",
+  "p4": "Any questions about moderation? Please send an email to",
+  "punchline1": "Welcome to Civocracy! This is about you, and your ideas for your city, your community and your world.",
+  "punchline2": "Here are the 9 golden Civocracy tenets for a smooth road to impact:",
+  "punchline3": "Well, time to make a change: we’ve been waiting for you! We wish you exciting exchanges on this platform and many good ideas and engagement!",
+  "tenet1": "If a post does not coincide with your wishes, engage with it appropriately. If you write comments, formulate them <b>respectfully</b>.",
+  "tenet2": "Be as <b>clear</b> and <b>constructive</b> as possible in your contribution. Please also note that irony is often not understood or can be misinterpreted.",
+  "tenet3": "Be aware of <b>repetition</b>. Maybe your idea or your feedback has already been mentioned in articles and comments of other users. Use the “Relevancy” buttons to support the original contributor.",
+  "tenet4": "<b>Abusive, defamatory, offensive</b> and <b>racist</b> comments are <b>banned</b> from our platform. They will be deleted by our moderators.  We are open to and encourage a spectrum of opinions and beliefs, but the must be contributed respectfully.",
+  "tenet5": "Civocracy is <b>not an advertising platform</b>. Commercial content will be removed by the moderation team. References to your own, non-commercial websites or blogs must fit the topic and we ask you to use these sparingly.",
+  "tenet6": {
+   "arg1": "reinforce your argument",
+   "arg2": "be recognized as a contributor by your community",
+   "arg3": "The personal information that you provided during the registration will never be published or used without your consent.",
+   "title": "We strongly recommend that you <b>use your real name</b> in order to:"
+  },
+  "tenet7": "Please make sure that you are not violating <b>copyright</b> neither personal rights of third parties when you are publishing a link.",
+  "tenet8": "Don’t forget to <b>add the source</b> of your quote when you insert one in your publications.",
+  "tenet9": "<b>Have fun</b>, learn, explore, share, be surprised, connect, and more!",
+  "title": "Dear contributors and changemakers,"
+ },
+ "participation": {
+  "aboutOrganization": "Über die Organisation",
+  "aboutProject": "Über das Projekt",
+  "addProject": "Projekt hinzufügen",
+  "allDocumentsButton": "Alle Dokumente",
+  "allUpdatesButton": "Alle Neuigkeiten",
+  "discussionType": "Diskussion",
+  "documentsTitle": "DOKUMENTE",
+  "followForUpdates": "Für Neuigkeiten folgen",
+  "followingProjectAsAdmin": "Sie folgen diesem Projekt als Projekt Admin",
+  "goToSettings": "Einstellungen",
+  "learnMore": "Mehr anzeigen...",
+  "noUpdates": "Momentan gar nichts",
+  "participants": "Teilnehmer:Innen",
+  "participateButton": "Mitmachen",
+  "questionnaireType": "Fragebogen",
+  "shareButton": "Teilen",
+  "updatesTitle": "NEUIGKEITEN",
+  "whatsUpTitle": "Was gibt's neues?",
+  "whatWillHappen": "Was passiert mit den Ergebnissen?"
+ },
+ "participatoryMap": {
+  "userLocation": "show current location"
+ },
+ "password": {
+  "change": {
+   "title": "Change your password"
+  },
+  "recovery": {
+   "title": "Reset your password"
+  },
+  "reset": {
+   "title": "Choose your new password"
+  }
+ },
+ "pb": {
+  "profile": {
+   "about": "Über mich: ",
+   "aboutPlaceholder": "Z.B.: “Ich arbeite als Umweltanwalt in einer kleinen Kanzlei in Berlin. Ich engagiere mich sehr in meiner Gemeinde und verpasse nie den Sonntagsmarkt.”",
+   "contributionsTab": "Beiträge",
+   "emptyIdeas": "Sie haben noch keine gespeicherten Ideen.",
+   "firstName": "Vorname*:",
+   "ideasTab": "Ideen",
+   "joinedDate": "Civocracy beigetreten",
+   "lastName": "Nachname*:",
+   "navProfile": "Profil",
+   "navSaved": "Gespeichert",
+   "navSettings": "Einstellungen",
+   "noAbout": "{username} hat noch keine Infos über sich hinzugefügt.",
+   "photoUpload": "Foto ändern",
+   "save": "Speichern",
+   "saved": "Änderungen wurden gespeichert",
+   "section": {
+    "about": "Über"
+   },
+   "title": "Profil:"
+  },
+  "projects": {
+   "savedChanges": "Changes saved"
+  },
+  "settings": {
+   "changeEmail": "eMail ändern",
+   "changePassword": "Passwort ändern",
+   "deleteAccount": "Account löschen",
+   "email": "Ihre eMail*:",
+   "password": "Ihr Passwort*:",
+   "title": "Einstellungen"
+  }
+ },
+ "placeholder": {
+  "email": "contact@example.com",
+  "newPassword": "New password",
+  "newPasswordRepeat": "Repeat new password",
+  "oldPassword": "Old password",
+  "password": "Enter your password"
+ },
+ "questionnaire": {
+  "addAnswerHere": "Geben Sie hier Ihre Antwort ein",
+  "cancelQuestionnaireButton": "Abbrechen",
+  "chooseOnlyOne": "Bitte wählen Sie eine Antwort aus",
+  "endInfo": "Ihre Meinung ist uns wichtig.",
+  "endInfoTitle": "Danke für's Mitmachen",
+  "info": {
+   "1st": "Sie können nur einmal mitmachen",
+   "2nd": "Die Ergebnisse sind 100% anonym",
+   "3rd": "Pflichtfelder sind mit * gekennzeichnet",
+   "4th": "Wenn Sie den Fragebogen vor Beendigung schließen, werden Ihre Antworten nicht gesichtert",
+   "5th": "Mit dem Ausfüllen des Fragebogens erklären Sie sich mit der Verwendung Ihrer Daten einverstanden"
+  },
+  "leaveQuestionnaireButton": "Fragebogen abbrechen",
+  "leaveQuestionnaireQuestion": "Sind Sie sicher, dass Sie abbrechen möchten? Ihre Antworten werden nicht gespeichert.",
+  "leaveQuestionnaireTitle": "Hallo!",
+  "legalNotice": "Die über diesen Fragebogen gesammelten Informationen werden streng vertraulich behandelt: Sie werden statistisch ausgewertet und Ihre Anonymität wird vollkommen gewahrt. Die Daten werden nur im Zusammenhang mit diesem Projekt verwendet.",
+  "legalTitle": "100% anonym",
+  "nextQuestionInfo": "Hier klicken zum fortfahren",
+  "noAnswer": "Nein",
+  "participants": "Teilnehmer:Innen",
+  "participationTitle": "Wie mitmachen?",
+  "projectBack": "Zurück zum Projekt",
+  "question-type": {
+   "choice": "Eine Auswahlmöglichkeit",
+   "email": "E-Mail",
+   "multiple_choices": "Mehrere Auswahlmöglichkeiten",
+   "order_choice": "Priorisierung",
+   "range": "Skala",
+   "statement": "Zwischenseite",
+   "text": "Text-Antwort",
+   "text_attachment": "Kurzer Text mit Anhang",
+   "yes_no": "Ja/Nein"
+  },
+  "questions": {
+   "next": ">",
+   "previous": "<"
+  },
+  "questionsNr": "Fragen",
+  "questionsTime": "Min lang",
+  "resultsTitle": "Ergebnisse",
+  "seeResults": "Ergebnisse sehen",
+  "submitBtn": "Fragebogen absenden",
+  "takeBtn": "Los geht's",
+  "yesAnswer": "Ja",
+  "youAnswered": "Ihre Antwort"
+ },
+ "reactions": {
+  "type": {
+   "agree": "Ich stimme zu",
+   "disagree": "Ich stimme nicht zu",
+   "inspiring": "Sehr inspirierend!",
+   "needs": "Muss angegangen werden",
+   "think": "Nachdenklich"
+  }
+ },
+ "register": {
+  "and": "und",
+  "buttons": {
+   "withFacebook": "Mit Facebook registrieren"
+  },
+  "captchaError": "Bitte die obere Box anklicken",
+  "cookiesAgreement": "Cookies Policy",
+  "firstName": "Vorname",
+  "firstNameRequired": "First Name field is required.",
+  "lastName": "Nachname",
+  "lastNameRequired": "\"Nachname\" ist ein Pflichtfeld",
+  "login": "Sie haben schon ein Konto?",
+  "modeSeparator": "Oder mit E-Mail registrieren",
+  "placeholder": {
+   "email": "kontakt@example.com",
+   "firstName": "Vornamen eingeben",
+   "lastName": "Nachnamen eingeben",
+   "password": "Wählen Sie ein Passwort"
+  },
+  "privacyAgreement": "Data & Privacy Policy",
+  "signUpTitle": "Registrieren",
+  "termsAgreement": "AGB's",
+  "termsAgreementPrefix": "I agree to Civocracy's",
+  "termsError": "Bitte akzeptieren Sie die AGBs bevor es weitergeht",
+  "title": "Registrieren",
+  "validationButton": "Bestätigungsmail noch einmal schicken"
+ },
+ "registration-popup": {
+  "message": "Before you start discussing what you want your city to look like, we need you to confirm your email address - check your inbox now, and we’ll see you back here soon.",
+  "title": "Thank you for joining Civocracy!"
+ },
+ "top-header": {
+  "communities": "Communities",
+  "currentProjects": "Laufende Projekte",
+  "howTo": "So funktioniert's",
+  "organization": "Ich bin eine Organisation",
+  "profile": "Profil",
+  "projects": "Projekte",
+  "settings": "Einstellungen",
+  "yourCommunities": "Ihre Communities",
+  "yourCommunity": "Ihre Community",
+  "yourProjects": "Ihre Projekte"
+ }
+}

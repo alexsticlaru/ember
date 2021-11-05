@@ -1,0 +1,31 @@
+<div class="settings-option-select">
+<input
+type="radio"
+id="VisibilityPublic"
+checked={{this.isPublic}}
+{{on "click" this.setVisibilityPublic}}/>
+<label for="VisibilityPublic" class="settings-option-select__label">
+  <div class="settings-option-select__title">
+    {{t 'community.newProject.ideaVisibilityPublic'}}
+  </div>
+  <div class="settings-option-select__text">
+    {{t 'community.newProject.ideaVisibilityPublicExplanation'}}
+  </div>
+</label>
+</div>
+
+<div class="settings-option-select">
+<input
+type="radio"
+id="VisibilityConfidential"
+checked={{this.isConfidential}}
+{{on "click" this.setVisibilityConfidential}}/>
+<label for="VisibilityConfidential" class="settings-option-select__label">
+  <div class="settings-option-select__title">
+    {{t 'community.newProject.ideaVisibilityConfidential'}}
+  </div>
+  <div class="settings-option-select__text">
+    {{t 'community.newProject.ideaVisibilityConfidentialExplanation'}}
+  </div>
+</label>
+</div>

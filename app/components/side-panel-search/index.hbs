@@ -1,0 +1,19 @@
+<div class="proposition-search__search-bar">
+    {{inline-svg '/images/modules/module-icon-search-input.svg' class="proposition-search__icon-search"}}
+    <Input aria-label="{{t 'ideaBox.searchIdeas'}}"
+        class="proposition-search__search-input {{if @showCancelBtn 'proposition-search__search-input--small-width'}}"
+        placeholder="{{t 'ideaBox.searchIdeas'}}" @value={{@searchText}}
+        {{on 'keyup' (fn @searchItems @searchText)}}
+        {{on 'focusin' @handleInputFocus}}
+        />
+    {{#if @searchText}}
+        <button type="button"  class="btn-none proposition-search__btn-clean-text" {{on 'click' @clearSearchText}}>
+            {{inline-svg '/images/close.svg' class="icon-small icon-small--gray"}}
+        </button>
+    {{/if}}
+    {{#if @showCancelBtn}}
+        <button type="button" class="btn-none proposition-search__cancel" {{on 'click' @handleCancel}}>
+            {{t 'buttons.cancel'}}
+        </button>
+    {{/if}}
+</div>

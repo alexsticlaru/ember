@@ -1,0 +1,34 @@
+<div class="add-project-wizard__left-content">
+
+  <div class="community-management__main-title">
+    {{t 'community.newProject.ideaTitle'}}
+  </div>
+
+  <div class="community-management__main-title-explanation">
+    {{t 'community.newProject.ideaExplanation'}}
+  </div>
+
+
+  <SettingsItem
+  @title={{t 'community.newProject.ideaVisibility'}}
+  @tooltip={{t 'community.newProject.ideaVisibilityTooltip'}}
+  >
+    <PropositionManagement::visibility @participationPack={{@participationPack}} />
+  </SettingsItem>
+
+  <SettingsItem
+    @title={{t 'community.newProject.upvotesNeeded'}}
+    @tooltip={{t 'community.newProject.upvotesNeededTooltip'}}>
+    <PropositionManagement::upvotesNeeded @participationPack={{@participationPack}} />
+  </SettingsItem>
+
+</div>
+
+<div class="add-project-wizard__save-container-multiple">
+  <button class="btn-none add-project-wizard__back-button" {{on "click" @previousStep}}>
+    {{t 'community.newProject.back'}}
+  </button>
+  <button class="btn-none add-project-wizard__save-button" {{on "click" @nextStep}}>
+    {{t 'community.newProject.save'}}
+  </button>
+</div>

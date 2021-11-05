@@ -1,0 +1,89 @@
+<div class="user-settings-index">
+
+  <div class="community-management__update-title-container">
+    <div class="community-management__main-title">
+      {{t 'pb.settings.title'}}
+    </div>
+  </div>
+
+  <br>
+
+<!--
+  <div class="user-settings-index__title">
+    {{t 'pb.settings.title'}}
+  </div> -->
+
+  <!-- <div class="user-settings-index__tabs-container">
+    <span>
+      Account
+    </span>
+    <span>
+      Email Notifitcations
+    </span>
+
+  </div> -->
+
+
+  <SettingsItem
+  @title={{t 'pb.settings.email'}}
+  @id={{"email"}}
+  @noTooltip={{true}}>
+  <LabelTextField
+      @placeholder={{this.user.currentUser.email}}
+      @disabled={{true}}
+      @id={{"email"}}
+  />
+  <button class="btn-none user-settings-index__item-button" {{on "click" this.changeEmail}}>
+    {{t 'pb.settings.changeEmail'}}
+  </button>
+</SettingsItem>
+
+
+  <!-- <div class="user-settings-index__item-container">
+    <div class="user-settings-index__label">
+      {{t 'pb.settings.email'}}
+    </div>
+    <LabelTextField
+        @placeholder={{this.user.currentUser.email}}
+        @disabled={{true}}
+    />
+    <button class="btn-none user-settings-index__item-button" {{on "click" this.changeEmail}}>
+      {{t 'pb.settings.changeEmail'}}
+    </button>
+  </div> -->
+
+
+    <SettingsItem
+    @title={{t 'pb.settings.password'}}
+    @id={{"user-password"}}
+    @noTooltip={{true}}>
+    <LabelTextField
+        @placeholder={{"*****"}}
+        @disabled={{true}}
+        @id={{"user-password"}}
+    />
+    <button class="btn-none user-settings-index__item-button" {{on "click" this.changeEmail}}>
+      {{t 'pb.settings.changePassword'}}
+    </button>
+  </SettingsItem>
+
+  <!-- <div class="user-settings-index__item-container">
+    <div class="user-settings-index__label">
+      {{t 'pb.settings.password'}}
+    </div>
+    <LabelTextField
+        @placeholder={{"*****"}}
+        @disabled={{true}}
+    />
+    <button class="btn-none user-settings-index__item-button"  {{on "click" this.changePassword}}>
+      {{t 'pb.settings.changePassword'}}
+    </button>
+  </div> -->
+
+  <div class="user-settings-index__delete-container">
+    <button class="btn-none user-settings-index__item-button" {{on "click" this.deleteAccount}}>
+      {{t 'pb.settings.deleteAccount'}}
+    </button>
+  </div>
+
+</div>

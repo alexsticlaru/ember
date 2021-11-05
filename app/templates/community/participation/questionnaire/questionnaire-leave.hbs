@@ -1,0 +1,14 @@
+<div class="questionnaire-popup" role="dialog" aria-labelledby="accessibility-title">
+	<div class="questionnaire-popup__card">
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+		<h1 id="accessibility-title" class="heading-1--quaternary">{{t 'questionnaire.leaveQuestionnaireTitle'}}</h1>
+		<p class="questionnaire-popup__question">{{t 'questionnaire.leaveQuestionnaireQuestion'}}</p>
+		<div class="questionnaire-popup__buttons-container">
+			<button type="button" class="btn-civ-black-reverse questionnaire-popup__btn"
+				{{on 'click' @model.onLeaveQuestionnaire}}>
+				{{t 'questionnaire.leaveQuestionnaireButton'}}
+			</button>
+			<button type="button" class="btn-civ-black questionnaire-popup__btn" {{on "click" this.closePopup}}>{{t 'questionnaire.cancelQuestionnaireButton'}}</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,51 @@
+.activation {
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-top: 1rem;
+        padding-right: 1.5rem;
+
+        & button {
+            font-size: 3.4rem;
+        }
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        padding: 4rem;
+    }
+
+    &__title {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    &__message {
+        margin: 0;
+        margin-top: 2rem;
+    }
+
+    &__result-box {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        margin-top: 1rem;
+
+        span {
+            margin-right: .5rem;
+        }
+    }
+
+    &__link {
+        margin-top: 1rem;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+}

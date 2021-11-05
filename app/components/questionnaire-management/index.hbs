@@ -1,0 +1,224 @@
+<div class="community-management">
+
+  <div>
+    <div class="community-management__main-title-container">
+      <div class="community-management__main-title">
+        {{@participationPack.title}}
+      </div>
+      <div class="community-management__publish-container">
+        {{t 'community.projectManagement.publish'}}
+        <XToggle
+        class="community-management__publish-button"
+        @theme='ios'
+        @size='large'
+        @value={{@participationPack.published}}
+        @onToggle={{this.publish}} />
+      </div>
+    </div>
+
+    <div class="community-management__main-title-explanation">
+      {{t 'community.questionnaireManagement.QuestionnaireExplanation'}}
+    </div>
+
+    <div class="community-management__tabs-container">
+      {{#if (eq this.activeTab "setup")}}
+        <span class="btn-none community-management__tabs-item community-management__tabs-item--active">
+          {{t 'community.questionnaireManagement.SetUpTab'}}
+        </span>
+      {{else}}
+        <span class="btn-none community-management__tabs-item" {{on "click" (fn this.changeTab "setup")}}>
+          {{t 'community.questionnaireManagement.SetUpTab'}}
+        </span>
+      {{/if}}
+
+      {{#if (eq this.activeTab "questions")}}
+        <span class="btn-none community-management__tabs-item community-management__tabs-item--active">
+          {{t 'community.questionnaireManagement.QuestionsTab'}}
+        </span>
+      {{else}}
+        <span class="btn-none community-management__tabs-item" {{on "click" (fn this.changeTab "questions")}}>
+          {{t 'community.questionnaireManagement.QuestionsTab'}}
+        </span>
+      {{/if}}
+
+      {{#if (eq this.activeTab "results")}}
+        <span class="btn-none community-management__tabs-item community-management__tabs-item--active">
+          {{t 'community.questionnaireManagement.ResultsTab'}}
+        </span>
+      {{else}}
+        <span class="btn-none community-management__tabs-item" {{on "click" (fn this.changeTab "results")}}>
+          {{t 'community.questionnaireManagement.ResultsTab'}}
+        </span>
+      {{/if}}
+    </div>
+  </div>
+
+
+  {{#if (eq this.activeTab "setup")}}
+
+  <SettingsItem
+    @title={{t 'community.questionnaireManagement.name'}}
+    @noTooltip={{true}}>
+    <LabelTextField
+        @value={{@participationPack.title}}
+        @maxlength={{200}}
+    />
+  </SettingsItem>
+
+  <SettingsItem
+    @title={{t 'community.questionnaireManagement.cover'}}
+    @noTooltip={{true}}>
+    <FileUpload
+      @id="image-upload"
+      @fileType="image"
+      @upload={{this.uploadImage}}>
+      <label for="image-upload" class="btn-none" role="button" tabindex="0">
+        <div class="community-management__cover-image-container">
+          <span>
+            {{#if this.processingImage}}
+              <CircularProgress />
+            {{else if @participationPack.image}}
+              <CloudinaryImage
+                    aria-hidden="true"
+                    class={{"community-management__cover-image"}}
+                    @publicId={{@participationPack.image}}
+                    @options={{hash format='png' transforms='q_auto,f_auto'}}
+              />
+            {{else}}
+            <div class="community-management__cover-image-placeholder">
+              {{inline-svg '/images/community/settings-image.svg'}}
+            </div>
+            {{/if}}
+          </span>
+          <span class="community-management__cover-image-text">
+            {{t 'community.questionnaireManagement.coverDimensions'}}
+          </span>
+        </div>
+      </label>
+    </FileUpload>
+  </SettingsItem>
+
+  <SettingsItem
+    @title={{t 'community.questionnaireManagement.description'}}
+    @tooltip={{t 'community.questionnaireManagement.descriptionTooltip'}}>
+    <LabelTextField
+      @type={{"textarea"}}
+      @height={{"10"}}
+      @value={{@participationPack.description}}
+      @placeholder={{t 'community.questionnaireManagement.descriptionPlaceholder'}}
+      @maxlength={{2000}}
+    />
+  </SettingsItem>
+
+  <div class="settings-item settings-item__two-items">
+    <div class="settings-item__two-items-item">
+      <div class="settings-item__item-header">
+        <div class="settings-item__label">
+          {{t 'community.projectManagement.dateBegin'}}
+        </div>
+      </div>
+      <div>
+        <EmberFlatpickr
+         class="input-text"
+          @date={{this.dateBeginArray}}
+          @onChange={{this.dateBeginChanged}}
+        />
+      </div>
+    </div>
+    <div class="settings-item__two-items-item">
+      <div class="settings-item__item-header">
+        <div class="settings-item__label">
+          {{t 'community.projectManagement.dateEnd'}}
+        </div>
+      </div>
+      <div>
+        <EmberFlatpickr
+         class="input-text"
+          @date={{this.dateEndArray}}
+          @onChange={{this.dateEndChanged}}
+        />
+      </div>
+    </div>
+    <div>
+      <span aria-hidden="true">{{inline-svg "/images/community/settings/tooltip.svg"}}</span>
+      <EmberTooltip
+        @event="hover"
+        @hideOn="mouseleave"
+        @side="right"
+      >
+        {{t 'community.questionnaireManagement.durationTooltip'}}
+       </EmberTooltip>
+     </div>
+  </div>
+
+	  <SettingsItem
+			  @noTooltip={{true}}>
+		  <div class="settings-option-select">
+			  <Input
+					  @id="scheduled-checkbox"
+					  @type="checkbox"
+					  @checked={{this.questionnaire.allowAnonymousUsers}}
+			  />
+			  <label for="scheduled-checkbox" class="settings-option-select__label">
+				  <div class="settings-option-select__title">
+					  {{t 'community.questionnaireManagement.withoutRegistration'}}
+				  </div>
+				  <div class="settings-option-select__text">
+					  {{t 'community.questionnaireManagement.withoutRegistrationDescription'}}
+				  </div>
+			  </label>
+		  </div>
+	  </SettingsItem>
+
+  <div class="community-management__save-button-container">
+    {{#if this.processingChanges}}
+      <SpinnerButton
+        @class="btn-civ-black-reverse community-management__save-button"
+        @spinning={{true}}
+      >
+        <span>
+          {{t 'pb.profile.saving'}}
+        </span>
+      </SpinnerButton>
+    {{else if this.changesSaved}}
+      <button class="btn-civ-black community-management__save-button" {{on "click" this.saveQuestionnaire}}>
+        <span aria-hidden="true">{{inline-svg '/images/ideaBox/check.svg'}}</span>
+        {{t 'pb.profile.saved'}}
+      </button>
+    {{else}}
+      <button class="btn-civ-black community-management__save-button" {{on "click" this.saveQuestionnaire}}>
+        {{t 'pb.profile.save'}}
+      </button>
+    {{/if}}
+
+
+    <button class="btn-none community-management__delete-button" {{on "click" this.deleteQuestionnaire}}>
+      {{t 'community.questionnaireManagement.delete'}}
+    </button>
+  </div>
+{{/if}}
+
+
+  {{#if (eq this.activeTab "questions")}}
+    <QuestionnaireManagement::question-tab @participationPack={{@participationPack}} />
+  {{/if}}
+
+  {{#if (eq this.activeTab "results")}}
+  <div>
+    <a href="{{this.downloadUrlCsv}}" target="_blank">
+      {{t 'community.questionnaireManagement.exportCsv'}} {{inline-svg '/images/questionnaire/download.svg'}}
+    </a>
+  </div>
+  <div>
+    <a href="{{this.downloadUrlOds}}" target="_blank">
+      {{t 'community.questionnaireManagement.exportOds'}} {{inline-svg '/images/questionnaire/download.svg'}}
+    </a>
+  </div>
+  <div>
+    <a href="{{this.downloadUrlXlsx}}" target="_blank">
+      {{t 'community.questionnaireManagement.exportXlsx'}} {{inline-svg '/images/questionnaire/download.svg'}}
+    </a>
+  </div>
+  {{/if}}
+
+</div>

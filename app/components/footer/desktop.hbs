@@ -1,0 +1,134 @@
+	<div class="footer__content">
+		<div class="footer__top">
+			<div class="footer__top-section first">
+				<span aria-hidden="true" class="footer__top-logo">{{inline-svg "images/civ_logo_footer.svg" class="footer__logo"}}</span>
+				{{!--{{#if this.userService.isAuthenticated}}--}}
+					<Footer::LanguageSelector/>
+				{{!--{{/if}}--}}
+				<div class="footer__civ-contact-container">
+					<span class="footer__label">{{t 'footer.contact'}}</span>
+					<a  class="link-btn" href="mailto:contact@civocracy.org"><span>{{t 'footer.email'}}</span></a>
+				</div>
+				<div class="footer__civ-help-and-social-container">
+					<button type="button" class="btn-civ-yellow footer__help-btn">{{t 'footer.helpButton'}}</button>
+					<a href="https://www.linkedin.com/company/civocracy/" target="_blank" rel="noreferrer noopener" title="Website">
+					<span aria-hidden="true">{{inline-svg "/images/community/social-icons/linkedin-icon.svg" class="footer__social-icon"}}</span>
+					</a>
+					<a href="https://www.facebook.com/Civocracy/" target="_blank" rel="noreferrer noopener" title="Facebook">
+					<span aria-hidden="true">{{inline-svg "/images/community/social-icons/fb-icon-grey.svg" class="footer__social-icon"}}</span>
+					</a>
+					<a href="https://twitter.com/civocracy" target="_blank" rel="noreferrer noopener" title="Twitter">
+					<span aria-hidden="true">{{inline-svg "/images/community/social-icons/twitter-icon.svg" class="footer__social-icon"}}</span>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer__middle">
+			<div class="footer__columns">
+
+				<div class="footer__column">
+					<h5 class="footer__title">{{t 'footer.sectionTitles.whoWeAre'}}</h5>
+					<div class="footer__list-items">
+						<a target="_blank" href="https://www.civocracy.com/about" rel="noreferrer noopener">
+							<span class="footer__list-item">{{t 'footer.sectionItems.about'}}</span>
+						</a>
+						<a target="_blank" href="https://www.civocracy.com/about#comp-jfy0gnsg" rel="noreferrer noopener"
+							data-anchor="dataItem-jfy17sju">
+							<span class="footer__list-item">{{t 'footer.sectionItems.press'}}</span>
+						</a>
+						<a target="_blank" href="https://www.civocracy.com/jobs" rel="noreferrer noopener">
+							<span class="footer__list-item">{{t 'footer.sectionItems.jobs'}}</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="footer__column">
+					<h5 class="footer__title">{{t 'footer.sectionTitles.whatWeDo'}}</h5>
+					<div class="footer__list-items">
+						<a target="_blank" href="https://www.civocracy.com/" rel="noreferrer noopener">
+							<span class="footer__list-item">{{t 'footer.sectionItems.services'}}</span>
+						</a>
+						<a target="_blank" href="https://www.civocracy.com/" data-anchor="dataItem-jfxxll6h"
+							rel="noreferrer noopener">
+							<span class="footer__list-item">{{t 'footer.sectionItems.caseStudies'}}</span>
+						</a>
+						<a target="_blank" href="https://www.civocracy.com/blog/" rel="noreferrer noopener">
+							<span class="footer__list-item">{{t 'footer.sectionItems.blog'}}</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="footer__column">
+					<h5 class="footer__title">{{t 'footer.sectionTitles.resources'}}</h5>
+					<div class="footer__list-items">
+						{{!<LinkTo @route='code-of-conduct'>}}
+						<a href="https://guide.civocracy.org/hc/articles/360020634620" target="_new">
+							<span class="footer__list-item">{{t 'footer.sectionItems.gettingStarted'}}</span>
+						</a>
+						{{!</LinkTo>}}
+						<LinkTo @route='communities'>
+							<span class="footer__list-item">{{t 'footer.sectionItems.findYourCommunities'}}</span>
+						</LinkTo>
+						{{!<LinkTo @route='terms-and-conditions'>}}
+						<a href="https://guide.civocracy.org/hc/articles/360021224020" target="_new">
+							<span class="footer__list-item">{{t 'footer.sectionItems.participate'}}</span>
+						</a>
+						{{!</LinkTo>}}
+					</div>
+				</div>
+
+				<div class="footer__column">
+					<h5 class="footer__title">{{t 'footer.sectionTitles.legal'}}</h5>
+					<div class="footer__list-items">
+						{{!<LinkTo @route='code-of-conduct'>}}
+						<a href="https://guide.civocracy.org/hc/articles/360022106800" target="_new">
+							<span class="footer__list-item">{{t 'footer.sectionItems.legalNotice'}}</span>
+						</a>
+						{{!</LinkTo>}}
+						{{!<LinkTo @route='data-privacy'>}}
+						<a href="https://guide.civocracy.org/hc/articles/360022110740" target="_new">
+							<span class="footer__list-item">{{t 'footer.sectionItems.privacyNotice'}}</span>
+						</a>
+						{{!</LinkTo>}}
+						{{!<LinkTo @route='terms-and-conditions'>}}
+						<a href="https://guide.civocracy.org/hc/articles/360022131619" target="_new">
+							<span class="footer__list-item">{{t 'footer.sectionItems.termsOfUse'}}</span>
+						</a>
+						{{!</LinkTo>}}
+					</div>
+				</div>
+
+				<div class="footer__column">
+					<h5 class="footer__title">{{t 'footer.sectionTitles.other'}}</h5>
+					<div class="footer__list-items">
+						<a href="https://guide.civocracy.org/hc/articles/360022111280" target="_new">
+							<span class="footer__list-item">{{t 'footer.sectionItems.accessibilityNotice'}}</span>
+						</a>
+						<span {{action "manageYourCookies"}} class="footer__list-item">{{t 'footer.sectionItems.manageYourCookies'}}</span>
+						<a href="https://guide.civocracy.org/hc/articles/360021485080" target="_new">
+							<span class="footer__list-item">{{t 'footer.sectionItems.codeOfConduct'}}</span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+
+			{{!-- REMOVED_MARCH : not usable for now
+			<div class="footer__subscribe">
+				<h5 class="footer__title">{{t 'footer.sectionTitles.stayInTouch'}}</h5>
+				{{ember-chimp
+				formAction="https://civocracy.us8.list-manage.com/subscribe/post?u=a9ffb72ee5cdafbe1b89fdbc7&amp;id=a97b5e45a4"
+				placeholder=(t 'footer.register.emailPlaceholder')
+				responses=this.emberChimpResponses
+				buttonText=''
+				loadingText=''
+				}}
+				<span class="footer__email-info">{{t 'footer.register.emailInfo'}}</span>
+			</div>
+			--}}
+		</div>
+		<div class="footer__bottom">
+			<p>{{t 'footer.bottomSection.registeredBusiness'}}</p>
+		</div>
+	</div>

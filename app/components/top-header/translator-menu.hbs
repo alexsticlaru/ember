@@ -1,0 +1,24 @@
+{{!Only english non translatable strings here !}}
+<div class="translator-menu__options">
+	{{!<div class="arrow-up top-header__translation-arrow"></div>}}
+	<div class="translator-menu__item translator-menu__item--disable first-item translator-menu__item--border-none">
+		Translate language:
+	</div>
+	<div class="translator-menu__languages__subscroll">
+{{#each this.intl.translatableLanguages as |language|}}
+		<button type="button" {{on 'click' (fn this.changeLanguage language dd.dropdown)}} class="btn-none translator-menu__translator-item{{language.selectedClass}}">
+			<span class="dropdown__item{{language.selectedClass}}">{{language.name}}</span>
+		</button>
+{{/each}}
+
+{{#each this.intl.notTranslatableLanguages as |language|}}
+		<button type="button" {{on 'click' (fn this.changeLanguage language dd.dropdown)}} class="btn-none translator-menu__translator-item{{language.selectedClass}} uneditable">
+			<span class="dropdown__item{{language.selectedClass}}">{{language.name}}</span>
+		</button>
+{{/each}}
+
+	</div>
+	<button type="button" {{on 'click' (fn this.showTranslationsChanges)}} class="btn-none translator-menu__translator-item">
+		<span class="dropdown__item">Show translations changes and apply them</span>
+	</button>
+</div>

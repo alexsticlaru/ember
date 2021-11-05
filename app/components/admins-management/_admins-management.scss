@@ -1,0 +1,54 @@
+.admins-management--deactivated{
+	color: #373F41;
+opacity: 0.3;
+// border-bottom: 1px solid #E3E3E3;
+margin-bottom: 4rem;
+}
+
+.admins-management{
+	// margin-top: 2rem;
+	// max-width: 63rem;
+	// padding: 2rem;
+
+	&__admins-list{
+		margin-top: 1rem;
+		margin-bottom: 3rem;
+	}
+
+	&__admins-list-item{
+		display: flex;
+		justify-content: space-between;
+		margin-top: 1rem;
+		align-items: center;
+	}
+
+	&__admins-list-user-container{
+		display: flex;
+		align-items: center;
+	}
+
+	&__admins-list-username{
+		margin-left: 1rem;
+	}
+
+	&__admins-list-button{
+		color: #3C64B1;
+		border: 0.1rem solid #3C64B1;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+
+	&__label {
+		// font-family: Lato;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: 0.2px;
+		color: #373F41;
+		margin-bottom: 1rem;
+	}
+
+}

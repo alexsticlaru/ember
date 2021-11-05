@@ -1,0 +1,78 @@
+.settings-item {
+  width: 100%;
+  margin-bottom: 4rem;
+
+  //here I'm overriding input styles for all settings item
+  .input-text {
+    background: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    box-sizing: border-box;
+    border-radius: 9px;
+  }
+
+  .input-text:hover, .input-text:focus{
+    background: #FFFFFF;
+    // border: 1px solid #8C6EE0;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 14px rgba(142, 142, 142, 0.15);
+    border-radius: 7px;
+  }
+
+
+  &__label {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 150%;
+    letter-spacing: 0.01rem;
+    color: #353535;
+    margin-bottom: 1rem;
+  }
+
+  &__item-content {
+    width: 90%;
+  }
+
+  &__item-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__two-items {
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__two-items-item {
+    width: 40%;
+  }
+}
+
+
+.settings-option-select{
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+
+  &__label{
+    margin-left: 2rem;
+  }
+
+  &__title{
+    // font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    color: #373F41;
+  }
+
+  &__text{
+    // font-family: Inter;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    color: #373F41;
+  }
+}

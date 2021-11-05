@@ -1,0 +1,14 @@
+<div class="proposition-map-popup">
+	<span class="proposition-map-popup__global-relevancy">
+		<span aria-hidden="true">{{inline-svg '/images/upvote-icon-map.svg'}}</span>
+		<span class="proposition-map-popup__votes">{{@proposition.globalRelevancy}}</span>
+	</span>
+	<div class="proposition-map-popup__content">
+		<span  class="proposition-map-popup__title">
+			<span>{{@proposition.title}}</span>
+		</span>
+		<div class="proposition-map-popup__description">
+			{{html-safe @proposition.description}}
+		</div>
+	</div>
+</div>

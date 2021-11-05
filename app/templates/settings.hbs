@@ -1,0 +1,109 @@
+<div class="participation-settings" style="background-color: #FBFAF9;">
+	<!-- <div class="participation-settings__title-container">
+		<div class="participation-settings__title">
+			{{this.user.currentUser.fullName}}
+		</div>
+	</div> -->
+
+	<div class="participation-settings__main-container">
+		<div class="participation-settings__nav-container">
+      <div style="text-align: center">
+        <UserAvatarUpload @user={{this.user.currentUser}} @dimensions={{145}}/>
+      </div>
+			<!-- <div class="participation-settings__nav-title">
+				{{t 'community.adminsManagement.navInfoTitle'}}
+			</div> -->
+      <div class="participation-settings__nav-separator">
+			</div>
+			<div>
+				<LinkTo class="btn-none participation-settings__nav-item" @route='settings.profile'>
+          <span aria-hidden="true">{{inline-svg "/images/profile/profile-icon.svg"}}</span> {{t 'pb.profile.navProfile'}}
+				</LinkTo>
+			</div>
+			<div>
+				<LinkTo class="btn-none participation-settings__nav-item" @route='settings.saved'>
+          <span aria-hidden="true">{{inline-svg "/images/profile/saved-icon.svg"}}</span> {{t 'pb.profile.navSaved'}}
+				</LinkTo>
+			</div>
+      <div>
+
+      <LinkTo class="btn-none participation-settings__nav-item" @route="settings.index">
+        <span aria-hidden="true">{{inline-svg "/images/profile/settings-icon.svg"}}</span> {{t 'pb.profile.navSettings'}}
+      </LinkTo>
+    </div>
+
+
+			<div class="participation-settings__nav-separator">
+			</div>
+
+    </div>
+    <div class="participation-settings__content-container">
+      {{outlet}}
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="user-settings">
+  <div class="user-settings__navigation">
+    <span class="user-settings__user-avatar-container">
+      <UserAvatarUpload @user={{this.user.currentUser}} @dimensions={{145}}/>
+    </span>
+
+    <div class="user-settings__navigation-element-container">
+      <LinkTo class="user-settings__navigation-element" @route="settings.profile">
+        <span aria-hidden="true">{{inline-svg "/images/profile/profile-icon.svg"}}</span> {{t 'pb.profile.navProfile'}}
+      </LinkTo>
+
+      <LinkTo class="user-settings__navigation-element" @route="settings.saved">
+        <span aria-hidden="true">{{inline-svg "/images/profile/saved-icon.svg"}}</span> {{t 'pb.profile.navSaved'}}
+      </LinkTo>
+
+      <LinkTo class="user-settings__navigation-element" @route="settings.index">
+        <span aria-hidden="true">{{inline-svg "/images/profile/settings-icon.svg"}}</span> {{t 'pb.profile.navSettings'}}
+      </LinkTo>
+    </div>
+
+      <LinkTo class="user-settings__profile-link" @route="user" @model={{this.user.currentUser}}>
+        {{t 'pb.profile.navSeePublic'}}
+      </LinkTo>
+  </div>
+
+  <div class="user-settings__content">
+    {{outlet}}
+  </div>
+
+</div> -->
+
+
+
+<!--
+<div class="user-settings">
+  <div class="user-settings__navigation">
+
+
+    <div class="user-settings__navigation-element-container">
+      <LinkTo class="user-settings__navigation-element" @route="settings.profile">
+        <span aria-hidden="true">{{inline-svg "/images/profile/profile-icon.svg"}}</span> {{t 'pb.profile.navProfile'}}
+      </LinkTo>
+
+      <LinkTo class="user-settings__navigation-element" @route="settings.saved">
+        <span aria-hidden="true">{{inline-svg "/images/profile/saved-icon.svg"}}</span> {{t 'pb.profile.navSaved'}}
+      </LinkTo>
+
+      <LinkTo class="user-settings__navigation-element" @route="settings.index">
+        <span aria-hidden="true">{{inline-svg "/images/profile/settings-icon.svg"}}</span> {{t 'pb.profile.navSettings'}}
+      </LinkTo>
+    </div>
+
+      <LinkTo class="user-settings__profile-link" @route="user" @model={{this.user.currentUser}}>
+        {{t 'pb.profile.navSeePublic'}}
+      </LinkTo>
+  </div>
+
+  <div class="user-settings__content">
+    {{outlet}}
+  </div>
+
+</div> -->

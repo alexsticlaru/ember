@@ -1,0 +1,69 @@
+<div class="contribution-side-info" role="complementary">
+
+  <div class="contribution-side-info__info-item">
+    <h2 class="contribution-side-info__title">
+      {{t "discussion.userIdea" username=@comment.user.firstName}}
+		<span class="contribution-side-info__user-ideas contribution-side-info__icon-style" aria-hidden="true">{{inline-svg '/images/consultation/highlight-icon-consultation.svg'}}</span>
+	</h2>
+    {{#if @comment.assertions}}
+      {{#each @comment.assertions as |assertion|}}
+          <AssertionItem::desktop
+          @assertion={{assertion}}
+          @removeAssertion={{this.removeAssertion}}
+          />
+      {{/each}}
+    {{else}}
+        <div class="contribution-side-info__no-content">
+          {{t "discussion.noUserIdea" username=@comment.user.firstName}}
+        </div>
+        {{#if @comment.issue.usersCanParticipate}}
+          <button type="button" class="btn-none contribution-side-info__add-ideas" {{on "click" this.highlightContribution}}>
+            {{t "discussion.highlightIdeas"}}
+          </button>
+        {{/if}}
+    {{/if}}
+
+  </div>
+
+  <div class="contribution-side-info__info-item">
+    <h2 class="contribution-side-info__title">
+      {{t 'discussion.topReactions'}}
+    </h2>
+    {{#if @comment.reactionCount}}
+		  <Reactions::Summary @detailed={{true}} @content={{@comment}}></Reactions::Summary>
+    {{else}}
+      <div class="contribution-side-info__no-content">
+        {{t "discussion.noReactions"}}
+      </div>
+    {{/if}}
+  </div>
+
+  {{#if @comment.isMarkedAsConstructive}}
+    <div class="contribution-side-info__info-item">
+      {{inline-svg "/images/blue-check.svg" class="contribution-item__check-icon"}}
+      {{t 'buttons.markedAsConstructive'}}
+    </div>
+  {{/if}}
+
+  {{#if @comment.seenByOrg}}
+    <div class="contribution-side-info__info-item">
+      {{inline-svg "/images/blue-check.svg" class="contribution-item__check-icon"}}
+      {{t 'buttons.readByOragnization'}}"
+    </div>
+  {{/if}}
+
+  <div class="contribution-side-info__info-item">
+    <h2 class="contribution-side-info__title">
+      {{t 'discussion.themes'}}
+    </h2>
+    {{#if @comment.themes}}
+      {{#each @comment.themes as |theme|}}
+        <ThemeItem::standard-theme @theme={{theme}} />
+      {{/each}}
+    {{else}}
+      <div class="contribution-side-info__no-content">
+        {{t "discussion.noThemes"}}
+      </div>
+    {{/if}}
+  </div>
+</div>

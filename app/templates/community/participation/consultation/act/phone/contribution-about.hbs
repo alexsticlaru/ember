@@ -1,0 +1,96 @@
+<div class="contribution-about">
+	<div class="contribution-about__header">
+		<button type="button" class="btn-none contribution-about__back-btn" {{on 'click' this.closeAboutPanel}} aria-label={{t 'buttons.close'}}>
+			<span aria-hidden="true">{{inline-svg "/images/back-arrow.svg"}}</span>
+		</button>
+		<p class="contribution-about__title">{{t 'contributions.aboutTitle'}}</p>
+	</div>
+	<div class="contribution-about__description-text">{{html-safe @model.description}}</div>
+	<div>
+		<p class="contribution-about__context-title">{{t 'contributions.discussionOverview'}}</p>
+		<div class="contribution-about__contribution-container-details">
+			<div class="contribution-about__participants_container">
+				<div class="contribution-about__overview-item">
+					<span aria-hidden="true">{{inline-svg '/images/consultation/participants.svg'}}</span>
+					<span class="contribution-about__overview-item-text">
+						{{t 'issue.learn.participants' number=@model.globalRelevancy}}
+					</span>
+				</div>
+				<div class="contribution-about__overview-item-contributions">
+					<span aria-hidden="true">{{inline-svg '/images/consultation/contributions.svg'}}</span>
+					<span class="contribution-about__overview-item-text">
+						{{t 'issue.learn.numberOfContributions' contributions=@model.comments.length}}
+					</span>
+				</div>
+			</div>
+			<div class="contribution-about__overview-item">
+				<span aria-hidden="true">{{inline-svg '/images/consultation/closing-date.svg'}}</span>
+				<span class="contribution-about__overview-item-text">
+					{{@model.publicationStatusDisplay}}
+				</span>
+			</div>
+			<div class="contribution-about__overview-item">
+				<span aria-hidden="true">{{inline-svg '/images/consultation/read-by.svg'}}</span>
+				<span class="contribution-about__overview-item-text">
+					{{t 'issue.learn.readBy' percent=@model.readPercentage community=@model.community.orgName}}
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="contribution-about__big-container-themes">
+		<div class="contribution-about__themes-container">
+			<p class="contribution-about__context-title">
+				{{t 'issue.morePage.topThemes'}}
+			</p>
+			{{#each @model.themes as |theme|}}
+				<ThemeItem::standard-theme @theme={{theme}} />
+			{{/each}}
+		</div>
+	</div>
+	<div class="contribution-about__info-item">
+		<p class="contribution-about__key-participants-title">{{t 'issue.morePage.headingParticipants'}}</p>
+		<div class="contribution-about__profile">
+			<span class="contribution-about__profile-text">
+			  {{@model.community.name}}
+			</span>
+			<span class="contribution-about__organisation-label">
+					{{t 'issue.morePage.organisation'}}
+			</span>
+		</div>
+		{{#each @model.profiles as |profile|}}
+			<div class="contribution-about__profile">
+			  <span class="contribution-about__profile-text">
+				{{profile.title}}
+				{{inline-svg "images/consultation/profile.svg"}}
+			  </span>
+			</div>
+		{{/each}}
+		<div class="contribution-about__profile">
+		  <span class="contribution-about__profile-text">
+			  {{t 'issue.morePage.citizens'}}
+		  </span>
+		</div>
+	</div>
+	<div class="contribution-about__ways-of-participating-container">
+		<div class="contribution-about__ways-of-participating-title">
+			<span class="contribution-about__participating-title">{{t 'issue.morePage.headingInfo'}}</span>
+			{{#if this.isExpanded}}
+				<button type="button" class="btn-none contribution-about__expand-style" {{on 'click' this.expandWaysOfParticipating }} aria-pressed="true" aria-labelledby="more-info">
+					<span aria-hidden="true">{{inline-svg "images/consultation/expanded.svg"}}</span>
+				</button>
+			{{else}}
+				<button type="button" class="btn-none contribution-about__expand-style " {{on 'click' this.expandWaysOfParticipating }} aria-pressed="false" aria-labelledby="more-info">
+					<span aria-hidden="true">{{inline-svg "images/consultation/expand.svg"}}</span>
+				</button>
+			{{/if}}
+		</div>
+		{{#if this.isExpanded}}
+			<div class="contribution-about__explanation-text">
+				{{{t 'issue.morePage.InfoTextTitle'}}}
+				<div class="contribution-about__explanation-content">
+					{{{t 'issue.morePage.InfoText'}}}
+				</div>
+			</div>
+		{{/if}}
+	</div>
+</div>

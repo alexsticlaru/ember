@@ -1,0 +1,43 @@
+
+////
+/// This stylesheet defines the animations
+/// of the website.
+////
+
+@mixin show-fade-in() {
+	transition: opacity 0.4s linear;
+	opacity: 1;
+	visibility: visible;
+}
+.show-ease-in,
+.show-fade-in {
+	@include show-fade-in ;
+}
+
+@mixin hide-fade-out() {
+	transition: opacity 0.4s linear;
+	opacity: 0;
+	visibility: hidden;
+}
+.hide-ease-out,
+.hide-fade-out {
+	@include hide-fade-out ;
+}
+
+@mixin show-slide-in() {
+	transition: height 0.4s linear ;
+	height: unset ;
+	visibility: visible ;
+}
+.show-slide-in {
+	@include show-slide-in ;
+}
+
+@mixin hide-slide-out() {
+	transition: height 0.4s linear ;
+	height: 0px ;
+	visibility: hidden ;
+}
+.hide-slide-out {
+	@include hide-slide-out ;
+}

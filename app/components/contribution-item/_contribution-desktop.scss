@@ -1,0 +1,173 @@
+.contribution-desktop {
+
+  &__wrapper{
+    display: flex;
+  }
+
+  &__padding-style{
+	padding:1rem;
+  }
+
+  &__left-column{
+    width: 50px;
+  }
+
+  &__highlight-button{
+	width: 41px;
+	height: 41px;
+	background: #FFFFFF;
+	box-shadow: 0 3px 9px rgb(0 0 0 / 15%);
+	border-radius: 2rem;
+	margin-left: 1rem;
+	margin-bottom: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+
+  &__main-column{
+    margin-left: 3rem;
+    width: 100%;
+  }
+
+  &__user{
+    padding: 1rem;
+  }
+
+  //overriding dropdown trigger padding
+  .dropdown__trigger {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  &__user-info{
+    font-size: 1.3rem;
+    margin-bottom: 0.1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.8rem;
+	color: $light-black-2;
+  }
+
+  &__title{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  &__comment-text{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 2rem;
+  }
+
+  &__attachment-container{
+    //overriding attachment-image settings so image is not too large on desktop
+    .attachment-item__image {
+      max-height: 305px !important;
+      width: auto !important;
+	  border-radius: 4px;
+    }
+  }
+
+  &__actions-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 3.4rem;
+  }
+
+  &__edit-button-container{
+    display: flex;
+    width: 100%;
+  }
+
+  &__edit-button{
+    margin-left: auto;
+    margin-top: 1rem;
+    text-align: right;
+	padding: 0.6rem 2rem;
+    background: $light-white;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    color: #5E617C;
+  }
+
+  &__share-button{
+	padding:0.6rem 2rem ;
+    background: $light-white;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    color: $light-black-2;
+  }
+
+  &__closed-discussion{
+	height: 4.7rem;
+	background: #FFFFFF;
+	border: 1px solid #F3EFE6;
+	box-sizing: border-box;
+	border-radius: 7px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 1.7rem;
+  }
+
+  &__closed-text{
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 2rem;
+	letter-spacing: 0.01268rem;
+	color:#373F41;
+	padding-left: 2.5rem;
+  }
+
+  &__share-button-text{
+    margin-left: 0.5rem;
+	font-size: 1.3rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 2.1rem;
+	letter-spacing: 0;
+	color:$light-black-2;
+	padding-left: 0.95rem;
+	margin-top: 0.2rem;
+  }
+
+  &__comments-container{
+    background: #FFFFFF;
+    border: 1px solid #F3EFE6;
+    box-sizing: border-box;
+    border-radius: 7px;
+    width: 100%;
+  }
+
+  &__comment-add-container{
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__comments-title-container{
+    margin-left: 3rem;
+    margin-top: 2rem;
+  }
+
+  &__comments-title{
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  &__comments-number{
+    margin-left: 2rem;
+    font-size: 1.2rem;
+    color: $medium-dark-gray;
+  }
+
+
+}

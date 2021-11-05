@@ -1,0 +1,134 @@
+$framerate: .6s;
+$between-step-offset: 1.5s;
+
+@keyframes fadein {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dashin {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.homepage-process-explainer {
+  max-width: 950px;
+  margin: auto;
+  padding: 0;
+
+  @include respond(tab-port) {
+    padding: 0 20px;
+  }
+
+  .text_1, .text_2, .text_3 {
+    font-weight: bold;
+    font-size: 32px;
+    fill: $homepage-light-blue;
+    stroke: none;
+  }
+
+  #number_1, #number_2, #number_3 {
+    font-weight: bold;
+    font-size: 80px;
+    fill: $homepage-light-blue;
+    stroke: none;
+  }
+
+  text, rect {
+    opacity: 0;
+  }
+  path, polyline, circle, line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+
+  &.playing {
+    $slide-1-start: 0s;
+    $slide-2-start: 2.5s;
+    $slide-3-start: 3.8s;
+
+    $arrow-to-number-offset: .25s;
+    $number-to-text-offset: .25s;
+
+    #number_1 {
+      animation: fadein $framerate $slide-1-start ease-in-out forwards;
+    }
+    .text_1 {
+      animation: fadein $framerate ($slide-1-start + $number-to-text-offset)  ease-in-out forwards;
+    }
+
+    #lightbulb {
+      $lightbulb-start: $slide-1-start + $number-to-text-offset + .2s;
+      $lightbulb-timing-offset: .4s;
+
+      #lightbulb-outline path {
+        animation: dashin $framerate $lightbulb-start ease-in-out forwards;
+      }
+      #lightbulb-base  {
+        $lightbulb-base-timing-offset: .2s;
+        @for $i from 0 to 4 {
+          path:nth-child(#{$i}) {
+             animation: dashin $framerate ($lightbulb-start + $i*$lightbulb-base-timing-offset) ease-in-out forwards;
+          }
+        }
+      }
+      #lightbulb-city path, #lightbulb-city polyline {
+        animation: dashin $framerate ($lightbulb-start + 2*$lightbulb-timing-offset) ease-in-out forwards;
+      }
+      #lightbulb-inner-shine path {
+        animation: dashin $framerate ($lightbulb-start + 3*$lightbulb-timing-offset) ease-in-out forwards;
+      }
+      #lightbulb-shine path {
+        animation: dashin $framerate ($lightbulb-start + 4*$lightbulb-timing-offset) ease-in-out forwards;
+      }
+    }
+
+    #arrow_1 path {
+      animation: dashin $framerate $slide-2-start ease-in-out forwards;
+    }
+
+
+    #number_2 {
+      animation: fadein $framerate ($slide-2-start + $arrow-to-number-offset) ease-in-out forwards;
+    }
+    .text_2 {
+      animation: fadein $framerate ($slide-2-start + $arrow-to-number-offset + $number-to-text-offset) ease-in-out forwards;
+    }
+
+    #arrow_2 path {
+      animation: dashin $framerate $slide-3-start ease-in-out forwards;
+    }
+
+    #number_3 {
+      animation: fadein $framerate ($slide-3-start + $arrow-to-number-offset) ease-in-out forwards;
+    }
+    .text_3 {
+      animation: fadein $framerate ($slide-3-start + $arrow-to-number-offset + $number-to-text-offset) ease-in-out forwards;
+    }
+
+    #city {
+      $city-start: $slide-3-start + $arrow-to-number-offset + $number-to-text-offset;
+      $city-timing-offset: .4s;
+      #city-buildings * {
+        animation: dashin $framerate ($city-start + $city-timing-offset) ease-in-out forwards;
+      }
+      #city-bushes * {
+        animation: dashin $framerate ($city-start + 1*$city-timing-offset) ease-in-out forwards;
+      }
+      #city-trees * {
+        animation: dashin $framerate ($city-start + 1*$city-timing-offset + .1s) ease-in-out forwards;
+      }
+      #city-windows {
+        $city-windows-start: $city-start + 2*$city-timing-offset;
+        $city-windows-timing-offset: .06s;
+        @for $i from 0 to 18 {
+          rect:nth-child(#{$i}) {
+             animation: fadein $framerate ($city-windows-start + $i*$city-windows-timing-offset) ease-in-out forwards;
+          }
+        }
+      }
+    }
+  }
+}

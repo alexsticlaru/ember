@@ -1,0 +1,48 @@
+.proposition-flag-popup {
+
+	&__select-container{
+		margin-top: 1rem;
+		margin-left: 4rem;
+		margin-right: 4rem;
+	}
+
+	&__label-container{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin: .8rem;
+		margin-bottom: 3rem;
+	}
+
+	&__label-info{
+		margin-left: 2.3rem;
+	}
+
+	&__label-title{
+		font-family: Sora;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 1.7rem;
+		line-height: 138.9%;
+		letter-spacing: 0.0126802rem;
+		color: #353535;
+	}
+
+	&__label-text{
+		font-family: Inter;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.5rem;
+		line-height: 2.0rem;
+		color: #5E617C;
+	}
+
+	&__button-container{
+		display: flex;
+		justify-content: space-between;
+		padding: 0 4.25rem 4rem 4rem;
+		& button {
+			width: 49%;
+		}
+	}
+}

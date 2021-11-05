@@ -1,0 +1,34 @@
+<div class="choice-results" style={{if @questionIndex (if (numberEven @questionIndex) 'background-color: rgba(227, 227, 227, .2);' 'background-color: rgba(208, 191, 169, 0.17);')}}>
+    <h2 class={{if (eq @questionIndex undefined) 'heading-2' 'heading-2--secondary'}}>{{@question.question}}</h2>
+    <span class="choice-results__participants">{{@question.results.firstObject.respondentsCount}}&nbsp;{{t 'questionnaire.participants'}}</span>
+    {{#each this.results as |result index|}}
+        <div class="choice-results__answer">
+            <div style={{html-safe (concat 'width:' result.percentage '%; background-color: rgb(255,127,71,' (color-opacity result.percentage)');')}} 
+            class="choice-results__answered-percentage"></div>
+            <span class="order-choice-results__answer-name">{{sum index 1}}. {{result.answer}}</span>
+            <span></span>
+        </div>
+    {{/each}}
+    {{#if this.showOwnChoice}}
+        <div class="order-choice-results__toggle-box">
+            <UserAvatar @user={{@user}} @dimensions={{25}} @avatarClass="order-choice-results__avatar"/>
+            <button type="button" class="btn-none order-choice-results__btn-toggle" {{on 'click' this.toggleOwnChoice}}>
+                {{t 'questionnaire.results.hideAnswer'}}
+                {{inline-svg "/images/ideaBox/arrow-up.svg"}}
+            </button>
+        </div>
+        {{#each this.userAnswers as |result index|}}
+            <div class="choice-results__answer">
+                <span class="order-choice-results__answer-name">{{sum index 1}}. {{result.answer}}</span>
+            </div>
+        {{/each}}
+    {{else}}
+        <div class="order-choice-results__toggle-box">
+            <UserAvatar @user={{@user}} @dimensions={{25}} @avatarClass="order-choice-results__avatar"/>
+            <button type="button" class="btn-none order-choice-results__btn-toggle" {{on 'click' this.toggleOwnChoice}}>
+                {{t 'questionnaire.results.showAnswer'}}
+                {{inline-svg "/images/ideaBox/arrow-down.svg"}}
+            </button>
+        </div>
+    {{/if}}
+</div>

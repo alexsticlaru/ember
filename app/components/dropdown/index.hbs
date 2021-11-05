@@ -1,0 +1,16 @@
+<BasicDropdown  class="dropdown" @calculatePosition={{this.calculatePosition}} @renderInPlace={{true}} as |dd|>
+    <dd.Trigger class={{this.triggerClass}}
+            {{on this.triggerAction (fn this.openContent dd)}}
+            {{on "mouseleave" (fn this.checkContent dd)}}
+            {{on "keydown" (fn this.openContent dd)}}
+             >
+			{{yield (hash trigger="yield")}}
+    </dd.Trigger>
+
+    <dd.Content class={{this.contentClass}}
+            @animationEnabled={{false}}
+  			{{on "mouseleave" (fn this.closeContent dd)}}
+            {{on "mouseenter" (fn this.markStillOpen true)}}>
+                {{yield (hash content="yield" dropdown=dd)}}
+    </dd.Content>
+</BasicDropdown>

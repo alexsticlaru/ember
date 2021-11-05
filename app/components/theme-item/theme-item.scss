@@ -1,0 +1,52 @@
+.theme-item {
+  position: relative;
+  background: #F2F8FF;
+  border-radius: 3px;
+  margin: 0.5rem;
+  padding: 0.6rem 1.8rem;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.03rem;
+  color: #2A6DE8;
+
+  &__icon{
+      margin-left: 0.7rem;
+	svg {
+	  display: flex;
+	}
+   }
+
+  &:hover {
+	.remove-icon {
+	  display: flex;
+	}
+  }
+}
+
+.fixed-height {
+  height: 2.8rem;
+}
+
+.theme-item-active {
+  color: #0852DB;
+  font-weight: 600;
+}
+
+.remove-icon {
+  z-index: 2;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 29px;
+  height: 28px;
+  border-radius: 10px;
+  background: transparent;
+  position: absolute;
+  top: -7px;
+  right: -7px;
+}

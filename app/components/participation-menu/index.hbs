@@ -1,0 +1,30 @@
+<div class="participation-menu">
+    <div class="participation-menu__top">
+        <button type="button"
+        class="btn-none participation-menu__tab {{if this.showParticipate 'participation-menu__tab--active'}}"
+        {{on 'click' this.handleShowParticipate}}>{{t 'participation.tabParticipate'}}</button>
+        <button type="button"
+        class="btn-none participation-menu__tab {{if this.showEvents 'participation-menu__tab--active'}}"
+        {{on 'click' this.handleShowEvents}}>{{t 'participation.tabInfo'}}</button>
+        <button type="button"
+        class="btn-none participation-menu__tab {{if this.showAbout 'participation-menu__tab--active'}}"
+        {{on 'click' this.handleShowAbout}}>{{t 'participation.tabAbout'}}</button>
+    </div>
+    <div class="participation-menu__content">
+        {{#if this.showParticipate}}
+        	{{#each this.sortedParticipationPacks as |item index|}}
+			    <CommunityModuleLink @item={{item}} @index={{index}} @model={{@model}} />
+		    {{/each}}
+        {{else if this.showEvents}}
+        	<LinkTo class="link-btn participation-menu__link" @route='community.participation.updates'>{{t 'participation.newsLink'}}</LinkTo>
+		    <!-- REMOVED_MARCH
+        <LinkTo class="link-btn participation-menu__link" @route='community.participation'>{{t 'participation.eventsLink'}}</LinkTo>  -->
+        {{else if this.showAbout}}
+            <h2 class="heading-2">{{this.aboutModule.title}}</h2>
+            <AboutProject />
+
+		    <!-- REMOVED_MARCH
+        <p>{{html-safe this.aboutModule.description}}</p> -->
+        {{/if}}
+    </div>
+</div>

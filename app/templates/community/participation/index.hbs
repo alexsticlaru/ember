@@ -1,0 +1,122 @@
+<ContainerQuery
+		@features={{hash
+		phone=(cq-width max=this.config.breakpoints.phone)
+		tablet=(cq-width min=this.config.breakpoints.phone max=1440)
+		desktop=(cq-width min=1440)}}
+		class="cards-container-query"
+		as |CQ|
+>
+	{{#if (or CQ.features.tablet CQ.features.desktop)}}
+	<div class="project">
+		<div class="project__content-container">
+			<div class="project__main-content-wrapper">
+				<ProjectIntro @model={{@model}} @scrollToInfos={{this.scrollToInfos}}/>
+
+				<CardsSection @title={{t 'participation.participateButton'}}
+							  @cardType="module"
+							  @items={{this.sortedParticipationPacks}}
+							  @model={{@model}}
+				/>
+
+				<CardsSection @title={{t 'participation.eventsTitle'}}
+							  @route="community.participation.events"
+							  @buttonLabel={{t 'participation.allEventsButton'}}
+							  @model={{@model}}
+							  @cardType="event"
+							  @columnsDisplay={{true}}
+							  @items={{@model.project.sortedEvents}}
+				/>
+
+				<CardsSection @title={{t 'participation.updatesTitle'}}
+							  @route="community.participation.updates"
+							  @buttonLabel={{t 'participation.allUpdatesButton'}}
+							  @model={{@model}}
+							  @cardType="update"
+							  @items={{this.sortedProjectUpdatesByDate}}
+				/>
+
+				<CardsSection @title={{t 'participation.documentsTitle'}}
+							  @route="community.participation.documents"
+							  @buttonLabel={{t 'participation.allDocumentsButton'}}
+							  @model={{@model}}
+							  @cardType="document"
+							  @columnsDisplay={{true}}
+							  @items={{@model.project.sortedProjectSections}}
+				/>
+				<AboutProject	@model={{@model}}
+								@project={{@model.project}}
+				/>
+				{{#if @model.project.private}}
+					{{#if (or this.userService.hasCommunityOwnerRights this.userService.hasProjectAdminRights) }}
+						<ProjectMembers @project={{@model.project}} @projectMembers={{@model.projectMembers}}/>
+					{{/if}}
+				{{/if}}
+			</div>
+			{{#if CQ.features.desktop}}
+				<div class="project__side-info">
+					<div class="project__content-side-info">
+						<div class="project__title-container">
+							<p class="project__title-side-info">{{t 'participation.whatsUpTitle'}}</p>
+						</div>
+						{{#if this.latestUpdates}}
+						{{!--					<NotificationCard @type="event" @openPopupEvents={{fn this.openPopupEvents "event-popup"}}/>--}}
+							<NotificationCard @item={{this.latestUpdates}} @type="info" @openPopupEvents={{fn this.openUpdatePopup this.latestUpdates}}/>
+						{{!--					<NotificationCard @type="document" @openPopupEvents={{fn this.openPopupEvents "file-popup"}}/>--}}
+						{{else}}
+							<div class="project__side-info-empty-text">
+								{{t 'participation.noUpdates'}}
+							</div>
+							<div class="project__side-info-empty-image">
+								{{inline-svg "/images/consultation/empty-sidebar.svg"}}
+							</div>
+						{{/if}}
+					</div>
+				</div>
+			{{/if}}
+		</div>
+
+	</div>
+	{{else}}
+	<div class="project-mobile">
+		<div class="project-mobile__main-content-wrapper">
+			<ProjectIntro @model={{@model}} @scrollToInfos={{this.scrollToInfos}}/>
+
+			<CardsSection @title={{t 'participation.participateButton'}}
+						  @cardType="module"
+						  @items={{this.sortedParticipationPacks}}
+						  @model={{@model}}
+			/>
+			<CardsSection @title={{t 'participation.eventsTitle'}}
+						  @route="community.participation.events"
+						  @buttonLabel={{t 'participation.allEventsButton'}}
+						  @model={{@model}}
+						  @cardType="event"
+						  @columnsDisplay={{true}}
+			/>
+			<CardsSection @title={{t 'participation.updatesTitle'}}
+						  @route="community.participation.updates"
+						  @buttonLabel={{t 'participation.allUpdatesButton'}}
+						  @model={{@model}}
+						  @cardType="update"
+						  @items={{@model.project.sortedProjectUpdates}}
+			/>
+			<CardsSection @title={{t 'participation.documentsTitle'}}
+						  @route="community.participation.documents"
+						  @buttonLabel={{t 'participation.allDocumentsButton'}}
+						  @model={{@model}}
+						  @cardType="document"
+						  @columnsDisplay={{true}}
+						  @items={{@model.project.sortedProjectSections}}
+			/>
+			<AboutProject	@model={{@model}}
+							@project={{@model.project}}
+			/>
+			{{#if @model.project.private}}
+				{{#if (or this.userService.hasCommunityOwnerRights this.userService.hasProjectAdminRights) }}
+					<ProjectMembers @project={{@model.project}} @projectMembers={{@model.projectMembers}}/>
+				{{/if}}
+			{{/if}}
+		</div>
+	</div>
+	{{/if}}
+</ContainerQuery>

@@ -1,0 +1,22 @@
+<div class="attachment-item" >
+  <span class="attachment-item__item-container">
+    <div class="attachment-item__preview-image-container {{if @isLarge 'large'}}">
+      {{#if @attachment.image}}
+        <img class="attachment-item__preview-image" src={{@attachment.image}} />
+      {{else}}
+        {{#if (eq @attachment.type "link")}}
+          {{inline-svg '/images/consultation/link-attachment.svg'}}
+        {{/if}}
+        {{#if (eq @attachment.type "file")}}
+          {{inline-svg '/images/consultation/pdf-attachment.svg'}}
+        {{/if}}
+        {{#if (eq @attachment.type "picture")}}
+          {{inline-svg '/images/consultation/picture-attachment.svg'}}
+        {{/if}}
+        {{#if (eq @attachment.type "video")}}
+          {{inline-svg '/images/consultation/link-attachment.svg'}}
+        {{/if}}
+      {{/if}}
+    </div>
+  </span>
+</div>

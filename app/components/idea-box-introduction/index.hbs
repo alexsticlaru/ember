@@ -1,0 +1,17 @@
+<ContainerQuery
+		@features={{hash
+		phone=(cq-width max=this.config.breakpoints.phone)
+		tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+		desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+		class="cards-container-query"
+		as |CQ|
+>
+	{{#if (or CQ.features.tablet CQ.features.desktop)}}
+		<IdeaBoxIntroduction::Desktop @model={{@model}} @openPropositionAddPopup={{this.openPropositionAddPopup}} @breadCrumbs={{this.breadCrumbs}}> </IdeaBoxIntroduction::Desktop>
+	{{else}}
+ 		<IdeaBoxIntroduction::Mobile @model={{@model}} @openPropositionAddPopup={{this.openPropositionAddPopup}}> </IdeaBoxIntroduction::Mobile>
+	{{/if}}
+</ContainerQuery>
+
+
+

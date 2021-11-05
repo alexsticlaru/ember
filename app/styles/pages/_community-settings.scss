@@ -1,0 +1,104 @@
+@mixin square-base() {
+    border: 1px solid $gray-color;
+    cursor: move;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: $primary-color;
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__title {
+        color: $primary-color;
+        background-color: $dark-color;
+        padding: .2rem;
+    }
+}
+
+.square {
+    height: 37.8rem;
+    @include square-base;
+    &--min {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    &--over {
+        border: 1px dashed $secondary-color;    
+    }
+}
+
+.squares2 {
+    grid-column: span 2;
+    @include square-base;
+    &--min {
+        width: 20rem;
+        height: 15rem;
+    }
+
+    &--over {
+        border: 1px dashed $secondary-color;    
+    }
+}
+
+.squares3 {
+    grid-column: span 3;
+    @include square-base;
+    &--min {
+        width: 30rem;
+        height: 15rem;
+    }
+}
+
+.squares4 {
+    grid-column: span 2;
+    grid-row: span 2;
+    @include square-base;
+    &--min {
+        width: 20rem;
+        height: 20rem;
+    }
+}
+
+.tiles-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: .4rem .2rem .6rem .2rem $gray-color;
+    margin: 2rem 0;
+    padding: 2rem;
+    min-height: 24rem;
+
+    &__next {
+        transform: rotate(180deg);
+        padding-bottom: 4rem;
+        border: none;
+        &:disabled, &.disabled {
+            svg {
+                opacity: .3;
+            }
+        }
+    }
+
+    &__previous {
+        &:disabled, &.disabled {
+            svg {
+                opacity: .3;
+            }
+        }
+    }
+}
+
+.dropZone{
+    min-width: 40rem;
+    min-height: 40rem;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    grid-template-rows:  repeat(10, 37.8rem);
+    column-gap: 6rem;
+    row-gap: 6rem;
+    border: 1px dashed $medium-gray;
+}

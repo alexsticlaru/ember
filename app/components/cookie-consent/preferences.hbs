@@ -1,0 +1,71 @@
+<div class="cookie-consent__preferences-item">
+  <div class="cookie-consent__preferences-title-text">
+    <span>
+      {{t "cookie.technicalTitle"}}
+    </span>
+    <!-- <span class="cookie-consent__preferences-toggle">
+      <XToggle
+      @theme='material'
+      @value={{true}}
+      @disabled={{true}}
+      />
+    </span> -->
+  </div>
+  <div class="cookie-consent__preferences-text">
+    {{t "cookie.technicalText"}}
+  </div>
+</div>
+
+<div class="cookie-consent__preferences-item">
+  <div class="cookie-consent__preferences-title-text">
+    <span>
+      {{t "cookie.statisticsTitle"}}
+    </span>
+    <span class="cookie-consent__preferences-toggle">
+      <XToggle
+      @theme='material'
+      @value={{this.statistics}}
+      @onToggle={{this.setStatisticsPreference}}
+      />
+    </span>
+  </div>
+  <div class="cookie-consent__preferences-text">
+    {{t "cookie.statisticsText"}}
+  </div>
+</div>
+
+<!-- <div class="cookie-consent__preferences-item">
+<div class="cookie-consent__preferences-title-text">
+<span>
+{{t "cookie.zendeskTitle"}}
+</span>
+<span class="cookie-consent__preferences-toggle">
+<XToggle
+@theme='material'
+@value={{this.zendesk}}
+@onToggle={{this.setZendeskPreference}}
+/>
+</span>
+</div>
+<div class="cookie-consent__preferences-text">
+{{t "cookie.zendeskText"}}
+</div>
+</div> -->
+
+<div class="cookie-consent__preferences-item">
+  <div class="cookie-consent__preferences-title-text">
+    <span>
+      {{t "cookie.videoTitle"}}
+    </span>
+    <span class="cookie-consent__preferences-toggle">
+      <XToggle
+      @theme='material'
+      @value={{this.video}}
+      @onToggle={{this.setVideoPreference}}
+      />
+    </span>
+  </div>
+  <div class="cookie-consent__preferences-text">
+    {{t "cookie.videoText"}}
+  </div>
+</div>

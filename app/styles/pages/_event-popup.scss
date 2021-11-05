@@ -1,0 +1,295 @@
+.event_popup {
+  padding: 1.5rem 8rem 5rem 4rem;
+  &__big-container{
+	display: flex;
+	flex-direction: row;
+	margin-top: 2.5rem;
+  }
+
+  &__popup-header {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	text-align: right;
+	padding-right: 1.8rem;
+  }
+
+  &__participate-button {
+	width: 20.5rem;
+	height: 4.5rem;
+	background:$medium-black;
+	border-radius: 0.3rem;
+	margin-top: 2.5rem;
+	color: $primary-color;
+	font-size: 1.4rem;
+  }
+
+  &__right-container {
+	width: 40%;
+	height: 35rem;
+	align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+  }
+
+  &__image-event{
+	width: 20rem;
+	height: 22rem;
+	background: lightgrey;
+  }
+
+  &__bottom-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 4rem
+  }
+
+  &__calendar-container{
+	padding-top: 1rem;
+	width: 7rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+  }
+
+  &__container{
+	display: flex;
+	width: 50%;
+	height: 400px;
+	flex-direction: column;
+	align-items: flex-start;
+  }
+
+  &__month{
+	color:$color-info;
+  }
+
+  &__time-hour{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	padding: 2.1rem 0;
+
+  }
+
+  &__time-container{
+	display: flex;
+	flex-direction:column;
+  }
+
+  &__line-container{
+	padding-left: 5rem;
+	padding-right: 5rem;
+  }
+
+  &__place-container{
+	display: flex;
+	flex-direction:column;
+  }
+
+  &__title{
+	font-size: 1.5rem;
+	font-weight: 500;
+  }
+
+  &__hour{
+	font-size: 1.5rem;
+	font-weight: 500;
+  }
+
+  &__line{
+	padding-right: 3.3rem;
+	padding-left: 3.3rem;
+  }
+  &__description{
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.9rem;
+	letter-spacing: 0;
+	text-align: left;
+  }
+}
+
+
+.event-popup-mobile{
+  height: 100vh;
+  padding: 0 2.4rem 0 2.4rem;
+  border-radius:0;
+  box-shadow: none;
+
+  &__big-container{
+	display: flex;
+	flex-direction: row;
+  }
+
+  &__back-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+  }
+
+  &__popup-header {
+	width: 100%;
+	display: flex;
+	margin: 2rem 0;
+	justify-content: flex-start;
+  }
+
+  &__participate-button {
+	width: 100%;
+	height: 6rem;
+	background:$medium-black;
+	border-radius: 0.3rem;
+	color: $primary-color;
+	font-size: 1.4rem;
+  }
+
+  &__container-people-participating{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 1rem 0 3rem 0;
+  }
+
+  &__people-participating{
+	font-size: 1.3rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.8rem;
+	letter-spacing: 0.0126rem;
+	text-align: left;
+	color: $medium-dark-gray;
+  }
+
+  &__right-container {
+	width: 40%;
+	height: 35rem;
+	align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+  }
+
+  &__image-event{
+	height: 9.1rem;
+	width: 100%;
+	border-radius: 4px;
+	background-color:lightgray;
+  }
+
+  &__bottom-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 4rem;
+  }
+
+  &__calendar-container{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 2.1rem 0 2.7rem 0;
+  }
+
+  &__title-event{
+	font-size: 2.2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 2.5rem;
+	letter-spacing: 0.0068rem;
+	padding-left: 1.5rem;
+  }
+
+  &__container{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+  }
+
+  &__month{
+	color:$color-info;
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.7rem;
+	letter-spacing: 0;
+  }
+
+  &__month-date{
+	font-size: 2.6rem;
+	font-weight: 700;
+	line-height: 1.7rem;
+	letter-spacing: 0;
+	padding-top: 0.6rem;
+  }
+
+  &__items-calendar{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	align-items: center;
+  }
+
+  &__time-hour{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	padding-bottom: 3rem;
+  }
+
+  &__time-container{
+	display: flex;
+	flex-direction:column;
+  }
+
+  &__line-container{
+	padding: 0 1.6rem 0 1.6rem;
+  }
+
+  &__place-container{
+	display: flex;
+	flex-direction:column;
+  }
+
+  &__title{
+	font-size: 1.1rem;
+	color: #84878A;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.7rem;
+	letter-spacing: 0;
+	padding-bottom: 0.2rem;
+  }
+
+  &__hour{
+	font-size: 1.3rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.7rem;
+	letter-spacing: 0;
+	a{
+	  color:$medium-blue-color;
+	  font-weight: 700;
+	}
+  }
+
+  &__line{
+	padding-right: 3.3rem;
+	padding-left: 3.3rem;
+  }
+
+  &__description{
+	font-style: normal;
+	font-weight: 400;
+	text-align: left;
+	font-size: 1.3rem;
+	line-height: 1.8rem;
+	letter-spacing: 0.0126rem;
+	color:$medium-dark-gray;
+	padding-bottom: 1rem;
+  }
+}
+

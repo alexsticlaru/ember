@@ -1,0 +1,76 @@
+<div class="user-profile">
+
+  <button class="user-profile__back-button btn-none" onclick="window.history.back()" aria-label="{{t "pb.accessibility.goBack"}}">
+    <span aria-hidden="true">{{inline-svg "/images/profile/back-button.svg"}}</span>
+  </button>
+
+  <div class="user-profile-user-info">
+    <span class="user-profile__user-avatar-container">
+      {{#if this.canEdit}}
+        <UserAvatarUpload @user={{this.model}} @dimensions={{145}}/>
+      {{else}}
+        <UserAvatar @user={{this.model}} @dimensions={{145}}></UserAvatar>
+      {{/if}}
+    </span>
+
+    <span class="user-title">
+      <h1 class="heading-1--tertiary user-name">{{this.model.fullName}}</h1>
+      <div class="user-subtitle">{{this.model.title}}</div>
+    </span>
+  </div>
+  <div class="user-profile-user-content">
+    <div class="section-items-container">
+      {{! User About Section Item}}
+      {{#if this.showAboutSection}}
+      <span class="section-item-active" {{on "click" this.showAbout}} role="button" tabindex="0">
+        {{t 'pb.profile.section.about'}}
+      </span>
+      {{else}}
+      <span class="section-item" {{on "click" this.showAbout}} role="button" tabindex="0">
+        {{t 'pb.profile.section.about'}}
+      </span>
+      {{/if}}
+      {{! User Projects Section Item}}
+      {{#if this.showPropositionsSection}}
+      <span class="section-item-active" {{on "click" this.showPropositions}} role="button" tabindex="0">
+        {{t 'pb.profile.section.propositions'}}
+      </span>
+      {{else}}
+      <!-- REMOVED_MARCH
+      <span class="section-item" {{on "click" this.showPropositions}} role="button" tabindex="0">
+        {{t 'pb.profile.section.propositions'}}
+      </span> -->
+      {{/if}}
+    </div>
+    {{! User description}}
+    {{#if this.showAboutSection}}
+    <div class="section-container">
+      {{#if this.model.description}}
+      <div class="user-description">
+        {{html-safe this.model.description}}
+      </div>
+      {{else}}
+      <div class="no-content-label">
+        {{t 'pb.profile.noAbout' username=this.model.firstName}}
+      </div>
+      {{/if}}
+      {{#if this.model.linkedinId}}
+      <a href={{this.model.linkedinId}} class="user-linkedin-label" aria-label={{t 'pb.profile.linkeding' username=this.model.firstName}}>
+        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+      </a>
+      {{/if}}
+      <div class="user-joined-label">
+        {{t 'pb.profile.joinedDate'}} {{this.model.displayDateRegister}}
+      </div>
+    </div>
+    {{/if}}
+    {{#if this.showPropositionsSection}}
+    <div class="proposition-container">
+      <Propositions::PropositionsList
+      @propositions={{this.model.propositions}}
+      @showOnMap={{this.showOnMap}}
+      />
+    </div>
+    {{/if}}
+  </div>
+</div>

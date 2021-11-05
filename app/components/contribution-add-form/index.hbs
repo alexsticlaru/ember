@@ -1,0 +1,135 @@
+{{#if (or @issue.usersCanParticipate (and this.user.hasCommunityOwnerRights (and (not @issue.usersCanParticipate) (not @issue.outcome)) ) )}}
+
+	{{#if this.isExpanded}}
+		<div class="contribution-add-form-expanded">
+			<div class="contribution-add-form-expanded__title-wrapper">
+				<div class="contribution-add-form-expanded__contribution-title">
+					{{#if (and this.user.hasCommunityOwnerRights (not @issue.usersCanParticipate))}}
+						<div class="contribution-add-form-expanded__input-container">
+							<span>{{t 'issue.contributionAddForm.outcomeTitleInput'}}</span>
+							<Input @type="text"
+								   @value={{this.comment.title}}
+								   @disabled={{this.isProcessing}}
+								   @placeholder={{t 'issue.contributionAddForm.outcomeTitlePlaceholder'}}
+								   maxlength={{100}}
+							/>
+						</div>
+					{{else}}
+						<Input @type="text"
+							   @value={{this.comment.title}}
+							   @disabled={{this.isProcessing}}
+							   @placeholder={{t 'issue.contributionAddForm.titlePlaceholder'}}
+							   maxlength={{100}}
+						/>
+					{{/if}}
+				</div>
+				{{#unless @hideAvatar}}
+					<UserAvatar @user={{this.currentUser}} @dimensions={{35}}></UserAvatar>
+				{{/unless}}
+			</div>
+
+			<div class="contribution-add-form-expanded__seperator"></div>
+				<div class="contribution-add-form-expanded__contribution-text">
+					{{#if (and this.user.hasCommunityOwnerRights (not @issue.usersCanParticipate))}}
+						<RichEditor
+								@noToolbarMode = {{1}}
+								@id="contribution-add-editordescription"
+								@editorId ={{if @editorId  @editorId 'contribution-add-editordescription-create'}}
+								@content={{this.comment.content}}
+								@placeholderText={{t 'issue.contributionAddForm.outcomeContentPlaceholder'}}
+								@initialHeight={{if @editMode 200 120}}
+								@allowResizeX={{false}}
+								@allowResizeY={{false}}
+						/>
+					{{else}}
+						<RichEditor
+								@noToolbarMode = {{1}}
+								@id="contribution-add-editordescription"
+								@editorId ={{if @editorId  @editorId 'contribution-add-editordescription-create'}}
+								@content={{this.comment.content}}
+								@placeholderText={{t 'issue.contributionAddForm.contentPlaceholder'}}
+								@initialHeight={{if @editMode 200 120}}
+								@allowResizeX={{false}}
+								@allowResizeY={{false}}
+						/>
+					{{/if}}
+
+				</div>
+
+			<div class="contribution-add-form-expanded__footer-wrapper">
+				<div class="contribution-add-form-expanded__footer-left">
+					{{#if this.comment.attachments}}
+						<span class="contribution-add-form-expanded__contribution-attachments">
+							{{#each this.comment.attachments as |attachment|}}
+								<AttachmentItem::delete @attachment={{attachment}} @handleClick={{this.removeAttachment}}/>
+							{{/each}}
+						</span>
+					{{else}}
+						<AddAttachment
+							@model={{this.comment}}
+							/>
+					{{/if}}
+
+					{{#if (and this.user.hasCommunityOwnerRights (not @issue.usersCanParticipate))}}
+						<div class="contribution-add-form-expanded__toggle-container">
+							<label class="contribution-add-form-expanded__toggle-label">{{t 'issue.contributionAddForm.allowParticipation' }}</label>
+							<XToggle @theme='ios' @size='large'
+									 @value={{this.allowParticipation}}
+									 @onToggle={{@changeAllowParticipation}}
+									 class="proposition-filters__toggle"/>
+						</div>
+					{{else}}
+						<span class="contribution-add-form-expanded__add-themes-dropdown">
+						<Dropdown @top={{0}} @left={{150}} as |dd|>
+							<dd.trigger>
+								<button type="button" class="btn-none contribution-add-form-expanded__add-themes">
+									{{t 'issue.contributionAddForm.addThemes'}}
+								</button>
+							</dd.trigger>
+							<dd.content>
+								<div class="contribution-add-form-expanded__add-themes-dropdown-content">
+									{{t 'issue.contributionAddForm.addThemesExplanation'}}
+
+									{{#each @issue.themes as |theme|}}
+										<ThemeItem::select-theme @theme={{theme}} @handleClick={{this.selectTheme}}/>
+									{{/each}}
+								</div>
+							</dd.content>
+						</Dropdown>
+					</span>
+					{{/if}}
+				</div>
+
+				{{#if @editMode}}
+					<button type="button"
+						{{on 'click' this.saveComment}}
+						disabled={{this.areTitleDescriptionEmpty}}
+						class="btn-civ-black contribution-add-form-expanded__save-btn"
+						aria-label={{t "pb.accessibility.saveComment"}}>
+						{{t 'buttons.save'}}
+					</button>
+				{{else}}
+					<button type="button" class="btn-civ-green-icon btn-none" {{on "click" this.addComment}}
+
+						aria-label={{t "pb.accessibility.saveComment"}}
+						>
+						<span aria-hidden="true">{{inline-svg "/images/consultation/send-contribution.svg"}}</span>
+					</button>
+				{{/if}}
+			</div>
+
+		</div>
+	{{else}}
+		<div class="contribution-add-form btn-none" {{on "click" this.expandForm}} role="button" aria-labelledby="contribution-add-button" tabindex="0">
+			<div id="contribution-add-button" class="contribution-add-form__text">
+				{{#if (and this.user.hasCommunityOwnerRights (not @issue.usersCanParticipate))}}
+					{{t 'buttons.addOutcome'}}
+				{{else}}
+					{{t 'buttons.whatIsYourOpinion'}}
+				{{/if}}
+			</div>
+			<UserAvatar @user={{this.currentUser}} @dimensions={{44}}></UserAvatar>
+		</div>
+	{{/if}}
+
+{{/if}}

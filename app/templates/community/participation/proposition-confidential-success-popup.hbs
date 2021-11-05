@@ -1,0 +1,20 @@
+<div class="popup__content proposition-confidential-success"  role="dialog" aria-labelledby="accessibility-title">
+	<div>
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+
+	<div class="proposition-confidential-success__image" aria-hidden="true">
+		{{inline-svg "/images/ideaBox/idea-sent.svg"}}
+	</div>
+	<h1 id="accessibility-title"  class="proposition-confidential-success__title">
+		{{t 'ideaBox.addIdeaPopUp.confidential.successTitle'}}
+	</h1>
+	<div class="proposition-confidential-success__explanation">
+		{{t 'ideaBox.addIdeaPopUp.confidential.successExplanation'}}
+	</div>
+
+	<button type="button" class="btn-civ-black" {{on 'click' this.closePopup}}>
+		{{t 'ideaBox.addIdeaPopUp.confidential.successButton'}}
+	</button>
+
+</div>

@@ -1,0 +1,24 @@
+<div class="idea-info-graphic__info-graphic-container">
+  <span class="label">
+{{@progress}} / {{@maxProgress}}
+  </span>
+  <div class="idea-info-graphic__info-graphic" aria-hidden="true">
+    {{#if this.firstThird}}
+      {{inline-svg "/images/ideaBox/idea-infographic-1.svg"}}
+    {{else if this.secondThird}}
+      {{inline-svg "/images/ideaBox/idea-infographic-2.svg"}}
+    {{else if this.thirdThird}}
+      {{inline-svg "/images/ideaBox/idea-infographic-3.svg"}}
+    {{else}}
+      {{inline-svg "/images/ideaBox/idea-infographic-4.svg"}}
+    {{/if}}
+  </div>
+  <div class="idea-info-graphic__avatar" aria-hidden="true">
+    <LinkTo @route="user" @model={{@user}}>
+      <UserAvatar @user={{@user}} @dimensions={{24}}></UserAvatar>
+    </LinkTo>
+  </div>
+
+  <!-- {{@maxProgress}} / {{@progress}} -->
+
+</div>

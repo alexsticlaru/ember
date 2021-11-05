@@ -1,0 +1,62 @@
+<div class="popup__moderate-idea confirm-popup" role="dialog" aria-labelledby="accessibility-title">
+	<div class="confirm-popup__top-container">
+		<span id="accessibility-title" class="confirm-popup__title">
+			{{this.model.moderateTitle}}
+		</span>
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+	<div class="confirm-popup__text">
+		{{this.model.moderateText}}
+	</div>
+
+	<div class="proposition-flag-popup__select-container">
+		<div class="proposition-flag-popup__label-container">
+			<input class="proposition-flag-popup__radio-style"
+					type="radio"
+					id="advertising"
+					checked={{eq this.reportType 'advertising' }}
+					{{on "click" (fn this.setReportType "advertising" )}} />
+			 <label class="proposition-flag-popup__label-info" for="advertising">{{t 'moderation.form.advertising'}}</label>
+		</div>
+		<div class="proposition-flag-popup__label-container">
+			<input class="proposition-flag-popup__radio-style"
+					type="radio"
+					id="abusive"
+					checked={{eq this.reportType 'abusive' }}
+					{{on "click" (fn this.setReportType "abusive" )}} />
+			 <label class="proposition-flag-popup__label-info" for="abusive">{{t 'moderation.form.abusive'}}</label>
+		</div>
+		<div class="proposition-flag-popup__label-container">
+			<input class="proposition-flag-popup__radio-style"
+					type="radio"
+					id="inappropriate"
+					checked={{eq this.reportType 'inappropriate' }}
+					{{on "click" (fn this.setReportType "inappropriate" )}} />
+			 <label class="proposition-flag-popup__label-info" for="inapropriate">{{t 'moderation.form.inappropriate'}}</label>
+		</div>
+		<div class="proposition-flag-popup__label-container">
+			<input class="proposition-flag-popup__radio-style"
+					type="radio"
+					id="nomoderation"
+					checked={{eq this.reportType 'nomoderation' }}
+					{{on "click" (fn this.setReportType "nomoderation" )}} />
+			 <label class="proposition-flag-popup__label-info" for="nomoderation">{{t 'moderation.form.nomoderation'}}</label>
+		</div>
+	</div>
+
+	<div class="confirm-popup__text">
+		<LabelTextField
+				@value={{this.moderationMessage}}
+				@maxlength={{200}}
+		/>
+	</div>
+
+	<div class="confirm-popup__button-container">
+		<button type="button" class="btn-civ-black-reverse" {{on "click" this.closePopup}}>
+			{{t 'ideaBox.flagPopup.cancelButton'}}
+		</button>
+		<button type="button" class="btn-civ-black" {{on "click" this.moderate}}>
+			{{t 'moderation.form.submit'}}
+		</button>
+	</div>
+</div>

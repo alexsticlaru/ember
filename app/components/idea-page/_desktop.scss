@@ -1,0 +1,58 @@
+.idea-page-desktop {
+
+  &__back-button{
+    display: inline-block;
+    margin-left: 12.5rem;
+    margin-top: 2.5rem;
+    // position: absolute;
+    // top: 8.3rem;
+    // left: 12.5rem;
+  }
+
+  &__content-wrapper{
+    display: flex;
+    justify-content: center;
+    // margin-left: 12rem;
+    // margin-right: 12rem;
+    margin-top: 7rem;
+
+    // @include respond(phone) {
+    //   margin-left: 1rem !important;
+    //   margin-right: 1rem !important;
+    // }
+    //
+    // @include respond(tab-port) {
+    //   margin-left: 3rem;
+    //   margin-right: 3rem;
+    // }
+
+  }
+
+  &__left-column{
+    padding: 2.1rem;
+  }
+
+  &__user-avatar-container{
+    z-index: 0;
+    position: relative;
+    height: 7.4rem;
+    width: 7.4rem;
+  }
+
+  &__lightbulb-icon{
+    z-index: 1;
+    position: absolute;
+    left: -1rem;
+    top: -1.3rem;
+  }
+
+  &__actions{
+    padding: 2.1rem;
+  }
+
+  &__content{
+    max-width: 63rem;
+  }
+
+
+}

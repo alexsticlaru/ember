@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="ie9"><![endif]-->
+<!--[if gt IE 9]><!--><html><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Civocracy</title>
+	<meta id="meta-start">
+	<meta name="description" content="">
+	<meta id="meta-end">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{{content-for 'head'}}
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+	<link rel="icon" href="/favicon.ico">
+	<link rel="stylesheet" href="{{rootURL}}assets/vendor.css?">
+	<link rel="stylesheet" href="{{rootURL}}assets/civ.css?">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="{{rootURL}}js/index.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="{{rootURL}}js/jodit-civ/build/jodit.min.css">
+	<script type="text/javascript" src="{{rootURL}}js/jodit-civ/build/jodit.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="{{rootURL}}js/jodit-civ/custom-modules/civ-insert-emojis/civ-insert-emojis.css">
+	<script type="text/javascript" src="{{rootURL}}js/jodit-civ/custom-modules/civ-insert-emojis/civ-insert-emojis.js"></script>
+	<script type="text/javascript" src="{{rootURL}}assets/vendor.js?"></script>
+	<script type="text/javascript" src="{{rootURL}}assets/civ.js?"></script>
+	{{content-for 'head-footer'}}
+</head>
+
+<body>
+	<!-- here a replacement with an svg would be nice -->
+	<img id="appLoading" title="Loading Civocracy" src="https://res.cloudinary.com/civocracy/image/upload/v1625133999/V7/loading_anim.gif" style="width:93px;margin: 0;position: absolute;top: 50%;left: calc(50% - 46.5px);transform: translate(0, -50%)" />
+	{{content-for 'body'}}
+	{{content-for 'body-footer'}}
+	<script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+</body>
+</html>

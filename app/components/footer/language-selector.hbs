@@ -1,0 +1,16 @@
+<div class="footer__languages-container">
+    <span class="footer__label">{{t 'footer.languages'}}</span>
+    <div class="footer__languages">
+        {{#each this.intl.languages as |language|}}
+            <button type="button" {{on 'click' (fn this.changeLanguage language)}}
+              class="btn-none footer__translation-item"
+              aria-pressed={{if (eq this.intl.currentLanguage.iso1 language.iso1) "true" "false"}}
+              >
+                <span>{{language.name}}</span>
+                {{#if (eq this.intl.currentLanguage.iso1 language.iso1)}}
+                  <span aria-hidden="true">{{inline-svg "images/check.svg" class="icon-small"}}</span>
+                {{/if}}
+            </button>
+        {{/each}}
+    </div>
+</div>

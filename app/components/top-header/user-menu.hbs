@@ -1,0 +1,59 @@
+<div class="user-menu">
+	<div class="user-menu__top-container">
+	{{#if this.userHasProjectsFollowing}}
+		<div class="user-menu__projects">
+			<div class="user-menu__title">
+				{{t 'top-header.yourProjects'}}
+			</div>
+			<div class="user-menu__projects__subscroll">
+				{{#each this.userProjects as |project|}}
+				<LinkTo @route="community.participation" @models={{array project.community.url project.url}} class="link-btn user-menu__item user-menu__item--border-none">
+					{{project.name}}
+				</LinkTo>
+				{{/each}}
+			</div>
+		</div>
+	{{else}}
+		<div class="user-menu__projects blank">
+			<div class="user-menu__title">
+				{{t 'top-header.yourProjects'}}
+			</div>
+			<div class="user-menu__explanation">
+				{{t 'top-header.noProjects'}}
+			</div>
+		</div>
+	{{/if}}
+	{{#if this.userHasCommunitiesFollowing}}
+		<div class="user-menu__communities">
+			<div class="user-menu__title">
+				{{t 'top-header.yourCommunities'}}
+			</div>
+			<div class="user-menu__communities__subscroll">
+				{{#each this.userCommunities as |community|}}
+					<LinkTo @route="community" @models={{array community.url}} class="link-btn user-menu__item user-menu__item--border-none">
+						{{community.name}}
+					</LinkTo>
+				{{/each}}
+			</div>
+		</div>
+    {{/if}}
+	</div>
+	<div class="user-menu__grey-container">
+	    <LinkTo @route="user" @model={{this.userService.currentUser}} class="link-btn user-menu__item user-menu__item--grey">
+	        <span aria-hidden="true">{{inline-svg "images/header/user.svg" class="icon"}}</span>
+	        {{t 'top-header.profile'}}
+	    </LinkTo>
+
+			<LinkTo @route="settings.index" class="link-btn user-menu__item user-menu__item--grey">
+					<span aria-hidden="true">{{inline-svg "images/header/settings.svg" class="icon"}}</span>
+					{{t 'top-header.settings'}}
+			</LinkTo>
+	</div>
+	<div class="user-menu__bottom-container">
+		<button type="button" {{on 'click' this.logout}} class="btn-none user-menu__item user-menu__logout">
+		   <span aria-hidden="true">{{inline-svg "images/header/logout.svg" class="icon"}}</span>
+		   <span>{{t 'buttons.logout'}}</span>
+		</button>
+	</div>
+
+</div>

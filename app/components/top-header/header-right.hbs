@@ -1,0 +1,87 @@
+<div class="top-header__right">
+    {{#unless this.userService.isAuthenticated}}
+        <button type="button" class="btn-civ-black-reverse top-header__btn" {{on 'click' this.showLogin}}>{{t 'buttons.login'}}</button>
+        <button type="button" class="btn-civ-black top-header__btn" {{on 'click' this.showRegistration}}>{{t 'buttons.signup'}}</button>
+    {{/unless}}
+
+    {{#if (and this.userService.isAuthenticated this.userService.currentUser)}}
+		{{#if @showUserName}}
+		<HeaderDropdown
+			@left={{-90}}
+      @ariaLabel={{t "accessibility.openMenu"}}
+			@triggerClass="top-header__avatar-trigger" as |dd|>
+			<dd.trigger>
+					<span>{{this.userService.currentUser.fullName}}</span>
+					<UserAvatar @user={{this.userService.currentUser}} @dimensions={{30}} @showBadge={{true}}/>
+			</dd.trigger>
+			<dd.content>
+				<TopHeader::UserMenu/>
+			</dd.content>
+		</HeaderDropdown>
+		{{else}}
+		<HeaderDropdown
+      @left={{-190}}
+			@ariaLabel={{t "accessibility.openMenu"}}
+			@triggerClass="top-header__avatar-trigger" as |dd|>
+			<dd.trigger>
+					<span title={{this.userService.currentUser.fullName}}>
+						<UserAvatar @user={{this.userService.currentUser}} @dimensions={{30}} @showBadge={{true}}/>
+					</span>
+			</dd.trigger>
+			<dd.content>
+				<TopHeader::UserMenu/>
+			</dd.content>
+		</HeaderDropdown>
+		{{/if}}
+
+		{{#if this.userIsTranslator}}
+			{{#if this.intl.translatorToolActivated}}
+			<Dropdown @top={{35}} @left={{6}}
+				@triggerClass='top-header__translation-trigger'
+				@contentClass='top-header__translator-content'
+				@triggerAction='mouseover' as |dd|>
+				<dd.trigger>
+					<button class="btn-none top-header__btn-translator-icon-button active" type="button" {{on "click" this.activateTranslatorTool}}>
+						{{inline-svg 'images/flag-checkered' class="icon-language"}}
+					</button>
+				</dd.trigger>
+				<dd.content>
+					<TopHeader::TranslatorMenu/>
+				</dd.content>
+			</Dropdown>
+			{{else}}
+			<button class="btn-none top-header__btn-translator-icon-button unactive" type="button" {{on "click" this.activateTranslatorTool}}>
+				{{inline-svg 'images/flag-checkered' class="icon-language"}}
+			</button>
+			{{/if}}
+		{{/if}}
+	{{/if}}
+
+    {{#unless this.userService.isAuthenticated}}
+      <HeaderDropdown
+        @ariaLabel={{t "accessibility.languageSelector"}}
+  			@left={{-140}}
+  			@triggerClass="top-header__avatar-trigger" as |dd|>
+  			<dd.trigger>
+          <button type="button" class="btn-none top-header__btn-translation">
+              <span>{{this.intl.currentLanguage.iso2}}</span>
+              <div class="arrow-down"/>
+          </button>
+  			</dd.trigger>
+  			<dd.content>
+          <div class="top-header__translations-menu">
+            {{#each this.intl.languages as |language|}}
+                <button type="button" {{on 'click' (fn this.changeLanguage language dd.dropdown)}}
+                    class="btn-none top-header__translation-item {{if (eq this.intl.currentLanguage.iso1 language.iso1) 'top-header__translation-item--active'}}"
+                    aria-pressed={{if (eq this.intl.currentLanguage.iso1 language.iso1) 'true' 'false'}}>
+                    <span class="dropdown__item">{{language.name}}</span>
+                    {{#if (eq this.intl.currentLanguage.iso1 language.iso1)}}
+                        <span aria-hidden="true">{{inline-svg "images/check.svg" class="icon-small"}}</span>
+                    {{/if}}
+                </button>
+            {{/each}}
+          </div>
+  			</dd.content>
+  		</HeaderDropdown>
+    {{/unless}}
+</div>

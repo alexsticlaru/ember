@@ -1,0 +1,95 @@
+.notification-card {
+  &__info-items-container{
+	display: flex;
+	justify-content: center;
+	color:$light-black;
+	width: 100%;
+	padding: 0 1.9rem;
+  }
+
+  &__info-item{
+	width: 100%;
+	margin: 1.2rem;
+	display:flex;
+	flex-direction: row;
+	background: $primary-color;
+	box-shadow: 0 0.1rem 0.9rem rgb(0 0 0 / 11%);
+	box-sizing: border-box;
+	border: none;
+	// height: 6.9rem;
+	border-radius: 0.5rem;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+  }
+
+  &__description-info-container{
+	//width: calc(100% - 70px);
+	height: 3.8rem;
+	padding-left: 2rem;
+	width: 25.5rem;
+	text-align: initial;
+  }
+
+  &__description-info-item{
+	font-size: 1.4rem;
+	font-weight: 400;
+	line-height: 1.9rem;
+	text-align: left;
+	color:$light-black;
+  }
+
+  &__publish-hour{
+	font-size: 1.2rem;
+	font-weight: 500;
+	line-height: 1.7rem;
+	text-align: left;
+	color:$light-gray;
+  }
+
+  &__calendar-items{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-direction: row;
+	width: 8.1rem;
+  }
+
+  &__line-calendar{
+	margin-right:1.1rem;
+  }
+
+  &__month-info-container{
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+	align-items: center;
+  }
+
+  &__month-info-item{
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.7rem;
+	color: $color-info;
+  }
+
+  &__date {
+	font-size: 3.2rem;
+  }
+
+  &__info-notification{
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: row;
+	width: 1.3rem;
+	align-items: center;
+	margin-right: 1rem;
+
+	svg{
+	  width: 1.6rem;
+	  height: 2rem;
+	  margin-right: 0.5rem;
+	}
+  }
+}

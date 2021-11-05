@@ -1,0 +1,12 @@
+<LinkTo class="link-btn community-module-link" 
+    @route={{this.routeName}}
+    @models={{array @model.community.url @model.participationUrl @item.id @item.url}}>
+
+    <div class="community-module-link__title">{{@item.orderNumber}}. {{@item.title}}</div>
+    <div class="community-module-link__footer">
+        <span>{{capitalize @item.type}}</span>
+        <button type="button" class="btn-none community-module-link__btn-info" {{on 'click' this.showParticipationInfo}}>
+            {{inline-svg '/images/help.svg' class="icon-help"}}
+        </button>
+    </div>
+</LinkTo>

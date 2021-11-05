@@ -1,0 +1,186 @@
+.step-one {
+
+  &__test {
+	input {
+	  border: 1px solid #E3E3E3;
+	  border-radius: 9px;
+	  padding-left: 2.2rem;
+
+	}
+	::placeholder {
+	  color: #A9A9A9;
+	  opacity: 1; /* Firefox */
+	  font-size: 1.4rem;
+	}
+  }
+
+  &__container{
+	width: 100%;
+	padding-bottom: 2.8rem;
+  }
+
+  &__title{
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 150%;
+	letter-spacing: 0.1px;
+	color: #353535;
+	margin-bottom: 0.8rem;
+
+	& label {
+	   font-size: 1.4rem;
+	   font-style: normal;
+	   font-weight: 500;
+	   line-height: 2.1rem;
+	   letter-spacing: 0.010000000149011612rem;
+	   text-align: left;
+	   color: #353535;
+	 }
+  }
+
+  &__suggestions-container {
+	max-height: 15rem;
+	overflow: auto;
+	margin-bottom: 3rem;
+  }
+
+  &__suggestion-link {
+	display: block;
+  }
+
+  &__suggestion-info {
+	background: rgba(234, 223, 212, 0.39);
+	border-radius: 0.4rem;
+	padding: 1.1rem 3.9rem 1.3rem 2.2rem;
+	color: #BB834C;
+	font-size: 1.4rem;
+	font-weight: 400;
+	line-height: 2rem;
+	margin-bottom: 2rem;
+  }
+
+  &__suggestions-title {
+	font-size: 1.4rem;
+	line-height: 2.4rem;
+	font-weight: 400;
+	color: $button-blue;
+	margin-right: 0.7rem;
+	&:hover {
+	  cursor: pointer;
+	}
+  }
+
+  &__info {
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 15px;
+	text-align: left;
+	color: $light-gray;
+
+	&.error {
+	  margin-top: 1rem;
+	  color: $color-problem;
+	  font-style: italic;
+	}
+  }
+
+  &__input-idea{
+	border: 1px solid #C4C4C4;
+	width: 100%;
+	height: 5rem;
+	margin-top: 1rem;
+	padding-left: 1rem;
+  }
+
+  &__info-container{
+	width: 57%;
+	&--full {
+	  width: 100%;
+	}
+  }
+
+  &__info-details{
+	margin-bottom:2.8rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 0.4rem;
+	align-items: flex-start;
+	color: #A8A8A8;
+  }
+
+  &__length-alert{
+	width: 20%;
+	align-items: center;
+	display: flex;
+	justify-content: flex-end;
+  }
+
+  &__number-count{
+	font-weight: 400;
+	font-size:1.2rem;
+	font-style: normal;
+	line-height: 1.8rem;
+	letter-spacing: 0.010000000149011612rem;
+	color: #535461;
+
+  }
+
+  &__code-of-conduct{
+	color:#1898DC;
+  }
+
+  &__container-add-editor{
+	margin-top: 1rem;
+  }
+
+  &__description-label {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.4rem;
+	line-height: 150%;
+	letter-spacing: 0.01rem;
+	color: #353535;
+  }
+
+  &__description-details-info{
+	margin-bottom:3.5rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 1rem;
+	align-items: flex-start;
+  }
+
+  &__description-details{
+	width: 80%;
+	&--full {
+	  width: 100%;
+	}
+  }
+
+  &__description-info{
+	font-style: normal;
+	line-height: 1.5rem;
+	text-align: left;
+	color: #A8A8A8 ;
+	font-weight: normal;
+	font-size: 1.2rem;
+	letter-spacing: 0.02rem;
+  }
+
+  .description-length{
+	width: 20%;
+	align-items: center;
+	display: flex;
+	justify-content: flex-end;
+  }
+
+
+
+}

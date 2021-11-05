@@ -1,0 +1,22 @@
+<div class="breadcrumbs" ...attributes>
+  {{#each @breadCrumbs as |crumb index|}}
+      {{#if crumb.linkable}}
+        {{#if crumb.models}}
+          <LinkTo @route={{crumb.routeName}} @models={{crumb.models}}>
+             {{#if (gt index 0)}}<span class="separator">{{inline-svg "/images/ideaBox/separator-icon.svg"}}</span>{{/if}}
+            {{crumb.label}}
+          </LinkTo>
+        {{else}}
+          <LinkTo @route={{crumb.routeName}}>
+            {{#if (gt index 0)}}<span class="separator">{{inline-svg "/images/ideaBox/separator-icon.svg"}}</span>{{/if}}
+            {{crumb.label}}
+          </LinkTo>
+        {{/if}}
+      {{else}}
+		<span class="item_nolink">
+			<span class="separator">{{inline-svg "/images/ideaBox/separator-icon.svg"}}</span>
+			{{crumb.label}}
+        </span>
+      {{/if}}
+  {{/each}}
+</div>

@@ -1,0 +1,19 @@
+<div class="add-modules">
+  <div>
+    <span class="add-modules__icon">
+      {{inline-svg '/images/community/settings/discussion.svg'}}
+    </span>
+  </div>
+  <div class="add-modules__title">
+    {{t 'community.addModules.discussionTitle'}}
+  </div>
+  <div class="add-modules__subtitle">
+    {{t 'community.addModules.discussionSubtitle'}}
+  </div>
+  <div class="add-modules__explanation">
+    {{t 'community.addModules.discussionExplanation'}}
+  </div>
+  <button type="button" class="btn-civ-black add-modules__button" {{on "click" @addDiscussion}}>
+    {{t 'community.addModules.addButton'}}
+  </button>
+</div>

@@ -1,0 +1,78 @@
+.document{
+  height: 9.9rem;
+  width:100%;
+  margin: 2rem 1.6rem 2rem 0;
+  display:flex;
+  flex-direction: row;
+  background:$white;
+  box-shadow: 0 0.2rem 1.2rem rgba(165, 157, 143, 0.2);
+  box-sizing: border-box;
+  border: none;
+  border-radius: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1.5rem;
+  position: relative;
+  max-width: 48%;
+  min-width: 25.7rem;
+  cursor: pointer;
+
+  &--small {
+	width: calc(24.4% - 1.7rem);
+  }
+  &--mobile {
+	max-width: unset;
+	min-width: unset;
+	margin: 2rem 0 2rem 0;
+  }
+
+  &__image-container {
+	width: 6.8rem;
+	height: 6.8rem;
+	border-radius: 0.4rem;
+	background: sandybrown;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1.5rem;
+  }
+
+  &__description-info-container {
+	padding-top: 0.8rem;
+	font-size: 1.4rem;
+	color: #404040;
+	height: 100%;
+  }
+
+  &__description-text {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  &__bottom-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.2rem;
+	line-height: 1.7rem;
+	font-weight: 500;
+	position: absolute;
+	bottom: 0.9rem;
+	left: 0;
+	padding: 0 1.2rem;
+	width: 100%;
+	font-style: normal;
+	text-transform: uppercase;
+	color: $transparent-gray;
+  }
+
+  &__icon {
+	width: 1.6rem;
+	height: 2rem;
+  }
+
+  &__hide-icon {
+	opacity: 0;
+  }
+
+}

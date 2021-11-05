@@ -1,0 +1,36 @@
+<div class="popup__content confirm-popup" role="dialog" aria-labelledby="accessibility-title">
+	<div class="confirm-popup__close-button">
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+
+	<div class="confirm-popup__top-container">
+		<span id="accessibility-title" class="confirm-popup__title">
+			{{this.model.addCommentTitle}}
+		</span>
+	</div>
+	<div class="confirm-popup__text">
+		<LabelTextField
+		@type={{"textarea"}}
+		@redesign={{true}}
+		@height={{"10"}}
+		@value={{this.commentContent}}
+		@id={{"proposition-add-comment-editorplace--create"}}
+		/>
+		<!--
+		<RichEditor
+	      @id="proposition-add-comment-editor"
+	      @editorId ="proposition-add-comment-editorplace-create"
+	      @minHeight = {{200}}
+	      @content = {{this.commentContent}}
+	      @noToolbarMode = {{true}}
+	  /> -->
+	</div>
+	<div class="confirm-popup__button-container">
+		<button type="button" class="btn-civ-black" {{on "click" this.addComment}}>
+			{{t 'ideaBox.addComment.submitButton'}}
+		</button>
+		<button type="button" class="btn-civ-black-reverse" {{on "click" this.closePopup}}>
+			{{t 'ideaBox.addComment.cancelButton'}}
+		</button>
+	</div>
+</div>

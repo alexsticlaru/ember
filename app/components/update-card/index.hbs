@@ -1,0 +1,19 @@
+<div class="update-card {{@customClass}} btn-none" {{on 'click' (fn this.openPopup @item)}} role="button" tabindex="0"> 
+	{{#if @item.image}}
+		<CloudinaryImage
+			aria-hidden="true"
+			class="update-card__cover-image"
+			@publicId={{@item.image}}
+			@options={{hash format='png' width='700' transforms='q_auto,f_auto'}}
+		/>
+	{{else}}
+		<CloudinaryImage
+			aria-hidden="true"
+			class="update-card__cover-image"
+			@publicId={{@item.project.image}}
+			@options={{hash format='png' width='700' transforms='q_auto,f_auto'}}
+		/>
+	{{/if}}
+	<h3 class="heading-3 heading-3--secondary {{this.titleClass}}">{{this.title}}</h3>
+	<div class="update-card__date">{{@item.displayDate}}</div>
+</div>

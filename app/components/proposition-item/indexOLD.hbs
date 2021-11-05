@@ -1,0 +1,165 @@
+{{#unless @proposition.isDeleted}}
+	{{#if @proposition.moderationMessage}}
+	<div class="proposition">
+		<div class="proposition__moderated-warning">
+			{{#if this.userIsGeneralAdmin}}
+				<button class="proposition__no-border" type="button" {{on "click" this.moderateProposition}}>
+					{{inline-svg '/images/ideaBox/moderated-alert.svg'}}
+				</button>
+			{{else}}
+				{{inline-svg '/images/ideaBox/moderated-alert.svg'}}
+			{{/if}}
+		</div>
+		<div class="proposition__content">
+			<div class="proposition__moderated-user">
+				<LinkTo @route="user" @model={{@proposition.user}}>
+					<UserAvatar @user={{@proposition.user}} @dimensions={{40}}></UserAvatar>
+				</LinkTo>
+				<span class="proposition__username-style">{{@proposition.user.fullName}}</span>
+				<span class="proposition__bullet">&#8226;</span>
+				<span class="proposition__display-date">{{@proposition.displayDate}}</span>
+			</div>
+			<div class="proposition__moderated-message">
+				{{html-safe @proposition.moderationMessage}}
+			</div>
+		</div>
+	</div>
+	{{else if this.showFlaggedContainer}}
+	<div class="proposition__flagged-container">
+		<span class="proposition__flagged-text">
+			{{t 'ideaBox.flaggedText'}}
+		</span>
+		<button type="button" class="proposition__flagged-show" {{on "click" this.showFlaggedProposition}}>
+			{{t 'ideaBox.flaggedShow'}}
+		</button>
+	</div>
+	{{else}}
+	<div class={{this.classNames}} id={{concat 'proposition-id-' @proposition.id}}>
+		<div class="proposition__actions">
+			<PropositionActions
+				@top={{30}} @left={{-150}}
+				@proposition={{@proposition}}
+				@enableEditProposition={{this.enableEditProposition}}>
+				<button type="button" class="btn-none" aria-label={{t "pb.accessibility.openDropdown"}}>
+					<span aria-hidden="true">{{inline-svg "/images/ideaBox/gray-dots.svg"}}</span>
+				</button>
+			</PropositionActions>
+		</div>
+			<div class="proposition__title">
+				{{#if this.editMode}}
+					<Input placeholder="Change Title" class="proposition__input-element" aria-label={{@proposition.title}} @value={{@proposition.title}}/>
+				{{else}}
+					<span class="proposition__title-idea">{{@proposition.title}}</span>
+				{{/if}}
+			</div>
+
+
+			<!-- <div class="proposition__votes-container">
+				{{#if (eq @proposition.globalRelevancy 50)}}
+					<button type="button" class="proposition__button-discussion btn-civ-black-reverse">{{t 'ideaBox.seeDiscussion'}}</button>
+				{{/if}}
+				{{#if @proposition.isUpvoted}}
+					<button class="proposition__votes-count" type="button" {{on "click" this.downvoteProposition}}>
+						{{inline-svg '/images/neon-upvote-icon.svg'}}
+						<span class="proposition__votes">{{@proposition.globalRelevancy}}</span>
+					</button>
+				{{else}}
+					<button class="proposition__vote-button" type="button" {{on "click" this.upvoteProposition}}>
+						{{inline-svg '/images/neon-upvote-icon.svg'}}
+						<span class="proposition__votes">{{@proposition.globalRelevancy}}</span>
+					</button>
+				{{/if}}
+			</div> -->
+
+		<div class="proposition__content">
+			{{#if @proposition.isFlaggedByCurrentUser}}
+			<div class="proposition__flagged-banner">
+				{{inline-svg '/images/ideaBox/flag-nofill.svg'}} {{t 'ideaBox.flaggedText'}}
+			</div>
+			{{/if}}
+			<!-- <div class="proposition__user">
+				<LinkTo @route="user" @model={{@proposition.user}}>
+					<UserAvatar @user={{@proposition.user}} @dimensions={{40}}></UserAvatar>
+				</LinkTo>
+				<span class="proposition__username-style">{{@proposition.user.fullName}}</span>
+				<span class="proposition__bullet">&#8226;</span>
+				<span class="proposition__display-date">{{@proposition.displayDate}}</span>
+			</div> -->
+			<div class="proposition__description">
+				{{#if this.editMode}}
+				<RichEditor
+				@id="proposition-add-editor"
+				@editorId ="proposition-add-editorplace-create"
+				@minHeight = "200"
+				@content={{@proposition.description}}
+				/>
+				{{else}}
+				{{html-safe @proposition.description}}
+				{{/if}}
+				<div class="proposition__button-section">
+					{{#if this.editMode}}
+					<button type="button" class="proposition__button-save-richeditor" {{on "click" this.saveEditedProposition}}>{{t 'ideaBox.saveButton'}}</button>
+					{{/if}}
+				</div>
+			</div>
+			{{#if @proposition.themes.length}}
+			<div class="proposition__theme-container">
+				{{#each @proposition.themes as |theme|}}
+				<span class="proposition__themes">
+					{{theme.labelTranslate}}
+				</span>
+				{{/each}}
+			</div>
+			{{/if}}
+			<div>
+				<div class="proposition__progressive-bar-container">
+					<!-- <div class="proposition__progressive-bar-grey">
+						<div style="width: {{progressBarValue @proposition.globalRelevancy 50}}%" class="proposition__progressive-bar-neon"></div>
+					</div>
+					{{#if (eq @proposition.globalRelevancy 50)}}
+						<div class="proposition__full-upvoted-icon">
+							{{inline-svg '/images/check-yellow.svg'}}
+						</div>
+					{{else}}
+						<span class="proposition__vote-missing">
+						{{@proposition.globalRelevancy}}<span>{{t 'ideaBox.maxVoteCount'}}</span> {{t 'ideaBox.votesMissing'}}
+							<EmberTooltip>
+								{{t 'ideaBox.votesMissingTooltip'}}
+							</EmberTooltip>
+						</span>
+					{{/if}} -->
+				</div>
+			</div>
+		</div>
+		<div class="proposition__bottom-buttons">
+			<div class="proposition__first-row-buttons">
+				{{#if @proposition.isUpvoted}}
+					<button class="btn-none proposition__upvote-item proposition__upvote-item--disable" type="button" {{on "click" this.downvoteProposition}}>
+						{{inline-svg '/images/neon-upvote-icon.svg'}}
+						<span class="proposition__upvote-btn-text proposition__upvote-btn-text--disable">{{t 'ideaBox.unvote'}}</span>
+					<EmberTooltip>
+						{{t 'ideaBox.unvoteTooltip'}}
+					</EmberTooltip>
+					</button>
+
+				{{else}}
+					<button class="btn-none proposition__upvote-item" type="button" {{on "click" this.upvoteProposition}}>
+						{{inline-svg '/images/neon-upvote-icon.svg'}}
+						<span class="proposition__upvote-btn-text">{{t 'ideaBox.upvote'}}</span>
+					</button>
+				{{/if}}
+					<button class="btn-none proposition__share-item" type="button" {{on "click" this.shareProposition}}>
+						{{inline-svg '/images/share-icon.svg' class="icon"}}
+						<span class="proposition__share-btn-text">{{t 'ideaBox.share'}}</span>
+					</button>
+				{{#if @proposition.latitude}}
+					<button class="btn-none proposition__see-map-item" type="button" {{on "click" this.showOnMap}}>
+						{{inline-svg '/images/see-on-map-icon.svg' class="icon"}}
+						<span class="proposition__see-on-map-btn-text">{{t 'ideaBox.seeOnMap'}}</span>
+					</button>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+	{{/if}}
+{{/unless}}

@@ -1,0 +1,43 @@
+.banner{
+
+    &__activationmail{
+    cursor: default;
+    font-weight: bold;
+    z-index: 100;
+    width: 100%;
+    min-height: 52px;
+    // margin: auto;
+    background: #79828B;
+    text-align: center;
+    padding-top: 1rem;
+
+    @include respond(phone) {
+  	  padding-top: 0 !important;
+  	}
+
+  	@include respond(tab-port) {
+      padding-top: 0 !important;
+  	}
+
+    }
+
+    &__text
+    {
+        color:white;
+    }
+    &__link
+    {
+
+        color:white;
+        text-decoration: underline;
+    }
+
+    &__linkactivation
+    {
+
+        color:white;
+        float: right;
+    }
+
+
+}

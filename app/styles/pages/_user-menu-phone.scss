@@ -1,0 +1,106 @@
+.user-menu-phone {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    &__header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid $light-color ;
+        height: 6.5rem ;
+        padding: 0 2rem;
+    }
+
+    &__options {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 2rem 0;
+        border-bottom: 1px solid $light-gray;
+        font-size: 1.8rem;
+        & svg {
+            margin-right: 2rem;
+        }
+        &:first-child {
+            padding-top: 0;
+        }
+        &:last-child {
+            border: none;
+            padding-bottom: 0;
+        }
+
+        &--disable {
+            opacity: .5;
+        }
+    }
+
+    &__item-toggle {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        width: 100%;
+        & svg {
+            margin-right: 2rem;
+        }
+
+        &--open {
+            padding-bottom: 2rem;
+        }
+    }
+
+    &__translation-container {
+        padding: 2rem 0;
+        border-bottom: 1px solid $light-gray;
+    }
+
+    &__languages {
+        display: flex;
+        flex-direction: column;
+        padding-left: 5rem;
+    }
+
+    &__translation-item {
+		padding-bottom: 2rem;
+		display: flex;
+    	justify-content: space-between;
+        font-size: 1.8rem;
+		&:last-child {
+			padding-bottom: 0;
+		}
+		&:hover {
+            font-weight: bold;
+		}
+		&:focus {
+            font-weight: bold;
+        }
+		&--active {
+			font-weight: bold;
+		}
+	}
+
+    &__logout {
+        margin-top: 2rem;
+    }
+
+    &__registration {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2rem 0;
+        & button {
+            width: 100%;
+            &:first-child {
+                margin-right: .8rem;
+            }
+        }
+    }
+}

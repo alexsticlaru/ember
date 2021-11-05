@@ -1,0 +1,21 @@
+{{yield}}
+
+{{#if (eq @fileType "image")}}
+<input style="display: none"
+multiple="false"
+onchange={{@upload}}
+accept="image/png,image/jpeg"
+type="file"
+id={{@id}}
+/>
+{{/if}}
+
+{{#if (eq @fileType "file")}}
+<input style="display: none"
+multiple="false"
+onchange={{@upload}}
+accept="application/pdf"
+type="file"
+id={{@id}}
+/>
+{{/if}}

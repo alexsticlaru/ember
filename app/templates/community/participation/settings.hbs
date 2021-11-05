@@ -1,0 +1,170 @@
+<div class="participation-settings">
+	<div class="participation-settings__title-container">
+		<div class="participation-settings__title">
+			{{this.model.project.name}}
+		</div>
+	</div>
+
+	<div class="participation-settings__main-container">
+		<div class="participation-settings__nav-container">
+			<div class="participation-settings__nav-title">
+				{{t 'community.adminsManagement.navInfoTitle'}}
+			</div>
+			<div>
+				<LinkTo class="btn-none participation-settings__nav-item" @route='community.participation.settings.index'>
+					{{t 'community.projectManagement.navTitle'}}
+				</LinkTo>
+			</div>
+			<div>
+				<LinkTo class="btn-none participation-settings__nav-item" @route='community.participation.settings.administrator'>
+					{{t 'community.adminsManagement.navTitle'}}
+				</LinkTo>
+			</div>
+
+			<div class="participation-settings__nav-separator">
+			</div>
+
+			<div>
+				<LinkTo class="btn-none participation-settings__nav-item" @route='community.participation.settings.add-modules'>
+					{{t 'community.addModules.navTitle'}}
+				</LinkTo>
+			</div>
+
+			<div class="participation-settings__nav-separator">
+			</div>
+
+			<div class="participation-settings__nav-title">
+				{{t 'community.adminsManagement.navPublishedTitle'}}
+			</div>
+
+			{{#if this.hasIdeaBox}}
+				<div>
+					<LinkTo class="btn-none participation-settings__nav-item"
+						@route='community.participation.settings.modules'
+						@model={{this.firstParticipationPack.id}}>
+							{{inline-svg '/images/community/settings/proposition-nav.svg'}}
+						{{this.firstParticipationPack.title}}
+					</LinkTo>
+				</div>
+			{{/if}}
+
+			{{#if this.publishedParticipationPacks}}
+            {{!-- unfortunately sortable Objects list cannot be changed as a tracked property should
+			(or at least not without bugs for now).
+			If i set a participation Pack to published it does not reflect the latest changes,
+
+			<SortableObjects @sortableObjectList={{this.publishedParticipationPacks}} @sortEndAction={{fn this.dragEnd}} @useSwap={{false}}
+	        @enableSort={{true}} >
+				{{#each this.publishedParticipationPacks as |module index|}}
+					<DraggableObject @content={{module}} @isSortable={{true}} >
+						<div>
+							<LinkTo class="btn-none participation-settings__nav-item"
+								@route='community.participation.settings.modules'
+								@model={{module}}>
+								{{#if (eq module.type "consultation")}}
+									{{inline-svg '/images/community/settings/discussion-nav.svg'}}
+								{{else if (eq module.type "questionnaire")}}
+									{{inline-svg '/images/community/settings/questionnaire-nav.svg'}}
+								{{else if (eq module.type "proposition")}}
+									{{inline-svg '/images/community/settings/proposition-nav.svg'}}
+								{{/if}}
+								{{module.title}}
+							</LinkTo>
+						</div>
+					</DraggableObject>
+				{{/each}}
+	    </SortableObjects> --}}
+
+				{{#each this.publishedParticipationPacks as |module|}}
+					<div>
+						<LinkTo class="btn-none participation-settings__nav-item"
+							@route='community.participation.settings.modules'
+							@model={{module.id}}>
+							{{#if (eq module.type "consultation")}}
+								{{inline-svg '/images/community/settings/discussion-nav.svg'}}
+							{{else if (eq module.type "questionnaire")}}
+								{{inline-svg '/images/community/settings/questionnaire-nav.svg'}}
+							{{else if (eq module.type "proposition")}}
+								{{inline-svg '/images/community/settings/proposition-nav.svg'}}
+							{{/if}}
+							{{module.title}}
+						</LinkTo>
+					</div>
+				{{/each}}
+
+			{{else}}
+			<!-- <div class="participation-settings__nav-explanation">
+				{{t 'community.adminsManagement.navPublishedExplanation'}}
+			</div> -->
+			{{/if}}
+
+			<div class="participation-settings__nav-separator">
+			</div>
+
+			<div class="participation-settings__nav-title">
+				{{t 'community.adminsManagement.navUnpublishedTitle'}}
+			</div>
+
+			{{#if this.unpublishedParticipationPacks}}
+				{{#each this.unpublishedParticipationPacks as |module|}}
+					<div>
+						<LinkTo class="btn-none participation-settings__nav-item"
+							@route='community.participation.settings.modules'
+							@model={{module.id}}>
+							{{#if (eq module.type "consultation")}}
+								{{inline-svg '/images/community/settings/discussion-nav.svg'}}
+							{{else if (eq module.type "questionnaire")}}
+								{{inline-svg '/images/community/settings/questionnaire-nav.svg'}}
+							{{else if (eq module.type "proposition")}}
+								{{inline-svg '/images/community/settings/proposition-nav.svg'}}
+							{{/if}}
+							{{module.title}}
+						</LinkTo>
+					</div>
+				{{/each}}
+			{{else}}
+			<div class="participation-settings__nav-explanation">
+				{{t 'community.adminsManagement.navUnpublishedExplanation'}}
+			</div>
+			{{/if}}
+
+			<div class="participation-settings__nav-separator">
+			</div>
+
+			<div>
+				<LinkTo class="btn-none participation-settings__nav-item" @route='community.participation.settings.updates'>
+					{{t 'addUpdate.navTitle'}}
+				</LinkTo>
+			</div>
+
+			<div>
+				<LinkTo class="btn-none participation-settings__nav-item" @route='community.participation.settings.documents'>
+					{{t 'addDocument.navTitle'}}
+				</LinkTo>
+			</div>
+
+			<div class="participation-settings__info-container">
+				<div class="participation-settings__info-item">
+					<div>
+						{{t 'community.projectManagement.infoTitle'}} <b>{{this.model.project.name}}</b>
+					</div>
+				</div>
+				<div class="participation-settings__info-item">
+					<div>
+						{{t 'community.projectManagement.infoCompletion'}}
+					</div>
+					<div>
+						{{this.projectProgress}}% <progress value={{this.projectProgress}} max="100"></progress>
+					</div>
+				</div>
+				<button type="button" class="btn-none participation-settings__delete-button" {{on "click" this.deleteProject}}>
+					{{t 'community.communityManagement.deleteProject'}}
+				</button>
+			</div>
+
+		</div>
+		<div class="participation-settings__content-container">
+			{{outlet}}
+		</div>
+	</div>
+</div>

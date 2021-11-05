@@ -1,0 +1,11 @@
+{{#if (eq this.model.participationPack.type "questionnaire")}}
+  <QuestionnaireManagement @participationPack={{this.model.participationPack}}/>
+{{/if}}
+
+{{#if (eq this.model.participationPack.type "consultation")}}
+  <ConsultationManagement @participationPack={{this.model.participationPack}}/>
+{{/if}}
+
+{{#if (eq this.model.participationPack.type "proposition")}}
+  <PropositionManagement @participationPack={{this.model.participationPack}}/>
+{{/if}}

@@ -1,0 +1,19 @@
+<div class="auth-chooser">
+    <button class="btn-civ-black  auth-chooser__btn" type="button" {{on 'click' @onLoginClick}} >
+        <span aria-hidden="true">{{inline-svg "images/inbox.svg" class="icon icon--white"}}</span>
+        <span>{{t 'buttons.loginEmail'}}</span>
+    </button>
+{{#if this.dbgS.isDebugger}}
+	FB Disabled for public : not working for now : debugMode only!
+    <button type="button" class="btn-civ-log-facebook auth-chooser__btn" {{on 'click' @onLoginFacebook}}>
+        <span aria-hidden="true">{{inline-svg "images/facebook-1.svg" class="icon icon--white"}}</span>
+        <span>{{t 'login.withFacebook'}}</span>
+    </button>
+{{/if}}
+
+    <button type="button"
+            class="btn-none auth-chooser__btn-register"
+            {{on 'click' @onNoAccountClick}}>
+            {{t 'login.register'}}
+    </button>
+</div>

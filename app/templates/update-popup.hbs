@@ -1,0 +1,43 @@
+<div class="popup__news update-popup" role="dialog" aria-labelledby="accessibility-title">
+	<div class="update-popup__container">
+		<div class="update-popup__header">
+			<PopupCloseButton @closePopup={{this.closePopup}} />
+		</div>
+		<div class="update-popup__content">
+			<div class="update-popup__title-container-popup">
+				<div class="update-popup__icons-container-popup" aria-hidden="true">
+					{{inline-svg "images/community/info-line.svg"}}
+					{{inline-svg "images/community/info-icon.svg" class="update-popup__info-icon"}}
+				</div>
+				<h1 id="accessibility-title" class="heading-1 update-popup__title-popup">{{@model.title}}</h1>
+			</div>
+			<h2 class="update-popup__info-date">{{@model.displayDate}}</h2>
+			<div class="update-popup__info-text">
+				<div class="update-popup__description-content">
+
+					<div class="update-popup__container-image-popup">
+						<div class="update-popup__image-popup" aria-hidden="true">
+							{{#if @model.image}}
+								<CloudinaryImage
+										class="update__card-cover-image-popup"
+										@publicId={{@model.image}}
+										@options={{hash format='png' width='700' transforms='q_auto,f_auto'}}
+								/>
+								<div class="update__card-spacer"></div>
+							{{else}}
+								<CloudinaryImage
+										class="update__card-cover-image-popup"
+										@publicId={{@model.project.image}}
+										@options={{hash format='png' width='700' transforms='q_auto,f_auto'}}
+								/>
+								<div class="update__card-spacer"></div>
+							{{/if}}
+						</div>
+					</div>
+					<p>{{html-safe @model.content}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

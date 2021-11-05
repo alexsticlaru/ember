@@ -1,0 +1,3 @@
+{{#each this.comments as |comment|}}
+  <CommentItem @comment={{comment}} @author={{@author}} @usersCanParticipate={{@usersCanParticipate}} @switchToReplyMode={{@switchToReplyMode}}></CommentItem>
+{{/each}}

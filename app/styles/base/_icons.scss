@@ -1,0 +1,87 @@
+
+////
+/// This stylesheet defines
+/// CUSTOM FONTS & ICONS.
+////
+
+.icon {
+	width: 2.4rem;
+
+	&--white {
+		fill: $primary-color;
+	}
+
+	&--social {
+		fill: $primary-color;
+		&:hover{
+			fill: $secondary-color;
+		}
+	}
+}
+
+.icon-logo {
+	/*width: 16rem;*/
+}
+
+.icon-bigger {
+	width: 2.8rem;
+}
+
+.icon-small {
+	width: 1.6rem;
+	&--gray {
+		fill: $gray-color;
+	}
+	&--white {
+		& path {
+			fill: $white;
+			stroke: $white;
+		}
+	}
+
+}
+
+.icon-language {
+	width: 2.5rem;
+}
+
+.icon-close {
+	scale: 120%;
+	width: 2.4rem;
+	fill: $medium-gray;
+	path:nth-child(2) {
+		stroke: $medium-gray;
+	}
+}
+
+.icon-arrow-down {
+	width: 2rem;
+	path {
+		fill: $medium-gray;
+	}
+}
+
+.icon-help {
+	width: 2rem;
+	fill: $medium-gray;
+}
+
+.icon-square {
+	width: 22px;
+    height: 22px;
+    border: 1.3px solid $gray-border-color;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.icon-circle {
+	width: 22px;
+    height: 22px;
+    border: 1.3px solid $gray-border-color;
+    box-sizing: border-box;
+    border-radius: 12px;
+	&--orange {
+		border: 5px solid $white;
+		background-color: $extra-light-orange;
+	}
+}

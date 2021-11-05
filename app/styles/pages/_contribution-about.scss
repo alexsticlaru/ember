@@ -1,0 +1,227 @@
+.contribution-about {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2.5rem;
+  width: 100%;
+
+  &__header{
+	display: flex;
+	justify-content: center;
+	position: relative;
+	align-items: center;
+	padding-top: 1.7rem;
+	padding-bottom: 2rem;
+  }
+
+  &__back-btn {
+	display: flex;
+	margin-bottom: 2rem;
+	position: absolute;
+	left: 0;
+  }
+
+  &__description-text{
+	font-size: 1.3rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.9rem;
+	letter-spacing: 0;
+	padding-bottom: 3rem;
+  }
+
+  &__title {
+	font-size: 1.6rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.8rem;
+	letter-spacing: 0.0684rem;
+	text-align: left;
+	margin-bottom: 1.6rem;
+  }
+
+  &__context-title{
+	font-size: 1.6rem;
+	font-weight: 600;
+	padding-top: 3.4rem;
+  }
+
+  &__context-title-discussion{
+	font-size: 1.6rem;
+	font-weight: 600;
+	padding-top: 3.6rem;
+	border-top: 1px solid $light-color;
+  }
+
+  &__key-participants-title{
+	padding-bottom: 1.6rem;
+	font-size: 1.6rem;
+	font-weight: 600;
+	border-top: 1px solid $light-color;
+	padding-top: 3.3rem;
+  }
+
+  &__about-images{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+  }
+
+  &__cotribution-container-details{
+	padding-left: 0.9rem;
+  }
+
+  &__overview-item {
+	display: flex;
+	padding-bottom: 1.3rem;
+	align-items: center;
+  }
+
+  &__overview-item-contributions {
+	display: flex;
+	align-items: center;
+	padding-right: 5.9rem;
+  }
+
+  &__overview-item-text {
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.5rem;
+	color: $medium-dark-gray;
+	padding-left: 1.3rem;
+	padding-bottom: 0.5rem;
+  }
+
+  &__organization-bullet{
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.8rem;
+	text-align: center;
+	background: $button-blue;
+	width: 9.4rem;
+	height: 2rem;
+	padding: 1.2rem 1.8rem;
+	border-radius: 3px;
+	margin-left: 1.1rem;
+	color: $white;
+  }
+
+  &__items-of-key-participants{
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.5rem;
+	text-align: left;
+	color: $medium-dark-gray;
+	padding-top: 1.1rem;
+  }
+
+  &__participants_container{
+	display:flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+	padding-top: 1rem;
+  }
+
+  &__border-bottom{
+	border-bottom: 1px solid $light-color;
+  }
+
+  &__ways-of-participating{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid $light-color;
+	border-top: 1px solid $light-color;
+	padding-top: 2.3rem;
+	padding-bottom: 2.5rem;
+  }
+
+  &__info-item {
+	margin-bottom: 2rem;
+  }
+
+  &__profile {
+	margin-bottom: 0.7rem;
+  }
+
+  &__profile-text {
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.5rem;
+	letter-spacing: 0.01rem;
+	text-align: left;
+	color: $medium-dark-gray;
+  }
+
+  &__organisation-label {
+	color: $white;
+	font-size: 1.2rem;
+	background: $button-blue;
+	border-radius: 0.3rem;
+	padding:0.9rem;
+	margin-left: 1rem;
+	font-weight: 400;
+	line-height: 1.8rem;
+	text-align: center;
+  }
+
+  &__explanation-content{
+	font-size: 1.3rem;
+	font-weight: 400;
+	line-height: 2rem;
+	letter-spacing: 0.01rem;
+	text-align: left;
+	color: $dark-gray;
+	margin-bottom: 5rem;
+  }
+
+  &__expand-style{
+	margin-left: 1rem;
+  }
+
+  &__themes-container{
+	display: flex;
+	flex-direction: row;
+	width: auto;
+	flex-wrap: wrap;
+	padding-top: 0.8rem;
+	margin-bottom: 2rem;
+  }
+
+  &__theme-item{
+	color: $button-blue;
+  }
+
+  &__ways-of-participating-title{
+	padding-top: 2.3rem;
+	padding-bottom:2.5rem;
+	border-top: 1px solid $light-color;
+	border-bottom: 1px solid $light-color;
+	margin-bottom: 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+
+  &__participating-title{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+
+  &__ways-of-participating-container{
+	margin-bottom: 2rem;
+	font-size: 1.6rem;
+	font-weight: 600;
+	padding-top: 3.4rem;
+  }
+}

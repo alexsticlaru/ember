@@ -1,0 +1,253 @@
+<div class="filter-toolbar">
+	{{#if (or this.isExpanded @isIdeaBox)}}
+		<div class="filter-toolbar__left-container">
+			<Dropdown
+				@onContentClose={{this.deactivateSort}}
+                @onContentOpen={{this.activateSort}}
+                @top={{50}} as |dd|>
+				<dd.trigger>
+					<button type="button"
+						class="btn-civ-round {{if this.activeSort 'btn-civ-round--mark-active' (if this.sortOpen  'btn-civ-round--mark-active' '')}}">
+						{{#if (eq this.activeSortType "globalRelevancy")}}
+							<span class="filter-toolbar__button-text">{{t 'filters.sortedByGlobalRelevancy'}}</span>
+						{{else if (eq this.activeSortType "oldest")}}
+							<span class="filter-toolbar__button-text">{{t 'filters.sortedByOldest'}}</span>
+						{{else}}
+							<span class="filter-toolbar__button-text">{{t 'filters.sortedByNewest'}}</span>
+						{{/if}}
+						<span aria-hidden="true">{{inline-svg '/images/ideaBox/sort-by-newest-icon.svg' class="icon-arrow-down"}}</span>
+					</button>
+				</dd.trigger>
+				<dd.content>
+					<div class="filter-toolbar__sorting">
+						<div class="filter-toolbar__label-container">
+							<input class="filter-toolbar__radio-style"
+								   type="radio"
+								   id="filter_date"
+								   checked={{eq this.sortType 'date' }}
+								{{on "click" (fn this.setSortType "date" )}} />
+							<label class="filter-toolbar__label-info" for="filter_date">{{t 'filters.newest'}}</label>
+						</div>
+						<div class="filter-toolbar__label-container">
+							<input class="filter-toolbar__radio-style"
+								   type="radio"
+								   id="filter_date_oldest"
+								   checked={{eq this.sortType 'oldest' }}
+								{{on "click" (fn this.setSortType "oldest" )}} />
+							<label class="filter-toolbar__label-info" for="filter_date_oldest">{{t
+									'filters.oldest'}}</label>
+						</div>
+						{{#if @isIdeaBox}}
+							<div class="filter-toolbar__label-container">
+								<input id="filter_date_upvoted" class="filter-toolbar__radio-style"
+									   type="radio"
+									   checked={{eq this.sortType 'globalRelevancy'}}
+									{{on "click" (fn this.setSortType "globalRelevancy")}} />
+								<label class="filter-toolbar__label-info"  for="filter_date_upvoted">{{t 'filters.popularity'}}</label>
+							</div>
+						{{else}}
+							<div class="filter-toolbar__label-container">
+								<input id="filter_date_upvoted" class="filter-toolbar__radio-style"
+									   type="radio"
+									   checked={{eq this.sortType 'globalRelevancy'}}
+									{{on "click" (fn this.setSortType "globalRelevancy")}} />
+								<label class="filter-toolbar__label-info"  for="filter_date_upvoted">{{t 'filters.mostUpvoted'}}</label>
+							</div>
+						{{/if}}
+
+							<div class="filter-toolbar__newest-button-apply-section">
+								<button type="button"
+                                    class="btn-none filter-toolbar__applyButton"
+                                    {{on "click" this.sortItems}}>{{t 'ideaBox.applyButton'}}</button>
+							</div>
+					</div>
+				</dd.content>
+			</Dropdown>
+
+			{{!--
+			<Dropdown @onContentClose={{this.deactivateThemes}}
+                @onContentOpen={{this.activateThemes}}
+                @top={{50}} as |dd|>
+				<dd.trigger>
+					<button
+						class="btn-civ-round {{if this.activeFilterThemes 'btn-civ-round--mark-active' (if this.themesOpen 'btn-civ-round--mark-active' '')}}"
+						type="button">
+						<span class="filter-toolbar__button-text">{{t 'ideaBox.themes' }}</span>
+						{{inline-svg '/images/ideaBox/sort-by-newest-icon.svg'}}
+					</button>
+				</dd.trigger>
+				<dd.content>
+					<div class="filter-toolbar__sorting">
+						<div class="filter-toolbar__themes-list">
+							{{#each @themesList as |theme|}}
+								<div class="filter-toolbar__label-container">
+									<Input id={{theme.id}} class="filter-toolbar__checkbox-style"
+                                    @checked={{isIncluded theme.id this.themesToFilter}}
+                                    @type="checkbox"
+                                    {{on 'click' (fn this.handleThemeFiltering theme.id) }}/>
+									<label class="filter-toolbar__label-info" for={{theme.id}}>{{theme.labelTranslate}}</label>
+								</div>
+							{{/each}}
+						</div>
+
+
+						<div class="filter-toolbar__themes-apply-section">
+							<button type="button" class="btn-none filter-toolbar__clearButton" {{on "click" this.clearThemesSelection}}>{{t 'ideaBox.clearButton'}}</button>
+							<button type="button" class="btn-none filter-toolbar__applyButton" {{on "click" this.applyThemesFilters}}>{{t 'ideaBox.applyButton'}}</button>
+						</div>
+					</div>
+
+				</dd.content>
+			</Dropdown>
+			--}}
+
+		{{#if @isIdeaBox}}
+			<Dropdown @onContentClose={{this.deactivateSortRelevancy}}
+                @onContentOpen={{this.activateSortRelevancy}}
+                @top={{50}} as |dd|>
+				<dd.trigger>
+					<button
+						class="btn-civ-round {{if this.activeRelevancy 'btn-civ-round--mark-active' (if this.sortRelevancyOpen 'btn-civ-round--mark-active' '')}}"
+						type="button">
+						<span class="filter-toolbar__button-text">{{t 'filters.relevancy' }}</span>
+						{{inline-svg '/images/ideaBox/sort-by-newest-icon.svg'}}
+					</button>
+				</dd.trigger>
+				<dd.content>
+                    <div class="filter-toolbar__sorting filter-toolbar__sorting--large">
+						{{!--
+                        <div class="filter-toolbar__toggle-row">
+                            <div>{{t 'ideaBox.relevancyAnswered' }}</div>
+                            <XToggle @theme='ios' @size='large'
+                            @value={{this.relevancyAnswered}}
+                            @onToggle={{fn (mut this.relevancyAnswered)}} />
+                        </div>
+                        --}}
+                        <div class="filter-toolbar__toggle-row">
+                            <div>{{t 'ideaBox.relevancySupported' }}</div>
+                            <XToggle @theme='ios' @size='large'
+                                @value={{this.relevancySupported}}
+                                @onToggle={{fn (mut this.relevancySupported)}} />
+                        </div>
+						<div class="filter-toolbar__toggle-row">
+							<div>{{t 'ideaBox.relevancyMap' }}</div>
+							<XToggle @theme='ios' @size='large'
+									 @value={{this.relevancyMap}}
+									 @onToggle={{fn (mut this.relevancyMap)}} />
+						</div>
+
+                        <div class="filter-toolbar__newest-button-apply-section">
+                            <button type="button" class="btn-none filter-toolbar__applyButton" {{on 'click' this.handleFilteringRelevancy}}>
+                                {{t 'ideaBox.applyButton'}}
+                            </button>
+                        </div>
+
+                    </div>
+				</dd.content>
+			</Dropdown>
+		{{/if}}
+		</div>
+
+		<div class="filter-toolbar__right-container">
+			<div class="filter-toolbar__right-wrapper">
+			{{#unless @isIdeaBox}}
+				<button class="filter-toolbar__share-button btn-none" type="button" {{on "click" this.shareConsultation}}>
+					<span aria-hidden="true">{{inline-svg '/images/community/share-icon.svg'}} </span>
+					<span class="filter-toolbar__share-text-button">{{t 'participation.shareButton'}}</span>
+				</button>
+			{{/unless}}
+			{{#if @allowMap}}
+				<div class="filter-toolbar__show-map">
+					<span class="filter-toolbar__text-showmap">{{t 'ideaBox.showMap' }}</span>
+					<XToggle @theme='ios'
+							 @size='large'
+							 @value={{@mapView}}
+							 @onToggle={{this.toggleMapView}}
+					/>
+				</div>
+			{{/if}}
+			</div>
+			<div class="filter-toolbar__search-bar">
+				<div class="filter-toolbar__icon-search">
+					{{inline-svg '/images/modules/module-icon-search-input.svg'}}
+				</div>
+				<Input aria-label="{{t 'ideaBox.searchIdeas'}}" class="filter-toolbar__search-input"
+					   placeholder="{{t 'ideaBox.searchIdeas'}}"
+					   @value={{this.searchText}}
+					   @enter={{this.searchPropositions}}
+					   @key-up={{this.searchPropositionsKey}}/>
+			</div>
+		</div>
+
+	{{else}}
+
+		<div class="filter-toolbar__right-container">
+			<div class="filter-toolbar__right-wrapper">
+				<button class="filter-toolbar__share-button btn-none" type="button" {{on "click" this.shareConsultation}}>
+					<span aria-hidden="true">{{inline-svg '/images/community/share-icon.svg'}} </span>
+					<span class="filter-toolbar__share-text-button">{{t 'participation.shareButton'}}</span>
+				</button>
+				<Dropdown
+					@onContentClose={{this.deactivateSort}}
+					@onContentOpen={{this.activateSort}}
+					@top={{50}} as |dd|>
+					<dd.trigger>
+						<button type="button"
+							class="btn-civ-round filter-toolbar__button-text-sorted {{if this.activeSort 'btn-civ-round--mark-active' (if this.sortOpen  'btn-civ-round--mark-active' '')}}">
+							{{#if (eq this.activeSortType "globalRelevancy")}}
+								<span class="filter-toolbar__button-text">{{t 'filters.sortedByGlobalRelevancy'}}</span>
+							{{else if (eq this.activeSortType "oldest")}}
+								<span class="filter-toolbar__button-text">{{t 'filters.sortedByOldest'}}</span>
+							{{else}}
+								<span class="filter-toolbar__button-text">{{t 'filters.sortedByNewest'}}</span>
+							{{/if}}
+							<span aria-hidden="true">{{inline-svg '/images/ideaBox/sort-by-newest-icon.svg' class="icon-arrow-down"}}</span>
+						</button>
+					</dd.trigger>
+					<dd.content>
+						<div class="filter-toolbar__sorting">
+								<div class="filter-toolbar__label-container">
+									<input class="filter-toolbar__radio-style"
+											type="radio"
+											id="date"
+											checked={{eq this.sortType 'date' }}
+											{{on "click" (fn this.setSortType "date" )}} />
+									<label class="filter-toolbar__label-info" for="date">{{t 'filters.newest'}}</label>
+								</div>
+								<div class="filter-toolbar__label-container">
+									<input class="filter-toolbar__radio-style"
+										type="radio"
+										id="filter_date_oldest"
+										checked={{eq this.sortType 'oldest' }}
+										{{on "click" (fn this.setSortType "oldest" )}} />
+									<label class="filter-toolbar__label-info" for="filter_date_oldest">{{t
+											'filters.oldest'}}</label>
+								</div>
+								<div class="filter-toolbar__label-container">
+									<input id="upvoted" class="filter-toolbar__radio-style"
+											type="radio" name="upvoted"
+											checked={{eq this.sortType 'globalRelevancy'}}
+											{{on "click" (fn this.setSortType "globalRelevancy")}} />
+									<label class="filter-toolbar__label-info"  for="upvoted">{{t 'filters.mostUpvoted'}}</label>
+								</div>
+
+								<div class="filter-toolbar__newest-button-apply-section">
+									<button type="button"
+											class="btn-none filter-toolbar__applyButton"
+											{{on "click" this.sortItems}}>{{t 'ideaBox.applyButton'}}</button>
+								</div>
+						</div>
+					</dd.content>
+				</Dropdown>
+
+		<div class="filter-toolbar__more-button">
+			<button	class="btn-civ-round" type="button" {{on "click" this.expandFilters}}>
+				<span>{{t 'filters.moreFilters'}}</span>
+			</button>
+		</div>
+
+		</div>
+	</div>
+
+	{{/if}}
+</div>

@@ -1,0 +1,26 @@
+<div class="questionnaire-results-phone">
+    <div class="questionnaire-results-phone__header">
+        <button type="button"
+            class="btn-none quest-questions-phone__btn-back"
+            {{on 'click' this.backToProject}}>
+            {{inline-svg "/images/back-arrow.svg"}}
+        </button>
+        <h1 class="heading-1--tertiary">{{t 'questionnaire.resultsTitle'}}</h1>
+    </div>
+    <div class="questionnaire-results__body">
+        {{#each @model.questionnaire.questions as |question index|}}
+            {{#if (isIncluded question.fieldType (array 'multiple_choices' 'yes_no' 'choice'))}}
+                <Question::ChoiceResults @question={{question}} @user={{this.user}} @questionIndex={{index}}/>
+            {{else if (eq question.fieldType 'range')}}
+                <Question::RangeResults @question={{question}} @user={{this.user}} @questionIndex={{index}}/>            
+            {{else if (eq question.fieldType 'order_choice')}}
+                <Question::OrderChoice @question={{question}} @user={{this.user}} @questionIndex={{index}}/>
+            {{/if}}
+        {{/each}}
+    </div>
+    <div class="questionnaire-results-phone__footer">
+        <button type="button" class="btn-civ-black-reverse questionnaire-questions__end-btn" {{on 'click' this.backToProject}}>
+            {{t 'questionnaire.projectBack' }}
+        </button>
+    </div>
+</div>

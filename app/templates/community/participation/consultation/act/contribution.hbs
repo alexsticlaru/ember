@@ -1,0 +1,33 @@
+<div class="contribution-page">
+  <div class="contribution-page__top-banner">
+	  <div class="contribution-page__banner-overlay">
+		  <CloudinaryImage  @publicId={{@model.issue.image}} @options={{hash format='png'transforms='q_auto,f_auto,c_fill'}} class="act-page__banner-image" />
+
+		  <h1 class="heading-1--quaternary contribution-page__title">
+			  {{@model.issue.title}}
+		  </h1>
+
+		  <LinkTo @route="community.participation.consultation.act" class="contribution-page__route-button contribution-page__back-button">
+			  {{inline-svg "/images/white-arrow.svg" class="act-page__arrow-icon"}}
+			  <p class="contribution-page__text-back-button">
+				  {{t 'discussionPreview.discussionBackButton'}}
+			  	  {{#if (not @model.issue.usersCanParticipate)}}
+					  {{t 'issue.contributionAddForm.closedBadgeTitle'}}
+			  	  {{/if}}
+			  </p>
+		  </LinkTo>
+	  </div>
+  </div>
+
+  <div class="contribution-page__content-container">
+    <div class="contribution-page__main-content-wrapper">
+      <div class="contribution-page__main-content">
+        <ContributionItem::ContributionDesktop @comment={{this.model}}>
+        </ContributionItem::ContributionDesktop>
+      </div>
+    </div>
+    <div class="contribution-page__side-info">
+      <ContributionSideInfo @comment={{this.model}} />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{{#if this.showAddForm}}
+  <ProjectDocumentForm::addForm
+    @project={{this.model.project}}
+    @onDocumentAdded={{this.onDocumentAdded}}/>
+{{else}}
+  <div class="community-management">
+    <div class="community-management__update-title-container">
+      <div class="community-management__main-title">
+        {{t 'addDocument.navTitle'}}
+      </div>
+      <button type="button" class="btn-civ-black" {{on "click" this.toggleAddForm}}>
+        {{t 'addDocument.newDocumentButton'}}
+      </button>
+    </div>
+    <div class="participation-settings__update-cards-container">
+      {{#each this.filteredSections as |section|}}
+        <LinkTo
+          @route='community.participation.settings.documents.document'
+          @model={{section}}
+            >
+            <DocumentCard @section={{section}} @noPopup={{true}}/>
+        </LinkTo>
+        <br>
+      {{/each}}
+    </div>
+  </div>
+{{/if}}

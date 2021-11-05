@@ -1,0 +1,113 @@
+<div class="contribution-add-form-phone">
+	<button type="button" class="btn-close contribution-add-form-phone__back-arrow" {{on "click" this.closePopup}} aria-label={{t "accessibility.goBack"}}>
+		<span aria-hidden="true">{{inline-svg "/images/discussion/back-arrow.svg"}}</span>
+	</button>
+	<div class="contribution-add-form-phone__top-left">
+		<h1 class="heading-1--quaternary contribution-add-form-phone__title-contribution">{{t 'issue.contributionAddForm.title'}}</h1>
+		<div class="contribution-add-form-phone__top-container">
+			{{#if (and this.commentContent this.commentTitle)}}
+				<button type="button" class="btn-none contribution-add-form-phone__add-button" {{on "click" this.addComment}} aria-label={{t "accessibility.sendComment"}}>
+					<span aria-hidden="true">{{inline-svg "/images/discussion/add-contribution.svg"}}</span>
+				</button>
+			{{else}}
+				<button type="button" class="btn-none contribution-add-form-phone__add-button-deactivated" aria-label={{t "accessibility.sendComment"}}>
+					<span aria-hidden="true">{{inline-svg "/images/discussion/add-contribution.svg"}}</span>
+					<EmberTooltip
+							@event="click"
+							@hideOn="mouseleave"
+							@side="left"
+					>
+						{{#if this.commentContent}}
+							{{t 'issue.contributionAddForm.error'}}
+						{{else}}
+							{{t 'issue.contributionAddForm.error2'}}
+						{{/if}}
+					</EmberTooltip>
+				</button>
+			{{/if}}
+		</div>
+	</div>
+	<div class="contribution-add-form-phone__user-container">
+		<span class="contribution-add-form-phone__user-avatar">
+			<UserAvatar @user={{this.getCurrentUser}} @dimensions={{30}}></UserAvatar>
+		</span>
+		<span class="contribution-add-form-phone__user-info">
+			<div class="contribution-add-form-phone__subtitle">
+				<span>{{html-safe this.model.issue.title}}</span>
+			</div>
+		</span>
+	</div>
+	<div class="contribution-add-form-phone__contribution-title">
+		<span class="contribution-add-form-phone__title-placeholder">{{t 'issue.contributionAddForm.titlePlaceholderContribution'}}</span>
+		<Input  @noToolbarMode = {{1}}
+				@id="contribution-add-editor"
+				@editorId ="contribution-add-editorplace-create"
+				@value={{this.commentTitle}}
+				placeholder={{t 'issue.contributionAddForm.exampleTitlePlaceholder'}}
+				@initialHeight={{40}}
+				class="contribution-add-form-phone__input-text-title"
+		/>
+	</div>
+	<div class="contribution-add-form-phone__assertions">
+		{{#each this.newComment.assertions as |assertion|}}
+			<AssertionItem::delete
+			@assertion={{assertion}}
+			@removeAssertion={{this.removeAssertion}}
+			/>
+		{{/each}}
+	</div>
+	<AddAssertionButton @model={{this.newComment}}>
+		<div class="contribution-add-form-phone__contribution-text">
+			<RichEditor
+			@noToolbarMode = {{1}}
+			@id="contribution-add-editordescription"
+			@editorId ="contribution-add-editordescription-create"
+			@content={{this.commentContent}}
+			@placeholderText={{t 'issue.contributionAddForm.descriptionPlaceholder'}}
+			@initialHeight={{200}}
+			/>
+		</div>
+	</AddAssertionButton>
+	<div class="contribution-add-form-phone__footer">
+		<div class="contribution-add-form-phone__footer-bar">
+			{{#if this.newComment.attachments}}
+				{{#each this.newComment.attachments as |attachment|}}
+					<div class="contribution-add-form-phone__contribution-attachments">
+						<AttachmentItem::delete @attachment={{attachment}} @handleClick={{this.removeAttachment}}/>
+					</div>
+				{{/each}}
+			{{else}}
+				<div class="contribution-add-form-phone__add-attachment-container">
+					<AddAttachment @model={{this.newComment}}/>
+				</div>
+			{{/if}}
+			<span class="contribution-add-form-phone__add-themes-dropdown">
+				<Dropdown @top={{-170}} @left={{-50}} as |dd|>
+					<dd.trigger>
+						<button type="button" class="btn-none contribution-add-form-phone__add-themes">
+							{{inline-svg "/images/discussion/plus-icon.svg"}}
+							{{#unless this.hasSelectedThemes}}
+								{{t 'issue.contributionAddForm.addThemesTitle'}}
+							{{/unless}}
+						</button>
+					</dd.trigger>
+					<dd.content>
+						<div class="contribution-add-form-phone__add-themes-dropdown-content">
+							<p class="contribution-add-form-phone__themes-popup-title">{{t 'issue.contributionAddForm.addThemesExplanation'}}</p>
+							{{#each this.model.issue.themes as |theme|}}
+								<ThemeItem::select-theme @theme={{theme}} @handleClick={{this.selectTheme}}/>
+							{{/each}}
+						</div>
+					</dd.content>
+				</Dropdown>
+			</span>
+			{{#each this.model.issue.themes as |theme|}}
+				{{#if theme.isSelected}}
+					<div class="contribution-add-form-phone__margin-style">
+						<ThemeItem::remove-theme @theme={{theme}} @handleClick={{this.removeTheme}}/>
+					</div>
+				{{/if}}
+			{{/each}}
+		</div>
+	</div>
+</div>

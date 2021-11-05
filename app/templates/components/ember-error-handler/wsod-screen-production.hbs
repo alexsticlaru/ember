@@ -1,0 +1,76 @@
+<style>
+
+    .wsod-screen {
+        font-family: Tahoma, Geneva, sans-serif;
+        font-weight: normal;
+        padding: 15px 5px;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        z-index: 9999999999999;
+        background-color: #ffffff;
+        color: #656565;
+    }
+
+    .wsod-screen > .wsod_box {
+        text-align: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform: -webkit-translate(-50%, -50%);
+        transform: -moz-translate(-50%, -50%);
+        transform: -ms-translate(-50%, -50%);
+		margin-top: 15px;
+		color: #ffffff;
+		background-color: #0A5D8A;
+		width: 100%;
+		/*display: flex;
+		align-items: center;
+		flex-direction: row;
+		justify-content: space-between;*/
+		min-height: 100px;
+    }
+
+    .wsod-screen > .wsod_box h1 {
+        font-size: 30px;
+        margin-bottom:4rem;
+    }
+
+    .wsod-screen > .wsod_box p {
+        font-size: 18px;
+    }
+
+    .wsod-screen > .wsod_box .additional {
+        margin-top:2rem;
+        opacity: 0.5;
+        font-size: 15px;
+    }
+
+
+</style>
+
+<div class="wsod-screen">
+
+    <div class="wsod_box">
+
+        <h1>{{t 'emberErrorHandler.websiteMaintenanceBeforeLogo'}}<img src="https://res-4.cloudinary.com/civocracy/image/upload/h_44,e_art:audrey,c_lfill,q_auto,f_auto/v1494927455/static/logo-white.png" style="vertical-align:bottom;margin:0rem 0.8rem -0.4rem 1rem"/>{{t 'emberErrorHandler.websiteMaintenanceAfterLogo'}}</h1>
+        <p>
+        {{t 'emberErrorHandler.apologies'}}
+        </p>
+
+      {{#if message}}
+          <p class="additional">
+			{{t 'emberErrorHandler.additionalInformation'}}: {{message}}
+          </p>
+      {{/if}}
+
+
+    </div>
+
+  {{error}}
+</div>
+

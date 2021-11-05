@@ -1,0 +1,72 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+
+	& > div{
+		width: 100%;
+	}
+    &__btn {
+        margin: 2.6em 0;
+    }
+
+    &__error-message {
+        color: $color-problem;
+        font-style: italic;
+        line-height: 4rem;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+	&__password-lost-btn{
+		font-weight: 500;
+		color: $medium-blue;
+        font-size: 1em;
+		width: auto !important;
+		&__container{
+			width:100%;
+			text-align: left;
+		}
+	}
+
+    &__btn-register {
+        justify-content: center;
+        color: $medium-blue;
+        font-weight: 600;
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+
+    .label-text-redesign__input-container{
+		margin-bottom: 1.5rem;
+	}
+}
+
+.login-password-lost-form {
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+
+	h1{
+		width: 100%;
+		text-align: left;
+		font-size: 1.2em;
+		font-weight: 500;
+	}
+
+	&__sub{
+		padding:2em 0 4em;
+		width: 100%;
+		label{
+			font-weight: 500;
+		}
+	}
+
+	.login-form__password-lost-btn__container{
+		padding-top: 3em;
+	}
+}

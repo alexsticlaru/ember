@@ -1,0 +1,13 @@
+<div class="community-management">
+  <div class="community-management__title">
+    {{t 'community.adminsManagement.navTitle'}}
+  </div>
+
+  {{#each this.model.communityAdmins as |item|}}
+     {{item.fullName}}
+  {{/each}}
+
+  <AdminsManagement::project @communityAdmins={{this.model.communityAdmins}} @projectAdmins={{this.model.projectAdmins}} @project={{this.model.project}}/>
+
+  <!-- <AdminsManagement::project @project={{this.model.project}}/> -->
+</div>

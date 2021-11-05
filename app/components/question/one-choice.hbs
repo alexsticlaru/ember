@@ -1,0 +1,30 @@
+<div class="one-choice" {{did-insert this.setup}}>
+    {{yield}}
+    <p class="one-choice__description">{{html-safe @question.content}}</p>
+    <span class="one-choice__indication">{{t 'questionnaire.chooseOnlyOne'}} </span>
+    {{#each @question.sortedAnswers as |answer|}}
+        <button id={{answer.id}} type="button" class="btn-civ-answer {{if (eq answer.id this.selectedAnswer.id) 'btn-civ-answer--active'}}"
+            {{on 'click' (fn this.handleAnswer answer)}}>
+                {{#if @isYesNo}}
+                    {{#if (eq answer.id this.selectedAnswer.id)}}
+                        <span class="icon-circle icon-circle--orange"/>
+                    {{else}}
+                        <span class="icon-circle"/>
+                    {{/if}}
+					{{#if (eq answer.orderNr 0)}}
+						{{t 'questionnaire.yesAnswer'}}
+					{{else if (eq answer.orderNr 1)}}
+						{{t 'questionnaire.noAnswer'}}
+					{{/if}}
+                {{else}}
+                    {{#if (eq answer.id this.selectedAnswer.id)}}
+                        {{inline-svg "images/check.svg" class="icon-small icon-small--white"}}
+                    {{else}}
+                        <span class="icon-square"/>
+                    {{/if}}
+					{{answer.answer}}
+                {{/if}}
+        </button>
+
+    {{/each}}
+</div>

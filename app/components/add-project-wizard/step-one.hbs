@@ -1,0 +1,114 @@
+<div class="add-project-wizard__left-content">
+
+  <div class="add-project-wizard__header-container">
+    <div class="community-management__main-title">
+      {{t 'community.newProject.title'}}
+    </div>
+
+    <div class="community-management__main-title-explanation">
+      {{t 'community.newProject.explanation'}}
+    </div>
+  </div>
+
+  <SettingsItem
+  @tooltip={{t 'community.projectManagement.nameTooltip'}}
+  @title={{t 'community.projectManagement.name'}}>
+    <LabelTextField
+    @value={{@project.name}}
+    @maxlength={{200}}
+    />
+  </SettingsItem>
+
+
+  <SettingsItem
+    @title={{t 'community.projectManagement.cover'}}
+    @tooltip={{t 'community.projectManagement.coverTooltip'}}>
+    <FileUpload
+      @id="image-upload"
+      @fileType="image"
+      @upload={{this.uploadImage}}>
+      <label for="image-upload" class="btn-none" role="button" tabindex="0">
+        <div class="community-management__cover-image-container">
+          <span>
+            {{#if this.processingImage}}
+              <CircularProgress />
+            {{else if @project.image}}
+              <CloudinaryImage
+              aria-hidden="true"
+              class={{"community-management__cover-image-small"}}
+              @publicId={{@project.image}}
+              @options={{hash format='png' transforms='q_auto,f_auto'}}
+              />
+            {{else}}
+            <div class="community-management__cover-image-small-placeholder">
+              {{inline-svg '/images/community/settings-image.svg'}}
+            </div>
+            {{/if}}
+          </span>
+          <span class="community-management__cover-image-text">
+            {{t 'community.projectManagement.coverDimensions'}}
+          </span>
+        </div>
+      </label>
+    </FileUpload>
+  </SettingsItem>
+
+  <SettingsItem
+  @title={{t 'community.projectManagement.description'}}
+  @tooltip={{t 'community.projectManagement.descriptionTooltip'}}
+  >
+    <LabelTextField
+      @type={{"textarea"}}
+      @height={{"20"}}
+      @value={{@project.description}}
+      @placeholder={{t 'community.projectManagement.descriptionPlaceholder'}}
+      @maxlength={{2000}}
+    />
+  </SettingsItem>
+
+  <SettingsItem
+  @title={{t 'community.projectManagement.outcomeBenefits'}}
+  @tooltip={{t 'community.projectManagement.outcomeBenefitsTooltip'}}
+  >
+    <LabelTextField
+      @type={{"textarea"}}
+      @height={{"15"}}
+      @value={{@project.outcomeBenefits}}
+      @placeholder={{t 'community.projectManagement.outcomeBenefitsPlaceholder'}}
+      @maxlength={{2000}}
+    />
+  </SettingsItem>
+
+  <SettingsItem
+  @title={{t 'community.projectManagement.url'}}
+  @tooltip={{t 'community.projectManagement.urlTooltip'}}
+  >
+    <LabelTextField
+    @value={{@project.url}}
+    @maxlength={{200}}
+    />
+  </SettingsItem>
+
+<div class="community-management__item-container">
+  {{t 'community.projectManagement.obligatoryFields'}}
+</div>
+
+</div>
+<div class="add-project-wizard__save-container">
+  {{#if @project.name}}
+    <button class="btn-none add-project-wizard__save-button" {{on "click" @nextStep}}>
+      {{t 'community.newProject.next'}}
+    </button>
+  {{else}}
+    <button class="btn-none add-project-wizard__save-button add-project-wizard__save-button--deactivated">
+      {{t 'community.newProject.next'}}
+    </button>
+    <EmberTooltip
+      @event="hover"
+      @hideOn="mouseleave"
+      @side="right"
+    >
+      {{t 'community.newProject.missingName'}}
+    </EmberTooltip>
+  {{/if}}
+</div>

@@ -1,0 +1,129 @@
+// Sorry for the CSS here, I just used the pb css to be quick
+//TO DO: BEM-style
+
+.user-profile {
+  position: relative;
+  height: 100vh;
+
+  &__back-button{
+    margin-left: 3rem;
+    margin-top: 3rem;
+    }
+
+  &__user-avatar-container{
+    display: inline-block;
+    }
+
+  &-user-info {
+  	margin-top: 5rem;
+    max-width: 67.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .edit-button {
+    display: inline-block;
+    float:right;
+  }
+
+  .user-title {
+  	position: absolute;
+  	padding-left: 30px;
+    margin-top: 30px;
+  	overflow: visible;
+  }
+
+  .user-subtitle {
+    font-size: 1.4rem;
+    // padding-top: 6px;
+  	font-weight: normal;
+  }
+
+  .user-image {
+  	border-radius: 50%;
+  	display: inline-block;
+  	left: 10px;
+  	overflow: visible;
+  	outline: none;
+  	//position: absolute;
+  	//top: -55px;
+  	width: 147px;
+  	height: 147px;
+
+  }
+
+  .user-name {
+  	margin: 1.5rem 0 0 0;
+    color: #6c6d70;
+  }
+
+  .user-description {
+    font-size: 1.4rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+  }
+
+  .section-items-container{
+	   // text-align: center;
+     font-size: 20px;
+     font-weight: bold;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid #eee;
+
+  }
+
+  .section-item{
+    display: inline-block;
+    margin-right: 20px;
+    min-width: 100px;
+    text-align: center;
+    color: #73767c;;
+  }
+
+  .section-item-active{
+    display: inline-block;
+    margin-right: 20px;
+    min-width: 100px;
+    text-align: center;
+    line-height: 30px;
+
+    color: #73767c;;
+    // border-bottom: 1px solid black;
+    box-shadow: 0 4px 2px -2px #73767c;;
+  }
+
+  .section-container{
+    padding-top: 30px;
+    max-width: 600px;
+    min-height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .proposition-container{
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+
+  .no-content-label{
+    font-size: 1.4rem;
+    min-height: 40px;
+  }
+
+  .user-joined-label{
+    font-size: 1.4rem;
+    display: inline-block;
+    float: right;
+  }
+
+  .user-linkedin-label{
+    font-size: 20px;
+  }
+
+
+  &-user-content {
+	margin-top: 30px;
+  }
+}

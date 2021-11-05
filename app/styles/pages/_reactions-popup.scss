@@ -1,0 +1,50 @@
+.reactions_popup {
+  height: 46rem;
+  width: 76rem;
+  border-radius: 2rem !important;
+  padding: 1.5rem;
+
+  &__top-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0.5rem;
+    position: relative;
+  }
+
+  &__title {
+	font-size: 1.8rem;
+	font-weight: 700;
+  }
+
+  &__close-button{
+	position: absolute;
+	right: 0;
+  }
+
+  &__stats {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	margin-bottom: 2rem;
+  }
+
+  &__stats-item {
+	  display: flex;
+	  align-items: center;
+	  margin-right: 1rem;
+	  &:hover {
+		  background-color: $extra-light-gray;
+	  }
+  }
+
+  &__list-item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+  }
+
+  &__list-username {
+	margin-left: 1rem;
+  }
+}

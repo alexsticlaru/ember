@@ -1,0 +1,38 @@
+<div class="contribution-item__comment-text">
+	{{#if @moderationMessage}}
+		{{html-safe @moderationMessage}}
+	{{else}}
+		{{html-safe @content}}
+	{{/if}}
+</div>
+<div class="contribution-item__themes-container">
+	{{#each @comment.themes as |theme|}}
+		<ThemeItem::standard-theme @theme={{theme}} />
+	{{/each}}
+</div>
+<div class="contribution-item__attachment-container">
+	{{#each @attachments as |attachment|}}
+		<AttachmentItem::item @attachment={{attachment}}/>
+	{{/each}}
+</div>
+<div class="contribution-item__container-action-elements">
+	{{#if @comment.reactionCount}}
+		<div class="contribution-item__stats-container">
+	  		<button type="button" class="contribution-item__stats-item btn-none" {{on "click" (fn @showReactions @comment)}}>
+				<Reactions::Summary @content={{@comment}} @noClick={{true}} class="contribution-item-preview-desktop__emojis"></Reactions::Summary>
+	  		</button>
+			<span class="contribution-item__date">{{@comment.globalRelevancy}} people participating &#8226;{{@comment.displayDate}}</span>
+		</div>
+	{{/if}}
+	<div class="contribution-item__action-container">
+		{{#if @comment.issue.usersCanParticipate}}
+			<Reactions::LikeButton @content={{@comment}} class="contribution-item__action-item"></Reactions::LikeButton>
+		{{/if}}
+		<button type="button" class="contribution-item__action-item  btn-none" {{on "click" @shareContribution}}>
+			<span aria-hidden="true">{{inline-svg "/images/consultation/share.svg"}}</span>
+			<span class="contribution-desktop__share-button-text">
+				{{t 'buttons.shareButton'}}
+			</span>
+		</button>
+	</div>
+</div>

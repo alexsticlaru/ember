@@ -1,0 +1,20 @@
+<div class="proposition-phone">
+	<IdeaBoxIntroduction::Mobile @model={{@model}} @openPropositionAddPopup={{this.openPropositionAddPage}}></IdeaBoxIntroduction::Mobile>
+	<div class="proposition-phone__content" style={{this.phoneContentSize}}>
+        <div class="proposition-phone__toolbar-navigation">
+          <PhoneFilterToolbar
+            @openFilterPanel= {{this.openFilterPanel}}
+            @openSearchPanel= {{this.openSearchPanel}}>
+            <button type="button" class="btn-none phone-filter-toolbar__toolbar-btn" {{on 'click' this.openMapPanel}}>
+                {{inline-svg "/images/ideaBox/map.svg" class="icon"}}
+                {{t 'ideaBox.map'}}
+            </button>
+          </PhoneFilterToolbar>
+        </div>
+        {{#each this.model.propositions as |proposition|}}
+            <PropositionItem @proposition={{proposition}} @showOnMap={{this.showOnMapPanel}}>
+            </PropositionItem>
+        {{/each}}
+        <Pagination @pagedContent={{this.model.propositions}} />
+    </div>
+</div>

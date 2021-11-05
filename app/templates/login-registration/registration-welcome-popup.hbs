@@ -1,0 +1,14 @@
+<div class="popup__content" role="dialog" aria-labelledby="accessibility-title">
+	<ClickOutside @action={{this.onOutsideClick}}>
+		<div class="welcome__header">
+			<PopupCloseButton @closePopup={{this.close}} />
+		</div>
+		<div class="welcome__message">
+			<h1 id="accessibility-title" class="heading-1--tertiary">{{t 'registration-popup.title'}}</h1>
+			<p>{{t 'registration-popup.message'}}</p>
+			<p><a  href="#" class="link" {{on 'click' this.sendEmailConfirmation}}>{{t 'register.validationButton'}}</a></p>
+		</div>
+
+	</ClickOutside>
+
+</div>

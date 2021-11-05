@@ -1,0 +1,117 @@
+.idea-add-outcome-desktop-title{
+  font-family: Sora;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.7rem;
+  line-height: 3.2rem;
+  margin-bottom: 1.5rem;
+  margin-top: 3.6rem;
+  letter-spacing: 0.01rem;
+  color: #373F41;
+}
+
+.idea-add-outcome-preview-desktop{
+  margin-bottom: 3rem;
+  background: #FFFFFF;
+  border: 1px dashed #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 7px;
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2.8rem;
+  padding-bottom: 4rem;
+
+  &__title{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 160.2%;
+    letter-spacing: 0.0126802rem;
+    color: #5E617C;
+  }
+
+  &__text{
+    box-shadow: 0px 2px 15px rgba(126, 126, 126, 0.19);
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 2.0rem;
+    text-align: center;
+    color: #6E757D;
+    margin-top: 1rem;
+    margin-bottom: 1.3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  &__button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__button{
+    width: 29rem;
+  }
+}
+
+.idea-add-outcome-desktop{
+  margin-bottom: 3rem;
+  background: #FFFFFF;
+  border: 1px solid #2A6DE8;
+  box-sizing: border-box;
+  border-radius: 0.7rem;
+  padding-top: 3.2rem;
+  padding-bottom: 7.6rem;
+  padding-right: 2.4rem;
+  padding-left: 2.4rem;
+
+
+  &__comment-content{
+    display: flex;
+    background: #FFFFFF;
+    border: 1px solid #F3F1EB;
+    box-sizing: border-box;
+    border-radius: 10px;
+    height: 11rem;
+    padding: 1rem;
+
+    }
+
+  textarea {
+    border: 0 solid $black !important;
+    resize: none;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color:$lighter-gray;
+
+    &::placeholder{
+      font-weight: 400 !important;
+      font-size: 1.4rem !important;
+      color:$lighter-gray;
+    }
+    &:disabled{
+      background-color: inherit;
+    }
+  }
+
+  &__button{
+    float: right;
+
+    }
+
+
+
+
+
+}

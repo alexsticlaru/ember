@@ -1,0 +1,50 @@
+.confirm-popup {
+	border-radius: 2rem !important;
+
+&__close-button{
+	position: absolute;
+	right: 1.7rem;
+	top: 1.7rem;
+
+	  }
+
+  &__top-container{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+	padding: 3.5rem 4.4rem 1rem 4.4rem;
+  }
+
+  &__title{
+		font-family: Sora;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 3.0rem;
+		line-height: 110%;
+		letter-spacing: 0.00684685rem;
+		color: #373F41;
+  }
+
+	&__text{
+		font-family: Inter;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.5rem;
+		line-height: 1.9rem;
+		color: #5E617C;
+		padding-left: 4.4rem;
+		padding-right: 4.4rem;
+  }
+
+	&__button-container{
+		// display: flex;
+		// justify-content: flex-end;
+		padding: 3.5rem 4.4rem 2rem 4.4rem;
+		& button {
+			display: block;
+			width: 100%;
+			margin-bottom: 1.5rem;
+		}
+	}
+}

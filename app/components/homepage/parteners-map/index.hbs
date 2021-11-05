@@ -1,0 +1,45 @@
+
+<div class='location-map-container'>
+  <div class='location-map-container__main'>
+    <LocationMap
+      @geoArea = 'europe'
+      @onMouseover = {{this.onMouseover}} 
+      @onMouseout = {{this.onMouseout}}
+      @onClick = {{this.onClick}}
+      @locationList = {{this.locationList}}
+      @currHovered = {{this.currHovered}}
+      @currClicked = {{this.currClicked}}
+      @mapPointRadius = {{this.mapPointRadius}}
+      class="europe"
+    />
+  </div>
+  <div class='location-map-container__inset-south-america'>
+    <LocationMap
+      @geoArea = 'south-america'
+      @onMouseover = {{this.onMouseover}} 
+      @onMouseout = {{this.onMouseout}}
+      @onClick = {{this.onClick}}
+      @locationList = {{this.locationListSouthAmerica}}
+      @currHovered = {{this.currHovered}}
+      @currClicked = {{this.currClicked}}
+      @mapPointRadius = {{this.mapPointRadius}}
+      class="south-america"
+    /> 
+  </div>
+  <div class='location-map-container__inset-africa'>
+    <LocationMap
+      @geoArea = 'africa'
+      @onMouseover = {{this.onMouseover}} 
+      @onMouseout = {{this.onMouseout}}
+      @onClick = {{this.onClick}}
+      @locationList = {{this.locationListAfrica}}
+      @currHovered = {{this.currHovered}}
+      @currClicked = {{this.currClicked}}
+      @mapPointRadius = {{this.mapPointRadius}}
+      class="africa"
+    /> 
+  </div>
+</div>
+{{#if this.currClicked}}
+  <LocationMap::Card @location={{this.currClicked}} @onClose={{this.onClose}}/>
+{{/if}}

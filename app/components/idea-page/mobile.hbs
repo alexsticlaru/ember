@@ -1,0 +1,56 @@
+<div class="idea-page-mobile">
+
+<LinkTo @route="community.participation.proposition" class="idea-page-mobile__back-button" aria-label={{t "accessibility.goBack"}}>
+  <span aria-hidden="true">{{inline-svg "images/community/back-icon-gray.svg"}}</span>
+</LinkTo>
+
+<div class="idea-page-mobile__info-graphic-container">
+  <div class="idea-page-mobile__info-graphic">
+    <IdeaInfoGraphic  @progress={{@proposition.globalRelevancy}} @maxProgress={{@proposition.participationPack.ideaBox.upvotesNeeded}} @dimensions={{60}} @user={{@proposition.user}} />
+  </div>
+</div>
+
+<h1 class="idea-page-mobile__title">
+  {{@proposition.title}}
+</h1>
+
+<div class="idea-page-mobile__description">
+  {{html-safe @proposition.description}}
+</div>
+
+<div class="idea-page-mobile__username">
+  {{@proposition.user.fullName}} • {{@proposition.displayDate}}
+</div>
+
+<div class="idea-page-mobile__share-button-container">
+  <button type="button" class="btn-civ-grey idea-page-mobile__share-button" {{on "click" @shareIdea}}>
+    <span aria-hidden="true">{{inline-svg "/images/consultation/share.svg"}}</span>
+    <span>
+      {{t 'buttons.shareButton'}}
+    </span>
+  </button>
+</div>
+
+{{#if @proposition.upvotesReached}}
+  <div class="idea-page-mobile__comments-title-container">
+    <span class="idea-page-mobile__comments-title">
+      {{t 'discussion.conversation'}}
+    </span>
+    <span class="idea-page-mobile__comments-number">
+    {{@proposition.comments.length}} {{t 'discussion.comments'}}
+    </span>
+  </div>
+  <div class="idea-page-mobile__comment-add-container">
+    <CommentAddForm
+      @usersCanParticipate={{true}}
+      @proposition={{@proposition}}
+    />
+  </div>
+  <CommentList
+    @switchToReplyMode={{@replyToComment}}
+    @comments={{@proposition.comments}}
+    @author={{@proposition.user}}
+    @usersCanParticipate={{true}}
+  />
+{{/if}}
+</div>

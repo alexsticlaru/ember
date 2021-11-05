@@ -1,0 +1,78 @@
+<div class="mobile-contribution-item" id="mobile-contribution-item">
+		<div class="mobile-contribution-item__top-container">
+			<CloudinaryImage
+					aria-hidden="true"
+					class="mobile-contribution-item__header-banner"
+					@publicId={{@model.issue.image}}
+					@options={{hash height='100' format='png' transforms='q_auto,f_auto'}}
+			/>
+			<div class="mobile-contribution-item__gradient"></div>
+			  <LinkTo class="mobile-contribution-item__back-button"
+					@route="community.participation.consultation.act"
+					aria-label={{t "accessibility.goBack"}}
+					>
+				  <span aria-hidden="true">{{inline-svg '/images/consultation/back-arrow.svg'}}</span>
+			  </LinkTo>
+			<div class="mobile-contribution-item__header-actions-container">
+				<button type="button" class="btn-none mobile-contribution-item__header-action"
+					{{on 'click' this.openIdeasPanel}}
+					aria-label={{t "accessibility.highlights"}}>
+					<span aria-hidden="true">{{inline-svg '/images/discussion/highlight-icon.svg'}}</span>
+				</button>
+				<div class="mobile-contribution-item__header-action" aria-label={{t "accessibility.save"}}>
+					<span aria-hidden="true">{{inline-svg '/images/discussion/save-icon.svg'}}</span>
+				</div>
+				<div class="mobile-contribution-item__header-action">
+					<CommentActions @comment={{@model}} @editComment={{this.editComment}} @top={{30}} @left={{-155}}>
+						<button type="button" class="btn-none" aria-label={{t "pb.accessibility.openDropdown"}}>
+							<span aria-hidden="true">
+								{{inline-svg '/images/discussion/vertical-dots.svg'}}
+							</span>
+						</button>
+		      </CommentActions>
+				</div>
+			</div>
+		</div>
+		<div class="mobile-contribution-item__first-conversation-side">
+			<div class="mobile-contribution-item__user">
+				<LinkTo class="contribution-item__user-avatar-container" @route="user" @model={{@model.user}} title={{@model.user.fullName}}>
+					<UserAvatar @user={{@model.user}} @dimensions="40"></UserAvatar>
+				</LinkTo>
+				<div class="mobile-contribution-item__top-info">
+					<span class="mobile-contribution-item__username-style">{{@model.user.fullName}}</span>
+					<span class="heading-1 heading-1--quaternary mobile-contribution-item__title-project">{{@model.title}}</span>
+				</div>
+			</div>
+			<div class="mobile-contribution-item__content">
+				<ContributionItem::ContributionStepPhone
+						@comment={{@model}}
+						@isUpvoted={{@model.isUpvoted}}
+						@downvoteContribution={{this.downvoteContribution}}
+						@upvoteContribution={{this.upvoteContribution}}
+						@addComment={{this.addComment}}
+						@attachments={{@model.attachments}}
+						@shareContribution={{this.shareContribution}}
+						@allAssertions={{@model.assertions}}
+						@moderationMessage={{@model.moderationMessage}}
+						@content={{@model.content}}
+						@isMarkedAsConstructive={{@model.isMarkedAsConstructive}}
+						@markAsConstructive={{this.markAsConstructive}}
+						@didEnterViewport={{this.didEnterViewport}}
+						@showReactions={{this.showReactions}}
+				>
+				</ContributionItem::ContributionStepPhone>
+			</div>
+		</div>
+		<ContributionItem::ConversationStepPhone
+				@comment={{@model}}
+				@modelComments={{@model.comments}}
+				@commentText={{this.commentText}}
+				@postComment={{this.postComment}}
+				@switchToReplyMode={{this.switchToReplyMode}}
+				@replyToComment={{this.replyToComment}}
+				@commentReplyMode={{this.commentReplyMode}}
+				@commentToReply={{this.commentToReply}}
+				@currentUser={{this.currentUser}}
+		>
+		</ContributionItem::ConversationStepPhone>
+</div>

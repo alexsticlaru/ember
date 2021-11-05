@@ -1,0 +1,5 @@
+{{#if this.localeLoaded}}
+  <div class="new-rich-editor">
+    <Textarea id={{@editorId}} @value={{@content}} {{did-insert this.initializeJodit}}></Textarea>
+  </div>
+{{/if}}

@@ -1,0 +1,15 @@
+<div class="assertion-item">
+  <div class="assertion-item__container">
+    <div class="assertion-item__idea-icon">
+      {{inline-svg "/images/consultation/assertion-idea.svg"}}
+    </div>
+    <div class="assertion-item__info">
+      {{html-safe @assertion.text}}
+    </div>
+    <div class="assertion-item__vote-actions--column">
+       <button type="button" class="btn-none" {{on "click" (fn @removeAssertion @assertion)}}>
+         {{inline-svg "images/trash-icon.svg"}}
+       </button>
+    </div>
+  </div>
+</div>

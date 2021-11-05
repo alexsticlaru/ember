@@ -1,0 +1,59 @@
+.contribution-side-info{
+	background: #FFFFFF;
+	border: 1px solid #F3EFE6;
+	box-sizing: border-box;
+	border-radius: 7px;
+	padding: 2rem;
+
+	&__info-item {
+		margin-bottom: 2rem;
+	}
+
+	&__title {
+		font-size: 18px;
+		font-family: Inter;
+		font-style: normal;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	  	display: flex;
+	  	align-items: center;
+	}
+
+  	&__icon-style {
+	  margin-left: 0.7rem;
+	}
+
+  	&__user-ideas{
+	  margin-right: 1.6rem;
+	}
+
+	&__no-content {
+		font-family: Inter;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 15px;
+
+		/* identical to box height, or 124% */
+		display: flex;
+		align-items: center;
+		letter-spacing: 0.135354px;
+
+		color: #6B6C76;
+		margin-bottom: 2rem;
+	}
+
+	&__add-ideas {
+		border: 1px solid #353535;
+		box-sizing: border-box;
+		border-radius: 3px;
+		padding-left: 4rem;
+		padding-right: 4rem;
+		padding-bottom: 2rem;
+		padding-top: 2rem;
+		margin-bottom: 2rem;
+	}
+
+
+
+}

@@ -1,0 +1,44 @@
+<div role="dialog" class="popup__content" aria-modal="true" aria-label={{this.modalTitle}} >
+	<span class="popup__columnleft">
+		<div role="img" class="popup__leftside" aria-modal="true" aria-label={{this.modalTitle}} >
+			<div role="dialog" class="popup__content" aria-modal="true" aria-label={{this.modalTitle}} >
+				<div class="popup__head">
+					<h1 class="h1title" id="accessibilityHook2" tabindex="0" {{did-insert this.focusOnPopup}}>{{t 'register.signUpTitle'}}</h1>
+				</div>
+				<div class="popup__body">
+					<button {{on 'click' this.showLogin}} type="button" class="btn-none register-chooser__btn-login" >
+						{{t 'register.login'}}
+					</button>
+					<div class="popup__drawing_column">
+						{{@community.name}} {{inline-svg '/images/signup.svg'}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</span>
+	<span class="popup__columnright">
+		<div role="img" class="popup__rightside">
+			<div class="popup__head">
+				<div class="closer">
+					<button {{on 'click' this.hideModal}} type="button" class="btn-close" data-dismiss="modal" aria-label="{{t 'buttons.close'}}">
+						<span aria-hidden="true">{{inline-svg "images/close.svg" class="icon-close"}}</span>
+					</button>
+				</div>
+				<button {{ on 'click' this.registerWithFacebook }} type="button" class="btn-civ-log-facebook popup__loginwithfacebook"
+						style="touch-action: manipulation; -ms-touch-action: manipulation; cursor: pointer;" >
+							<span aria-hidden="true">{{inline-svg "images/signupwithfacebook-icon.svg" class="icon icon--white"}}</span>
+							<span>{{t 'register.buttons.withFacebook'}}</span>
+				</button>
+				<div class="separator">
+					<hr/>
+					<div>{{t "register.modeSeparator"}}</div>
+					<hr/>
+				</div>
+			</div>
+			<div class="popup__registerform">
+				<RegistrationPopup::RegisterForm
+				@onAlreadyHaveAccountClick={{this.showLogin}}/>
+			</div>
+		</div>
+	</span>
+</div>

@@ -1,0 +1,34 @@
+
+		<div class="popup__content-mobile file-popup-mobile">
+			<div class="file-popup-mobile__container">
+				<div class="file-popup-mobile__header">
+						<button class="file-popup-mobile__back-button" type="button" {{on "click" this.closePopup}} aria-label={{t "accessibility.goBack"}}>
+							<span aria-hidden="true">{{inline-svg "images/community/back-icon-gray.svg"}}</span>
+						</button>
+				</div>
+				<div class="file-popup-mobile__content">
+					<div class="file-popup-mobile__header-container">
+						<div class="file-popup-mobile__icon-section" aria-hidden="true">
+							{{inline-svg "images/community/file-line.svg"}}
+							{{inline-svg "images/community/file-icon.svg" class="file-popup-mobile__file"}}
+						</div>
+						<div class="file-popup-mobile__info">
+							<h1 class="heading-1--secondary">{{this.model.section.title}}</h1>
+						</div>
+					</div>
+					<p class="file-popup-mobile__date">{{this.model.section.displayDate}}</p>
+
+					<div class="file-popup-mobile__content-file-document">
+						{{#if this.model.section.content}}
+							{{{this.model.section.content}}}
+						{{/if}}
+						<!--
+						{{#each this.documentParts as |documentPart|}}
+							{{#if documentPart.summary}}
+								{{{documentPart.summary}}}
+							{{/if}}
+						{{/each}} -->
+					</div>
+				</div>
+			</div>
+		</div>

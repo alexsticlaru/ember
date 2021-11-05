@@ -1,0 +1,54 @@
+<div ...attributes>
+    {{#if @labelText}}
+      <label for={{@id}}>
+		  {{@labelText}}
+		  {{#if @isMandatory}}<span class="mandatory-field-icon">*</span>{{/if}}
+	  </label>
+    {{/if}}
+    <div class="{{this.inputClass}}__input-container">
+        {{#if (eq this.type "textarea")}}
+        <Textarea
+                style={{this.height}}
+                @id={{@id}}
+                @type={{this.type}}
+                @rows="10"
+                maxlength={{@maxlength}}
+                class="input-text {{if @showErrorMessage 'input-text--error'}} {{if (and @placeholderError @showErrorMessage) 'placeholder-error'}}"
+                @placeholder={{if (and @placeholderError @showErrorMessage) @errorMessage @placeholder}}
+                @value={{@value}}
+                @disabled={{@disabled}}
+                {{on 'change' this.change}}
+        @enter={{this.enterAction }}
+        {{on "focusout" this.focusOutAction}}
+        />
+		{{#if @isMobile}}
+			<div class="inner-count inner-count--textarea">
+				<span>{{minus 250 @value.length}}</span>
+			</div>
+		{{/if}}
+        {{else}}
+          <Input  @id={{@id}}
+                  @type={{this.type}}
+                  maxlength={{@maxlength}}
+                  class="input-text {{if @showErrorMessage 'input-text--error'}} {{if (and @placeholderError @showErrorMessage) 'placeholder-error'}} {{if @isMobile 'input-text--right-padding'}}"
+                  @placeholder={{if (and @placeholderError @showErrorMessage) @errorMessage @placeholder}}
+                  @autocomplete={{@autocomplete}}
+                  @value={{@value}}
+                  @disabled={{@disabled}}
+                  {{on 'change' this.change}}
+          @enter={{this.enterAction }}
+          {{on "focusout" this.focusOutAction}}
+          {{on "input" this.onInput}}/>
+			{{#if @isMobile}}
+				<div class="inner-count inner-count--input">
+					<span>{{minus 60 @value.length}}</span>
+				</div>
+			{{/if}}
+        {{/if}}
+
+
+        {{#if (and @showErrorMessage (not @placeholderError))}}
+            <p class="{{this.inputClass}}__error-message">{{@errorMessage}}</p>
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,54 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	// This defines what 1rem is
+	font-size: 62.5%; // 1rem is 10px for default desktop's browsers as they usually use a default font-size of 16px
+/*
+    @include respond(phone) { // width < 600?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+
+	@include respond(tab-land) { // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 56%
+    }
+
+    @include respond(big-desktop) {
+        // font-size: 75%; //1rem = 12, 12/16
+    }
+*/
+}
+
+body {
+	box-sizing: border-box;
+}
+
+/*Accessibility tests ::*/
+body.accessibility-mode{
+	*:focus {
+		box-shadow: 0 0 3px 3px #3a97f9,
+		0 0 0 1.5px #ffffff ;
+	}
+
+	*:focus-visible {
+		box-shadow: 0 0 3px 3px darkorange,
+		0 0 0 1.5px #ffffff ;
+		//outline: 4px dashed darkorange;
+	}
+}
+/*:: Accessibility tests*/
+
+#toast-container {
+	margin-top: 8.5rem ;
+	z-index: 9999999999 ;
+	font-size: 1.4rem;
+}
+
+#mainContent{
+}
+

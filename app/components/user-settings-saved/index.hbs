@@ -1,0 +1,33 @@
+<div class="user-settings-saved">
+
+  <div class="community-management__update-title-container">
+    <div class="community-management__main-title">
+      {{t 'pb.profile.navSaved'}}
+    </div>
+  </div>
+<!--
+  <div class="user-settings-saved__title">
+    {{t 'pb.profile.navSaved'}}
+  </div> -->
+
+  <div class="user-settings-saved__tabs-container">
+    <span class="user-settings-saved__tabs-item user-settings-saved__tabs-item--active">
+      {{t 'pb.profile.ideasTab'}}
+    </span>
+    <span class="user-settings-saved__tabs-item ">
+      {{t 'pb.profile.contributionsTab'}}
+    </span>
+  </div>
+
+  <div class="user-settings-saved__content-container">
+
+      {{t 'pb.profile.emptyIdeas'}}
+
+    {{#each this.bookmarks as |proposition|}}
+      <PropositionItem @proposition={{proposition}}>
+      </PropositionItem>
+    {{/each}}
+
+  </div>
+
+</div>

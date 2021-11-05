@@ -1,0 +1,68 @@
+.info-popup {
+  &__container {
+	width: 100%;
+  }
+
+  &__header {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	margin: 2rem 0;
+	padding-right: 1.5rem;
+  }
+
+  &__close-button {
+	border: none;
+	background: none;
+	svg path{
+	  color: $light-gray;
+	}
+  }
+
+  &__content {
+	width: 100%;
+	height: 55.7rem;
+	padding: 0 3.5rem 1rem 3.5rem
+  }
+
+  &__info-section {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	overflow: scroll;
+  }
+
+  &__icon-section {
+	width: 8rem;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	svg {
+	  margin: 0 0.3rem;
+	}
+  }
+
+  &__date {
+	font-size: 1.7rem;
+	font-weight: 500;
+	line-height: 17px;
+	margin-top: 2rem;
+	margin-bottom: 3.2rem;
+	color:$dark-gray;
+	text-transform: uppercase;
+
+  }
+
+  &__info {
+	width: calc(100% - 3rem);
+	display: flex;
+	flex-direction: column;
+  }
+
+  &__info-text {
+	color: $dark-gray;
+	font-size: 1.5rem;
+  }
+}

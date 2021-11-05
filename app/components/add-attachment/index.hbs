@@ -1,0 +1,38 @@
+<FileUpload
+  @id="picture-upload"
+  @fileType="image"
+  @upload={{this.addPicture}}>
+  <label for="picture-upload" class="add-attachment__label btn-none" aria-label={{t 'issue.contributionAddForm.addImage'}} role="button" tabindex="0">
+    <span aria-hidden="true">{{inline-svg "/images/consultation/image-upload.svg"}}</span>
+    <EmberTooltip
+      @tooltipClass="white-tooltip"
+      @arrowClass="white-tooltip-arrow">
+      {{t 'issue.contributionAddForm.addImage'}}
+    </EmberTooltip>
+  </label>
+</FileUpload>
+
+<FileUpload
+  @id="file-upload"
+  @fileType="file"
+  @upload={{this.addAttachment}}>
+  <label for="file-upload" class="add-attachment__label btn-none" aria-label={{t 'issue.contributionAddForm.addAttachment'}} role="button" tabindex="0">
+    <span aria-hidden="true">{{inline-svg "/images/consultation/file-upload.svg"}}</span>
+    <EmberTooltip
+      @tooltipClass="white-tooltip"
+      @arrowClass="white-tooltip-arrow">
+      {{t 'issue.contributionAddForm.addPdf'}}
+    </EmberTooltip>
+  </label>
+</FileUpload>
+
+{{#unless @noLink}}
+	<button type="button" class="btn-none add-attachment__button btn-none" {{on "click" this.openLinkChoosingPopup}} aria-label={{t 'issue.contributionAddForm.addLink'}}>
+		<span aria-hidden="true">{{inline-svg "/images/consultation/link-upload.svg"}}</span>
+    <EmberTooltip
+      @tooltipClass="white-tooltip"
+      @arrowClass="white-tooltip-arrow">
+      {{t 'issue.contributionAddForm.addLink'}}
+    </EmberTooltip>
+	</button>
+{{/unless}}

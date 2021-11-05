@@ -1,0 +1,249 @@
+.proposition-filters {
+    display: flex;
+    background-color:$white ;
+    flex-direction: column;
+    width: 100%;
+  	height: 100%;
+    justify-content: space-between;
+  	overflow: scroll;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header {
+	  height: 6.8rem;
+	  width: 100%;
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: space-between;
+	  align-items: flex-start;
+	  padding: 0 2.5rem;
+    }
+
+  	&__filters-options{
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.3rem;
+		line-height: 140%;
+		letter-spacing: 0.0126802rem;
+		color: $medium-dark-gray;
+	}
+
+	&__label-info {
+	  font-style: normal;
+	  font-weight: normal;
+	  font-size: 1.3rem;
+	  line-height: 140%;
+	  letter-spacing: 0.0126802rem;
+	  color: $medium-dark-gray;
+	}
+
+  	&__back-button-arrow{
+	  margin-top: 1.6rem;
+	  svg path{
+		color: #C4C4C4;
+	  }
+	}
+
+  	&__filter-title{
+	  margin-top: 2.2rem;
+	  font-size: 1.6rem;
+	  font-style: normal;
+	  font-weight: 600;
+	  line-height: 1.8rem;
+	  letter-spacing: 0.0684rem;
+	  color:$dark-color;
+	}
+
+  &__search-bar
+  {
+    background-color: transparent;
+    width: 90%;
+    height: 4.4rem;
+    border: 1px solid #EBE9E8;
+    box-sizing: border-box;
+    border-radius: 1.6rem;
+    margin-left:2rem;
+    color: #5E617C;
+    position: relative;
+  }
+
+  &__search-input{
+    background-color: transparent;
+    width: 100%;
+    height: 4.4rem;
+    border: 1px solid #EBE9E8;
+    box-sizing: border-box;
+    border-radius: 1.6rem;
+    padding-left: 3.2rem;
+    color: #5E617C;
+
+  }
+
+  &__icon-search
+  {    position: absolute;
+    top: 1.3rem;
+    left: 1rem;
+  }
+
+  	&__clear-button {
+	  margin-top: 3.5rem;
+	  font-size: 1.3rem;
+	  font-style: normal;
+	  font-weight: 400;
+	  line-height: 1.8rem;
+	  letter-spacing: 0.0126rem;
+	}
+
+    &__sort {
+	  display: flex;
+	  padding:2.3rem 3.3rem 2.2rem 2.4rem ;
+	  flex-direction: column;
+	  border-bottom: 1px solid #EADFD4;
+    }
+
+    &__themes {
+        display: flex;
+        flex-direction: column;
+	  	padding: 2.2rem 3.3rem 2.2rem 2.4rem;
+	  	border-bottom: 1px solid #EADFD4;
+    }
+
+    &__relevancy {
+        display: flex;
+        flex-direction: column;
+        padding: 2.2rem 2.4rem 1.1rem 2.4rem;
+	}
+
+	&__keys-paticipants {
+	  display: flex;
+	  flex-direction: column;
+	  padding: 2.2rem 2.4rem 1.1rem 2.4rem;
+	  border-top: 1px solid #EADFD4;
+	}
+
+  	&__title-category{
+	  color:$dark-black;
+	  font-size: 1.4rem;
+	  font-style: normal;
+	  font-weight: 600;
+	  line-height: 1.6rem;
+	  letter-spacing: 0.00684rem;
+	}
+
+    &__row-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+    }
+
+    &__radio-style {
+        width: 2.4rem;
+        height: 2.4rem;
+
+        background-color: green !important;
+
+    }
+
+
+    &__checkbox-style{
+        width: 2rem;
+        height: 2rem;
+        border-radius: 1px;
+        background: transparent;
+    }
+
+    &__btn-apply {
+        width: auto;
+	  	margin: 4.7rem 2.4rem 5.9rem 2.4rem;
+    }
+
+    &__toggle {
+        margin-right: 3px;
+    }
+
+}
+
+.x-toggle:checked + label > .x-toggle-ios.x-toggle-btn{
+  background: $white;
+}
+
+.x-toggle:checked + label > .x-toggle-btn::after {
+  background: $orange;
+}
+
+.x-toggle-ios.x-toggle-btn::after {
+  background: $medium-white;
+}
+
+.x-toggle-ios.x-toggle-btn{
+  background:$white;
+  border-radius: 30px;
+  width: 5.5rem;
+  height: 3.3rem;
+}
+
+input[type='radio']:after {
+  content: "";
+  color: $white;
+  text-align: center;
+  background: $white;
+  border: 1px solid $gray-border-color;
+  border-radius: 16px;
+  left: 1px;
+  top: 1px;
+  position: absolute;
+  padding: 10px 10px;
+}
+
+input[type='radio']:checked:after {
+  padding: 0;
+  width: 21px;
+  height: 21px;
+  border-radius: 19px;
+  top: 2px;
+  left: 2px;
+  position: relative;
+  background-color: white;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 6px solid $light-orange;
+}
+
+input {
+  position: relative;
+}
+
+input[type="checkbox"]:before {
+  content: "";
+  color: white;
+  text-align: center;
+  background: white;
+  border: 1px solid $gray-border-color;
+  border-radius: 6px;
+  //left: -2px;
+  top: 1px;
+  position: absolute;
+  padding: 8px 9px;
+}
+
+input[type="checkbox"]:checked:before {
+  padding: 0;
+  content: "✓";
+  color: white;
+  text-align: center;
+  background: $light-orange;
+  border: 6px solid $light-orange;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  left: -1px;
+  top: -2px;
+  position: absolute;
+}
+
+

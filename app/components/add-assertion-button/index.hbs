@@ -1,0 +1,7 @@
+<div id="highlightbutton-menu" class="add-assertion-button" {{on "click" this.addAssertion}}>
+	 {{inline-svg "/images/consultation/assertion-idea.svg"}} {{t 'issue.contributionAddForm.highlightPopup'}}
+ </div>
+
+ <div {{on "click" this.openHighlightMenu}} {{on "select" this.openHighlightMenu}}>
+   {{yield}}
+</div>

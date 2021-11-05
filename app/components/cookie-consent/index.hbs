@@ -1,0 +1,95 @@
+{{#if this.showIt}}
+<ContainerQuery
+  @features={{hash
+    tablet=(cq-width max=830)}}
+  as |CQ|
+>
+
+{{#if CQ.features.tablet}}
+  <div class="cookie-consent">
+    {{#if this.isExpanded}}
+      <div class="cookie-consent__preferences-mobile">
+        <div class="cookie-consent__preferences-title-container-mobile">
+          <span class="cookie-consent__image-mobile" aria-hidden="true">
+            {{inline-svg "/images/cookie-consent-small.svg"}}
+          </span>
+          <span class="cookie-consent__preferences-main-title">
+            {{t "cookie.preferenceTitle"}}
+          </span>
+        </div>
+        <CookieConsent::preferences />
+      </div>
+      <button class="btn-civ-black cookie-consent__button-mobile" {{on "click" this.saveUserChoices}}>
+        {{t "cookie.saveButton"}}
+      </button>
+    {{else}}
+      <div class="cookie-consent__container-mobile">
+        <div aria-hidden="true">
+          {{inline-svg "/images/cookie-consent-small.svg"}}
+        </div>
+        <div class="cookie-consent__text-mobile">
+          {{t "cookie.text"}}
+        </div>
+        <span class="cookie-consent__button-container-mobile">
+          <button class="btn-civ-black cookie-consent__button-mobile" {{on "click" this.expand}}>
+            {{t "cookie.manageButton"}}
+          </button>
+          <button class="btn-civ-black-reverse cookie-consent__button-mobile" {{on "click" this.agreeAll}}>
+            {{t "cookie.agreeButton"}}
+          </button>
+          <button class="btn-civ-black-reverse cookie-consent__button-mobile" {{on "click" this.agreeNecessary}}>
+            {{t "cookie.necessaryButton"}}
+          </button>
+        </span>
+      </div>
+    {{/if}}
+  </div>
+{{else}}
+  <div class="cookie-consent">
+    {{#if this.isExpanded}}
+      <div class="cookie-consent__container">
+        <span class="cookie-consent__image" aria-hidden="true">
+          {{inline-svg "/images/cookie-consent.svg"}}
+        </span>
+        <div class="cookie-consent__preferences">
+          <div class="cookie-consent__preferences-main-title">
+            {{t "cookie.preferenceTitle"}}
+          </div>
+          <CookieConsent::preferences />
+        </div>
+
+        <span class="cookie-consent__button-container">
+          <button class="btn-civ-black cookie-consent__button-small" {{on "click" this.saveUserChoices}}>
+            {{t "cookie.saveButton"}}
+          </button>
+        </span>
+      </div>
+    {{else}}
+      <div class="cookie-consent__container">
+        <span aria-hidden="true">
+          {{inline-svg "/images/cookie-consent.svg"}}
+        </span>
+        <span class="cookie-consent__text">
+          {{t "cookie.text"}}
+        </span>
+        <span class="cookie-consent__button-container">
+          <button class="btn-civ-black cookie-consent__button-large" {{on "click" this.expand}}>
+            {{t "cookie.manageButton"}}
+          </button>
+          <div class="cookie-consent__button-container-row">
+            <button class="btn-civ-black-reverse cookie-consent__button-small" {{on "click" this.agreeAll}}>
+              {{t "cookie.agreeButton"}}
+            </button>
+            <button class="btn-civ-black-reverse cookie-consent__button-small" {{on "click" this.agreeNecessary}}>
+              {{t "cookie.necessaryButton"}}
+            </button>
+          </div>
+        </span>
+      </div>
+    {{/if}}
+  </div>
+{{/if}}
+
+</ContainerQuery>
+
+{{/if}}

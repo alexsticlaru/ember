@@ -1,0 +1,138 @@
+.label-text {
+    &__input-container {
+	  	position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.2rem;
+
+        textarea {
+          font-family: Inter;
+          font-weight: 400;
+          line-height: 1.7;
+          resize: none;
+          height: 20rem;
+      }
+    }
+
+    &__error-message {
+        color: $color-problem;
+        font-style: italic;
+    }
+}
+
+.label-text-noborder {
+    &__input-container {
+        display: flex;
+        flex-direction: column;
+        // margin-bottom: 1.5rem;
+
+        .input-text {
+          background: #FFFFFF;
+          border: none;
+          box-sizing: border-box;
+          height: auto;
+        }
+
+        textarea {
+          font-family: Inter;
+          font-weight: 400;
+          line-height: 1.7;
+          border: none;
+          resize: none;
+      }
+    }
+
+    &__error-message {
+        color: $color-problem;
+        font-style: italic;
+    }
+}
+
+.label-text-redesign {
+    &__input-container {
+	    position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: .9rem;
+	  	margin-top: .8rem;
+
+      // @ioana: please do not add margins etc here..
+
+        .input-text {
+          background: #FFFFFF;
+          border: 1px solid #E3E3E3;
+          box-sizing: border-box;
+          border-radius: 9px;
+		  padding-left: 2.2rem;
+		  padding-top: 1.6rem;
+		  padding-bottom: 1.6rem;
+		  font-style: normal;
+		  font-weight: normal;
+		  font-size: 1.4rem;
+		  letter-spacing: 0.02rem;
+
+      &::placeholder{
+        color: #A9A9A9;
+		  }
+
+      &:hover, &:focus{
+        background: #FFFFFF;
+        // border: 1px solid #8C6EE0;
+        box-sizing: border-box;
+        box-shadow: 0px 3px 14px rgba(142, 142, 142, 0.15);
+        border-radius: 7px;
+      }
+
+        }
+
+        .input-text--error {
+          border: 1px solid #FF7F47;
+        }
+
+	    .input-text--right-padding {
+		  padding-right: 3rem;
+	    }
+
+		.placeholder-error {
+		  &::placeholder{
+			color: #FF7F47;
+
+		  }
+		}
+
+        textarea {
+          font-family: Inter;
+          font-weight: 400;
+          line-height: 1.7;
+          resize: none;
+          height: 20rem;
+      }
+    }
+
+    &__error-message {
+        color: #FF7F47;
+        font-style: italic;
+    }
+}
+
+.mandatory-field-icon {
+	color: #ADADAD;
+}
+
+.inner-count {
+  position: absolute;
+  //background: hotpink;
+
+  &--input {
+	right: 1.3rem;
+	top: 1.1rem;
+  }
+  &--textarea {
+	right: 1.3rem;
+	bottom: 1.1rem;
+  }
+  span {
+	font-size: 1.1rem;
+	color: #535461;
+  }
+}

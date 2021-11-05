@@ -1,0 +1,83 @@
+<ContainerQuery
+  @features={{hash
+    tablet=(cq-width max=750)
+    desktop=(cq-width min=750)}}
+  as |CQ|
+>
+{{#if CQ.features.desktop}}
+
+<div class="propositions-mapview">
+  <div class="propositions-mapview__column1">
+    <div id="propositions-marker-list" class="propositions-mapview__column1__scroll-area">
+      {{#each @pagedContent as |proposition|}}
+      <PropositionItem @proposition={{proposition}} @showOnMap={{this.showOnMap}}>
+      </PropositionItem>
+      {{/each}}
+    </div>
+    <Pagination @pagedContent={{@pagedContent}} />
+  </div>
+  <div class="propositions-mapview__column2">
+      {{!-- <button class="btn-none propositions-mapview-mobile__location-button" {{on "click" this.getUserLocation}} title={{t "participatoryMap.userLocation"}} >
+      <span aria-hidden="true" >{{inline-svg '/images/ideaBox/arrow.svg'}}</span>
+    </button> --}}
+      {{!-- TO DO: align the button --}}
+
+    <LeafletMap style="width: 100%; height: 100%" @lat={{@ideaBox.latitude}}
+      @lng={{@ideaBox.longitude}} @zoom={{@ideaBox.zoomLevel}} as
+      |layers|>
+      <layers.tile @url="http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png" />
+      {{#each @pagedContent as |proposition|}}
+        {{#if proposition.latitude}}
+        <layers.marker @lat={{proposition.latitude}} @lng={{proposition.longitude}} @icon={{proposition.icon}}
+          @onPopupopen={{fn this.scrollToMarkerItem proposition}} as |marker|>
+          <marker.popup>
+            <PropositionMapPopup @proposition={{proposition}} />
+          </marker.popup>
+        </layers.marker>
+        {{/if}}
+      {{/each}}
+    </LeafletMap>
+  </div>
+</div>
+
+{{else}}
+
+<div class="propositions-mapview-mobile">
+  <div class="propositions-mapview-mobile__map-container">
+    <button class="btn-none propositions-mapview-mobile__location-button" {{on "click" this.getUserLocation}} title={{t "participatoryMap.userLocation"}} >
+      <span aria-hidden="true" >{{inline-svg '/images/ideaBox/arrow.svg'}}</span>
+    </button>
+
+    <LeafletMap class="propositions-mapview-mobile__map" @lat={{@ideaBox.latitude}}
+      @lng={{@ideaBox.longitude}} @zoom={{@ideaBox.zoomLevel}} as
+      |layers|>
+      <layers.tile @url="http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png" />
+      {{#each @pagedContent as |proposition|}}
+        {{#if proposition.latitude}}
+        <layers.marker @lat={{proposition.latitude}} @lng={{proposition.longitude}} @icon={{proposition.icon}}
+          @onPopupopen={{fn this.scrollToMarkerMobileItem proposition}} as |marker|>
+          <marker.popup>
+            <PropositionMapPopup @proposition={{proposition}} />
+          </marker.popup>
+        </layers.marker>
+        {{/if}}
+      {{/each}}
+    </LeafletMap>
+  </div>
+
+  <div id="propositions-marker-list" class="propositions-mapview-mobile__marker-list">
+    {{#each @pagedContent as |proposition|}}
+      <PropositionItem @proposition={{proposition}} @showOnMap={{this.showOnMap}}>
+      </PropositionItem>
+    {{/each}}
+  </div>
+
+  <div class="propositions-mapview-mobile__pagination">
+    <Pagination @pagedContent={{@pagedContent}} />
+  </div>
+
+</div>
+
+{{/if}}
+
+</ContainerQuery>

@@ -1,0 +1,147 @@
+<div class="add-project-wizard__left-content">
+  <div class="add-project-wizard__header-container">
+    <div class="community-management__main-title">
+      {{t 'community.newProject.adminTitle'}}
+    </div>
+
+    <div class="community-management__main-title-explanation">
+      {{t 'community.newProject.adminExplanation'}}
+    </div>
+
+    <div class="admins-management--deactivated">
+      <div class="admins-management__label">
+        {{t 'community.adminsManagement.title'}}
+      </div>
+
+      <div class="admins-management__admins-list">
+        {{#each this.communityAdmins as |admin|}}
+        <div class="admins-management__admins-list-item">
+          <div class="admins-management__admins-list-user-container">
+            <UserAvatar @user={{admin.user}} @dimensions="35"></UserAvatar>
+            <span class="admins-management__admins-list-username">{{admin.user.fullName}}</span>
+          </div>
+          {{#if (eq admin.adminLevel 1)}}
+          <button class="btn-none admins-management__admins-list-button">
+            {{t 'buttons.remove'}}
+          </button>
+          {{/if}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+
+  <SettingsItem
+  @tooltip={{t 'community.adminsManagement.titleProjectTooltip'}}
+  @title={{t 'community.adminsManagement.titleProject'}}>
+    <div class="admins-management__admins-list">
+      {{#each @adminsList as |admin|}}
+      <div class="admins-management__admins-list-item">
+        <div class="admins-management__admins-list-user-container">
+          <UserAvatar @user={{admin.user}} @dimensions="35"></UserAvatar>
+          <span class="admins-management__admins-list-username">{{admin.user.fullName}}</span>
+        </div>
+        {{#if (eq admin.adminLevel 1)}}
+        <button class="btn-none admins-management__admins-list-button" {{on "click" (fn this.revokeAdmin admin)}}>
+          {{t 'buttons.remove'}}
+        </button>
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+  </SettingsItem>
+
+  <SettingsItem
+  @tooltip={{t 'community.adminsManagement.addAdminTooltip'}}
+  @title={{t 'community.adminsManagement.addAdmin'}}>
+
+    <LabelTextField
+    @type='text'
+    @placeholder={{t 'community.adminsManagement.addAdminPlaceholder'}}
+    @value={{this.searchString}}
+    @maxlength={{200}}
+    @enterAction={{this.searchUsers}}
+    />
+
+    <div class="admins-management__admins-list">
+      {{#each this.userSuggestions as |suggestion|}}
+      <div class="admins-management__admins-list-item">
+        <div class="admins-management__admins-list-user-container">
+          <UserAvatar @user={{suggestion}} @dimensions="35"></UserAvatar>
+          <span class="admins-management__admins-list-username">{{suggestion.fullName}}</span>
+        </div>
+        <button class="btn-none admins-management__admins-list-button" {{on "click" (fn this.addAdmin suggestion)}}>
+          {{t 'community.adminsManagement.addAdminButton'}}
+        </button>
+      </div>
+      {{/each}}
+    </div>
+
+  </SettingsItem>
+
+  <div class="community-management__horizontal-seperator"></div>
+
+  <SettingsItem
+    @tooltip={{t 'community.visibilityManagement.tooltip'}}
+    @title={{t 'community.visibilityManagement.title'}}>
+
+    <div class="settings-option-select">
+      <input
+        type="radio"
+        id="public"
+        checked={{this.public}}
+        {{on "click" this.setPrivate}}/>
+      <label for="public" class="settings-option-select__label">
+        <div class="settings-option-select__title">
+          {{t 'community.visibilityManagement.publicTitle'}}
+        </div>
+        <div class="settings-option-select__text">
+          {{t 'community.visibilityManagement.publicExplanation'}}
+        </div>
+      </label>
+    </div>
+
+    <div class="settings-option-select">
+      <input
+      type="radio"
+      id="private"
+      checked={{@project.private}}
+      {{on "click" this.setPrivate}}/>
+      <label for="private" class="settings-option-select__label">
+        <div class="settings-option-select__title">
+          {{t 'community.visibilityManagement.passwordTitle'}}
+        </div>
+        <div class="settings-option-select__text">
+          {{t 'community.visibilityManagement.passwordExplanation'}}
+        </div>
+      </label>
+    </div>
+
+  </SettingsItem>
+
+  {{#if @project.private}}
+    <SettingsItem
+    @noTooltip={{true}}
+    @title={{t 'community.visibilityManagement.setPassword'}}>
+
+    <LabelTextField
+      @type='text'
+      @placeholder={{"12345"}}
+      @value={{@project.password}}
+      @maxlength={{200}}
+      />
+
+    </SettingsItem>
+  {{/if}}
+
+</div>
+
+<div class="add-project-wizard__save-container-multiple">
+  <button class="btn-none add-project-wizard__back-button" {{on "click" @previousStep}}>
+    {{t 'community.newProject.back'}}
+  </button>
+  <button class="btn-none add-project-wizard__save-button" {{on "click" @nextStep}}>
+    {{t 'community.newProject.next'}}
+  </button>
+</div>

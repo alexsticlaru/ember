@@ -1,0 +1,15 @@
+.add-assertion-button{
+	display:none; position: absolute;
+	width: 120px;
+	background-color: $medium-blue;
+	color: white;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 2;
+	svg path{
+		fill: white;
+	}
+
+}

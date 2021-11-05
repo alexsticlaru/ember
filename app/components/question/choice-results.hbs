@@ -1,0 +1,16 @@
+<div class="choice-results" style={{if @questionIndex (if (numberEven @questionIndex) 'background-color: rgba(227, 227, 227, .2);' 'background-color: rgba(208, 191, 169, 0.17);')}}>
+    <h2 class={{if (eq @questionIndex undefined) 'heading-2' 'heading-2--secondary'}}>{{@question.question}}</h2>
+    <span class="choice-results__participants">{{@question.results.firstObject.respondentsCount}}&nbsp;{{t 'questionnaire.participants'}}</span>
+    {{#each @question.results as |result|}}
+        <div class="choice-results__answer">
+            <div style={{html-safe (concat 'width:' result.percentage '%; background-color: rgb(255,127,71,' (color-opacity result.percentage)');')}} 
+            class="choice-results__answered-percentage"></div>
+            <span class="choice-results__answer-left">{{result.percentage}}%</span>
+            <span class="choice-results__answer-name">{{result.answer}}</span>
+            <span></span>
+            {{#if result.userDidAnswer}}
+                <UserAvatar @user={{@user}} @dimensions={{25}} @avatarClass="choice-results__avatar"/>
+            {{/if}}
+        </div>
+    {{/each}}
+</div>

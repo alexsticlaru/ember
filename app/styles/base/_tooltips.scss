@@ -1,0 +1,14 @@
+
+.white-tooltip {
+	background-color: $white;
+	color: $medium-gray;
+	box-shadow: 2px 2px 5px 1px $light-gray;
+	border-radius: .8rem;
+	text-shadow: none !important;
+}
+
+.white-tooltip-arrow {    
+	border-top: .8rem solid $white !important;
+	border-left: .8rem solid transparent !important;
+	border-right: .8rem solid transparent !important;
+}

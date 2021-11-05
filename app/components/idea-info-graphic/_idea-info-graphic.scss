@@ -1,0 +1,47 @@
+.idea-info-graphic {
+
+    &__info-graphic-container{
+      float: right;
+      position: relative;
+      width: 8rem;
+      height: 8rem;
+      // right: 2rem;
+      // top: 2rem;
+    }
+
+
+    &__info-graphic{
+      position: absolute;
+      right: 2rem;
+      top: 1rem;
+    }
+
+
+
+    &__avatar{
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+    }
+}
+.label {
+  
+  border-radius: 50%;
+  color: #41b35d;
+  cursor: default;
+  display: block;
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  z-index: 100;
+  margin-top: 50%;
+  font-size: 14px;
+
+  .smaller {
+    color: #bdc3c7;
+    font-size: .45em;
+    padding-bottom: 20px;
+    vertical-align: super;
+  }
+}
+

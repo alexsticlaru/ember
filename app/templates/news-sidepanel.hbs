@@ -1,0 +1,39 @@
+<div class="popup__content update-popup-mobile">
+	<div class="update-popup-mobile__container">
+		<div class="update-popup-mobile__header">
+			<button class="update-popup-mobile__back-button" type="button" {{on "click" this.closePopup}} aria-label={{t 'buttons.close'}}>
+				<span aria-hidden="true">{{inline-svg "images/community/back-icon-gray.svg"}}</span>
+			</button>
+		</div>
+		<div class="update-popup-mobile__content">
+			<div class="update-popup-mobile__image-container" aria-hidden="true">
+				{{#if @item.image}}
+					<CloudinaryImage
+							class="update__card-cover-image"
+							@publicId={{@model.image}}
+							@options={{hash format='png' width='700' transforms='q_auto,f_auto'}}
+					/>
+					<div class="update__card-spacer"></div>
+				{{else}}
+					<CloudinaryImage
+							class="update__card-cover-image"
+							@publicId={{@model.project.image}}
+							@options={{hash format='png' width='700' transforms='q_auto,f_auto'}}
+					/>
+					<div class="update__card-spacer"></div>
+				{{/if}}
+			</div>
+			<div class="update-popup-mobile__title-container-popup">
+				<div class="update-popup-mobile__icons-container-popup" aria-hidden="true">
+					{{inline-svg "images/community/info-line.svg"}}
+					{{inline-svg "images/community/info-icon.svg" class="update-popup-mobile__info-icon"}}
+				</div>
+				<h1 class="heading-1 update-popup-mobile__title-popup">{{@model.title}}</h1>
+			</div>
+			<h2 class="update-popup-mobile__info-date">{{@model.displayDate}}</h2>
+			<div class="update-popup-mobile__info-text">
+				{{html-safe @model.content}}
+			</div>
+		</div>
+	</div>
+</div>

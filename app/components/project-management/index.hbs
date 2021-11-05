@@ -1,0 +1,130 @@
+<SettingsItem
+  @title={{t 'community.projectManagement.name'}}
+  @tooltip={{t 'community.projectManagement.nameTooltip'}}>
+  <LabelTextField
+      @value={{this.project.name}}
+      @maxlength={{200}}
+  />
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.projectManagement.cover'}}
+  @tooltip={{t 'community.projectManagement.coverTooltip'}}>
+  <FileUpload
+    @id="image-upload"
+    @fileType="image"
+    @upload={{this.uploadImage}}>
+    <label for="image-upload" class="btn-none" role="button" tabindex="0">
+      <div class="community-management__cover-image-container">
+        <span>
+          {{#if this.processingImage}}
+            <CircularProgress />
+          {{else if this.project.image}}
+            <CloudinaryImage
+                  aria-hidden="true"
+                  class={{"community-management__cover-image-small"}}
+                  @publicId={{this.project.image}}
+                  @options={{hash format='png' transforms='q_auto,f_auto'}}
+            />
+          {{else}}
+          <div class="community-management__cover-image-placeholder" aria-hidden="true">
+            {{inline-svg '/images/community/settings-image.svg'}}
+          </div>
+          {{/if}}
+        </span>
+        <span class="community-management__cover-image-text">
+          {{t 'community.projectManagement.coverDimensions'}}
+        </span>
+      </div>
+    </label>
+  </FileUpload>
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.projectManagement.description'}}
+  @tooltip={{t 'community.projectManagement.descriptionTooltip'}}>
+  <LabelTextField
+    @type={{"textarea"}}
+    @height={{"20"}}
+    @value={{this.project.description}}
+    @placeholder={{t 'community.projectManagement.descriptionPlaceholder'}}
+    @maxlength={{2000}}
+  />
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.projectManagement.url'}}
+  @tooltip={{t 'community.projectManagement.urlTooltip'}}>
+  <LabelTextField
+      @value={{this.project.url}}
+      @maxlength={{200}}
+  />
+</SettingsItem>
+
+
+  <!-- <div class="community-management__item-container">
+    <div class="community-management__label">
+      {{t 'community.projectManagement.dateBegin'}}
+    </div>
+    <Input type="date" class="input-text" @value={{this.project.dateBegin}}/>
+  </div>
+
+  <div class="community-management__item-container">
+    <div class="community-management__label">
+      {{t 'community.projectManagement.dateEnd'}}
+    </div>
+    <Input type="date" class="input-text" @value={{this.project.dateEnd}}/>
+  </div> -->
+
+
+  <SettingsItem
+    @title={{t 'community.projectManagement.outcomeBenefits'}}
+    @tooltip={{t 'community.projectManagement.outcomeBenefitsTooltip'}}>
+    <LabelTextField
+      @type={{"textarea"}}
+      @height={{"10"}}
+      @value={{this.project.outcomeBenefits}}
+      @placeholder={{t 'community.projectManagement.outcomeBenefitsPlaceholder'}}
+      @maxlength={{2000}}
+    />
+  </SettingsItem>
+
+  <div class="community-management__item-container">
+    {{t 'community.projectManagement.obligatoryFields'}}
+  </div>
+
+  <div class="community-management__save-button-container">
+    {{#if this.processingChanges}}
+      <SpinnerButton
+        @class="btn-civ-black-reverse community-management__save-button"
+        @spinning={{true}}
+        >
+        <span>
+          {{t 'pb.profile.saving'}}
+        </span>
+      </SpinnerButton>
+    {{else if this.changesSaved}}
+      <button class="btn-civ-black community-management__save-button" {{on "click" this.saveProject}}>
+        <span aria-hidden="true">{{inline-svg '/images/ideaBox/check.svg'}}</span>
+        {{t 'pb.profile.saved'}}
+      </button>
+    {{else}}
+      <button class="btn-civ-black community-management__save-button" {{on "click" this.saveProject}}>
+        {{t 'pb.profile.save'}}
+      </button>
+    {{/if}}
+<!--
+
+    <SpinnerButton
+		@class="btn-civ-black community-management__save-button"
+		@onClick={{this.saveProject}}
+		@spinning={{this.saveRunning}}
+	>
+		{{t 'pb.profile.save'}}
+	</SpinnerButton> -->
+{{!-- Replaced by the spinner
+    <button class="btn-civ-black community-management__save-button" {{on "click" this.saveProject}}>
+      {{t 'pb.profile.save'}}
+    </button>
+--}}
+  </div>

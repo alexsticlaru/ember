@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type="application/javascript">
+		var domain1 = 'https://www.civocracy.org';
+		var domain2 = 'https://beta.civocracy.org';
+		var domain3 = 'http://www.civocracy.local:4200';
+		/**
+		 * Receiving message from v6 platform
+		 */
+		window.addEventListener('message', function(event) {
+// 			console.log('receiving msg from', event.origin);
+			if (event.origin === domain1 || event.origin === domain2 || event.origin === domain3) {
+// 				console.log('received data', event.data);
+				if (event.data) {
+					const session = {
+						'authenticated': {
+							'access_token': event.data.access_token,
+							'refresh_token': event.data.refresh_token,
+							'expires_at': event.data.expires_at,
+							"expires_in":86400,
+							"token_type":"bearer",
+							"scope":"read",
+							"authenticator":"authenticator:oauth2"
+						}
+					}
+					localStorage.setItem("ember_simple_auth-session", JSON.stringify(session));
+					localStorage.setItem("userId", event.data.userId);
+				} else {
+					localStorage.removeItem("ember_simple_auth-session");
+					localStorage.removeItem("userId");
+				}
+			}
+		});
+	</script>
+	<title>sync login</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<div class="propositions-page">
+	<IdeaBoxIntroduction @model={{this.model}}></IdeaBoxIntroduction>
+		<div class="propositions-page__content">
+			<FilterToolbar
+					@isIdeaBox={{true}}
+					@allowMap={{this.model.ideaBox.allowMap}}
+					@onShowMapView={{this.showMapView}}
+					@onCloseMapView={{this.closeMapView}}
+					@mapView={{this.mapView}}
+					@themesList={{@model.themes}}
+					@onSortPropositions={{this.sortPropositions}}
+					@onSortItems={{this.onSortItems}}
+					@onApplyFilters={{this.applyFilters}}
+			/>
+
+		</div>
+
+
+	{{!-- is the propositions BE query finished?  --}}
+	{{#if this.model.propositions.isFulfilled}}
+
+		{{!-- propositions found --}}
+		{{#if this.model.propositions}}
+			{{#if this.mapView}}
+				<div class="propositions-page__content--small-margins">
+					<Propositions::PropositionsMapview
+							@pagedContent={{@model.propositions}}
+							@ideaBox={{this.model.ideaBox}}
+							@highlightProposition={{this.highlightProposition}}
+					/>
+				</div>
+			{{else}}
+				<div class="propositions-page__content">
+					<Propositions::PropositionsList @propositions={{@model.propositions}}
+													@showOnMap={{this.showOnMap}} />
+					<Pagination @pagedContent={{@model.propositions}} />
+				</div>
+			{{/if}}
+		{{/if}}
+
+		{{!-- no propositions found --}}
+		{{#unless this.model.propositions}}
+			<div class="propositions-container__empty-list">
+				{{inline-svg "images/ideaBox/no-propositions.svg"}}
+				<span class="propositions-container__empty-text">{{t 'ideaBox.emptyList'}}</span>
+			</div>
+		{{/unless}}
+
+	{{else}}
+		<div class="propositions-page__loading">
+			<Spinner/>
+		</div>
+	{{/if}}
+
+</div>

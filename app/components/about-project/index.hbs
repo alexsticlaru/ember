@@ -1,0 +1,40 @@
+<!-- <h1 class="heading-1 about-project__participate-title-style">{{t 'participation.moreInfo'}}</h1> -->
+
+<div>
+	<ContainerQuery
+			@features={{hash
+			phone=(cq-width max=this.config.breakpoints.phone)}}
+			as |CQ| >
+<div class="about-project__more-info" id="info-container">
+	<div class={{if CQ.features.phone "" "about-project__info-container--left"}}>
+		<h3 class="heading-3 about-project__info-title">{{t 'participation.aboutProject'}}</h3>
+		<p class="about-project__info-text">
+{{!			Mitmachen bei der Ergebniskonferenz des Hightech-Forums 2021.<br><br>
+Die Hightech-Strategie 2025 ist die aktuelle Forschungs- und Innovationsstrategie der Bundesregierung und bildet das Dach der deutschen Forschungs- und Innovationspolitik. Mehr Informationen finden Sie unter <a href="https://www.hightech-strategie.de" target="_blank">www.hightech-strategie.de</a>.
+			<br><br>
+			Die Ergebniskonferenz des Hightech-Forums unter dem Motto zusammen.wachsen.gestalten bietet eine Plattform, um mit Macherinnen und Machern aus Wissenschaft, Wirtschaft und Gesellschaft ins Gespräch kommen – zu einer künftigen Innovationsstrategie der Bundesregierung.}}
+			{{html-safe @model.project.htmlDescription}}
+		</p>
+		<h3 class="heading-3 about-project__info-title">{{t 'participation.aboutOrganization'}}</h3>
+		<p class="about-project__info-text">
+{{!			Das Hightech-Forum ist das zentrale Beratungsgremium der Bundesregierung zur Umsetzung der Hightech-Strategie 2025. Seine 21 Mitglieder aus Wissenschaft, Wirtschaft, Gesellschaft erarbeiten konkrete Vorschläge für die aktuelle, wie auch die künftige Strategie der Bundesregierung zu Forschung und Innovation. Mehr Informationen finden Sie unter <a href="https://www.hightech-forum.de" target="_blank">www.hightech-forum.de</a>.}}
+			{{html-safe @model.community.htmlDescription}}
+		</p>
+	</div>
+	<div class={{if CQ.features.phone "" "about-project__info-container--right"}}>
+		{{!--
+		<h3 class="heading-3 about-project__info-title">{{t 'participation.dateInfo'}}</h3>
+		<p class="about-project__info-text">{{@model.project.calendarDateBegin}} - {{@model.project.calendarDateEnd}}</p>
+		--}}
+
+		<h3 class="heading-3 about-project__info-title">{{t 'participation.whatWillHappen'}}</h3>
+		<p class="about-project__info-text">
+			{{!Uns interessiert auch Ihre Meinung. Ihre hier geposteten Beiträge und Meinungen zu unseren Fragen kommen auf die Bühne der großen Ergebniskonferenz des Hightech-Forums 2021. Sie werden von den Moderator*innen in den Schwerpunktthemen RESILIENZ, SOUVERÄNITÄT UND OFFENHEIT, INNOVATIVE KRÄFTE IN DEUTSCHLAND sowie LOKALE INITIATIVEN UND KO-KREATION der Konferenz mit den Mitgliedern des Hightech-Forums, den Podiumsdiskutant*innen und den Zuschauer*innen weiter diskutiert.
+			<br><br>
+			Mehr Informationen zum Programm der Konferenz sowie zur kostenfreien Registrierung finden Sie unter <a href="https://www.ergebniskonferenz-hightech-forum.de" target="_blank">www.ergebniskonferenz-hightech-forum.de</a>.}}
+			{{html-safe @model.project.htmlOutcomeBenefits}}
+		</p>
+	</div>
+</div>
+</ContainerQuery>
+</div>

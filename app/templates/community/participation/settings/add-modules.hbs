@@ -1,0 +1,16 @@
+<div class="community-management">
+  <div>
+    <div class="community-management__main-title">
+      {{t 'community.addModules.title'}}
+    </div>
+    <div class="community-management__main-title-explanation">
+      {{t 'community.addModules.explanation'}}
+    </div>
+  </div>
+
+  <div class="community-management__add-modules__container">
+    <AddModules::questionnaire @addQuestionnaire={{this.addQuestionnaire}} />
+    <AddModules::discussion @addDiscussion={{this.addDiscussion}} />
+  </div>
+
+</div>

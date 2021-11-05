@@ -1,0 +1,25 @@
+# op-tourmaster-frontend pipeline config
+
+#image: triprebel/ember-pipeline
+pipelines:
+  default:
+    - step:
+        script:
+          - npm install
+          - bower install
+#          - ember test
+  branches:
+    dev:
+      - step:
+          script:
+            - npm install
+            - bower install
+#            - ember test
+            - ember deploy preproduction --activate
+    master:
+      - step:
+          script:
+            - npm install
+            - bower install
+#            - ember test
+            - ember deploy production --activate

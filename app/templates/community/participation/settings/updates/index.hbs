@@ -1,0 +1,29 @@
+{{#if this.showAddForm}}
+  <ProjectUpdateAddForm
+    @project={{this.model.project}}
+    @onUpdateAdded={{this.onUpdateAdded}}/>
+{{else}}
+  <div class="community-management">
+    <div class="community-management__update-title-container">
+      <div class="community-management__main-title">
+        {{t 'addUpdate.navTitle'}}
+      </div>
+      <button type="button" class="btn-civ-black" {{on "click" this.toggleAddForm}}>
+        {{t 'addUpdate.newUpdateButton'}}
+      </button>
+    </div>
+    <div class="participation-settings__update-cards-container">
+      {{#each this.model.project.sortedProjectUpdates as |update|}}
+        <LinkTo
+          @route='community.participation.settings.updates.update'
+          @model={{update}}
+            >
+          <UpdateCard
+            @item={{update}}
+            @doNotShowPopup={{true}}
+            />
+        </LinkTo>
+      {{/each}}
+    </div>
+  </div>
+{{/if}}

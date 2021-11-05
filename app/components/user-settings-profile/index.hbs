@@ -1,0 +1,99 @@
+<div class="user-settings-profile">
+  <!-- <div class="user-settings-profile__title">
+    {{t 'pb.profile.title'}} {{this.user.currentUser.fullName}}
+  </div>
+
+  <div class="user-settings-profile__joined-date">
+    {{t 'pb.profile.joinedDate'}} {{this.user.currentUser.displayDateRegister}}
+  </div> -->
+
+  <div class="community-management__update-title-container">
+    <div class="community-management__main-title">
+      {{t 'pb.profile.title'}} {{this.user.currentUser.fullName}}
+    </div>
+    <LinkTo class="btn-civ-black" @route="user" @model={{this.user.currentUser}}>
+      {{t 'pb.profile.navSeePublic'}}
+    </LinkTo>
+
+    <!-- <button class="btn-civ-black" type="button">
+      {{t 'addDocument.preview'}}
+    </button> -->
+  </div>
+
+  <div class="user-settings-profile__joined-date">
+    {{t 'pb.profile.joinedDate'}} {{this.user.currentUser.displayDateRegister}}
+  </div>
+
+
+
+
+
+  <SettingsItem
+  @title={{t 'pb.profile.firstName'}}
+  @id={{"firstName"}}
+  @noTooltip={{true}}>
+  <LabelTextField
+      @id={{"firstName"}}
+      @value={{this.user.currentUser.firstName}}
+      @maxlength={{200}}
+  />
+</SettingsItem>
+
+
+<SettingsItem
+@title={{t 'pb.profile.lastName'}}
+@id={{"lastName"}}
+@noTooltip={{true}}>
+<LabelTextField
+    @id={{"lastName"}}
+    @value={{this.user.currentUser.lastName}}
+    @maxlength={{200}}
+/>
+</SettingsItem>
+
+
+<SettingsItem
+@id={{"about"}}
+@title={{t 'pb.profile.about'}}
+@noTooltip={{true}}>
+<!-- <NewRichEditor
+@content={{this.newUpdateContent}}
+@editorId ={{"update-add-editordescription-create"}}
+@placeholder={{t 'pb.profile.aboutPlaceholder'}}
+/> -->
+
+
+<LabelTextField
+@type={{"textarea"}}
+@height={{"10"}}
+@value={{this.user.currentUser.description}}
+@placeholder={{t 'pb.profile.aboutPlaceholder'}}
+@maxlength={{800}}
+@id={{"about"}}
+/>
+<!-- <NewRichEditor
+@editorId={{user-description-editor}}
+@value={{this.user.currentUser.description}}
+@placeholder={{t 'pb.profile.aboutPlaceholder'}}
+@maxlength={{800}}
+/> -->
+</SettingsItem>
+
+<div class="community-management__save-button-container">
+  <button type="button" class="btn-civ-black community-management__save-button" {{on "click" this.saveUser}}>
+    {{t 'pb.profile.save'}}
+  </button>
+</div>
+<!--
+  <div class="user-settings-profile__save-button-container">
+    {{#if (and this.user.currentUser.firstName this.user.currentUser.lastName)}}
+      <button class="btn-none user-settings-profile__save-button" {{on "click" this.saveUser}}>
+        {{t 'pb.profile.save'}}
+      </button>
+    {{else}}
+      <button class="btn-none user-settings-profile__save-button user-settings-profile__save-button--deactivated">
+        {{t 'pb.profile.save'}}
+      </button>
+    {{/if}}
+  </div> -->
+</div>

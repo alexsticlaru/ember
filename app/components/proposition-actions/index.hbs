@@ -1,0 +1,53 @@
+<Dropdown @contentClass="proposition-actions" @top={{@top}} @left={{@left}} as |dd|>
+	<dd.trigger>
+		{{yield}}
+	</dd.trigger>
+	<dd.content>
+				<button type="button" class="proposition-actions__item btn-none" {{on "click" this.bookmarkProposition}}>
+					<span aria-hidden="true">{{inline-svg '/images/ideaBox/bookmark.svg'}}</span>
+					{{#if @proposition.bookmark}}
+						{{t 'ideaBox.bookmarkRemove'}}
+					{{else}}
+						{{t 'ideaBox.bookmark'}}
+					{{/if}}
+				</button>
+			{{#if this.userCanEditProposition}}
+				{{#if @enableEditProposition}}
+						<button type="button" class="proposition-actions__item btn-none" {{on "click" @enableEditProposition}}>
+							<span aria-hidden="true">{{inline-svg '/images/ideaBox/edit-new.svg'}}</span>
+							{{t 'ideaBox.edit'}}
+						</button>
+				{{/if}}
+					<button type="button" class="proposition-actions__item btn-none" {{on "click" this.deleteProposition}}>
+						<span aria-hidden="true">{{inline-svg '/images/ideaBox/delete-new.svg'}}</span>
+						{{t 'ideaBox.delete'}}
+					</button>
+			{{else}}
+				{{#if @openPropositionCommentAddPopup}}
+						<button type="button" class="proposition-actions__item btn-none" {{on "click" @openPropositionCommentAddPopup}}>
+							<span aria-hidden="true">{{inline-svg '/images/ideaBox/comment.svg'}}</span>
+							{{t 'ideaBox.reply'}}
+						</button>
+				{{/if}}
+
+				{{#if this.userIsGeneralAdmin}}
+						<button type="button" class="proposition-actions__item btn-none" {{on "click" this.moderateProposition}}>
+							<span aria-hidden="true">{{inline-svg '/images/ideaBox/moderated-alert.svg'}}</span>
+							{{t 'ideaBox.moderate'}}
+						</button>
+				{{else}}
+					{{#if @proposition.isFlaggedByCurrentUser}}
+							<button type="button" class="proposition-actions__item proposition-actions__item--deactivated btn-none">
+								<span aria-hidden="true">{{inline-svg '/images/ideaBox/flag-new.svg'}}</span>
+								{{t 'ideaBox.reported'}}
+							</button>
+					{{else}}
+							<button type="button" class="proposition-actions__item btn-none" {{on "click" this.flagProposition}}>
+								<span aria-hidden="true">{{inline-svg '/images/ideaBox/flag-new.svg'}}</span>
+								{{t 'ideaBox.report'}}
+							</button>
+					{{/if}}
+				{{/if}}
+			{{/if}}
+	</dd.content>
+</Dropdown>

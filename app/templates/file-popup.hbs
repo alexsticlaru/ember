@@ -1,0 +1,45 @@
+	<div class="popup__documents file-popup" role="dialog" aria-labelledby="accessibility-title">
+		<div class="file-popup__container">
+			<div class="file-popup__header">
+				<PopupCloseButton @closePopup={{this.closePopup}} />
+			</div>
+			<div class="file-popup__content">
+				<div>
+					<div class="file-popup__info-section">
+						<div class="file-popup__icon-section" aria-hidden="true">
+							{{inline-svg "images/community/file-line.svg"}}
+							{{inline-svg "images/community/file-icon.svg" class="file-popup__file"}}
+						</div>
+						<div class="file-popup__info">
+							<h1 id="accessibility-title">{{this.model.section.title}}</h1>
+							<span class="file-popup__date">{{this.model.section.displayDate}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="file-popup__content-file-document">
+
+					{{#if this.model.section.content}}
+						{{{this.model.section.content}}}
+					{{/if}}
+
+					{{#each this.model.documentParts as |documentPart|}}
+						{{#if documentPart.url}}
+						<div class="file-popup__attachment-container">
+							<div class="file-popup__icons-container">
+								<a class="file-popup__view-attachment" href={{documentPart.url}} download aria-label={{t 'buttons.downloadDocument'}}>
+									{{inline-svg "images/community/visualize-icon.svg"}}
+								</a>
+								<a class="file-popup__view-attachment" target="_blank" href={{documentPart.url}} aria-label={{t 'buttons.viewDocument'}}>
+									{{inline-svg "images/community/download-icon.svg"}}
+								</a>
+							</div>
+							<img aria-hidden="true" src={{documentPart.computedImage}} />
+
+							<!-- <CloudinaryImage @publicId={{documentPart.computedImage}} @options={{hash format='png'transforms='q_auto,f_auto,c_fill'}}/> -->
+						</div>
+						{{/if}}
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>

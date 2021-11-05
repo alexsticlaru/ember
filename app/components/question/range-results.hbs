@@ -1,0 +1,51 @@
+<ContainerQuery
+  @features={{hash
+    phone=(cq-width max=564)
+    tablet=(cq-width min=564)}}
+    class="questionnaire-questions"
+  as |CQ|
+>
+{{#if CQ.features.tablet}}
+    <div class="range-results">
+        <h2 class="heading-2">{{@question.question}}</h2>
+        <span>{{@question.results.firstObject.respondentsCount}}&nbsp;{{t 'questionnaire.participants'}}</span>
+        <div class="range-results__container">
+            {{#each this.rangeValues as |range|}}
+                <div class="range-results__column">
+                    {{#if range.userDidAnswer}}
+                        <UserAvatar @user={{@user}} @dimensions={{25}} @avatarClass="range-results__avatar"/>
+                    {{/if}}
+                    <span class="range-results__percentage">{{range.percentage}}%</span>
+                    <span style={{html-safe (concat 'height:' range.percentage '%; background-color: rgb(255,127,71, ' (color-opacity range.percentage) ');')}} 
+                    class="range-results__block"></span>
+                    <span class="range-results__value">{{range.answer}}</span>
+                </div>
+            {{/each}}
+        </div>
+        <div class="range-results__range-limits">
+            <span>{{t 'questionnaire.rate-feedback.not_really_good'}}</span>
+            <span>{{t 'questionnaire.rate-feedback.excellent'}}</span>
+        </div>
+    </div>
+{{else}}
+    <div class="range-results-phone" style={{if @questionIndex (if (numberEven @questionIndex) 'background-color: rgba(227, 227, 227, .2);' 'background-color: rgba(208, 191, 169, 0.17);')}}>
+        <h2 class="heading-2--secondary">{{@question.question}}</h2>
+        <span class="range-results-phone__participants">{{@question.results.firstObject.respondentsCount}}&nbsp;{{t 'questionnaire.participants'}}</span>
+        <span class="range-results-phone__limit">{{t 'questionnaire.rate-feedback.not_really_good'}}</span>
+        <div class="range-results-phone__container">
+            {{#each this.rangeValues as |range|}}
+                <div class="range-results-phone__row">
+                    <span class="range-results-phone__percentage">{{range.percentage}}%</span>
+                    <span class="range-results-phone__value">{{range.answer}}</span>
+                    <span style={{html-safe (concat 'width:' range.percentage '%; background-color: rgb(255,127,71, ' (color-opacity range.percentage) ');')}} 
+                    class="range-results-phone__block"></span>
+                    {{#if range.userDidAnswer}}
+                        <UserAvatar @user={{@user}} @dimensions={{25}} @avatarClass="range-results-phone__avatar"/>
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
+        <span class="range-results-phone__limit">{{t 'questionnaire.rate-feedback.excellent'}}</span>
+    </div>
+{{/if}}
+</ContainerQuery>

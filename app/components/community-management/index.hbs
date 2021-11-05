@@ -1,0 +1,228 @@
+<SettingsItem
+  @title={{t 'community.communityManagement.name'}}
+  @tooltip={{t 'community.communityManagement.nameTooltip'}}>
+  <LabelTextField
+      @value={{@community.name}}
+      @maxlength={{200}}
+  />
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.type'}}
+  @noTooltip={{true}}>
+  <select onchange={{action "changeType" value="target.value"}} class="input-text">
+    <option value="organisation" selected={{eq "place" @community.type}}>{{t 'community.communityManagement.typeOrg'}}</option>
+    <option value="government" selected={{eq "government" @community.type}}>{{t 'community.communityManagement.typeGov'}}</option>
+  </select>
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.country'}}
+  @noTooltip={{true}}>
+  <select onchange={{action "changeCountry" value="target.value"}} class="input-text">
+    <option value="EN" selected={{eq "EN" @community.country}}>{{t 'countries.England'}}</option>
+    <option value="DE" selected={{eq "DE" @community.country}}>{{t 'countries.Germany'}}</option>
+    <option value="ES" selected={{eq "ES" @community.country}}>{{t 'countries.ES'}}</option>
+    <option value="FR" selected={{eq "FR" @community.country}}>{{t 'countries.FR'}}</option>
+    <option value="NL" selected={{eq "NL" @community.country}}>{{t 'countries.Netherlands'}}</option>
+    <option value="HR" selected={{eq "HR" @community.country}}>{{t 'countries.HR'}}</option>
+  </select>
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.language'}}
+  @noTooltip={{true}}>
+  <select onchange={{action "changeLanguage" value="target.value"}} class="input-text">
+    {{#each this.intl.languages as |language|}}
+      <option value={{language.iso1}} selected={{eq language.iso1 @community.locale}}>{{language.name}}</option>
+    {{/each}}
+  </select>
+</SettingsItem>
+
+<div class="community-management__horizontal-seperator">
+</div>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.cover'}}
+  @tooltip={{t 'community.communityManagement.coverTooltip'}}>
+  <FileUpload
+    @id="cover-image-upload"
+    @fileType="image"
+    @upload={{this.uploadCover}}>
+    <label for="cover-image-upload" class="btn-none" role="button" tabindex="0">
+      <div class="community-management__cover-image-container">
+        <span>
+        {{#if this.processingCover}}
+          <CircularProgress />
+        {{else if @community.cover}}
+          <CloudinaryImage
+                aria-hidden="true"
+                class={{"community-management__cover-image"}}
+                @publicId={{@community.cover}}
+                @options={{hash format='png' transforms='q_auto,f_auto'}}
+          />
+        {{else}}
+        <div class="community-management__cover-image-placeholder" aria-hidden="true">
+          {{inline-svg '/images/community/settings-image.svg'}}
+        </div>
+        {{/if}}
+        </span>
+        <span class="community-management__cover-image-text">
+          {{t 'community.communityManagement.coverDimensions'}}
+        </span>
+      </div>
+    </label>
+  </FileUpload>
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.logo'}}
+  @tooltip={{t 'community.communityManagement.logoTooltip'}}>
+  <FileUpload
+    @id="logo-image-upload"
+    @fileType="image"
+    @upload={{this.uploadLogo}}>
+    <label for="logo-image-upload" class="btn-none" role="button" tabindex="0">
+      <div class="community-management__cover-image-container">
+        <span>
+          {{#if this.processingLogo}}
+            <CircularProgress />
+          {{else if @community.logo}}
+            <CloudinaryImage
+                  aria-hidden="true"
+                  class={{"community-management__community-logo-image"}}
+                  @publicId={{@community.logo}}
+                  @options={{hash format='png' transforms='q_auto,f_auto'}}
+            />
+          {{else}}
+            {{inline-svg '/images/community/settings-image.svg'}}
+          {{/if}}
+        </span>
+        <span class="community-management__cover-image-text">
+          {{t 'community.communityManagement.logoDimensions'}}
+        </span>
+      </div>
+    </label>
+  </FileUpload>
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.description'}}
+  @tooltip={{t 'community.communityManagement.descriptionTooltip'}}>
+  <LabelTextField
+    @type={{"textarea"}}
+    @height={{"15"}}
+    @value={{@community.description}}
+    @placeholder={{t 'community.communityManagement.descriptionPlaceholder'}}
+    @maxlength={{300}}
+  />
+</SettingsItem>
+
+<div class="community-management__horizontal-seperator">
+</div>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.website'}}
+  @tooltip={{t 'community.communityManagement.websiteTooltip'}}>
+  <LabelTextField
+      @value={{@community.homepageUrl}}
+      @maxlength={{200}}
+  />
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.twitter'}}
+  @noTooltip={{true}}>
+  <LabelTextField
+      @value={{@community.twitterUrl}}
+      @maxlength={{200}}
+  />
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.linkedin'}}
+  @noTooltip={{true}}>
+  <LabelTextField
+      @value={{@community.linkedinUrl}}
+      @maxlength={{200}}
+  />
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.youtube'}}
+  @noTooltip={{true}}>
+  <LabelTextField
+      @value={{@community.youtubeUrl}}
+      @maxlength={{200}}
+  />
+</SettingsItem>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.facebook'}}
+  @noTooltip={{true}}>
+  <LabelTextField
+      @value={{@community.facebookUrl}}
+      @maxlength={{200}}
+  />
+</SettingsItem>
+
+<div class="community-management__horizontal-seperator">
+</div>
+
+<SettingsItem
+  @title={{t 'community.communityManagement.url'}}
+  @tooltip={{t 'community.communityManagement.urlTooltip'}}>
+  {{#if this.user.isGlobalAdmin}}
+    <LabelTextField
+        @value={{@community.url}}
+        @maxlength={{200}}
+    />
+  {{else}}
+    <LabelTextField
+        @value={{@community.url}}
+        @maxlength={{200}}
+        @disabled={{true}}
+    />
+  {{/if}}
+</SettingsItem>
+
+<div class="community-management__item-container">
+  {{t 'community.communityManagement.obligatoryFields'}}
+</div>
+
+<div class="community-management__save-button-container">
+  {{#if this.processingChanges}}
+    <SpinnerButton
+      @class="btn-civ-black-reverse community-management__save-button"
+      @spinning={{true}}
+    >
+      <span>
+        {{t 'pb.profile.saving'}}
+      </span>
+    </SpinnerButton>
+  {{else if this.changesSaved}}
+    <button class="btn-civ-black community-management__save-button" {{on "click" this.saveCommunity}}>
+      <span aria-hidden="true">{{inline-svg '/images/ideaBox/check.svg'}}</span>
+      {{t 'pb.profile.saved'}}
+    </button>
+  {{else}}
+    <button class="btn-civ-black community-management__save-button" {{on "click" this.saveCommunity}}>
+      {{t 'pb.profile.save'}}
+    </button>
+  {{/if}}
+
+<!--
+  <SpinnerButton
+		@class="btn-civ-black community-management__save-button"
+		@onClick={{this.saveCommunity}}
+		@spinning={{this.saveRunning}}
+	>
+		{{t 'pb.profile.save'}}
+	</SpinnerButton> -->
+  
+{{!-- Replaced by the spinner
+	<button class="btn-civ-black community-management__save-button" {{on "click" this.saveCommunity}}>
+    {{t 'pb.profile.save'}}
+  </button>
+--}}
+</div>

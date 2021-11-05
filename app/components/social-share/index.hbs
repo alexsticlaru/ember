@@ -1,0 +1,49 @@
+<div class="social-share">
+
+	{{#if @shareInfo}}
+		<div class="social-share__preview">
+			{{#if @shareInfo.image}}
+				<img class="social-share__preview-image" src={{@shareInfo.image}} />
+			{{else}}
+				<div class="social-share__preview-image"></div>
+			{{/if}}
+			<div class="social-share__preview-title">
+				{{@shareInfo.title}}
+			</div>
+			<div class="social-share__preview-description">
+				{{@shareInfo.description}}
+			</div>
+		</div>
+	{{/if}}
+
+	<div class="social-share__middle-container">
+		<div class="social-share__text">
+			{{t 'ideaBox.shareButton.copyAndPaste'}}
+		</div>
+	</div>
+
+		<input type="text" class="social-share__copy-url-text" value="{{@url}}" disabled />
+		<button type="button" class="social-share__copy-url-button btn-civ-black" {{on "click" this.copyShareUrl}}>
+			{{t 'ideaBox.shareButton.copyLink'}}
+		</button>
+
+	<div class="social-share__bottom-container">
+		<div class="social-share__text">
+			{{t 'ideaBox.shareButton.buttonsExplanation'}}
+		</div>
+		<div class="social-share__social-item-container">
+			<button class="social-share__social-item btn-none" type="button" {{on "click" this.facebookMessengerShareURL}} title={{t 'ideaBox.shareButton.facebookMessenger'}}>
+				{{inline-svg "images/facebook-messenger.svg" class="email-icon"}}
+			</button>
+			<button class="social-share__social-item btn-none" type="button" {{on "click" this.whatsappShareURL}} title={{t 'ideaBox.shareButton.whatsapp'}}>
+				{{inline-svg "images/whatsapp-circle.svg" class="whatsapp-icon"}}
+			</button>
+			<button class="social-share__social-item btn-none" type="button" {{on "click" this.facebookShareURL}} title={{t 'ideaBox.shareButton.facebook'}}>
+				{{inline-svg "images/facebook-icon.svg" class="facebook-icon"}}
+			</button>
+			<button class="social-share__social-item btn-none" type="button" {{on "click" this.twitterShareURL}} title={{t 'ideaBox.shareButton.twitter'}}>
+				{{inline-svg "images/twitter-blue.svg" class="twitter-icon"}}
+			</button>
+		</div>
+	</div>
+</div>

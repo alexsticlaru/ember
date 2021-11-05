@@ -1,0 +1,27 @@
+{{#if @usersCanParticipate}}
+
+<div class={{this.commentAddFormClass}}>
+
+    <div class="comment-add-form__comment-content">
+      <Textarea
+      @value={{this.commentContent}}
+      @disabled={{this.isProcessing}}
+      @placeholder={{this.placeholder}}
+      @focus-in={{this.expandForm}}
+      @focus-out={{this.expandForm}}
+      />
+    </div>
+	<div class="comment-add-form__controls">
+		<div class="comment-add-form__avatar">
+			<UserAvatar @user={{this.user.currentUser}} @dimensions={{34}}></UserAvatar>
+		</div>
+		<button type="button" class="btn-civ-green-icon comment-add-form__add-comment"
+      {{on "click" this.addComment}}
+      aria-label={{t "accessibility.sendComment"}}>
+			<span aria-hidden="true">{{inline-svg "/images/consultation/send-comment.svg"}}</span>
+		</button>
+	</div>
+</div>
+
+
+{{/if}}

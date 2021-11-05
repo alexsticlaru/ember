@@ -1,0 +1,55 @@
+<LinkTo @route="community.participation.consultation.act.contribution"
+		@model={{@comment.id}} aria-labelledby="commentTitle-{{@comment.id}}"
+>
+	<div class="contribution-item-preview-desktop">
+		<div class="contribution-item-preview-desktop__items-container">
+			<div class="contribution-item-preview-desktop__first-section {{unless @comment.attachments 'isFullWidth'}}">
+						<div>
+							<UserAvatar @user={{@comment.user}} @dimensions={{44}} />
+						</div>
+				<div class="contribution-item-preview-desktop__style-container">
+					<div>
+						<p class="contribution-item-preview-desktop__username-style">{{@comment.user.fullName}} {{t 'discussionPreview.userSays'}}</p>
+					</div>
+					<div>
+						<p class="contribution-item-preview-desktop__title" id="commentTitle-{{@comment.id}}">{{html-safe @comment.title}}</p>
+					</div>
+					<div>
+						<div class="contribution-item-preview-desktop__comment-text {{if @comment.attachments.length "small" }}">
+              <div class="contribution-item-preview-desktop__truncate-overflow">
+								{{html-safe @comment.content}}
+							</div>
+						</div>
+					</div>
+					<div class="contribution-item-preview-desktop__reactions">
+						<div class="contribution-item-preview-desktop__people-participating">
+							<Reactions::Summary @content={{@comment}} @noClick={{true}} class="contribution-item-preview-desktop__emojis"></Reactions::Summary>
+							<div>
+								<p class="contribution-item-preview-desktop__date">{{t 'buttons.commentCount' number=@comment.commentCount}}</p>
+							</div>
+							<div  class="contribution-item-preview-desktop__bullet-container">
+								<span class="contribution-item-preview-desktop__bullet">&#8226;</span>
+							</div>
+							<div>
+								<span class="contribution-item-preview-desktop__date">{{@comment.displayDate}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{#if @comment.attachments.length}}
+				<div class="contribution-item-preview-desktop__second-section">
+					{{#if @comment.attachments.length}}
+						<div class="contribution-item-preview-desktop__image-container" aria-hidden="true">
+								{{#each @comment.attachments as |attachment|}}
+									<div>
+										<AttachmentItem::preview @attachment={{attachment}}  @isLarge={{true}}/>
+									</div>
+								{{/each}}
+						</div>
+					{{/if}}
+				</div>
+			{{/if}}
+		</div>
+	</div>
+</LinkTo>

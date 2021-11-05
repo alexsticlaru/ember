@@ -1,0 +1,11 @@
+.jodit-popup .jodit-civ-emoji-container button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border: solid 1px #fff;
+    background-color: #fff;
+    font-family: "Lato", Arial, sans-serif;
+    font-family: initial;
+    font-size: 20px;
+}

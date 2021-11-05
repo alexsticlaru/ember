@@ -1,0 +1,18 @@
+<div class="register-chooser">
+    <button class="btn-civ-black register-chooser__btn" type="button" {{on 'click' this.goToRegistrationForm}} >
+        {{inline-svg "images/inbox.svg" class="icon icon--white"}}
+        <span>{{t 'buttons.signupEmail'}}</span>
+    </button>
+{{#if this.dbgS.isDebugger}}
+	FB Disabled for public : not working for now : debugMode only!
+    <button type="button" class="btn-civ-log-facebook register-chooser__btn" {{on 'click' @onFacebookRegistration}}>
+        {{inline-svg "images/facebook-1.svg" class="icon icon--white"}}
+        <span>{{t 'register.withFacebook'}}</span>
+    </button>
+{{/if}}
+    <button type="button"
+            class="btn-none register-form__btn-login"
+            {{on 'click' @onAlreadyHaveAccountClick}}>
+            {{t 'register.login'}}
+    </button>
+</div>

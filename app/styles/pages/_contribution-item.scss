@@ -1,0 +1,226 @@
+.mobile-contribution-item {
+  width: 100%;
+
+  &__content {
+	padding: 0 2.5rem;
+  }
+
+  &__top-container {
+	position: relative;
+	height: 5rem;
+  }
+
+  &__header-banner {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+  }
+
+  &__gradient {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(image.png);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+  }
+
+  &__back-button{
+	position: absolute;
+	left: 2.5rem;
+	top: 1.6rem;
+	svg path{
+	  fill: white;
+	}
+  }
+
+  &__header-actions-container {
+	position: absolute;
+	right: 2.4rem;
+	bottom: -2.2rem;
+	display: flex;
+  }
+
+  &__header-action {
+	width: 4.4rem;
+	height: 4.4rem;
+	border-radius: 2.2rem;
+	background: $white;
+	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15);
+	margin-left: 1.3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+
+  &__edit-button{
+	float:right;
+  }
+
+  &__tabs{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	flex-wrap: wrap;
+	border-bottom: 1px solid $gray-line-color;
+	padding: 1.1rem 0 0 1.6rem;
+	margin-bottom: 1.5rem;
+  }
+
+  &__themes{
+	width: 100%;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	padding: 2.6rem 1.6rem;
+  }
+
+  &__tab {
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 2.1rem;
+	text-align: center;
+	cursor: pointer;
+	height: 2.688rem;
+	color: #535461;
+	margin-right: 2.8rem;
+	&.isActive {
+	  border-bottom: 2px solid $medium-blue;
+	  color: $dark-gray-color;
+	}
+  }
+
+  &__title{
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	letter-spacing: 0.01rem;
+	padding-bottom: 0.6rem;
+  }
+
+  &__first-conversation-side{
+	background:$all-white;
+  }
+
+  &__user{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	padding: 2.3rem 2.5rem 0.8rem 2.5rem;
+
+	img {
+	  width: 3.7rem;
+	  height: 3.7rem;
+	}
+  }
+
+  &__user-avatar-container{
+  	display: flex;
+	padding-top: 0.7rem;
+  }
+
+  &__top-info {
+	margin-left: 1.7rem;
+	display: flex;
+	flex-direction: column;
+	background: #FBFAF9;
+	justify-content: center;
+  }
+
+  &__username-style{
+	font-size: 1.1rem;
+	color: #797C98;
+	font-weight: 400;
+	line-height: 1.8rem;
+  }
+
+  &__title-project{
+	font-size: 1.6rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 2.1rem;
+	letter-spacing: 0;
+  }
+
+  &__top-title {
+	font-weight: 600;
+	font-size: 1.6rem;
+	line-height: 2.1rem;
+  }
+
+  &__display-date{
+	padding-bottom: 1.5rem;
+	font-size: 1.2rem;
+  }
+
+  &__bullet{
+	padding-right: 0.5rem;
+	padding-bottom: 1.5rem;
+  }
+
+  &__comment-text{
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.8rem;
+	text-align: left;
+  }
+
+  &__user-info-container{
+	width: 100%;
+	display: inline-flex;
+  }
+
+  &__user-info-item{
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.8rem;
+	text-align: left;
+	color: $medium-dark-gray;
+	padding-top: 1rem;
+	width: 50%;
+  }
+
+  &__action-container{
+	margin-top: 1rem;
+	display: inline-flex;
+	width: 100%;
+	border-top: 1px solid $light-gray;
+  }
+
+  &__action-item{
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 2.2rem;
+	text-align: center;
+	width: 33%;
+  }
+
+  &__info-container{
+	display: inline-flex;
+	width: 100%;
+	border-top: 1px solid $light-gray;
+	border-bottom: 1px solid $light-gray;
+  }
+
+  &__info-item{
+	padding-top: 1.2rem;
+	padding-bottom: 1.2rem;
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5rem;
+	text-align: center;
+	width: 50%;
+  }
+}

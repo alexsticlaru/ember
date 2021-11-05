@@ -1,0 +1,37 @@
+<div class="order-choice" {{did-insert this.setup}}>
+    {{yield}}
+    <p class="order-choice__description">{{html-safe @question.content}}</p>
+    {{#if @phone}}
+        <span class="order-choice__indication">{{t 'questionnaire.questions.dragDrop'}}</span>
+    {{else}}
+        <span class="order-choice__indication">{{t 'questionnaire.questions.dragArrows'}}</span>
+    {{/if}}
+    <SortableObjects @sortableObjectList={{this.answers}} @sortEndAction={{fn this.dragEnd}} @useSwap={{false}}
+        @enableSort={{true}} >
+        {{#each  this.answers as |answer index|}}
+            <DraggableObject @content={{answer}} @isSortable={{true}} @overrideClass="order-choice__answer">
+                    <div class="order-choice__left-box">
+                            <span class="order-choice__order">{{answer.orderNr}}</span>
+                            {{answer.answer}}
+                    </div>
+                    <span aria-hidden="true" class="order-choice__union"> {{inline-svg '/images/questionnaire/union.svg' class="icon-small"}}</span>
+                    {{#unless @phone}}
+                        <div class="order-choice__arrows-box">
+                            <button type="button" class="btn-none" disabled={{eq index 0}} {{on 'click' (fn this.answerUp index)}}>
+                               {{inline-svg '/images/questionnaire/arrow-up.svg' class="icon-small"}}
+                            </button>
+                            <button type="button" class="btn-none" disabled={{eq index (minus this.answers.length 1)}} {{on 'click' (fn this.answerDown index)}}>
+                               {{inline-svg '/images/questionnaire/arrow-down.svg' class="icon-small"}}
+                            </button>
+                        </div>
+                    {{/unless}}
+            </DraggableObject>
+        {{/each}}
+    </SortableObjects>
+    <button type="button" class="btn-none order-choice__clear" {{on 'click' this.clear}}>
+        {{inline-svg '/images/questionnaire/refresh.svg' class="icon-small"}}
+        <span>
+            {{t 'questionnaire.questions.clear'}}
+        </span> 
+    </button>
+</div>

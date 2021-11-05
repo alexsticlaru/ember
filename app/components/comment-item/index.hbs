@@ -1,0 +1,132 @@
+<div class="comment-item">
+  <div class="comment-item__user-bubble">
+	  <div>
+		  <UserAvatar @user={{@comment.user}} @dimensions={{35}}></UserAvatar>
+	  </div>
+	  {{#if this.replysIsVisible}}
+		  <div class="comment-item__visible-reply"></div>
+	  {{/if}}
+  </div>
+  <div class="comment-item__item-container">
+	  <div class="comment-item__info">
+		  <div>
+			  <span class="comment-item__username-style">{{@comment.user.firstName}} says</span>
+			  {{#if (eq @comment.user.id @author.id)}}
+				  <span class="comment-item__author-badge">
+					  {{t 'issue.comment.author'}}
+				  </span>
+			  {{/if}}
+		  </div>
+		  <div class="comment-item__bottom-container">
+			  <span class="comment-item__date">{{@comment.displayDate}}</span>
+			  <span class="comment-item__edit-button btn-none">
+          <CommentActions @comment={{@comment}} @editComment={{this.editComment}} @top={{20}} @left={{-150}}>
+            <div class="comment-item__edit-button-handspacer btn-none" role="button" aria-label={{t 'pb.accessibility.openDropdown'}} tabindex="0">
+              <span aria-hidden="true">{{inline-svg '/images/ideaBox/gray-dots-small.svg'}}</span>
+            </div>
+          </CommentActions>
+		     </span>
+		  </div>
+	  </div>
+	  <div class="comment-item__display-content">
+			{{#if @comment.reactionCount}}
+				<Reactions::Summary @content={{@comment}} class="comment-item__reactions-summary"></Reactions::Summary>
+			{{/if}}
+		    <div class="comment-item__content">
+				{{#if this.isEditing}}
+				  <Textarea @value={{@comment.content}} autofocus/>
+				{{else}}
+				  {{html-safe @comment.content}}
+				{{/if}}
+			</div>
+    </div>
+    <div class="comment-item__action-bar">
+      <Reactions::LikeButton @content={{@comment}} @simple={{true}}></Reactions::LikeButton>
+      <button type="button" class="btn-none comment-item__reply-button" {{on 'click' (fn @switchToReplyMode @comment)}}>
+          {{t 'issue.comment.reply'}}
+      </button>
+      {{#if this.isEditing}}
+        <button type="button" class="btn-civ-green-icon btn-civ-green-icon--small" {{on "click" (fn this.saveComment @comment)}}>
+          {{inline-svg "/images/consultation/send-comment.svg"}}
+        </button>
+      {{/if}}
+    </div>
+
+
+	  <div class="comment-item__reply-container">
+		  {{#if this.replys}}
+			  <button type="button" class="btn-none comment-item__replys-handle" {{on "click" this.handleReplysVisibility}}>
+				  {{inline-svg "/images/discussion/replys-arrow.svg"}}
+				  {{#if this.replysIsVisible}}
+					  <span>Hide responses</span>
+				  {{else}}
+					  <span>{{this.replys.length}} responses</span>
+				  {{/if}}
+
+			  </button>
+		  {{/if}}
+
+		  {{#if this.replysIsVisible}}
+			  {{#each this.replys as |reply|}}
+				  <div class="comment-item">
+					  <div class="comment-item__user-bubble">
+						  <UserAvatar @user={{reply.user}} @dimensions={{35}}></UserAvatar>
+					  </div>
+					  <div class="comment-item__item-container">
+
+
+						  <div class="comment-item__info">
+							  <div>
+								  <span class="comment-item__username-style">{{@comment.user.firstName}} says</span>
+								  {{#if (eq reply.user.id @author.id)}}
+									  <span class="comment-item__author-badge">
+										  {{t 'issue.comment.author'}}
+									  </span>
+								  {{/if}}
+							  </div>
+
+							  <div class="comment-item__display-date">
+								  <span class="comment-item__date">{{reply.displayDate}}</span>
+								  <span class="comment-item__edit-button btn-none">
+                    <CommentActions @comment={{reply}} @editComment={{this.editCommentReply}} @top={{20}} @left={{-150}}>
+                      <div class="comment-item__edit-button-handspacer btn-none" role="button" aria-label={{t 'pb.accessibility.openDropdown'}} tabindex="0">
+                        <span aria-hidden="true">{{inline-svg '/images/ideaBox/gray-dots-small.svg'}}</span>
+                      </div>
+                    </CommentActions>
+                  </span>
+							  </div>
+
+						  </div>
+						  <div class="comment-item__display-content">
+							  {{#if reply.reactionCount}}
+								  <Reactions::Summary @content={{reply}} class="comment-item__reactions-summary"></Reactions::Summary>
+							  {{/if}}
+
+							  <div class="comment-item__content">
+								  {{#if this.isEditingReply}}
+									  <Textarea
+											  @value={{reply.content}}
+											  autofocus
+									  />
+								  {{else}}
+									  {{html-safe reply.content}}
+								  {{/if}}
+							  </div>
+						  </div>
+						  <div class='comment-item__action-bar'>
+							  {{#if @usersCanParticipate}}
+								  <Reactions::LikeButton @content={{reply}} @simple={{true}}></Reactions::LikeButton>
+							  {{/if}}
+							  {{#if this.isEditingReply}}
+								  <button type="button" class="btn-civ-green-icon btn-civ-green-icon--small" {{on "click" (fn this.saveComment reply)}}>
+									  {{inline-svg "/images/consultation/send-comment.svg"}}
+								  </button>
+							  {{/if}}
+						  </div>
+					  </div>
+				  </div>
+			  {{/each}}
+		  {{/if}}
+	  </div>
+  </div>
+</div>

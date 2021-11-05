@@ -1,0 +1,48 @@
+.user-ideas {
+  width: 100%;
+  background: $all-white;
+
+  &__header {
+	width: 100%;
+	height: 10rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 2.7rem;
+  }
+  &__back-button{
+	position: absolute;
+	left: 2.5rem;
+	top: 1.6rem;
+	svg path{
+	  color:$medium-gray;
+	}
+  }
+
+  &__title {
+	padding-top: 0.5rem;
+	padding-left: 1.2rem;
+  }
+
+  &__icon-and-title{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+
+  &__name-user{
+	color: $medium-dark-gray;
+	padding-top: 1.5rem;
+  }
+
+  &__no-assertion{
+	justify-content: center;
+	display: flex;
+	padding-top: 2rem;
+  }
+
+  &__ideas-container {
+	display: flex;
+	flex-direction: column;
+  }
+}

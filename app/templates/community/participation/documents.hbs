@@ -1,0 +1,38 @@
+<ContainerQuery
+		@features={{hash
+		phone=(cq-width max=this.config.breakpoints.phone)
+		tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+		desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+		class="cards-container-query"
+		as |CQ|
+>
+	{{#if (or CQ.features.tablet CQ.features.desktop)}}
+	<div class="documents">
+		<BreadCrumbs @breadCrumbs={{this.breadCrumbs}} class="breadcrumbs--black"/>
+		<h1 class="documents__title heading-1">{{t 'participation.documentsTitle'}}</h1>
+		<div class="documents__description-container">
+			<span class="documents__description">{{t 'participation.documentsDescription'}}</span>
+		</div>
+		<div class="documents__cards">
+			{{#each this.model.project.sortedProjectSections as |section|}}
+				<DocumentCard @customClass="small" @hasImage={{false}} @section={{section}}/>
+			{{/each}}
+		</div>
+	</div>
+	{{else}}
+		<div class="documents-mobile">
+<!--			Keep this for the moment. Maybe we will use it later-->
+<!--			<BreadCrumbs @breadCrumbs={{this.breadCrumbs}} class="breadcrumbs--black"/>-->
+			<h1 class="heading-1">{{t 'participation.documentsTitle'}}</h1>
+			<div class="documents-mobile__description-container">
+				<span class="documents-mobile__description">{{t 'participation.documentsDescription'}}</span>
+			</div>
+			<div class="documents-mobile__cards">
+				{{#each this.model.project.sortedProjectSections as |section|}}
+					<DocumentCard @customClass="mobile" @hasImage={{false}} @section={{section}}/>
+				{{/each}}
+			</div>
+			<button class="btn-civ-black-reverse updates-mobile__see-all-updates" type="button">{{t 'participation.seeMoreDocuments'}}</button>
+		</div>
+	{{/if}}
+</ContainerQuery>

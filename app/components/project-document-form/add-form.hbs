@@ -1,0 +1,87 @@
+<div class="community-management">
+
+  <div class="community-management__breadcrumbs-container">
+    <span class="btn-none community-management__breadcrumbs community-management__breadcrumbs--active" {{on "click" @onDocumentAdded}}>
+      {{t 'addDocument.navTitle'}}
+    </span>
+    <span class="community-management__breadcrumbs-icon" aria-hidden="true">
+      {{inline-svg '/images/community/settings/breadcrumbs.svg'}}
+    </span>
+    <span class="community-management__breadcrumbs">
+      {{t 'addDocument.title'}}
+    </span>
+  </div>
+
+  <div class="community-management__update-title-container">
+    <div class="community-management__main-title">
+      {{t 'addDocument.title'}}
+    </div>
+    <button class="btn-civ-black" type="button" {{on "click" this.openPreview }}>
+      {{t 'addDocument.preview'}}
+    </button>
+  </div>
+
+  <SettingsItem
+    @title={{t 'addDocument.newDocumentTitle'}}
+    @noTooltip={{true}}>
+    <LabelTextField
+        @value={{this.section.title}}
+        @maxlength={{200}}
+        @placeholder ={{t 'addDocument.newDocumentTitlePlaceholder'}}
+    />
+  </SettingsItem>
+
+  <SettingsItem
+    @title={{t 'addDocument.newDocumentContent'}}
+    @noTooltip={{true}}>
+    <NewRichEditor
+        @content={{this.section.content}}
+        @editorId ={{"document-add-editordescription-create"}}
+        @placeholder ={{t 'addDocument.newDocumentContentPlaceholder'}}
+    />
+  </SettingsItem>
+
+  {{#each this.documentParts as |documentPart|}}
+    <div class="project-document-edit-form__attachment">
+      <div class="file-popup__attachment-container">
+        {{#if documentPart.isProcessing}}
+          <CircularProgress
+            @dimensions=60
+          />
+        {{else}}
+          <div class="file-popup__icons-container">
+            <a class="file-popup__view-attachment" href={{documentPart.url}} download aria-label={{t 'buttons.downloadDocument'}}>
+              {{inline-svg "images/community/visualize-icon.svg"}}
+            </a>
+            <a class="file-popup__view-attachment" target="_blank" href={{documentPart.url}} aria-label={{t 'buttons.viewDocument'}}>
+              {{inline-svg "images/community/download-icon.svg"}}
+            </a>
+          </div>
+          <img src={{documentPart.computedImage}} />
+        {{/if}}
+      </div>
+      <div>
+        <button type="button" class="btn-none project-document-edit-form__delete-button" {{on "click" (fn this.deletePart documentPart)}}>
+          {{inline-svg '/images/community/settings/delete-link.svg'}}
+        </button>
+      </div>
+    </div>
+  {{/each}}
+
+  <div>
+    <span class="project-document-edit-form__attachment-button">
+      <ProjectDocumentForm::addAttachment
+      @section={{this.section}}
+      @documentParts={{this.documentParts}} />
+    </span>
+  </div>
+
+  <div class="community-management__save-button-container">
+    <button type="button" class="btn-civ-black community-management__save-button" {{on "click" this.addDocument}}>
+      {{t 'addDocument.newDocumentButton'}}
+    </button>
+    <button type="button" class="btn-none community-management__delete-button" {{on "click" @onDocumentAdded}}>
+      {{t 'addUpdate.discard'}}
+    </button>
+  </div>
+</div>

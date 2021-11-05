@@ -1,0 +1,41 @@
+
+<div class="homepage">
+	<Homepage::TitlePanel/>
+	<div class="homepage__section section-white">
+		<h2 class="homepage__section__title-map">{{t 'homepage.sectionTitles.locations'}}</h2>
+		<div class="homepage__section__content-map">
+			<Homepage::PartenersMap @locations={{@model}} />
+		</div>
+	</div>
+	<div class="homepage__section section-grey">
+		<h2 class="heading-2 homepage__section__title">{{t 'homepage.sectionTitles.successes'}}</h2>
+		<div class="homepage__section__content">
+			<Homepage::TestimonialBlocks/>
+		</div>
+	</div>
+	<div class="homepage__section section-white">
+		<h2 class="homepage__section__title">{{t 'homepage.sectionTitles.process'}}</h2> 
+		<div class="homepage__section__content">
+			<Homepage::ProcessExplainer/>
+		</div>
+	</div>
+	<div class="homepage__section section-image" style='background-position: 50% 90%; {{safe-cloudinary-url "v1541167809/static/homepage/city-street" width="1200" height="800" transforms = "q_auto,f_auto,c_fill" format="jpg"}}'>
+		<div class="homepage__section__overlay"></div>
+		<div class="homepage__section__text-box">
+			<h2 class="homepage__section__title homepage__register__title">{{t 'homepage.sectionTitles.register'}}</h2>
+			<div class="homepage__section__content homepage__register__content">
+				<button type="button" {{on 'click' this.sendRegister}} class="homepage__register__button">
+					{{t "buttons.signup"}}
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="homepage__section section-grey">
+		<h2 class="homepage__section__title">{{t 'homepage.sectionTitles.partners'}}</h2>
+		<div class="homepage__section__content">
+			<Homepage::LogoCarousel class="hompepage-logo-carousel"/>
+		</div>
+	</div>
+</div>
+
+{{outlet}}

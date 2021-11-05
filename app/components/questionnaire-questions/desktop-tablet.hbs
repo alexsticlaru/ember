@@ -1,0 +1,133 @@
+{{#if @isQuestionnnaireSubmitted}}
+	<div class="questionnaire-questions__end">
+		<span aria-hidden="true">{{inline-svg '/images/questionnaire/vote-end.svg'}}</span>
+		<h2 class="heading-2 questionnaire-questions__end-title">{{t 'questionnaire.endInfoTitle'}}</h2>
+		<p class="questionnaire-questions__end-info">{{t 'questionnaire.endInfo'}}</p>
+		<div class="questionnaire-questions__end-nav-container">
+			<button type="button" class="btn-civ-black-reverse questionnaire-questions__end-btn" {{on 'click'
+																									  @backToProject}}>
+				{{t 'questionnaire.projectBack' }}
+			</button>
+			<button type="button" class="btn-civ-black questionnaire-questions__end-btn" {{on 'click' this.seeResults}}>
+				{{t 'questionnaire.seeResults'}}
+			</button>
+		</div>
+	</div>
+{{else}}
+	<div id="questionsBody" class="questionnaire-questions__body" {{did-insert this.setupBody}} tabindex="0">
+		<div style={{@progress}} class="questionnaire-questions__progress-bar" aria-label={{t 'accessibility.steps'
+																							  question=@currentStep}}>
+			<span aria-hidden="true">{{@currentStep}}/{{@totalSteps}}</span>
+		</div>
+		{{#each @questionsSortByOrder as |question|}}
+			{{#if (and (eq question.fieldType 'statement')(eq question.orderNr @currentQuestionOrderNr))}}
+				<Question::Statement @question={{question}}>
+					<h2 class="heading-2 statement">{{question.question}}</h2>
+				</Question::Statement>
+			{{else if (and (eq question.fieldType 'multiple_choices')(eq question.orderNr @currentQuestionOrderNr))}}
+				<Question::MultipleChoices @question={{question}}
+										   @anonymousUser={{@anonymousUser}}
+										   @savedAnswers={{@model.partialSavedAnswers}}
+										   @onAddAnswer={{@onAddAnswer}}
+										   @onUpdateAnswer={{@onUpdateAnswer}}
+										   @onRemoveAnswer={{@onRemoveAnswer}}>
+					<h2 class="heading-2 questionnaire-questions__title"><span
+							class="question-nr">{{question.questionNr}}.</span>{{html-safe question.question}}</h2>
+				</Question::MultipleChoices>
+			{{else if (and (eq question.fieldType 'choice')(eq question.orderNr @currentQuestionOrderNr))}}
+				<Question::OneChoice @question={{question}}
+									 @anonymousUser={{@anonymousUser}}
+									 @savedAnswers={{@model.partialSavedAnswers}}
+									 @onAddAnswer={{@onAddAnswer}}
+									 @onRemoveAnswer={{@onRemoveAnswer}}>
+					<h2 class="heading-2 questionnaire-questions__title"><span
+							class="question-nr">{{question.questionNr}}.</span>{{html-safe question.question}}</h2>
+				</Question::OneChoice>
+			{{else if (and (eq question.fieldType 'order_choice')(eq question.orderNr @currentQuestionOrderNr))}}
+				<Question::OrderChoice @question={{question}}
+									   @anonymousUser={{@anonymousUser}}
+									   @savedAnswers={{@model.partialSavedAnswers}}
+									   @onAddAnswer={{@onAddAnswer}}
+									   @onUpdateAnswer={{@onUpdateAnswer}}
+									   @onRemoveAnswers={{@onRemoveAnswers}}>
+					<h2 class="heading-2 questionnaire-questions__title"><span
+							class="question-nr">{{question.questionNr}}.</span>{{html-safe question.question}}</h2>
+				</Question::OrderChoice>
+			{{else if (and (eq question.fieldType 'yes_no')(eq question.orderNr @currentQuestionOrderNr))}}
+				<Question::OneChoice @question={{question}}
+									 @anonymousUser={{@anonymousUser}}
+									 @savedAnswers={{@model.partialSavedAnswers}}
+									 @onAddAnswer={{@onAddAnswer}}
+									 @onRemoveAnswer={{@onRemoveAnswer}}
+									 @isYesNo={{true}}>
+					<h2 class="heading-2 questionnaire-questions__title"><span
+							class="question-nr">{{question.questionNr}}.</span>{{html-safe question.question}}</h2>
+				</Question::OneChoice>
+			{{else if (and (eq question.fieldType 'text')(eq question.orderNr @currentQuestionOrderNr))}}
+				<Question::Text @question={{question}}
+								@anonymousUser={{@anonymousUser}}
+								@savedAnswers={{@model.partialSavedAnswers}}
+								@onUpdateAnswer={{@onUpdateAnswer}}
+								@onRemoveAnswer={{@onRemoveAnswer}}
+				>
+					<h2 class="heading-2 questionnaire-questions__title"><span
+							class="question-nr">{{question.questionNr}}.</span>{{html-safe question.question}}</h2>
+				</Question::Text>
+			{{else if (and (eq question.fieldType 'text_attachment')(eq question.orderNr @currentQuestionOrderNr))}}
+				<Question::TextWithAttachment @question={{question}}
+											  @anonymousUser={{@anonymousUser}}
+											  @savedAnswers={{@model.partialSavedAnswers}}
+											  @onUpdateAnswer={{@onUpdateAnswer}}
+											  @onRemoveAnswer={{@onRemoveAnswer}}>
+					<h2 class="heading-2 questionnaire-questions__title"><span
+							class="question-nr">{{question.questionNr}}.</span>{{html-safe question.question}}</h2>
+				</Question::TextWithAttachment>
+			{{else if (and (eq question.fieldType 'range')(eq question.orderNr @currentQuestionOrderNr))}}
+				<Question::Range @question={{question}}
+								 @anonymousUser={{@anonymousUser}}
+								 @savedAnswers={{@model.partialSavedAnswers}}
+								 @onUpdateAnswer={{@onUpdateAnswer}}
+								 @onRemoveAnswer={{@onRemoveAnswer}}
+				>
+					<h2 class="heading-2 questionnaire-questions__title"><span
+							class="question-nr">{{question.questionNr}}.</span>{{html-safe question.question}}</h2>
+				</Question::Range>
+			{{else if (and (eq question.fieldType 'email')(eq question.orderNr @currentQuestionOrderNr))}}
+				<Question::Email @question={{question}}
+								 @anonymousUser={{@anonymousUser}}
+								 @savedAnswers={{@model.partialSavedAnswers}}
+								 @onUpdateAnswer={{@onUpdateAnswer}}
+								 @onRemoveAnswer={{@onRemoveAnswer}}>
+					<h2 class="heading-2 questionnaire-questions__title">{{html-safe question.question}}</h2>
+				</Question::Email>
+			{{/if}}
+
+		{{/each}}
+		{{#if @isSubmit}}
+			<button type="button" class="btn-civ-black questionnaire-questions__submit"
+				{{on 'click' @submitQuestionnaire}}>
+				<span>{{t 'questionnaire.submitBtn'}}</span>
+			</button>
+		{{/if}}
+	</div>
+	<div class="questionnaire-questions__footer">
+		<button type="button" class="btn-civ-square questionnaire-questions__nav-btn" disabled={{eq @currentStep 0}}
+				aria-label={{t 'accessibility.goBack'}}
+			{{on 'click' @previousQuestion}}>
+			{{t 'questionnaire.questions.previous'}}
+		</button>
+		<div class="questionnaire-questions__next-container">
+			{{#unless @isSubmit}}
+				<span aria-hidden="true" id="nextQuestionInfo">{{t 'questionnaire.nextQuestionInfo'}}</span>
+			{{/unless}}
+			<button type="button"
+					aria-labelledby="nextQuestionInfo"
+					disabled={{or @isSubmit @isQuestionRequired}}
+					class="btn-civ-square questionnaire-questions__nav-btn"
+				{{on 'click' @nextQuestion}}
+				{{did-insert this.focusNext}}>
+				{{t 'questionnaire.questions.next'}}
+			</button>
+		</div>
+	</div>
+{{/if}}

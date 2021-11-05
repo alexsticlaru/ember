@@ -1,0 +1,40 @@
+<div class="attachment-item">
+  <span class="attachment-item__item-container">
+    <div class="attachment-item__preview-image-container">
+      {{#if @attachment.image}}
+        <img class="attachment-item__preview-image" src={{@attachment.image}} />
+      {{else}}
+        {{#if (eq @attachment.type "link")}}
+          {{inline-svg '/images/consultation/link-attachment.svg'}}
+        {{/if}}
+        {{#if (eq @attachment.type "file")}}
+          {{inline-svg '/images/consultation/pdf-attachment.svg'}}
+        {{/if}}
+        {{#if (eq @attachment.type "picture")}}
+          {{inline-svg '/images/consultation/picture-attachment.svg'}}
+        {{/if}}
+        {{#if (eq @attachment.type "video")}}
+          {{inline-svg '/images/consultation/picture-attachment.svg'}}
+        {{/if}}
+      {{/if}}
+    </div>
+    {{#unless (eq @attachment.type "picture")}}
+      <div class="attachment-item__text-container">
+        {{#if @attachment.name}}
+          <div class="attachment-item__title">
+            {{@attachment.name}}
+          </div>
+        {{/if}}
+        {{#if @attachment.description}}
+          <div class="attachment-item__description">
+            {{@attachment.description}}
+          </div>
+        {{/if}}
+      </div>
+    {{/unless}}
+
+    <button class="btn-none attachment-item__delete-icon" {{on "click" (fn @handleClick @attachment)}}>
+      {{inline-svg '/images/discussion/delete-attachment.svg'}}
+    </button>
+  </span>
+</div>

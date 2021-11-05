@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: .
+    destination: /var/www/civ
+hooks:
+  BeforeInstall:
+    - location: scripts/BeforeInstall.sh
+      timeout: 20000
+  AfterInstall:
+    - location: scripts/AfterInstall.sh
+      timeout: 20000

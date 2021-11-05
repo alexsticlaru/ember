@@ -1,0 +1,28 @@
+<div class="popup__content" role="dialog" aria-labelledby="accessibility-title">
+	<div class="activation__header">
+		<PopupCloseButton @closePopup={{this.close}} />
+	</div>
+	<div class="activation__container">
+		<h1 id="accessibility-title" class="heading-1--quaternary activation__title">
+			{{t 'email-change-popup.title'}}
+		</h1>
+			<form class="activation__form" {{on 'submit' this.changeEmail}}>
+				{{#if this.userService.isOlderUser}}
+					<LabelTextField
+						@labelText={{t 'activation-popup.password'}}
+						@id="input-password"
+						@value={{this.password}}
+						@placeholder={{t 'placeholder.password'}}
+						@maxlength={{255}}
+						@type='password'
+						@showErrorMessage={{and this.showErrorMessages (not this.isPasswordValid)}}
+						@errorMessage={{if this.this.showForbiddenMessage (t 'activation-popup.wrongPassword') (t 'activation-popup.passwordRequired')}} />
+				{{/if}}
+				<LabelTextField @labelText={{t 'activation-popup.email'}} @id="input-email" @value={{this.email}} @type='text'
+					@placeholder={{t 'placeholder.email'}} @maxlength={{180}}
+					@showErrorMessage={{and this.showErrorMessages (not this.isEmailValid)}}
+					@errorMessage={{t 'activation-popup.emailRequired'}} />
+				<button type="submit" class="btn-civ-black">{{t 'buttons.updateEmail'}}</button>
+			</form>
+	</div>
+</div>

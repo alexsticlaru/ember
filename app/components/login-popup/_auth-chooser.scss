@@ -1,0 +1,17 @@
+.auth-chooser {
+    display: flex;
+    flex-direction: column;
+
+    &__btn {
+        margin: 1rem 0;
+    }
+
+    &__btn-register {
+        justify-content: center;
+        color: $medium-blue;
+        font-weight: 600;
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+
+}

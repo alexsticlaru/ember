@@ -1,0 +1,154 @@
+.act-side-info{
+	background: $white;
+	border: 1px solid $light-white-border;
+	box-sizing: border-box;
+	border-radius: 0.7rem;
+	padding: 2rem;
+	width: 100%;
+
+	&__info-item {
+	  margin-bottom: 3.5rem;
+	}
+
+  	&__ideas-elements{
+	  display: flex;
+	  flex-direction: row;
+	}
+
+  	&__ideas-icon{
+	  margin-right: 1rem;
+	  margin-bottom: 0.5rem;
+	}
+
+	&__title-highlights {
+	  font-size: 1.7rem;
+	  font-style: normal;
+	  margin-bottom: 1.7rem;
+	  padding-left: 1rem;
+	  display: flex;
+	  align-items: center;
+	  color: #373F41;
+	  font-weight: 600;
+	  line-height: 2.1rem;
+	  letter-spacing: 0.0126802rem;
+
+	  svg {
+		margin-top: 0.3rem;
+		width: 2.6rem;
+		height: 2.6rem;
+		margin-left: 1rem;
+	  }
+	}
+
+  &__title{
+	font-size: 1.7rem;
+	font-style: normal;
+	margin-bottom: 1.7rem;
+	padding-left: 1rem;
+	display: flex;
+	align-items: center;
+	color: $light-black;
+	font-weight: 600;
+	line-height: 2.1rem;
+	letter-spacing: 0.0126802rem;
+
+
+	svg {
+	  margin-top: 2.3rem;
+	  width: 2.6rem;
+	  height: 2.6rem;
+	  margin-left: 1rem;
+	}
+  }
+	&__title-discussion {
+	  margin-bottom: 1rem;
+	  padding-left: 1rem;
+	  display: flex;
+	  align-items: center;
+	  padding-top: 3.2rem;
+	  padding-bottom: 1.4rem;
+	}
+
+  	&__expand-style{
+	  margin-left: 1rem;
+	}
+  	&__container-details{
+	  padding-left: 0.9rem;
+	}
+
+	&__profile {
+		margin-bottom: 0.7rem;
+	}
+
+	&__profile-text {
+	  font-size: 1.2rem;
+	  font-style: normal;
+	  font-weight: 600;
+	  line-height: 1.5rem;
+	  letter-spacing: 0.01rem;
+	  text-align: left;
+	  color: $medium-dark-gray;
+	  padding-left: 1rem;
+	}
+
+	&__organisation-label {
+		color: white;
+		font-size: 1.2rem;
+		background:$button-blue;
+		border-radius: 0.3rem;
+		padding:0.3rem;
+		margin-left: 1rem;
+	}
+
+	&__info-container {
+		margin-top: 3rem;
+	}
+
+	&__overview-item {
+	  margin-top: 1rem;
+	  display: flex;
+	  padding-bottom: 1.5rem;
+	}
+
+	&__overview-item-text {
+		margin-left: 2rem;
+		font-size: 1.2rem;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 1.5rem;
+	  	letter-spacing: 0.0135354rem;
+	  	color: $medium-dark-gray;
+	}
+
+	&__overview-item-text-secondary {
+	  margin-left: 2rem;
+	  font-size: 1.2rem;
+	  font-style: normal;
+	  font-weight: 500;
+	  line-height: 1.5rem;
+	  letter-spacing: 0.0135354rem;
+	  color:$medium-dark-gray;
+	}
+
+	&__explanation-text {
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.3rem;
+		line-height: 2rem;
+	  	padding-left: 1rem;
+	}
+
+  	&__explanation-content{
+	  font-size: 1.3rem;
+	  font-weight: 400;
+	  line-height: 2rem;
+	  letter-spacing: 0.01rem;
+	  text-align: left;
+	  color: $dark-gray;
+	}
+
+  	&__themes-container{
+	  padding-bottom: 2rem;
+	}
+
+}

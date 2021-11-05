@@ -1,0 +1,70 @@
+<div class="questionnaire-phone">
+    <div class="questionnaire-phone__header" style={{safe-cloudinary-url @model.questionnaire.image width="425" height="240" transforms = "q_auto,f_auto,c_fill"}}>
+        <div class="questionnaire-phone__navigation">
+            <LinkTo class="link-btn questionnaire-phone__btn-back" 
+                @route='community.participation' 
+                @models={{array @model.community.url @model.project.url}}>
+                {{inline-svg "/images/back-arrow.svg"}}
+            </LinkTo>
+            <BreadCrumbs @breadCrumbs={{this.breadCrumbsMainPage}}/>
+        </div>
+        {{#if @model.questionnaire.userDidComplete}}
+            <span class="questionnaire-phone__answered-mark">{{t 'questionnaire.youAnswered'}}</span> 
+        {{/if}}
+        <h1 class="heading-1--quaternary">{{@model.questionnaire.title}}</h1>    
+        <div class="questionnaire-phone__intro-row">
+            {{#if (eq @model.questionnaire.status 'closed')}}
+                <span class="questionnaire__intro-status">{{capitalize @model.questionnaire.status}}</span>
+            {{else}}
+            <div class="questionnaire__intro-square">
+                <span>{{@model.questionnaire.questions.length}}</span>
+                <span>{{uppercase (t 'questionnaire.questionsNr')}}</span>
+            </div>
+            <div class="questionnaire__intro-square">
+                <span>{{this.minLong}}</span>
+                <span>{{uppercase (t 'questionnaire.questionsTime')}}</span>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    <div class="questionnaire-phone__start-container">
+        {{#if @model.questionnaire.userDidComplete}}
+            <button type="button" class="btn-civ-black questionnaire-phone__main-btn" {{on "click" this.seeResultsOnPhone}}>
+                <span>{{t 'questionnaire.seeResults'}}</span>
+            </button>
+        {{else}}
+            <button type="button" class="btn-civ-black questionnaire-phone__main-btn" {{on "click" this.startQuestionnaireOnPhone}}>
+                <span>{{t 'questionnaire.takeBtn'}}</span>
+            </button>    
+        {{/if}}
+        <p class="questionnaire-phone__description">{{@model.questionnaire.description}}</p>
+    </div>
+    <div class="questionnaire-phone__info">
+            <div class="questionnaire-phone__info-participation">
+                <h3 class="heading-3">{{t 'questionnaire.participationTitle'}}</h3>
+                <ul class="questionnaire-phone__info-list">
+                    <li>
+                        <span>{{t 'questionnaire.info.1st'}}</span>
+                    </li>            
+                    <li>
+                        <span>{{t 'questionnaire.info.2nd'}}</span>
+                    </li>            
+                    <li>
+                        <span>{{t 'questionnaire.info.3rd'}}</span>
+                    </li>            
+                    <li>
+                        <span>{{t 'questionnaire.info.4th'}}</span>
+                    </li>            
+                    <li>
+                        <span>{{t 'questionnaire.info.5th'}}</span>
+                    </li>
+                </ul>            
+            </div>        
+            <div class="questionnaire-phone__info-legal">
+                <h3 class="heading-3">{{t 'questionnaire.legalTitle'}}</h3>
+                <span>
+                    {{t 'questionnaire.legalNotice'}}
+                </span>
+            </div>
+    </div>
+</div>

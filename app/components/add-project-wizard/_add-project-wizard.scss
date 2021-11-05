@@ -1,0 +1,108 @@
+.add-project-wizard {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 12.5rem;
+
+  &__progress-step1{
+    height: 0;
+    width: 33%;
+    border: 0.4rem solid #3C64B1;
+  }
+
+  &__progress-step2{
+    width: 66%;
+    height: 0;
+    border: 0.4rem solid #3C64B1;
+  }
+  &__progress-step3{
+    width: 100%;
+    height: 0;
+    border: 0.4rem solid #3C64B1;
+  }
+
+  &__left-container{
+    padding-top: 4rem;
+    max-width: 78.9rem;
+    min-width: 60rem;
+    background-color: white;
+  }
+
+  &__left-content{
+    margin-left: 6rem;
+    margin-right: 2rem
+  }
+
+  &__header-container{
+    width: 80%;
+  }
+
+  &__save-container{
+    text-align: right;
+    padding: 2.2rem;
+    border-top: 1px solid #E6E8E9;
+  }
+  &__save-container-multiple{
+    display: flex;
+    justify-content: space-between;
+    padding: 2.2rem;
+    border-top: 1px solid #E6E8E9;
+  }
+
+  &__right-container{
+    max-width: 65.1rem;
+    background-color: #FBFAF9;
+  }
+
+  &__right-title{
+    // font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    text-align: center;
+    letter-spacing: 0.02rem;
+    margin-bottom: 2rem;
+  }
+
+  &__right-image{
+    max-width: 485px;
+  }
+
+  &__active-step{
+    // font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    text-align: right;
+    letter-spacing: 0.01rem;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+    margin-right: 2rem;
+  }
+  &__back-button{
+    // font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.01rem;
+    color: #373F41;
+  }
+  &__save-button{
+    text-align: right;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.8rem;
+    background: #3C64B1;
+    color: white;
+    padding: 1.6rem 5rem 1.6rem 5rem;
+  }
+
+  &__save-button--deactivated{
+    opacity: 0.5;
+  }
+
+
+}

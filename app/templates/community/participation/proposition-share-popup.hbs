@@ -1,0 +1,16 @@
+<div class="popup__content proposition-share"  role="dialog" aria-labelledby="accessibility-title">
+	<div class="proposition-share__top-container">
+		<span class="proposition-share__big-title"> {{t 'ideaBox.addIdeaPopUp.stepTwo.finalStep'}}<span class="proposition-share__orange-title"> {{t 'ideaBox.addIdeaPopUp.stepTwo.publishedTitle'}}</span>!</span>
+		{{inline-svg "/images/ideaBox/idea-published-icon.svg"}}
+		<div class="proposition-share__share-close-button">
+			<PopupCloseButton @closePopup={{this.closePopup}} />
+		</div>
+		<span class="proposition-share__share-idea-info">{{t 'ideaBox.addIdeaPopUp.stepTwo.shareIdea'}}</span>
+	</div>
+	<div class="proposition-share__social-container">
+		<SocialShare
+				@url={{this.model.url}}
+				@message={{t 'ideaBox.shareButton.titleInfo'}}/>
+	</div>
+
+</div>

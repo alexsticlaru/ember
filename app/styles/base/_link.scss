@@ -1,0 +1,81 @@
+.link {
+    text-decoration: none;
+    color: $secondary-color;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.link-btn {
+    text-decoration: none;
+    cursor: pointer;
+    color: $dark-color;
+    font-size: 1.4rem;
+	&--disabled {
+		opacity: .3;
+	}
+}
+
+.link-back-btn {
+	text-decoration: none;
+    cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 7rem;
+	position:absolute;
+	top: 3rem;
+	left: 0;
+	&__arrow-icon {
+		width: 4.9rem;
+		height: 4.9rem;
+		padding:1.5rem;
+		border-radius: 30px;
+		background: rgba(255, 255, 255, 0.3);
+		cursor:pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__text-back-button {
+		padding-top: 0.7rem;
+		font-size: 1.5rem;
+		font-weight: 800;
+		color: $white;
+	  }
+}
+
+.link-btn-radius {
+    text-decoration: none;
+    cursor: pointer;
+    height: 5rem;
+	width: 18rem;
+	background: $light-blue;
+	color: $primary-color;
+	font-weight: 700;
+	font-size: 1.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 1rem;
+	border: none;
+
+	&:hover {
+		color: $primary-color ;
+		text-decoration: none ;
+	  	opacity:0.85;
+	}
+
+	&:focus {
+		color: $primary-color ;
+		text-decoration: none ;
+	  	opacity:0.85;
+	}
+
+    &--gray {
+		background-color: $medium-gray;
+	}
+}

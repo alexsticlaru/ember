@@ -1,0 +1,55 @@
+.idea-item-desktop{
+  &__top-row{
+    display: flex;
+    justify-content: space-between;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    color: #5E617C;
+    margin-bottom: 1.8rem;
+  }
+
+  &__content-container{
+    display: flex;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    box-sizing: border-box;
+    border-radius: 7px;
+    padding: 3rem;
+  }
+
+  &__title{
+    font-family: Sora;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 2.4rem;
+    margin-bottom: 1.1rem;
+  }
+
+  &__description{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 160.2%;
+    letter-spacing: 0.0126802rem;
+    color: #373F41;
+  }
+
+  &__info-graphic{
+    align-self: center;
+    margin-left: 2.4rem;
+
+  }
+
+  &__share-button{
+    margin-top: 1.8rem;
+    margin-bottom: 1.8rem;
+    width: 100%;
+  }
+
+}

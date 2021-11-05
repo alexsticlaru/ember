@@ -1,0 +1,22 @@
+
+<div class="scrollable">
+	{{terms-and-conditions}}
+</div>
+
+<div class="text-right">
+	<button
+		type = "button"
+		{{action attrs.termsRefused}}
+		class = "btn-civ-reverse colored-btn-reverse"
+	>
+		{{t 'buttons.refuse'}}
+	</button>
+	<button
+		type = "button"
+		{{action attrs.termsAccepted}}
+		class = "btn-civ colored-btn"
+	>
+		{{t 'buttons.agree'}}
+	</button>
+</div>
+

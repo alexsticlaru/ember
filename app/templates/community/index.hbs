@@ -1,0 +1,70 @@
+{{!--
+{{#if this.userIsDeveloper}}
+this.userService.currentUser={{this.userService.currentUser}}<br>
+this.userService.isWebmaster={{this.userService.isWebmaster}}<br>
+this.userService.isDeveloper={{this.userService.isDeveloper}}<br>
+this.userIsDeveloper={{this.userIsDeveloper}}<br>
+userIsDeveloper={{userIsDeveloper}}<br>
+<b>Tests in app/templates/community/index.hbs only shown to users with a developer role</b><br>
+canTest:{{canTest}}<br>
+canTestCurrentCommunity:{{canTestCurrentCommunity}}<br>
+canTestThisCommunity:{{canTestThisCommunityIt}}({{this.model.community}})<br>
+
+canTestEverything:{{canTestEverything}}<br>
+canTestEverythingIt:{{canTestEverythingIt}}({{this.model.community}})<br>
+{{/if}}
+--}}
+
+<CommunityCover @model={{this.model}} />
+
+<ContainerQuery
+  @features={{hash
+	phone=(cq-width max=this.config.breakpoints.phone)
+    tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+    desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+  as |CQ|
+>
+<div class="projects">
+  <div class={{if (or CQ.features.desktop CQ.features.tablet) "projects__desktop-container" "projects__mobile-container"}}>
+      <div class="projects__tabs">
+          <button type="button" class="btn-none projects__tab-left-section {{if (eq this.projectsStatus "active") "isActive"}}" {{on 'click' (fn this.changeProjects "active")}} >{{t 'communities.currentProjects'}}</button>
+          <button type="button" class="btn-none projects__tab-right-section disabled {{if (eq this.projectsStatus "disabled") "isActive"}} {{if (not this.projectsExist) "tab-disabled"}}" {{on 'click' (fn this.changeProjects "disabled")}} disabled={{not this.projectsExist}}>{{t 'communities.pastProjects'}}</button>
+      </div>
+
+      {{#if this.userService.hasCommunityOwnerRights}}
+        <div class="projects__add-button">
+          <LinkTo class="btn-civ-black" @route='community.add-project'>
+            {{t 'participation.addProject'}}
+          </LinkTo>
+        </div>
+      {{/if}}
+
+      <div class="projects__messages" tabindex="0">
+          {{#if this.projectsExist }}
+              {{#if (eq this.projectsStatus "active")}}
+                  {{t 'communities.currentProjectsMessage'}}
+              {{/if}}
+
+              {{#if (eq this.projectsStatus "disabled")}}
+                  {{t 'communities.closedProjectsMessage'}}
+              {{/if}}
+          {{/if}}
+      </div>
+      {{#if this.projectsExist}}
+          {{#each this.model.projects as |project|}}
+              {{#if (eq project.status this.projectsStatus)}}
+                  <ProjectCard @project={{project}}>
+                  </ProjectCard>
+              {{/if}}
+          {{/each}}
+      {{else}}
+          <div class="projects__without-projects">
+              <span aria-hidden="true">{{inline-svg "images/community/social-icons/no-projects-image.svg"}}</span>
+              <span class="projects__no-projects-tab" tabindex="0">{{t 'communities.noOpenedProjects' customText='<b class="community__no-projects-text">some of the past ones</b>'}}   </span>
+          </div>
+      {{/if}}
+  </div>
+</div>
+
+
+</ContainerQuery>

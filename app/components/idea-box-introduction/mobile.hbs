@@ -1,0 +1,20 @@
+<div class="idea-box-component-mobile__header">
+	<LinkTo class="link-btn idea-box-component-mobile__back" @route='community.participation'>
+		{{inline-svg "/images/ideaBox/back-arrow-ideaBox.svg"}}
+	</LinkTo>
+	<div>
+		<div class="idea-box-component-mobile__title">
+			<span aria-hidden="true">{{inline-svg "/images/ideaBox/lightbulb-mobile.svg"}}</span>
+			{{@model.participationPack.title}}
+		</div>
+		<div class="idea-box-component-mobile__intro-description">
+			{{html-safe @model.participationPack.description}}
+		</div>
+	</div>
+	<div class="idea-box-component-mobile__mailbox">
+		{{inline-svg "/images/ideaBox/mailbox-mobile.svg"}}
+		<button type="button" role="button" class="btn-civ-black idea-box-component-mobile__add-idea" {{on "click" @openPropositionAddPopup}}>
+			<span class="idea-box-component-mobile__title-button-mobile">{{t 'ideaBox.addAnIdea'}}</span>
+		</button>
+	</div>
+</div>

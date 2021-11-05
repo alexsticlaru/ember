@@ -1,0 +1,90 @@
+<form {{on "submit" this.registerUser}} class="register-form" autocomplete="on">
+    <LabelTextField
+        @redesign={{true}}
+        @labelText={{t 'register.firstName'}}
+        @id="firstName"
+        @value={{this.firstName}}
+        @placeholder={{t 'register.placeholder.firstName'}}
+        @maxlength={{180}}
+        @showErrorMessage={{and this.showErrorMessages (not this.isFirstNameValid)}}
+       @errorMessage={{t 'register.firstNameRequired'}} class="popup__firstname" />
+    <LabelTextField
+    @redesign={{true}}
+        @labelText={{t 'register.lastName'}}
+        @id="lastName"
+        @value={{this.lastName}}
+        @placeholder={{t 'register.placeholder.lastName'}}
+        @maxlength={{180}}
+        @showErrorMessage={{and this.showErrorMessages (not this.isLastNameValid)}}
+        @errorMessage={{t 'register.lastNameRequired'}} class="popup__lastname" />
+    <LabelTextField
+    @redesign={{true}}
+        @labelText={{t 'login.email'}}
+        @id="identification"
+        @value={{this.email}}
+        @placeholder={{t 'register.placeholder.email'}}
+        @maxlength={{180}}
+        @showErrorMessage={{and this.showErrorMessages (not this.isEmailValid)}}
+        @errorMessage={{t 'login.validEmailRequired'}} class="popup__contact"/>
+    <LabelTextField
+    @redesign={{true}}
+        @labelText={{t 'login.password'}}
+        @id="password"
+        @value={{this.password}}
+        @placeholder={{t 'register.placeholder.password'}}
+        @maxlength={{255}}
+        @type='password'
+        @showErrorMessage={{and this.showErrorMessages (not this.isPasswordValid)}}
+        @errorMessage={{t 'login.passwordRequiredLength'}} class="popup__contact" />
+    <div id="captcha-container" class="register-form__captcha" {{did-insert this.renderCaptcha}}></div>
+    {{#if (and this.showErrorMessages (not this.isCaptchaValid))}}
+      <p class="register-form__error-message">{{t 'register.captchaError'}}</p>
+    {{/if}}
+    <div class="register-form__agreement-box">
+        <Input
+          @id="agree"
+          @checked={{this.isAgreementAccepted}}
+          @type="checkbox"
+          autofocus="autofocus"
+          class="register-form__agreement-check"
+        />
+        <label for="agree" class="register-form__label-agree">
+            {{t 'register.termsAgreementPrefix'}}
+{{!-- To reenable once the pages are ready. For now we use the .com wix website.
+            <LinkTo @route='terms-and-conditions' class="link" target='_blank'>{{t 'register.termsAgreement'}} </LinkTo>
+            <span>,</span>
+            <LinkTo @route='data-privacy' class="link" target='_blank'>{{t 'register.privacyAgreement'}} </LinkTo>
+            <span>{{t 'register.and'}}</span>
+            <LinkTo @route='data-privacy' class="link" target='_blank'>{{t 'register.cookiesAgreement'}} </LinkTo>
+--}}
+            <a href="https://guide.civocracy.org/hc/articles/360022131619" class="link" target='_blank'>{{t 'register.termsAgreement'}}</a><span>,</span><br/>
+            <a href="https://guide.civocracy.org/hc/articles/360022110740" class="link" target='_blank'>{{t 'register.privacyAgreement'}}</a>
+            <span> {{t 'register.and'}} </span>
+            <a href="https://guide.civocracy.org/hc/articles/360022131619" class="link" target='_blank'>{{t 'register.cookiesAgreement'}} </a>
+
+        </label>
+    </div>
+
+    {{#if this.showAlreadyExistMessage}}
+        <div class="register-form__email-exist">
+            <p class="register-form__error-message">{{t 'register.emailExist'}}</p>
+            <a href="#" class="link"
+                {{on 'click' @onAlreadyHaveAccountClick}}>{{t 'register.goToLogin'}}</a>
+        </div>
+    {{/if}}
+    {{#if this.authErrorMessage}}
+        <p class="register-form__error-message">{{this.authErrorMessage}}</p>
+    {{/if}}
+    {{#if (and this.showErrorMessages (not this.isAgreementAccepted))}}
+        <span class="register-form__error-message">{{t 'register.termsError'}}</span>
+    {{/if}}
+    <div class="register-form__submit">
+		<SpinnerButton
+			@submitType={{true}}
+			@class="btn-civ-black register-form__btn-signup"
+			@spinning={{this.showSpinner}}
+		>
+			<span>{{t 'buttons.signup'}}</span>
+		</SpinnerButton>
+	</div>
+</form>

@@ -1,0 +1,14 @@
+<div class="proposition-map-sidepanel">
+    <button type="button" class="btn-none proposition-map-sidepanel__back-btn" {{on 'click' this.closeMapPanel}} aria-label={{t 'buttons.close'}}>
+      <span aria-hidden="true">{{inline-svg "/images/ideaBox/back-arrow-ideaBox.svg"}}</span>
+    </button>
+
+    <h1 class="proposition-map-sidepanel__title">{{t 'ideaBox.map'}}</h1>
+
+    <Propositions::PropositionsMapview
+      @pagedContent={{this.model.propositions}}
+      @ideaBox={{this.model.ideaBox}}
+      @highlightProposition={{this.highlightProposition}}
+    />
+
+</div>

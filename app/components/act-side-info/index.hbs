@@ -1,0 +1,112 @@
+<div class="act-side-info">
+
+  {{#if this.bestAssertions}}
+    <div class="act-side-info__info-item">
+  	  <div class="act-side-info__ideas-elements">
+  		  <h2 class="act-side-info__title">
+  			  {{t 'issue.morePage.topIdeas'}}
+			  <span aria-hidden="true">{{inline-svg '/images/consultation/highlight-icon-consultation.svg'}}</span>
+		  </h2>
+  	  </div>
+      {{#each this.bestAssertions as |assertion|}}
+        <AssertionItem::desktop @assertion={{assertion}}/>
+  	  {{/each}}
+    </div>
+  {{/if}}
+
+  <div class="act-side-info__info-item">
+    <h2 class="act-side-info__title">
+      {{t 'issue.learn.overview'}}
+    </h2>
+	  <div class="act-side-info__container-details">
+		  <div class="act-side-info__overview-item">
+			  <span aria-hidden="true">{{inline-svg '/images/consultation/participants.svg'}}</span>
+			  <span class="act-side-info__overview-item-text">
+				  {{t 'issue.learn.participants' number=@issue.participationPack.participantsCount}}
+			  </span>
+		  </div>
+		  <div class="act-side-info__overview-item">
+			  <span aria-hidden="true">{{inline-svg '/images/consultation/contributions.svg'}}</span>
+			  <span class="act-side-info__overview-item-text">
+				  {{t 'issue.learn.numberOfContributions' contributions=@issue.participationPack.contributionsCount}}
+			  </span>
+		  </div>
+		  <div class="act-side-info__overview-item">
+			  <span aria-hidden="true">{{inline-svg '/images/consultation/closing-date.svg'}}</span>
+			  <span class="act-side-info__overview-item-text-secondary">
+				  {{html-safe @issue.publicationStatusDisplay}}
+			  </span>
+		  </div>
+		  <div class="act-side-info__overview-item">
+			  <span aria-hidden="true">{{inline-svg '/images/consultation/read-by.svg'}}</span>
+			  <span class="act-side-info__overview-item-text">
+				  {{t 'issue.learn.readBy' percent=@issue.readPercentage community=@issue.community.orgName}}
+			  </span>
+		  </div>
+	  </div>
+  </div>
+
+  <!-- REMOVED_MARCH
+  <div class="act-side-info__info-item">
+    <h2 class="act-side-info__title">
+      {{t 'issue.morePage.topThemes'}}
+    </h2>
+	  <div class="act-side-info__themes-container">
+		  {{#each @issue.themes as |theme|}}
+			  <ThemeItem::standard-theme @theme={{theme}} />
+		  {{/each}}
+	  </div>
+  </div> -->
+
+  <div class="act-side-info__info-item">
+    <h2 class="act-side-info__title">
+      {{t 'issue.morePage.headingParticipants'}}
+    </h2>
+
+    <div class="act-side-info__profile">
+      <span class="act-side-info__profile-text">
+        {{@issue.community.name}}
+      </span>
+      <span class="act-side-info__organisation-label">
+        {{t 'issue.morePage.organisation'}}
+      </span>
+    </div>
+    {{#each @profiles as |profile|}}
+    <div class="act-side-info__profile">
+      <span class="act-side-info__profile-text">
+        {{profile.title}}
+        {{inline-svg "images/consultation/profile.svg"}}
+      </span>
+    </div>
+    {{/each}}
+    <div class="act-side-info__profile">
+      <span class="act-side-info__profile-text">
+        {{t 'issue.morePage.citizens'}}
+      </span>
+    </div>
+  </div>
+
+  <div class="act-side-info__info-item">
+    <h2 class="act-side-info__title">
+      <span id="more-info">{{t 'issue.morePage.headingInfo'}}</span>
+      {{#if this.isExpanded}}
+        <button type="button" class="btn-none act-side-info__expand-style" {{on 'click' this.expandWaysOfParticipating }} aria-pressed="true" aria-labelledby="more-info">
+          <span aria-hidden="true">{{inline-svg "images/consultation/expanded.svg"}}</span>
+        </button>
+      {{else}}
+        <button type="button" class="btn-none act-side-info__expand-style " {{on 'click' this.expandWaysOfParticipating }} aria-pressed="false" aria-labelledby="more-info">
+          <span aria-hidden="true">{{inline-svg "images/consultation/expand.svg"}}</span>
+        </button>
+      {{/if}}
+    </h2>
+    {{#if this.isExpanded}}
+      <div class="act-side-info__explanation-text">
+		  {{{t 'issue.morePage.InfoTextTitle'}}}
+		  <div class="act-side-info__explanation-content">
+			  {{{t 'issue.morePage.InfoText'}}}
+		  </div>
+      </div>
+    {{/if}}
+  </div>
+
+</div>

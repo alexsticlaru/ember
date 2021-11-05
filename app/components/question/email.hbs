@@ -1,0 +1,14 @@
+<div class="email" {{did-insert this.setup}}>
+	{{yield}}
+	<p class="email__description">{{t 'questionnaire.emailAnswerDescription'}}</p>
+	<Input  @type="email"
+			@value={{this.email}}
+			@placeholder={{t 'questionnaire.emailAnswerInput'}}
+			class="input-text email__input"
+			maxlength={{250}}
+		   {{on "input" this.handleInput}}/>
+	{{#unless this.isEmailValid}}
+		<p class="email__alert-email">{{t 'questionnaire.emailAnswerAlert'}}</p>
+	{{/unless}}
+</div>
+

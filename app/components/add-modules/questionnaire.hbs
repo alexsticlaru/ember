@@ -1,0 +1,20 @@
+
+<div class="add-modules">
+  <div>
+    <span class="add-modules__icon">
+      {{inline-svg '/images/community/settings/questionnaire.svg'}}
+    </span>
+  </div>
+  <div class="add-modules__title">
+    {{t 'community.addModules.questionareTitle'}}
+  </div>
+  <div class="add-modules__subtitle">
+    {{t 'community.addModules.questionareSubtitle'}}
+  </div>
+  <div class="add-modules__explanation">
+    {{t 'community.addModules.questionareExplanation'}}
+  </div>
+  <button type="button" class="btn-civ-black add-modules__button" {{on "click" @addQuestionnaire}}>
+    {{t 'community.addModules.addButton'}}
+  </button>
+</div>

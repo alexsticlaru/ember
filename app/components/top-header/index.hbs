@@ -1,0 +1,61 @@
+<ContainerQuery
+  @features={{hash
+    phone=(cq-width max=this.config.breakpoints.phone)
+    tabPort=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabPort)
+    tabLand=(cq-width min=this.config.breakpoints.tabPort max=this.config.breakpoints.tabLand)
+    desktop=(cq-width min=this.config.breakpoints.tabLand max=this.config.breakpoints.bigDesktop)
+    bigDesktop=(cq-width min=this.config.breakpoints.bigDesktop)
+    }}
+    class="top-header-container-query"
+  as |CQ|
+>
+  {{#if CQ.features.bigDesktop}}
+    <header class="top-header-desktop" id="top-header">
+		<div class="top-header-desktop__container">
+			<div class="top-header__left-container">
+				<span aria-hidden="true">{{inline-svg "images/civocracy_logo.svg" class="icon-logo"}}</span>
+				<TopHeader::HeaderCenter/>
+			</div>
+			<TopHeader::HeaderRight @showUserName={{true}}/>
+		</div>
+    </header>
+  {{else if CQ.features.desktop}}
+    <header class="top-header-desktop" id="top-header">
+      <div class="top-header__left-container">
+{{!-- work in progress : the span must be hidden and will only be focused then read using the tab key - an accessibility popup will then open to choose between some options to activate (all choices will be stored as simple cookies).
+- choose cookies settings with keyboard (assistant : will read the cookie information text then each options will be read and offers binary toggle for each using a onkeydown event - a=true / b=false)
+- activate borders around focused elements
+- activate high contrast focus : 2 choices = black on white and white on black
+All that will be implemented in templates by css classes that will then be used through a JS handler that will apply needed code for expected UX behavior
+		<span tabIndex="1" class="accessibility-item hidden main-menu">
+			<ul onclik="alert('menu ouvert')">Menu général accessibilité</ul>
+		</span>
+--}}
+        <span aria-hidden="true">{{inline-svg "images/civocracy_logo.svg" class="icon-logo"}}</span>
+        <TopHeader::HeaderCenter/>
+      </div>
+      <TopHeader::HeaderRight @showUserName={{true}}/>
+    </header>
+    {{else if CQ.features.tabLand}}
+    <header class="top-header-tablet" id="top-header">
+      <div class="top-header__left-container">
+        <span aria-hidden="true">{{inline-svg "images/civocracy_logo_small.svg" class="icon-logo"}}</span>
+        <TopHeader::HeaderCenter/>
+      </div>
+      <TopHeader::HeaderRight @showUserName={{true}}/>
+    </header>
+    {{else if CQ.features.tabPort}}
+      <header class="top-header-phone" id="top-header">
+        <div class="top-header__left-container">
+          <div aria-hidden="true">{{inline-svg "images/civocracy_logo_small.svg" class="icon-logo"}}</div>
+          <TopHeader::HeaderCenter/>
+        </div>
+        <TopHeader::HeaderRightHamburger/>
+      </header>
+    {{else}}
+  	<TopHeader::HeaderPhone/>
+  {{/if}}
+</ContainerQuery>
+{{#if this.userService.showActivationBanner}}
+<ActivationMailBanner::ActivationMailBanner/>
+{{/if}}

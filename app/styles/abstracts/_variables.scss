@@ -1,0 +1,132 @@
+
+////
+/// This stylesheet defines the color palette
+/// of the website.
+////
+
+/// DEFINE ALL NEW COLORS FROM DESIGN HERE
+$white: #ffffff;
+$white-color-outcome:#F7F7F7;
+$white-border-outcome: #F0F0F0;
+$brightness-color:#F5F0EA;
+$white-border: #EADFD4;
+$cream-border: #D7B99C;
+$light-white-border: #F3EFE6;
+$extra-white-border: #EBE9E8;
+
+$light-white: #F4F3F5;
+$user-info-color:#747896;
+$light-black-2:#5E617C;
+$light-black-3:#797C98;
+$medium-white:#AAAAAA;
+$dark-black: #353535;
+$extra-dark-black: #282828;
+$facebook-bg-color: #146EE0;
+
+$medium-blue-color: #3C64B1;
+$orange: #FF7F47;
+$light-orange: #FF7C43;
+$extra-light-orange: #FFC2A8;
+$medium-orange: #E64B1A;
+$dark-orange: #E54B1A;
+$gray: #76706F;
+$brightness-gray:#AEAFBF;
+$extra-light-gray: #9294AA;
+$gray-border-color: #D0D0D0;
+$extra-light-dark-gray: #9B9B9B;
+$light-dark-gray: #434343;
+$lighter-gray: #716D69;
+$lighter-gray-contrast:#898989;
+$medium-dark-gray: #6B6C76;
+$extra-dark-gray: #404040;
+$extra-light-gray: #F4F3F5;
+$light-gray: #E3E3E3;
+$medium-gray: #C4C4C4;
+
+
+$medium-gray-contrast: #646C6F;
+$yellow:#F8F145;
+$green: #2CA94E;
+$green-contrast: #61D838;
+$green-hover-color: #39BB5C;
+$green-disabled-color: #53C472;
+$white-hover-color: #E3E3E3;
+$orange-brown: #BB834C;
+$black:#000;
+$cameo: #D5BC9E;
+$dark-vanilla: #D0BFA9;
+
+
+
+
+
+
+
+/// OLD DESIGNS COLORS (need sorting!)
+$primary-color:     #ffffff ; // white
+$lighter-color:		#F3F3F3;
+$medium-primary-color: #F3F1EB;
+$purple-color:      #7f1335 ; // purple
+$dark-color:        #353535 ; // black
+$light-black:		#373F41 ; // black
+$medium-dark-color: #2E2F30 ; // black
+$dark-color-transparent: rgba(51, 51, 51, .1) ;
+$medium-dark-color-transparent:  rgba(0, 0, 0, 0.5) ;
+$gray-color:        #b0b0b0 ; // gray
+
+$gray-color-active: #888E8F;
+$transparent-gray: #7D7D7D;
+
+$light-gray: 		#BEBEBE ; // light gray
+
+$dark-gray: #666666; // dark gray
+$medium-black:      #303036; // dark gray
+$dark-gray-color:   #535461 ; // dark gray
+$light-green:		#53C372;  // light green
+$electric-green:	#2CA94E;
+$green-color:       #adcc74 ; // green
+$green-text-color:  #006f00 ; // green text
+$light-color:       #eaeaea ; // light gray
+$white-color:       #CCCCCC ; // light white
+$light-background:  #e4e5f0 ; // light blue
+$light-gray-background: #F8F7F5; //light gray
+$twitter-bg-color:  #55acee ;
+
+$main-color:        #146183 ;
+$secondary-color:   #337ab7 ;
+$light-blue:        #1898DC;
+$medium-blue:       #2A6DE8;
+$button-blue:       #2A78CD;
+$electric-blue: 	#4F8DFF;
+$dark-marble:       #D2D2CC;
+$marble-color:      #EEEDE6;
+$all-white:#FBFAF9;
+$button-dark-blue:  #003366;
+
+
+// dashboard lights colors
+$color-ok:          #1D9424 ;
+$color-info:        #FD9827 ;
+$color-problem:     #DA3B21 ;
+$color-limit-number: #F04A4A;
+
+// Box borders
+
+$border-color: #DDD;
+$lighter-border-color:#ECECEC;
+$border-bottom-color: #CCC;
+$yellow-color: #FCC207 ;
+
+// Homepage
+
+$homepage-white: white;
+$homepage-text-white: white;
+$homepage-text-grey: #C3C3C3;
+$homepage-light-blue: #009ED8;
+$homepage-dark-blue: #002d48;
+$homepage-light-grey: #ecedee;
+$homepage-blue-transparent: rgba(10, 36, 54, .85);
+
+$gray-line-color: #e3e3e3;
+$grey-background: #EEEDE6;
+$medium-grey-background:#828282;

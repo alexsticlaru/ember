@@ -1,0 +1,138 @@
+.cookie-consent{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 1100;
+	// box-sizing: border-box;
+	// display: flex;
+	// flex-wrap: nowrap;
+	background: #EFEFEF;
+	padding: 4rem;
+
+	&__container {
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: nowrap;
+		max-width: 100rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&__container-mobile {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+
+	&__button-container-row {
+		width: 40rem;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__button-large {
+		width: 40rem;
+		margin-bottom: 1rem;
+	}
+	&__button-small {
+		width: 19.5rem;
+	}
+
+	&__button-mobile {
+		width: 100%;
+		margin-bottom: 1rem;
+	}
+
+	&__text {
+		margin-left: 3.6rem;
+		margin-right: 3.6rem;
+		font-family: Inter;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 1.2rem;
+		line-height: 1.9rem;
+		color: #5E617C;
+	}
+
+	&__text-mobile {
+		font-family: Inter;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 1.2rem;
+		line-height: 1.9rem;
+		text-align: left;
+		color: #5E617C;
+		margin-top: 2.3rem;
+		margin-bottom: 2.3rem;
+	}
+
+	&__image {
+		margin-right: 4rem;
+		display: flex;
+		align-items: center;
+	}
+
+	&__image-mobile {
+		margin-right: 2rem;
+	}
+
+	&__preferences {
+		width: 100%;
+	}
+
+	&__preferences-mobile {
+		width: 100%;
+		margin-bottom: 5rem;
+	}
+
+	&__preferences-main-title {
+		font-family: Sora;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 1.7rem;
+		color: #353535;
+	}
+
+	&__preferences-title-container-mobile{
+		display: flex;
+		align-items: center;
+
+	}
+
+	&__preferences-item {
+		margin-top: 2.1rem;
+		margin-bottom: 2.1rem;
+	}
+
+	&__preferences-title-text {
+		font-family: Inter;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.5rem;
+		line-height: 1.9rem;
+		color: #353535;
+		margin-bottom: 0.8rem;
+	}
+
+	&__preferences-toggle {
+		display: inline-block;
+		//overriding xtoggle classes
+		.x-toggle:checked + label > .x-toggle-btn::before {
+	    background-color: #ECD8CC !important;
+	    opacity: 1 !important;
+		}
+		.x-toggle:checked + label > .x-toggle-btn::after {
+	    background-color: #FF7F47 !important;
+		}
+	}
+
+	&__preferences-text {
+		font-family: Inter;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.2rem;
+		line-height: 1.6rem;
+		color: #5E617C
+	}
+}

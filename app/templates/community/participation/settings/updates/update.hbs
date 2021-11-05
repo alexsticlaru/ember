@@ -1,0 +1,46 @@
+  {{#if this.showEditForm}}
+    <ProjectUpdateEditForm
+    @update={{this.model}}
+    @toggleEditForm={{this.toggleEditForm}}
+    />
+  {{else}}
+  <div class="community-management">
+
+    <div class="community-management__breadcrumbs-container">
+      <LinkTo class="btn-none community-management__breadcrumbs community-management__breadcrumbs--active" @route='community.participation.settings.updates'>
+        {{t 'addUpdate.navTitle'}}
+      </LinkTo>
+      <span class="community-management__breadcrumbs-icon" aria-hidden="true">
+        {{inline-svg '/images/community/settings/breadcrumbs.svg'}}
+      </span>
+      <span class="community-management__breadcrumbs">
+        {{this.model.title}}
+      </span>
+    </div>
+
+    <div class="community-management__title">
+      {{this.model.title}}
+    </div>
+    <div class="community-management__item-container">
+      {{html-safe this.model.content}}
+    </div>
+    <div class="community-management__item-container">
+      <div>
+        <button type="button" class="btn-civ-black" {{on "click" this.toggleEditForm}}>
+          {{t 'addUpdate.edit'}}
+        </button>
+      </div>
+		{{#unless this.model.notificationSent}}
+			<br>
+			<button type="button" class="btn-civ-black" {{on "click" this.sendUpdate}}>
+				{{t 'addUpdate.sendNow'}}
+			</button>
+		{{/unless}}
+      <div>
+        <button type="button" class="btn-none participation-settings__discard-button" {{on "click" this.removeUpdate}}>
+          {{t 'addUpdate.remove'}}
+        </button>
+      </div>
+    </div>
+  </div>
+  {{/if}}

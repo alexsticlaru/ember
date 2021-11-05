@@ -1,0 +1,30 @@
+<ContainerQuery
+  @features={{hash
+    tablet=(cq-width max=900)
+    desktop=(cq-width min=900)}}
+  as |CQ|
+>
+  {{#if CQ.features.desktop}}
+    <div class="propositions-2-lists">
+      <div class="propositions-2-lists__column">
+        {{#each this.propositionsEven as |proposition|}}
+          <PropositionItem @proposition={{proposition}} @showOnMap={{@showOnMap}}>
+          </PropositionItem>
+        {{/each}}
+      </div>
+      <div class="propositions-2-lists__column">
+        {{#each this.propositionsOdd as |proposition|}}
+          <PropositionItem @proposition={{proposition}} @showOnMap={{@showOnMap}}>
+          </PropositionItem>
+        {{/each}}
+      </div>
+    </div>
+  {{else }}
+    <div class="propositions-list">
+      {{#each @propositions as |proposition|}}
+        <PropositionItem @proposition={{proposition}} @showOnMap={{@showOnMap}}>
+        </PropositionItem>
+      {{/each}}
+    </div>
+  {{/if}}
+</ContainerQuery>

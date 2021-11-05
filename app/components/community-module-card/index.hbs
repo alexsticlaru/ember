@@ -1,0 +1,65 @@
+<LinkTo tabindex="0" class="module-card" aria-labelledby={{this.ariaId}} @route={{this.routeName}}
+		@models={{array @model.community.url @model.participationUrl @item.id @item.url}}
+>
+	{{#if (eq @item.issue.usersCanParticipate false) }}
+		<div class="module-card__closed-overlay"></div>
+	{{/if}}
+		<div class="module-card__module-card-info">
+			<div class="module-card__image-container">
+				{{#if (eq @item.issue.usersCanParticipate false) }}
+					<div class="module-card__module-label">
+						<span>Closed</span>
+					</div>
+				{{else}}
+					<div class="module-card__module-days-label">
+						<span class="module-card__bold-number">27</span>
+						<span>days left</span>
+					</div>
+				{{/if}}
+
+				{{#if @item.image}}
+					<CloudinaryImage
+							aria-hidden="true"
+							class="module-card__module-card-image"
+							@publicId={{@item.image}}
+							@options={{hash format='png' width='700' transforms='q_auto,f_auto'}}
+					/>
+				{{else if @item.issue.image}}
+					<CloudinaryImage
+							aria-hidden="true"
+							class="module-card__module-card-image"
+							@publicId={{@item.issue.image}}
+							@options={{hash format='png' width='700' transforms='q_auto,f_auto'}}
+					/>
+				{{else}}
+					<div class="module-card__module-card-image-container">
+					</div>
+				{{/if}}
+			</div>
+			<div class="module-card__text-content">
+				<div class="module-card__middle-section">
+					<h3 class="heading-3 heading-3--secondary {{this.titleClass}}" id={{this.ariaId}}>
+						{{this.title}}
+					</h3>
+					<div class="module-card__statistics">
+						<span>{{@item.participantsCount}}</span><span>{{t 'participation.participants'}}</span>
+						<span>&bull;</span>
+						{{#if (eq @item.type 'questionnaire')}}
+							<span>{{t 'communities.questions' number=@item.questionnaire.questions.length}}</span>
+						{{else}}
+							<span>{{t 'communities.contributions' number=@item.contributionsCount}}</span>
+						{{/if}}
+					</div>
+				</div>
+				<div class="module-card__bottom-section">
+					{{#if (eq @item.type 'questionnaire')}}
+						<p class="module-card__bottom-section-title">{{t 'participation.questionnaireType'}}</p>
+						<span aria-hidden="true">{{inline-svg "images/community/questionnaire-icon.svg"}}</span>
+					{{else if (or (eq @item.type 'discussion') (eq @item.type 'consultation'))}}
+						<p class="module-card__bottom-section-title">{{t 'participation.discussionType'}}</p>
+						<span aria-hidden="true">{{inline-svg "images/community/discussion-icon.svg"}}</span>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+</LinkTo>

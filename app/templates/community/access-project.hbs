@@ -1,0 +1,30 @@
+<div class="access-project">
+	<div class="access-project__main-container">
+		<div class="access-project__content-container">
+			<div>
+				{{inline-svg "images/community/private-big.svg"}}
+			</div>
+
+			<div class="access-project__description1">
+				{{t 'community.project.accessPage1'}}
+			</div>
+
+			<div class="access-project__description2">
+				{{t 'community.project.accessPage2'}}
+			</div>
+
+			<LabelTextField
+					@value={{this.password}}
+					@type="password"
+					@placeholder={{t 'community.project.passwordPopup.placeholder'}}
+					@showErrorMessage={{this.showErrorMessage}}
+					@errorMessage={{t 'community.project.passwordPopup.wrongPassword'}}
+					class="access-project__field"
+			/>
+
+			<button type="button" class="btn-civ-black" {{on "click" this.accessProject}}>
+				{{t 'community.project.passwordPopup.button'}}
+			</button>
+		</div>
+	</div>
+</div>

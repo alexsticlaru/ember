@@ -1,0 +1,15 @@
+{{#if this.processingImage}}
+  <CircularProgress />
+{{else}}
+  <UserAvatar @user={{@user}} @dimensions={{@dimensions}} />
+{{/if}}
+<div class="user-avatar-upload">
+  <FileUpload
+    @id="avatar-upload"
+    @fileType="image"
+    @upload={{this.uploadPicture}}>
+    <label for="avatar-upload" class="btn-none" role="button" tabindex="0">
+      {{t 'pb.profile.photoUpload'}}
+    </label>
+  </FileUpload>
+</div>

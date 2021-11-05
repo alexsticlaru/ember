@@ -1,0 +1,9 @@
+{{#if (and this.model.latitude this.model.longitude)}}
+	<LeafletMap style="width: 800px; height: 400px"
+		@lat={{this.model.latitude}}
+		@lng={{this.model.longitude}}
+		@zoom={{this.model.zoomLevel}}
+		as |layers|>
+		<layers.tile @url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"/>
+	</LeafletMap>
+{{/if}}

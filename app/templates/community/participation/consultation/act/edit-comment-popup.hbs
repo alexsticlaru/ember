@@ -1,0 +1,14 @@
+<div class="edit-comment" role="dialog">
+  <div class="edit-comment__close-btn">
+    <PopupCloseButton @closePopup={{this.close}} />
+  </div>
+    <!-- <button id="accessibility-focus" type="button" class="btn-close edit-comment__close-btn" {{on 'click' this.close}} aria-label={{t 'buttons.close'}}>
+        <span aria-hidden="true">{{inline-svg "/images/close.svg" class="icon-close"}}</span>
+    </button> -->
+    <ContributionAddForm @issue={{this.model.issue}}
+        @expanded={{true}}
+        @hideAvatar={{true}}
+        @editMode={{true}}
+        @comment={{this.model}}
+        @editorId="commentDescriptionEditor"/>
+</div>

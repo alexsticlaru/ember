@@ -1,0 +1,70 @@
+.proposition-share {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 56rem !important;
+    width: 46.2rem !important;
+    border-radius: 2rem !important;
+    padding: 4.1rem 0;
+
+    &__top-container {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: flex-start;
+	  margin: 0 4.5rem  2.5rem 6.5rem;
+	  padding-bottom: 2.6rem;
+	  border-bottom: 1px solid #EFEFEF;
+
+	  svg {
+		position: absolute;
+		top: 3.8rem;
+		right: 1.6rem;
+	  }
+
+        h4 {
+            margin-bottom: 1rem;
+        }
+    }
+
+  &__big-title {
+	width: 27rem;
+	font-size: 3rem;
+	font-style: normal;
+	font-weight: bold;
+	line-height: 110%;
+	letter-spacing: 0.00684685rem;
+	color: #373F41;
+  }
+
+  &__share-close-button {
+	position: absolute;
+	top: -1.7rem;
+	right: -1.7rem;
+  }
+
+  &__share-idea-info {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.5rem;
+	line-height: 1.9rem;
+	color: #5E617C;
+	padding-top: 1.3rem;
+  }
+
+  &__social-container {
+	margin-left: 2rem;
+  }
+
+  &__orange-title {
+	color: #FF7F47;
+  }
+
+    &__close {
+        position: absolute;
+        left: 70rem;
+    }
+
+    &__invite-title {
+        padding-left: 4rem;
+    }
+}

@@ -1,0 +1,228 @@
+.contribution-add-form-expanded {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.2);
+  border-radius: 2rem;
+  height: 30.4rem;
+
+  &__avatar {
+    margin-top: 0.8rem;
+    margin-right: 1.8rem;
+  }
+
+  &__title-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .jodit-container{
+    border: 0px solid #000 !important;
+  }
+
+  &__contribution-title {
+    margin-top: 1rem;
+
+    width: 100%;
+    padding: 1rem 0;
+
+    input{
+      border: none;
+      width: 100%;
+
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      color: #373F41;
+      padding-left: 2rem;
+    }
+
+
+    //this is the placeholder
+    .jodit-placeholder{
+      font-weight: 600 !important;
+      font-size: 15px !important;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      color: #8B8B8B;
+    }
+    //this is the input text
+    .jodit-wysiwyg{
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      color: #373F41;
+    }
+  }
+
+  &__input-container {
+	display: flex;
+	padding-left: 3rem;
+	span {
+	  margin-top:0.1rem;
+	  font-size: 1.6rem;
+	  font-weight: 600;
+	  color: #202020;
+	}
+	input {
+	  width: 70%;
+	}
+  }
+
+  &__seperator {
+    border: 1px solid #EADFD4;
+    margin: 0 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__contribution-text {
+    margin: 0 2rem;
+
+    //this is the placeholder
+    .jodit-placeholder{
+      font-size: 15px !important;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      color: #8B8B8B;
+    }
+    //this is the input text
+    .jodit-wysiwyg{
+      font-family: Inter;
+      font-style: normal;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: 0.1px;
+      color: #373F41;
+    }
+  }
+
+  &__footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 2rem;
+    align-items: center;
+    //height: 8rem;
+	margin-top: 5rem;
+  }
+
+  &__footer-left {
+    margin-left: 1rem;
+    align-items: center;
+    display: flex;
+  }
+
+  &__contribution-attachments {
+    margin-left: 1rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  &__save-btn {
+    width: 20rem;
+  }
+
+  &__add-themes {
+    margin-left: 2rem;
+    background: #F3F5F9;
+    border-radius: 0.8rem;
+    color: #5E617C;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.4rem;
+	line-height: 2.1rem;
+	width: 12.1rem;
+	height: 3.1rem;
+  }
+
+  &__add-themes-dropdown {
+    display: inline-block;
+  }
+
+  &__add-themes-dropdown-content {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 1rem;
+  }
+
+  .user-avatar{
+    margin-top: 0.8rem;
+    margin-right: 1.8rem;
+	overflow: visible;
+  }
+
+  &__toggle-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top:0.5rem
+  }
+
+  &__toggle-label {
+	font-size: 1.5rem;
+	color: #94959D;
+	font-weight: 400;
+	margin-left: 4rem;
+	margin-right: 1.3rem;
+  }
+
+}
+
+.contribution-add-form {
+  background: #FFFFFF;
+  box-shadow: 0 2px 11px rgba(0, 0, 0, 0.2);
+  border-radius: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5.6rem;
+  width: 78.4rem;
+
+  &__text {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    padding-left: 1.5rem;
+    padding-top: 0.2rem;
+	font-style: normal;
+	font-weight: normal;
+	display: flex;
+	align-items: center;
+	letter-spacing: 0.2px;
+	color: #202020;
+  }
+
+  .user-avatar{
+	margin-top: 0.6rem;
+	margin-right: 1.5rem;
+
+	svg{
+	  width: 44px;
+	}
+  }
+}
+
+
+.x-toggle:checked + label > .x-toggle-ios.x-toggle-btn{
+  background: #F1E9E4;
+}
+
+.x-toggle:checked + label > .x-toggle-btn::after {
+  background: orange;
+}
+
+.x-toggle-ios.x-toggle-btn::after {
+  background: #AAAAAA;
+}
+
+.x-toggle-ios.x-toggle-btn{
+  background: #EBEBEB;
+  border-radius: 30px;
+  width: 5.5rem;
+  height: 3.3rem;
+}

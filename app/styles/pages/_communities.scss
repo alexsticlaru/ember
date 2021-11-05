@@ -1,0 +1,61 @@
+.communities{
+  padding-bottom: 10rem;
+
+  &__banner{
+    background-image: url(/images/communities/communities-banner.jpg);
+    position: relative;
+    width: 100%;
+    height: 29rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__cover{
+    width:36.063rem;
+    height:21.125rem;
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__gradient{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.22);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title{
+	font-family: Sora;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 4.8rem;
+	text-align: center;
+	color: $white;
+	line-height: 2.4rem;
+	letter-spacing: 0.010000000149011612rem;
+  }
+
+  &__subtitle{
+	font-family: Inter;
+	color: $white;
+	font-size: 2.4rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 3.1rem;
+	letter-spacing: 0.020000000298023224rem;
+	padding-top: 2.8rem;
+	text-align: center;
+  }
+
+
+}

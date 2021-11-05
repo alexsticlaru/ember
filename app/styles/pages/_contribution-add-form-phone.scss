@@ -1,0 +1,294 @@
+.contribution-add-form-phone {
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  width: 100%;
+
+  &__top-container{
+	position: absolute;
+	right: 3rem;
+	top: 1.8rem;
+  }
+
+  &__header-container{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+  }
+
+  &__title-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+  }
+
+  &__back-arrow{
+	padding-top: 1.6rem;
+	position: absolute;
+	top: 0;
+	z-index: 99;
+  }
+
+  &__top-left {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: center;
+	padding-top: 3.8rem;
+	padding-bottom: 2rem;
+  }
+
+  &__title-contribution{
+	font-size: 1.6rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.8rem;
+	letter-spacing: 0.006846rem;
+	color:$dark-color;
+  }
+
+  .jodit-container{
+    border: 0 solid $black !important;
+  }
+
+  &__user-container {
+    display: flex;
+  }
+
+  &__user-avatar {
+    margin-top:10px;
+  }
+
+  &__user-info {
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.7rem;
+	letter-spacing: 0;
+	color: $medium-dark-gray;
+	padding-left: 1.1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center
+  }
+
+  &__user-name {
+    font-weight: 600;
+  }
+
+  &__subtitle {
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.7rem;
+	letter-spacing: 0;
+	color: $medium-dark-gray;
+  }
+
+  &__title-placeholder{
+	display: block;
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 2rem;
+
+  }
+
+  &__input-text-title{
+	border:none;
+	background:transparent;
+	font-size: 1.3rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.8rem;
+	letter-spacing: 0.01268rem;
+	margin-left: 1.8rem;
+	width: 40rem;
+	color: $medium-dark-gray;
+	&::placeholder{
+	  font-size: 1.3rem;
+	  color:$medium-dark-gray;
+	}
+  }
+
+  &__contribution-title {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-bottom: 1px solid $white-border;
+	padding-bottom: 2.1rem;
+	padding-top: 1.4rem;
+
+    //this is the placeholder
+    .jodit-placeholder{
+	  font-size: 1.3rem;
+	  font-style: normal;
+	  font-weight: 400;
+	  line-height: 1.8rem;
+	  letter-spacing: 0.013rem;
+	  padding-top: 1.6rem;
+	  padding-left: 3rem;
+	  color:$medium-dark-gray;
+    }
+    //this is the input text
+    .jodit-wysiwyg{
+	  font-size: 1.3rem;
+	  font-style: normal;
+	  font-weight: 400;
+	  line-height: 1.8rem;
+	  padding-top: 1.6rem;
+	  letter-spacing: 0.01268rem;
+      color:$light-black;
+    }
+  }
+
+
+  &__contribution-text {
+
+    //this is the placeholder
+    .jodit-placeholder{
+	  color:$medium-dark-gray;
+	  font-family: Inter;
+	  font-size: 1.3rem;
+	  font-style: normal;
+	  font-weight: 400;
+	  line-height: 1.8rem;
+	  letter-spacing: 0.013rem;
+    }
+    //this is the input text
+    .jodit-wysiwyg{
+	  font-size: 1.3rem;
+	  font-style: normal;
+	  font-weight: 400;
+	  line-height: 1.8rem;
+	  padding-top: 1.8rem !important;
+	  letter-spacing: 0.01268rem;
+	  color: $light-black;
+	  padding-left: 3rem;
+    }
+
+	.jodit-workplace{
+	  margin-left: -1rem;
+	}
+  }
+
+  &__assertions {
+    padding-top: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  &__contribution-themes {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    display: flex;
+    flex-wrap: wrap
+  }
+
+  &__attachments-items{
+	margin-right: 2rem;
+  }
+
+  &__contribution-attachments {
+	margin: 1rem 3rem;
+  }
+
+  &__footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: $white;
+    z-index: 1;
+  }
+
+  &__footer-bar {
+	display: flex;
+	align-items: flex-end;
+	padding-left: 1.2rem;
+	padding-right: 1.2rem;
+	padding-bottom: 2.3rem;
+	flex-wrap: wrap;
+  }
+
+  &__add-attachment-container {
+	margin-bottom: 0.8rem;
+  }
+
+  &__footer-add-themes {
+	width: 12.1rem;
+	height: 3.1rem;
+	background-color: $white;
+	border-radius: 8px;
+	color:$light-black;
+	font-size: 1.4rem;
+    margin: 0.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.1rem;
+  }
+
+  &__highlight-info {
+	padding: 0.8rem 1.6rem;
+    display: flex;
+  }
+
+  &__upload-image{
+	padding-right: 1.9rem;
+  }
+
+  &__pdf-uploaod{
+	padding-right: 1.9rem;
+  }
+
+  &__footer-text {
+    margin-left: 8px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.3px;
+    color:$medium-dark-color;
+  }
+
+  &__add-themes-dropdown {
+	display: inline-block;
+  }
+
+  &__add-themes {
+	margin-left: 2rem;
+	background: #F3F5F9;
+	border-radius: 0.8rem;
+	padding: 1rem;
+	display: flex;
+	justify-content: center;
+	color: $light-black;
+	align-items: center;
+	font-weight: 600;
+	font-size: 1.4rem;
+	svg {
+	  margin-right: 0.6rem;
+	}
+  }
+
+  &__add-themes-dropdown-content {
+	background: $white;
+	box-shadow: 0 2px 11px rgba(0, 0, 0, 0.2);
+	border-radius: 6px;
+	padding: 1.4rem 1.8rem;
+	width: 80vw;
+  }
+
+  &__margin-style{
+	margin-bottom: 1rem;
+  }
+
+  &__themes-popup-title {
+	font-size: 1.3rem;
+	color: $medium-dark-gray;
+	font-weight: 500;
+	margin-bottom: 1.7rem;
+  }
+}

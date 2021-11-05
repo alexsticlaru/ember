@@ -1,0 +1,9 @@
+
+<div {{observe-resize this.resizeMap}} ...attributes>
+  <svg class='location-map__svg' 
+        width='100%' 
+        {{did-insert this.setupMap}}>
+    <g class='location-map__inner-container'></g>
+    {{this.currHovered}}
+  </svg>
+</div>

@@ -1,0 +1,23 @@
+.add-attachment{
+	&__button {
+    margin-left: 1rem;
+    &:hover {
+      border-radius: 50%;
+      background: $light-gray;
+    }
+  }
+
+  &__label {
+    margin-left: 1rem;
+    padding-top: .3rem;
+    &:hover {
+      border-radius: 50%;
+      background:$light-gray;
+    }
+  }
+
+
+  &__button--deactivated {
+		opacity: 50%;
+  }
+}

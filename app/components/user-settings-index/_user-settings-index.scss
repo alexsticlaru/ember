@@ -1,0 +1,46 @@
+.user-settings-index{
+	margin-top: 9rem;
+	max-width: 63rem;
+	padding: 2rem;
+
+	&__title {
+		// font-family: Lato;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 3rem;
+		margin-bottom: 2rem;
+	}
+
+	&__item-container {
+		margin-bottom: 4rem;
+	}
+
+	&__delete-container {
+		margin-top: 15rem;
+	}
+
+	&__item-button {
+		// font-family: Lato;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.4rem;
+		color: #FF7F47;
+	}
+
+	&__label {
+		// font-family: Lato;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: 0.2px;
+		color: #373F41;
+		margin-bottom: 1rem;
+	}
+
+
+
+
+
+
+}

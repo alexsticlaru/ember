@@ -1,0 +1,82 @@
+<div class="step-one__container">
+	<div>
+	</div>
+		<LabelTextField
+				@isMandatory="true"
+				class="step-one__title"
+				@labelText={{t 'ideaBox.addIdeaPopUp.stepOne.title'}}
+				@id="title"
+				@redesign="true"
+				@placeholder={{'Title'}}
+				@value={{@propositionTitle}}
+				@maxlength={{60}}
+				@showErrorMessage={{@titleError}}
+				@errorMessage={{t 'ideaBox.addIdeaPopUp.stepOne.errorTitle'}}
+				@enterAction={{this.searchForExistingProposition }}
+				@focusOutAction={{this.searchForExistingProposition }}
+				@placeholderError="true"
+				@isMobile={{@isMobile}}
+		/>
+
+		<div class="step-one__info-details">
+			<div class="step-one__info-container {{if @isMobile 'step-one__info-container--full'}}">
+				<span class="step-one__info">{{t 'ideaBox.addIdeaPopUp.stepOne.info'}}</span>
+				<span class="step-one__info">
+					<br>{{t 'ideaBox.addIdeaPopUp.stepOne.example'}}
+					<span>"{{t 'ideaBox.addIdeaPopUp.stepOne.exampleDescription'}}"</span>
+				</span>
+			</div>
+			{{#if (not @isMobile)}}
+				<div class="step-one__length-alert">
+					<span class="step-one__number-count">{{minus 60 @propositionTitle.length}}</span>
+				</div>
+			{{/if}}
+		</div>
+
+
+	{{#if this.propositionSuggestions.length}}
+		<div class="step-one__suggestion-info">
+			{{t 'ideaBox.addIdeaPopUp.stepOne.suggestionInfo'}}
+		</div>
+	{{/if}}
+	{{#if propositionSuggestions.length}}
+		<div class="step-one__suggestions-container">
+			{{#each this.propositionSuggestions as |suggestion|}}
+				<a class="step-one__suggestion-link" href={{suggestion.url}}>
+					<span class="step-one__suggestions-title">{{suggestion.title}}</span>
+					{{inline-svg "/images/ideaBox/arrow-right-icon.svg"}}
+				</a>
+			{{/each}}
+		</div>
+	{{/if}}
+	<div class="step-one__container-add-editor">
+		<LabelTextField
+				class="step-one__title"
+				@type={{"textarea"}}
+				@labelText={{t 'ideaBox.addIdeaPopUp.stepOne.addDescription'}}
+				@redesign="true"
+				@isMandatory="true"
+				@placeholder={{'Description'}}
+				@id="proposition-add-editor"
+				@height={{"16"}}
+				@value={{@propositionDescription}}
+				@maxlength={{250}}
+				@showErrorMessage={{@descriptionError}}
+				@errorMessage={{t 'ideaBox.addIdeaPopUp.stepOne.errorDescription'}}
+				@placeholderError="true"
+				@isMobile={{@isMobile}}
+		/>
+	</div>
+	<div class="step-one__description-details-info">
+		<div class="step-one__description-details {{if @isMobile 'step-one__description-details--full'}}">
+			<span class="step-one__description-info">
+				{{t 'ideaBox.addIdeaPopUp.stepOne.summariseText'}}<LinkTo @route="code-of-conduct" target="_blank" class="step-one__code-of-conduct">{{t 'ideaBox.addIdeaPopUp.stepOne.codeOfConduct'}}</LinkTo> {{t 'ideaBox.addIdeaPopUp.stepOne.moreTips'}}
+			</span>
+		</div>
+		{{#if (not @isMobile)}}
+			<div class="step-one__description-length">
+				<span class="step-one__number-count">{{minus 250 @propositionDescription.length}}</span>
+			</div>
+		{{/if}}
+	</div>
+</div>

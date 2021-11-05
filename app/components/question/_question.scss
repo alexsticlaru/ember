@@ -1,0 +1,377 @@
+.statement {
+    text-align: center;
+}
+
+.statement-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-self: center;
+	padding: 0 7rem;
+	width: 102.3rem;
+	height: 27.3rem;
+	background-color: rgb($cameo, .2);
+	margin: 0 20%;
+	border-radius: 2rem;
+	margin-top: 16rem;
+	& p {
+		text-align: center;
+	}
+	
+	@include respond(phone) {
+		align-self: unset;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		margin-top: 4rem;
+		height: 37rem;
+		& h1 {
+			line-height: 24px;
+			padding: 0 3rem;
+		}
+		
+		& p {
+			padding: 0 2rem;
+			margin-top: 1rem;
+		}
+	}
+}
+
+.question-nr {
+    margin-right: .3rem;
+}
+
+.title{
+  margin-top: 2.5rem;
+}
+
+.counter {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  &__number {
+	font-size: 1.4rem;
+  }
+
+  &__number-limit {
+	color: $color-limit-number;
+  }
+}
+
+.multiple-choices {
+    display: flex;
+    flex-direction: column;
+	align-self: center;
+	padding-top: 8rem;
+
+    &__description {
+        margin: 1rem 0;
+		text-align: center;
+    }
+
+    &__indication {
+        margin-bottom: 1rem;
+    }
+
+    & button {
+        margin-bottom: 1.5rem;
+    }
+
+	@include respond(phone) {
+		align-self: unset;
+		padding-top: 0;
+		width: 100%;
+	}
+}
+
+.other {
+	&__input {
+		position: relative;
+		height: 5rem;
+		border-radius: 12px;
+		border: 1px solid $orange;
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+		padding-left: 4rem;
+		&:focus {
+			border: 1px solid $orange;
+		}
+	}
+	
+	&__btn {
+		padding-right: 1rem;
+	}
+	
+	&__input-wrapper {
+		position: relative;
+		& svg {
+			width: 22px;
+			height: 22px;
+			padding: 4px;
+			position: absolute;
+			top: 14px;
+			left: 14px;
+			background-color: $orange;
+			border-radius: 6px;
+		}
+	}
+}
+
+.one-choice {
+    display: flex;
+    flex-direction: column;
+	align-self: center;
+	padding-top: 8rem;
+
+    &__description {
+        margin: 1rem 0;
+    }
+
+    &__indication {
+        margin-bottom: 1rem;
+    }
+
+    & button {
+        margin-bottom: 1.5rem;
+    }
+
+	@include respond(phone) {
+		align-self: unset;
+		padding-top: 0;
+		width: 100%;
+	}
+}
+
+.range-choice {
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	padding-top: 8rem;
+
+	&__container {
+		margin-top: 5.5rem;
+		display: flex;
+		flex-direction: row;
+	}
+
+	&__button {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: center;
+		width: 3.5rem;
+		height: 4.5rem;
+		border: 1px solid $light-gray;
+		border-right: none;
+		border-radius: 0;
+		padding: 0;
+		&:last-of-type {
+		border-right: 1px solid $light-gray;
+		border-radius: 0 12px 12px 0;
+		}
+		&:first-of-type {
+		border-radius: 12px 0 0 12px;
+		}
+	}
+
+	&__range-limits {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-top: 1.1rem;
+	}
+
+	@include respond(phone) {
+		align-self: unset;
+		padding-top: 0;
+		width: 100%;
+	}
+}
+
+.email{
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	padding-top: 8rem;
+	align-items: center;
+
+	&__description{
+		padding: 1rem 0 3rem;
+		font-size: 2rem;
+		font-weight: 700;
+		max-width: 53.4rem;
+		@include respond(phone) {
+			text-align: center;
+		}
+	}
+
+	&__input{
+		background-color: $white;
+		border-radius: 9px;
+		width: 37.5rem;
+		@include respond(phone) {
+			width: 100%;
+		}
+	}
+
+	&__alert-email{
+		color:$color-limit-number;
+		padding-top: 1.7rem;
+		font-size: 1.6rem;
+		font-weight: 400;
+		line-height: 1.8rem;
+	}
+
+	@include respond(phone) {
+		align-self: unset;
+		padding-top: 0;
+		width: 100%;
+	}
+}
+
+.attachment {
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	padding-top: 8rem;
+
+	&__textarea{
+		font-family: Inter;
+		font-weight: 400;
+		line-height: 1.7;	
+		font-size: 1.4rem;
+		resize: none;
+		border: none;
+		border-bottom: 1px solid $light-gray;
+		background: transparent;
+		width: 100%;
+		margin-top: 3rem;
+		border-radius: unset;
+	}
+
+	&__icons{
+		svg{
+			margin-right: 0.6rem;
+			fill: $light-gray;
+		}
+	}
+
+	&__add-container {
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+
+	@include respond(phone) {
+		align-self: unset;
+		padding-top: 0;
+		width: 100%;
+	}
+} 
+
+.short-text-answer{
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	padding-top: 8rem;
+
+    &__textarea{
+	  font-family: Inter;
+	  font-weight: 400;
+	  line-height: 1.7;	
+	  font-size: 1.4rem;
+	  resize: none;
+	  border: none;
+	  border-bottom: 1px solid $light-gray;
+      background: transparent;
+      width: 100%;
+      margin-top: 3rem;
+	  border-radius: unset;
+    }
+
+	@include respond(phone) {
+		align-self: unset;
+		padding-top: 0;
+		width: 100%;
+	}
+}
+
+.order-choice {
+    display: flex;
+    flex-direction: column;
+	align-self: center;
+	padding-top: 8rem;
+
+	@include respond(phone) {
+		align-self: unset;
+		padding-top: 0;
+		width: 100%;
+	}
+
+    &__description {
+        margin: 1rem 0;
+		text-align: center;
+    }
+
+	&__indication {
+        margin-bottom: 1rem;
+    }
+
+	&__answer {
+		height: 5.3rem;
+		background: $white;
+		color: $dark-black;
+		font-weight: 400;
+		font-family: Inter;
+		font-size: 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-radius: 12px;
+		border: 1px solid $light-gray;
+		cursor: pointer;
+		margin-bottom: 1.5rem;
+		position: relative;
+	}
+
+	&__order {
+		background-color: rgb($cameo, .2);
+		font-weight: 600;
+		font-family: Inter;
+		font-size: 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 5.3rem;
+		width: 4rem;
+		border-radius: 12px 0 0 12px;
+		margin-right: 1rem;
+	}
+
+	&__left-box {
+		display: flex;
+		align-items: center;
+	}
+
+	&__union {
+		margin-right: 1rem;
+	}
+
+	&__clear {
+		display: flex;
+		width: 6rem;
+		& span {
+			color: $medium-blue;
+			margin-left: .5rem;
+		}
+	}
+
+	&__arrows-box {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		justify-content: space-between;
+		right: -23px;
+		height: 4.5rem;
+	}
+}

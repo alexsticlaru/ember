@@ -1,0 +1,99 @@
+.project-members {
+  &__container {
+	margin-top: 4.8rem;
+	background: #FFFFFF;
+	border: 1px solid #EAEAEA;
+	border-radius: 7px;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-bottom: 2rem;
+	padding-top: 1rem;
+  }
+
+  &__header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+  }
+
+  &__title {
+	font-family: Sora;
+	font-weight: 600;
+	font-size: 1.7rem;
+  }
+
+  &__number {
+	font-family: Inter;
+	font-weight: 500;
+	font-size: 1.4rem;
+	color: #7A7E9F;
+	margin-left: 1.4rem;
+  }
+
+  &__list {
+	margin-top: 2rem;
+  }
+
+  &__list-item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 0.5rem;
+
+	&:hover .project-members__member-delete {
+	  display: block;
+	}
+  }
+
+  &__member-info {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+  }
+
+  &__list-username {
+	font-size: 1.5rem;
+	margin-left: 1rem;
+  }
+
+  &__button-more {
+	width: 100%;
+	margin-top: 2.5rem;
+  }
+
+  &__member-delete {
+	display: none;
+  }
+
+  &__search-bar {
+	position: relative;
+	padding: 1rem;
+  }
+
+  &__icon-search{
+	position:absolute;
+	top: 2.6rem;
+	right: 2.2rem;
+  }
+
+  &__search-input {
+	background-color: transparent;
+	width: 30rem;
+	height: 4.6rem;
+	border: 1px solid #E3E3E3;
+	box-sizing: border-box;
+	border-radius: 1.6rem;
+	padding-right: 3.2rem;
+	padding-left: 2rem;
+	color: #5E617C;
+
+	&:focus{
+	  border-color: #707172;
+	}
+  }
+
+}

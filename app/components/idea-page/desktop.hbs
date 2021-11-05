@@ -1,0 +1,36 @@
+<div class="idea-page-desktop__back-button">
+  <LinkTo @route="community.participation.proposition">
+    <div aria-hidden="true">{{inline-svg "images/proposition/go-back.svg"}}</div>
+    <div>{{t 'ideaBox.navTitle'}}</div>
+  </LinkTo>
+</div>
+
+<div class="idea-page-desktop__content-wrapper">
+  <div class="idea-page-desktop__left-column">
+    <div class="idea-page-desktop__user-avatar-container">
+      <span class="idea-page-desktop__lightbulb-icon" aria-hidden="true">{{inline-svg "/images/ideaBox/idea-box-bulb-icon.svg"}}</span>
+      <LinkTo @route="user" @model={{@proposition.user}}>
+        <UserAvatar @user={{@proposition.user}} @dimensions={{61}}></UserAvatar>
+      </LinkTo>
+    </div>
+  </div>
+  <div class="idea-page-desktop__content">
+    <IdeaPage::itemDesktop @proposition={{@proposition}} @shareIdea={{@shareIdea}} />
+    {{#if @proposition.outcome}}
+      <IdeaPage::outcomeDesktop @proposition={{@proposition}} />
+    {{else}}
+      <IdeaPage::addOutcomeDesktop @proposition={{@proposition}} />
+    {{/if}}
+
+    {{#if @proposition.upvotesReached}}
+      <IdeaPage::conversationDesktop @proposition={{@proposition}} @replyToComment={{@replyToComment}}/>
+    {{/if}}
+  </div>
+  <div class="idea-page-desktop__actions">
+    <PropositionActions @proposition={{@proposition}} @top={{50}} @left={{-150}}>
+      <button type="button" class="btn-none" aria-label={{t "pb.accessibility.openDropdown"}}>
+        <span aria-hidden="true">{{inline-svg "/images/proposition/actions.svg"}}</span>
+      </button>
+    </PropositionActions>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="popup__content reactions_popup" role="dialog" aria-labelledby="accessibility-title">
+	<div class="reactions_popup__top-container">
+		<span id="accessibility-title" class="reactions_popup__title">{{t "reactions.title"}}</span>
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+
+	<div class="reactions_popup__stats">
+		{{#each this.reactionCounts as |reaction|}}
+			<button type="button" class="reactions_popup__stats-item btn-none" {{on "click" (fn this.switchReaction reaction.reaction.type)}} aria-label={{t (concat 'reactions.type.' reaction.reaction.type)}}>
+				<span>{{reaction.count}}</span>
+				<span aria-hidden="true">{{inline-svg reaction.reaction.svg}}</span>
+				<EmberTooltip>
+					{{t (concat 'reactions.type.' reaction.reaction.type)}}
+				</EmberTooltip>
+			</button>
+		{{/each}}
+	</div>
+
+	<div class="reactions_popup__list">
+		{{#each this.filteredReactions as |reaction|}}
+			<div class="reactions_popup__list-item">
+				<UserAvatar @user={{reaction.user}} @dimensions={{35}}></UserAvatar>
+				<div class="reactions_popup__list-username">
+					{{reaction.user.fullName}}
+				</div>
+			</div>
+		{{/each}}
+	</div>
+
+</div>

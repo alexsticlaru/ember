@@ -1,0 +1,49 @@
+<ContainerQuery
+  @features={{hash
+    phone=(cq-width max=this.config.breakpoints.phone)
+    tablet=(cq-width min=this.config.breakpoints.phone max=this.config.breakpoints.tabLand)
+    desktop=(cq-width min=this.config.breakpoints.tabLand)}}
+    class="questionnaire-questions"
+  as |CQ|
+>
+  {{#if (or CQ.features.tablet CQ.features.desktop)}}
+    <QuestionnaireQuestions::DesktopTablet @questionsSortByOrder={{this.questionsSortByOrder}}
+        @currentQuestionOrderNr={{this.currentQuestionOrderNr}}
+        @model={{@model}}
+        @onUpdateAnswer={{this.updateAnswer}}
+        @onAddAnswer={{this.addAnswer}}
+        @onRemoveAnswer={{this.removeAnswer}}
+        @onRemoveAnswers={{this.removeQuestionAnswers}}
+        @isSubmit={{this.isSubmit}}
+        @submitQuestionnaire={{this.submitQuestionnaire}}
+        @totalSteps={{this.totalSteps}}
+        @currentStep={{this.currentStep}}
+        @progress={{this.progress}}
+        @previousQuestion={{this.previousQuestion}}
+        @nextQuestion={{this.nextQuestion}}
+        @isQuestionRequired={{this.isQuestionRequired}}
+        @isQuestionnnaireSubmitted={{this.isQuestionnnaireSubmitted}}
+        @backToProject={{this.backToProject}}
+		@anonymousUser={{@anonymousUser}}
+    />
+  {{else}}
+	<QuestionnaireQuestions::Phone
+        @questionsSortByOrder={{this.questionsSortByOrder}}
+        @currentQuestionOrderNr={{this.currentQuestionOrderNr}}
+        @model={{@model}}
+        @onUpdateAnswer={{this.updateAnswer}}
+        @onAddAnswer={{this.addAnswer}}
+        @onRemoveAnswer={{this.removeAnswer}}
+        @onRemoveAnswers={{this.removeQuestionAnswers}}
+        @isSubmit={{this.isSubmit}}
+        @submitQuestionnaire={{this.submitPhoneQuestionnaire}}
+        @totalSteps={{this.totalSteps}}
+        @currentStep={{this.currentStep}}
+        @progress={{this.progress}}
+        @previousQuestion={{this.previousQuestion}}
+        @nextQuestion={{this.nextQuestion}}
+        @isQuestionRequired={{this.isQuestionRequired}}
+		@anonymousUser={{@anonymousUser}}
+        />
+  {{/if}}
+</ContainerQuery>

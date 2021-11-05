@@ -1,0 +1,125 @@
+.user-menu {
+  width: 32.6rem;
+
+  &__top-container {
+    padding-top: 2.4rem;
+    padding-left: 2.6rem;
+    padding-right: 2.6rem;
+  }
+
+  &__grey-container {
+    background: #F8F8F8;
+    padding-left: 2.6rem;
+    padding-right: 2.6rem;
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+
+    //overriding ember link to class, now in grey container
+    .active {
+      background: white;
+    }
+  }
+
+  &__bottom-container {
+    padding-top: 1.8rem;
+    padding-left: 2.6rem;
+    padding-right: 2.6rem;
+    padding-bottom: 1.8rem;
+  }
+
+  &__seperator {
+    border: 1px solid #E3E3E3;
+    margin-top: 1.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+
+  &__title {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: #898989;
+  }
+
+  &__explanation {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.2px;
+    color: #A8A8A8;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    font-size: 1.3rem;
+    color: #5E617C;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+
+    width: 100%;
+
+    & svg {
+      margin-right: 0.8rem;
+    }
+    &:hover, &:focus {
+      color: #5E617C;
+      background: #F7F7F7;
+      border-radius: 9px;
+    }
+  }
+
+  //overriding ember link to class
+  .active {
+    color: #5E617C;
+    background: #F7F7F7;
+    border-radius: 9px;
+  }
+
+  &__item--grey {
+    &:hover, &:focus {
+      background: white;
+    }
+  }
+
+
+  &__projects {
+    // border-bottom: 1px solid $light-gray;
+    &.blank{
+      padding-bottom: 1rem;
+    }
+
+    &__subscroll{
+      padding-bottom: 1rem;
+      max-height: 20rem;
+      overflow-y: auto;
+    }
+  }
+  &__communities {
+    // border-bottom: 1px solid $light-gray;
+
+    &__subscroll{
+      padding-bottom: 1rem;
+      max-height: 20rem;
+      overflow-y: auto;
+    }
+  }
+
+}

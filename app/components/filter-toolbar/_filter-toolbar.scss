@@ -1,0 +1,249 @@
+.filter-toolbar {
+
+  display: flex;
+  padding-bottom: 1.3rem;
+  padding-top: 4.2rem;
+  font-size: 1.4rem;
+
+  .dropdown {
+    &__content {
+      border-radius: 1rem;
+    }
+  }
+
+  &__left-container {
+    display: flex;
+	flex: 1;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+  }
+
+  &__right-container {
+	display: flex;
+	flex: 1;
+	justify-content: flex-end;
+  }
+
+  &__right-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__more-button {
+    padding: 1rem;
+	width:auto;
+  }
+
+  &__filters-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    border-top: none;
+    padding: .5rem 1rem;
+    background: none !important;
+    justify-content: flex-start;
+    z-index: 1001 !important;
+  }
+
+  &__trigger {
+    display: flex;
+    padding: 1rem;
+    @include respond(tab-port) {
+      padding: 1rem 1rem 1rem 0 ;
+    }
+  }
+
+  &__sort-trigger {
+    display: flex;
+    padding: 1rem 1rem 1rem 0 ;
+  }
+
+  &__sorting {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 29.9rem;
+    // border: 1px solid black;
+    border-radius: 0.5rem;
+    max-height: 22rem;
+    // background: $primary-color;
+    min-height: 10rem;
+    &--large {
+      width: 43.4rem;
+    }
+  }
+
+  &__label-container {
+    height: 4.0rem;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: .8rem;
+  }
+
+  &__label-info {
+    margin-left: 1rem;
+  }
+
+  &__radio-style {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__more-filters{
+	width: 10.9rem;
+	height: 4.4rem;
+	border: 1px solid $extra-white-border;
+	box-sizing: border-box;
+	border-radius: 16px;
+  }
+
+  &__newest-button-apply-section {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid $light-color;
+    height: 4.5rem;
+	margin: 1rem 2rem 1rem 0;
+  }
+
+  &__applyButton {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color:  black;
+    line-height: 2.4rem;
+  }
+
+  &__clearButton {
+    color: $medium-gray;
+    background: none;
+    font-weight: 700;
+  }
+
+  &__themes-list {
+    max-height: 21rem;
+    overflow-y: scroll;
+  }
+
+  &__themes-apply-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    border-top: 1px solid $light-color;
+  }
+
+  &__checkbox-style {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1px;
+  }
+
+  &__toggle-row {
+    height: 4rem;
+    margin: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__show-map{
+    display: flex;
+    margin-left: 2.1rem;
+    align-items: center;
+  }
+
+  &__text-showmap{
+	white-space: nowrap;
+  }
+
+  &__search-bar{
+    padding: 1rem;
+    position: relative;
+  }
+
+  &__icon-search{
+    position:absolute;
+	top: 2.3rem;
+	left: 2rem;
+  }
+
+  &__margin-style{
+	margin-right: 0.8rem;
+  }
+
+  &__button-text-sorted{
+	width: 16.2rem;
+	height: 4.4rem;
+	box-sizing: border-box;
+	border-radius: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.3rem;
+	line-height: 2.1rem;
+	color: #5E617C;
+
+	svg path{
+	  fill:#5B5D6C;
+	  height: 1.250000000000001rem;
+	  width: 0.7718749523162849rem;
+	  border-radius: 0;
+	}
+  }
+
+  &__button-text-filters{
+	width: 1.9rem;
+	height: 4.4rem;
+	box-sizing: border-box;
+	border-radius: 16px;
+	align-items: center;
+	justify-content: center;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.3rem;
+	line-height: 2.1rem;
+	color: #5E617C;
+  }
+
+  &__share-button{
+	margin-right: 2.2rem;
+  }
+
+  &__share-text-button{
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.4rem;
+	line-height: 160.2%;
+	letter-spacing: 0.0126802rem;
+	color:$medium-blue;
+	display: flex;
+	align-items: center;
+
+	svg {
+	  margin-right: 0.7rem;
+	}
+  }
+
+  &__search-input {
+    background-color: transparent;
+    width: 13.8rem;
+    height: 4.4rem;
+    border: 1px solid #EBE9E8;
+    box-sizing: border-box;
+    border-radius: 1.6rem;
+    padding-left: 3.2rem;
+    color: #5E617C;
+
+    &:focus{
+      border-color: #707172;
+    }
+  }
+}

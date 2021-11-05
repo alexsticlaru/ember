@@ -1,0 +1,11 @@
+<div class="phone-filter-toolbar__toolbar-navigation">
+  <button type="button" class="btn-none phone-filter-toolbar__toolbar-btn" {{on 'click' @openFilterPanel}}>
+    {{inline-svg "/images/filter.svg" class="icon"}}
+    <span class="phone-filter-toolbar__filters">{{t 'filters.filter'}}</span>
+  </button>
+  <button type="button" class="btn-none phone-filter-toolbar__toolbar-btn phone-filter-toolbar__toolbar-btn--bordered" {{on 'click' @openSearchPanel}}>
+  {{inline-svg "/images/modules/module-icon-search-input.svg" class="icon"}}
+  <span class="phone-filter-toolbar__filters">{{t 'ideaBox.search'}}</span>
+</button>
+  {{yield}}
+</div>

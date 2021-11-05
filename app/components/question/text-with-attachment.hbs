@@ -1,0 +1,37 @@
+<div class="attachment" {{did-insert this.setup}}>
+	{{yield}}
+	<Textarea
+			class="attachment__textarea"
+			rows="7"
+			@value={{this.textAnswered}}
+			placeholder={{t 'questionnaire.addAnswerHere'}}
+			maxlength={{250}}
+			{{on 'focusout' this.handleAnswer}}
+	/>
+	<div class="counter">
+		<span class="counter__number {{if (eq this.textAnswered.length 250 ) 'counter__number-limit'}}">{{minus 250 this.textAnswered.length}}</span>
+	</div>
+	{{#if this.attachment}}
+		<AttachmentItem::delete @attachment={{this.attachment}} @handleClick={{this.removeAttachment}}/>
+	{{else}}
+ 	<div class="attachment__add-container">
+		<FileUpload
+			@id="picture-upload"
+			@fileType="image"
+			@upload={{this.addPicture}}>
+			<label for="picture-upload" class="btn-none add-attachment__button" aria-label={{t 'issue.contributionAddForm.addImage'}}>
+				{{inline-svg "/images/picture-attachment.svg"}}
+			</label>
+		</FileUpload>
+		<FileUpload
+			@id="file-upload"
+			@fileType="file"
+			@upload={{this.addFile}}>
+			<label for="file-upload" class="btn-none add-attachment__button" aria-label={{t 'issue.contributionAddForm.addAttachment'}}>
+				{{inline-svg "/images/pdf-attachment.svg"}}
+			</label>
+		</FileUpload>
+	</div>
+	{{/if}}
+</div>
+

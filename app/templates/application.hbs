@@ -1,0 +1,46 @@
+<HeadLayout />
+
+<div class="comment-add-popup {{this.commentAddFormClass}}">
+	{{outlet "comment-add-popup"}}
+</div>
+
+{{! Flat POPUP (Redesigned) }}
+<div id="flat-popup-fader">{{! Driven by css through body class = flat_popup_shown }}
+</div>
+<div id="flat-popup" class="flat-popup {{this.popupService.flatPopupMainClass}}">
+	<div class="popup_container {{this.popupService.customContainerClass}}">
+		{{outlet "flat-popup"}}
+    </div>
+</div>
+
+<div id="page-content-accessibility" {{did-insert this.hideContentForScreenReaders}}>
+	{{#if (eq this.sidePanel.sidePanelClass 'side-panel--show')}}
+		<div id="sidePanel" class="side-panel {{this.sidePanel.sidePanelClass}}">
+			{{outlet 'side-panel'}}
+		</div>
+	{{else if (eq this.phoneService.phonePageClass 'phone-page--show')}}
+		<div id="phonePage" class="phone-page {{this.phoneService.phonePageClass}}">
+			{{outlet 'phone'}}
+		</div>
+	{{else}}
+		<TopHeader/>
+		{{! Main content }}
+		<div id="mainContent">
+			{{outlet}}
+		</div>
+		<Footer />
+	{{/if}}
+</div>
+
+<CookieConsent />
+
+<LoadingSlider @isLoading={{this.loading}} @duration={{300}} @color={{this.loadingSliderColors}} />
+
+{{! Customer color CSS }}
+{{!-- DEPRECATED for now : we don't use community colors anymore
+{{#if this.community.hasBranding}}
+    <style>
+			{{this.color.stylesheet}}
+    </style>
+{{/if}}
+--}}

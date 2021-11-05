@@ -1,0 +1,30 @@
+<div class="idea-outcome-desktop-title">
+  {{t "discussion.answerTitle"}}
+</div>
+
+<div class="idea-outcome-desktop">
+  <div class="idea-outcome-desktop__user-bubble">
+    <div>
+      <CloudinaryImage style="border-radius: 50%;" @publicId={{@proposition.participationPack.project.community.logo}}
+      @options={{hash height='30' format='png' transforms='q_auto,f_auto,c_fill'}} aria-hidden="true"/>
+    </div>
+  </div>
+  <div class="idea-outcome-desktop__item-container">
+    <div class="idea-outcome-desktop__info">
+      <div>
+        <span class="idea-outcome-desktop__username-style">
+          {{t "discussion.userSays" username=@proposition.participationPack.project.community.name}}
+        </span>
+        <span class="idea-outcome-desktop__author-badge">
+          {{t "discussion.organisationBadge"}}
+        </span>
+      </div>
+      <div class="idea-outcome-desktop__bottom-container">
+        <span class="idea-outcome-desktop__date">{{@proposition.displayOutcomeDate}}</span>
+      </div>
+    </div>
+    <div class="idea-outcome-desktop__display-content">
+      {{@proposition.outcome}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.x-toggle-ios.x-toggle-btn::after{
+    background-color: #ffffff;
+    width: 2.3rem;
+    height: 2.3rem;
+}
+  
+.x-toggle:checked + label > .x-toggle-ios.x-toggle-btn{
+    background: $light-blue;
+}
+  
+.x-toggle-ios.x-toggle-btn{
+    background-color: $medium-gray;
+    border-radius: 30px;
+    width: 5.5rem;
+    height: 3.3rem;
+}

@@ -1,0 +1,91 @@
+<div class="popup__content highlight-comment-popup" role="dialog" aria-labelledby="accessibility-title">
+	<div class="highlight-comment-popup__close-button">
+		<PopupCloseButton @closePopup={{this.closePopup}} />
+	</div>
+	<div class="highlight-comment-popup__top-container">
+		<span class="highlight-comment-popup__left-container">
+			<div id="accessibility-title" class="highlight-comment-popup__title">
+				{{t 'ideaBox.highlightPopup.title'}}
+				<span aria-hidden="true">{{inline-svg '/images/consultation/highlight-icon-consultation.svg'}}</span>
+			</div>
+			<div class="highlight-comment-popup__sub-title">
+				{{t "ideaBox.highlightPopup.subTitle" username=this.model.user.firstName}}
+			</div>
+		</span>
+		<span class="highlight-comment-popup__right-container">
+			<div class="highlight-comment-popup__preview-title">
+				{{t 'ideaBox.highlightPopup.preview'}}
+			</div>
+			<div>
+				<div class="assertion-item desktop">
+					<div class="assertion-item__container desktop">
+						<div class="assertion-item__info">
+							{{this.assertionText}}
+						</div>
+						<div class="assertion-item__vote-ideas">
+							<button type="button" class="btn-none">
+								{{inline-svg "/images/discussion/up-icon.svg"}}
+							</button>
+							<div class="assertion-item__number-of-votes">0</div>
+							<button type="button" class="btn-none">
+								{{inline-svg "/images/discussion/down-icon.svg"}}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</span>
+	</div>
+	<div class="highlight-comment-popup__contribution">
+
+		<div class="contribution-desktop__wrapper">
+			<div class="contribution-desktop__left-column">
+				<div class="contribution-desktop__user">
+					<LinkTo @route="user" @model={{this.model.user}}>
+						<UserAvatar @user={{this.model.user}} @dimensions=44></UserAvatar>
+					</LinkTo>
+				</div>
+			</div>
+
+			<div class="contribution-desktop__main-column">
+				<div class="contribution-desktop__user-info">
+					{{t "discussion.userSays" username=this.model.user.firstName}}
+				</div>
+
+				<div class="contribution-desktop__title">
+					{{html-safe this.model.title}}
+				</div>
+
+				<div {{on "mouseup" this.highlightText}}>
+					<div class="contribution-desktop__comment-text">
+						{{#if this.model.moderationMessage}}
+							{{html-safe this.model.moderationMessage}}
+						{{else}}
+							{{html-safe this.model.content}}
+						{{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<div class="highlight-comment-popup__bottom-container">
+		<span class="highlight-comment-popup__highlights-left-info">
+			{{#if this.assertionTextToLong}}
+				{{t "ideaBox.highlightPopup.textTooLong"}}
+			{{else}}
+				{{t "ideaBox.highlightPopup.highlightsLeft" number=this.numberOfHighlightsLeft}}
+			{{/if}}
+		</span>
+		{{#if this.assertionText}}
+			<button type="button" class="btn-none highlight-comment-popup__share-highlight-button" {{on "click" this.saveHighlight}}>
+				{{t 'ideaBox.highlightPopup.submit'}}
+			</button>
+		{{else}}
+			<button type="button" class="btn-none highlight-comment-popup__share-highlight-button highlight-comment-popup__share-highlight-button--disabled">
+				{{t 'ideaBox.highlightPopup.submit'}}
+			</button>
+		{{/if}}
+	</div>
+</div>

@@ -1,0 +1,170 @@
+<div class="outcome-page">
+	<div class="outcome-page__top-banner">
+		<div class="outcome-page__banner-overlay">
+			<CloudinaryImage  @publicId={{@model.issue.image}} @options={{hash format='png'transforms='q_auto,f_auto,c_fill'}} class="act-page__banner-image" />
+			<h1 class="heading-1--quaternary outcome-page__title">
+
+				<!--//!!! Dummy data here !!! We need title outcome here from BE//-->
+				{{!--{{@model.issue.title}}--}}
+				How to fight against the heat in the city ?
+			</h1>
+			<LinkTo @route="community.participation.consultation.act" class="outcome-page__route-button outcome-page__back-button">
+				{{inline-svg "/images/white-arrow.svg" class="act-page__arrow-icon"}}
+				<p class="outcome-page__text-back-button">
+					{{t 'discussionPreview.discussionBackButton'}}
+					{{t 'issue.contributionAddForm.closedBadgeTitle'}}
+				</p>
+			</LinkTo>
+		</div>
+	</div>
+	<div class="outcome-page__content-container">
+		<div class="outcome-page__main-content-wrapper">
+			<div class="outcome-page__main-content">
+				<div class="outcome-page" id="contribution-item">
+					<div class="outcome-page__wrapper">
+						<div class="outcome-page__left-column">
+							<div class="outcome-page__user">
+								<LinkTo @route="user" @model={{this.currentUser}} title={{@comment.user.fullName}}>
+									<UserAvatar @user={{this.currentUser}} @dimensions={{44}}></UserAvatar>
+								</LinkTo>
+							</div>
+							{{#if this.user.isAuthenticated}}
+								<div class="outcome-page__edit-buttons">
+									<button type="button" class="btn-none" style="padding:1rem" aria-label={{t "pb.accessibility.bookmark"}} {{!--{{on "click" this.bookmarkContribution}}--}}>
+										<span aria-hidden="true">{{inline-svg "/images/consultation/bookmark.svg"}}</span>
+										<EmberTooltip
+												@tooltipClass="white-tooltip"
+												@arrowClass="white-tooltip-arrow">
+											{{t "discussion.saveTooltip"}}
+										</EmberTooltip>
+									</button>
+									<Dropdown @top={{30}} @left={{90}} as |dd|>
+										<dd.trigger>
+											<button type="button" class="btn-none" aria-label={{t "pb.accessibility.openDropdown"}}>
+												<span aria-hidden="true">{{inline-svg "/images/consultation/edit.svg"}}</span>
+												<EmberTooltip
+														@tooltipClass="white-tooltip"
+														@arrowClass="white-tooltip-arrow">
+													{{t "discussion.moreTooltip"}}
+												</EmberTooltip>
+											</button>
+										</dd.trigger>
+										<dd.content>
+											<div class="outcome-page__actions">
+												<div class="outcome-page__edit-button-outcome">Edit</div>
+												<div class="outcome-page__delete-button-outcome">Delete</div>
+											</div>
+										</dd.content>
+									</Dropdown>
+								</div>
+							{{/if}}
+						</div>
+						<div class="outcome-page__main-column">
+							<div class="outcome-page__organisation-container">
+
+								<!--// !!! This is dummy data !!! We need outcome project region here//-->
+								<span class="outcome-page__user-info">Ville de Lyon</span>
+								<span class="outcome-page__badge-organisation">{{t 'participation.outcomes.OrganisationBadge'}}</span>
+							</div>
+							<h1 class="heading-1 heading-1--quaternary outcome-page__title-outcome">
+
+								<!--// !!! This is dummy data !!! We need outcome title here from BE//-->
+								{{!--{{html-safe @comment.title}}--}}
+								[Outcome] Greening streets against global warming
+							</h1>
+							<div class="outcome-page__comment-text">
+									{{#if @comment.moderationMessage}}
+										{{t 'participation.outcome.moderationMessage'}}
+								{{else}}
+
+									{{!--{{html-safe @comment.content}}--}}
+									<!--// !!! This is dummy data !!! We need outcome description here from BE //-->
+									<span class="outcome-page__description-text">Living in Lyon for several years, I deplore the lack of trees in the streets.
+									Being a landscape architect by profession I am well aware of the constraints of new plantings,
+									between buried networks, the proximity of the facades and sometimes the narrowness of the streets.
+									However, there are many varieties of trees that could suit every situation and requirement.
+									It has been proven by studies that the presence of trees in the streets considerably reduces the
+									temperatures of concrete, asphalt (soil and facades). If we could plant trees at street intersections,
+									where space is perhaps more generous, plant varieties with fastigated port in narrower places,it seems
+									to me that this would play a major role in this fight against global warming.</span>
+
+									<!--//!!! Here is dummy image! We need image outcome here from BE !!!//-->
+									<div class="outcome-card__image-content"></div>
+								{{/if}}
+							</div>
+							<div class="outcome-page__attachment-container">
+								{{#each @comment.attachments as |attachment|}}
+									<AttachmentItem::item @attachment={{attachment}}/>
+								{{/each}}
+							</div>
+							<div class="outcome-page__actions-container">
+								{{#if this.participationOn}}
+
+									<!-- !!! Dummy data here ! We need people participating count here for Outcome page-->
+									<span>37 {{t 'discussionPreview.peopleParticipating'}}</span>
+									<span>&#8226;</span>
+									<!--// Dummy data here ! We need data from BE //-->
+									<span class="outcome-page__days-ago">3 days ago{{@comment.displayDate}}</span>
+								{{else}}
+									<div class="outcome-page__toggle-container">
+										<span class="outcome-page__participation-off">{{t 'participation.outcomes.participationOff'}}</span>
+										<XToggle @theme='ios' @size='large'
+												 @value={{this.participationOn}}
+												 @onToggle={{this.changeAllowParticipation}}
+												 class="proposition-filters__toggle"/>
+									</div>
+								{{/if}}
+
+
+								<!--// onClick commented until we have data from BE //-->
+								<button type="button" class="outcome-page__share-button btn-none" {{!--{{on "click" this.shareContribution}}--}}>
+									<span aria-hidden="true">{{inline-svg "/images/consultation/share.svg"}}</span>
+									<span class="outcome-page__share-button-text">
+										{{t 'buttons.shareButton'}}
+									</span>
+								</button>
+							</div>
+							{{#if this.participationOn}}
+								<div class="outcome-page__toggle-container">
+									<span class="outcome-page__participation-on">{{t 'participation.outcomes.participationOn'}}</span>
+									<XToggle @theme='ios' @size='large'
+											 @value={{this.participationOn}}
+											 @onToggle={{this.changeAllowParticipation}}
+											 class="proposition-filters__toggle"/>
+								</div>
+							{{/if}}
+							{{#if this.participationOn}}
+								<div class="outcome-page__comments-container">
+								  <div class="outcome-page__comments-title-container">
+								  <span class="outcome-page__comments-title">
+									  {{t 'discussion.conversation'}}
+								  </span>
+								  <span class="outcome-page__comments-number">
+									{{@comment.commentCount}} {{t 'discussion.comments'}}
+								  </span>
+								</div>
+									<CommentList
+												@switchToReplyMode={{this.replyToComment}}
+												@comments={{@comment.comments}}
+												@author={{@comment.user}}
+												@usersCanParticipate={{@comment.issue.usersCanParticipate}}>
+									</CommentList>
+								</div>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="outcome-page__side-info">
+			<div class="outcome-page__side-panel">
+				<span class="outcome-page__title-discussion-details">{{t 'participation.outcomes.discussionDetails'}}</span>
+				{{#if this.participationOn}}
+					{{t 'participation.outcomes.mostUsedReactions'}}
+				{{else}}
+					<span class="outcome-page__participation-off-message">{{t 'issue.outcome.messageParticipationOff'}}</span>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</div>

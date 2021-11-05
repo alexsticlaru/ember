@@ -1,0 +1,27 @@
+.breadcrumbs {
+	font-weight: 600;
+	margin-bottom: 2em;
+
+	a {
+		text-decoration: none;
+		color: #ffff;
+		cursor: pointer;
+	}
+
+	&--black {
+		& .item_nolink {
+			font-weight: normal;
+		}
+		& span.separator{
+			color: $light-gray;
+			margin-left: 0.8rem;
+			margin-right: 0.813rem;
+		}
+		& a, & .item_nolink {
+			color: $dark-color;
+		}
+		& a:hover{
+			color: $dark-gray;
+		}
+	}
+}

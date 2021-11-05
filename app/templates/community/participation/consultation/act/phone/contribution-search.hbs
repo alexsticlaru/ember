@@ -1,0 +1,20 @@
+<div class="proposition-search">
+    <button type="button" class="btn-none proposition-search__back-btn" {{on 'click' this.closeSearchPanel}} aria-label={{t 'buttons.close'}}>
+      <span aria-hidden="true">{{inline-svg "/images/back-arrow.svg"}}</span>
+    </button>
+    <SidePanelSearch
+      @searchItems={{this.searchContributions}}
+      @searchText={{this.searchText}}
+      @handleInputFocus={{this.handleInputFocus}}
+      @showCancelBtn={{this.showCancelBtn}}
+      @clearSearchText={{this.clearSearchText}}
+      @handleCancel={{this.handleCancel}}
+    />
+    {{#if this.searchText}}
+        {{#each this.pagedContributions as |contribution|}}
+          <ContributionItem::PreviewMobile @comment={{contribution}} @model={{@model}}>
+        </ContributionItem::PreviewMobile>
+        {{/each}}
+        <Pagination @pagedContent={{this.pagedContributions}} />
+    {{/if}}
+</div>

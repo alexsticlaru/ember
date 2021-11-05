@@ -1,0 +1,69 @@
+{{! don't set here this events handler (pointing to rich-editor actions) to be able to handle it in the froala-editor component }}
+{{! triggerEditorUpload = (action 'triggerEditorUpload') }}
+{{!	on-file-uploaded = (action 'fileUploaded') }}
+{{!	closeEditorUpload = (action 'closeEditorUpload') }}
+{{!	on-image-beforeUpload = (action 'onImageBeforeUpload') }}
+{{!	on-image-before-upload = (action 'onImageBeforeUpload') }}
+{{!	on-image-uploaded = (action 'onImageUploaded') }}
+{{!	on-image-inserted = (action 'onImageInserted') }}
+{{!	on-image-replaced = (action 'onImageReplaced') }}
+{{!	on-image-removed = (action 'onImageRemoved') }}
+{{!	on-image-error = (action 'onImageError') }}
+{{!	on-file-beforeUpload = (action 'onFileBeforeUpload') }}
+{{!	on-file-before-upload = (action 'onFileBeforeUpload') }}
+{{!	on-file-uploaded = (action 'onFileUploaded') }}
+{{!	on-file-inserted = (action 'onFileInserted') }}
+{{!	on-file-replaced = (action 'onFileReplaced') }}
+{{!	on-file-removed = (action 'onFileRemoved') }}
+{{!	on-file-error = (action 'onFileError') }}
+{{!	on-focus = (action 'onFocus') }}
+{{!	on-click = (action 'onClick') }}
+{{! imagePasteProcess = true }}
+{{#if displayEditor}}
+
+		<JoditRicheditor
+				@editorId ={{@editorId}}
+				@content ={{@content}}
+				@placeholderText ={{@placeholderText}}
+				@tabIndex ={{@tabIndex}}
+				@isVideoToolbar ={{@isVideoToolbar}}
+				@hasVideo ={{this.hasVideo}}
+				@noToolbarMode ={{@noToolbarMode}}
+				@rem-on-blur-getHtml ={{ this.attrs.onBlur}}
+				@rem-onEditorBlur ={{action 'editorBlur'}}
+				@onEditorBlur ={{this.attrs.onBlur}}
+				@allowResizeX = {{@allowResizeX}}
+				@allowResizeY = {{@allowResizeY}}
+
+				@imageUpload ={{true}}
+				@class = "jodit-edit intro-tooltip-edit"
+
+				@imageUploadParamsTimestamp ={{this.cloudinary_timestamp}}
+				@imageUploadParamsApiKey ={{this.cloudinary_api_key}}
+				@imageUploadParamsSignature ={{this.cloudinary_signature}}
+				@imageUploadParamsFolder ={{this.cloudinary_folder}}
+
+				@showAddCommentPopup ={{@showAddCommentPopup}}
+				@isOpen ={{@isOpen}}
+				@visibilityClass ={{@visibilityClass}}
+				@initialHeight ={{@initialHeight}}
+
+				@refreshCloudinaryAuth ={{action 'refreshCloudinaryAuth'}}
+		/>
+
+
+{{/if}}
+
+{{!--{{photo-upload-->
+<!--		class = "hidden-upload editor-photo-upload"-->
+<!--		type = "froalaeditor"-->
+<!--		roundImage = false-->
+<!--		imagesOnly = false-->
+<!--		resetAfterUpload = true-->
+<!--		imageSource = (mut editorImageSource)-->
+<!--		fullFileUrl = (mut editorFullFileUrl)-->
+<!--		uploadedFileName = (mut editorUploadedFileName)-->
+<!--		onImageChanged = (action 'editorPhotoUploaded')-->
+
+<!--		refreshCloudinaryAuth = (action 'refreshCloudinaryAuth')-->
+<!--}}

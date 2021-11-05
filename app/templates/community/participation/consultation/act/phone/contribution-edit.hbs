@@ -1,0 +1,90 @@
+<div class="contribution-edit">
+	<div class="contribution-edit__top-container">
+		<button type="button" class="btn-none contribution-edit__top-button" {{on "click" this.closePopup}}>
+			{{t 'issue.contributionEdit.cancel'}}
+		</button>
+		<h1 class="heading-1--quaternary">
+			{{t 'issue.contributionEdit.title'}}
+		</h1>
+		<button type="button" class="btn-none contribution-edit__top-button" {{on "click" this.saveComment}}>
+			{{t 'issue.contributionEdit.save'}}
+		</button>
+	</div>
+
+	<div class="contribution-edit__contribution-title">
+		<RichEditor
+		@noToolbarMode = {{1}}
+		@id="contribution-add-editor"
+		@editorId ="contribution-add-editorplace-create"
+		@content={{@model.title}}
+		@initialHeight={{40}}
+		/>
+	</div>
+
+	{{#if this.assertionsBelowLimit}}
+		<div class="contribution-edit__highlight-info">
+			<span>
+				{{inline-svg "/images/consultation/assertion-idea.svg"}}
+			</span>
+			<span class="contribution-edit__assertions-text">
+				{{t 'issue.contributionAddForm.highlightDescription'}}
+			</span>
+		</div>
+	{{/if}}
+
+	<div class="contribution-edit__assertions">
+		{{#each @model.assertions as |assertion|}}
+			<AssertionItem::delete
+			@assertion={{assertion}}
+			@removeAssertion={{this.removeAssertion}}
+			/>
+		{{/each}}
+	</div>
+
+	{{#if @model.attachments}}
+		<div class="contribution-edit__contribution-container">
+			{{#each @model.attachments as |attachment|}}
+				<AttachmentItem::delete @attachment={{attachment}} @handleClick={{this.removeAttachment}}/>
+			{{/each}}
+		</div>
+	{{else}}
+		<div class="contribution-edit__attachment-add-container">
+			<span class="contribution-edit__attachment-add-text">
+				{{t 'issue.contributionEdit.addAttachment'}}
+			</span>
+			<span>
+				<AddAttachment
+					@model={{@model}}
+					/>
+			</span>
+		</div>
+	{{/if}}
+
+	<AddAssertionButton
+		@model={{@model}}
+		>
+		<div class="contribution-edit__contribution-text">
+			<RichEditor
+			@noToolbarMode = {{1}}
+			@id="contribution-add-editordescription"
+			@editorId ="contribution-add-editordescription-create"
+			@content={{@model.content}}
+			@initialHeight={{200}}
+			/>
+		</div>
+	</AddAssertionButton>
+
+
+	<div class="contribution-edit__contribution-container">
+		{{#each @model.themes as |theme|}}
+			<ThemeItem::remove-theme @theme={{theme}} @handleClick={{this.removeTheme}}/>
+		{{/each}}
+	</div>
+
+	<div class="contribution-edit__contribution-container">
+		<button type="button" class="btn-none theme-item-active" {{on "click" this.openThemesPanel}}>
+			{{t 'issue.contributionAddForm.addThemes'}}
+		</button>
+	</div>
+
+</div>

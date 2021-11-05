@@ -1,0 +1,252 @@
+{
+ "bubble": {
+  "error": {
+   "unknown": "Oeps, er ging iets mis. Laat het ons alsjeblieft weten, als het nog eens gebeurt!"
+  },
+  "login": {
+   "confirm": {
+    "before": "Welkom, ",
+    "title": "Hallo!"
+   }
+  },
+  "logout": {
+   "confirm": "Fijne dag nog. We kijken uit naar je volgende bezoek!",
+   "confirm.title": "Tot snel!"
+  },
+  "notfound": {
+   "community": "Oeps! je probeerde een pagina te bezoeken die niet bestaat."
+  },
+  "password": {
+   "recovery": {
+    "confirm": "Check je mailbox: er vliegt een e-mail naartoe!",
+    "confirm.title": "Woooooooosh!"
+   }
+  }
+ },
+ "buttons": {
+  "cancel": "Annuleer",
+  "changeEmail": "E-mail opslaan",
+  "changePassword": "Wachtwoord opslaan",
+  "delete": "Verwijderen",
+  "login": "Meld je aan",
+  "loginEmail": "Meld je aan met e-mail",
+  "propositionDeleteCancel": "Annuleren",
+  "propositionDeleteConfirm": "Verwijderen",
+  "remove": "Verwijderen",
+  "save": "Bewaren",
+  "signup": "Registreer je",
+  "signupEmail": "Registreer je met e-mail",
+  "updateEmail": "Wijzig email"
+ },
+ "communities": {
+  "contributions": "{number} Bijdragen",
+  "currentProjects": "Lopende projecten",
+  "currentProjectsMessage": "Je kan aan deze  projecten meedoen.",
+  "members": "Leden",
+  "pastProjects": "Afgelopen projecten",
+  "projects": "Projecten"
+ },
+ "community": {
+  "addModules": {
+   "navTitle": "+ Add participation module"
+  },
+  "consultationManagement": {
+   "coverDimensions": "Recommended format: PNG 1440 x 500 pixels"
+  }
+ },
+ "delete": {
+  "confirmMessage": {
+   "account": "Weet je zeker dat je je account wilt deactiveren?"
+  }
+ },
+ "footer": {
+  "bottomSection": {
+   "registeredBusiness": "Civocracy is een geregistreerd bedrijf in zowel Nederland (B.V.) als Duitsland (Zweigniederlassung). Ons hoofdadres is Oldenburger Strasse 6, 10551 Berlijn, Duitsland. U kunt ons per e-mail bereiken op contact@civocracy.org."
+  },
+  "sectionItems": {
+   "about": "Over",
+   "blog": "Blog",
+   "caseStudies": "Casestudy's",
+   "codeOfConduct": "Gedragscode",
+   "jobs": "Vacatures",
+   "press": "Pers",
+   "services": "Diensten",
+   "termsOfUse": "Voorwaarden"
+  },
+  "sectionTitles": {
+   "legal": "Juridisch",
+   "whatWeDo": "Wat we doen",
+   "whoWeAre": "Wie we zijn"
+  }
+ },
+ "home": {
+  "header": {
+   "sliding": {
+    "item": {
+     "1": "jouw woonplaats"
+    }
+   },
+   "subtitle": "Met elkaar werken aan de toekomst van",
+   "title": "Laat anderen niet zonder jou beslissen."
+  }
+ },
+ "homepage": {
+  "landing": {
+   "subtitle": "Samenwerken aan een inclusieve samenleving door gezamenlijke besluitvorming.",
+   "title": "Online participatie.<br>Betrokken burgers.<br>Een sterkere samenleving."
+  },
+  "process": {
+   "step1": {
+    "line1": "Deel en ontwikkel ideeën",
+    "line2": "over onderwerpen waar",
+    "line3": "jij om geeft"
+   },
+   "step2": {
+    "line1": "Alle bijdragen",
+    "line2": "worden beoordeeld",
+    "line3": "en geanalyseerd"
+   },
+   "step3": {
+    "line1": "Projecten worden uitgevoerd",
+    "line2": "op basis van de input",
+    "line3": "van de community"
+   }
+  },
+  "sectionTitles": {
+   "locations": "Waar we werken",
+   "partners": "Onze partners",
+   "process": "",
+   "register": "Doe mee met het gesprek",
+   "successes": "Steden hebben je nodig"
+  },
+  "successes": {
+   "auvergne": {
+    "closing": "gelezen door de lokale overheid",
+    "highlightedText": "werden 96% van de burgerbijdragen",
+    "location": "In de regio Auvergne-Rhône-Alpes,"
+   },
+   "northHolland": {
+    "closing": "over biodiversiteit overgenomen als beleidsadviezen",
+    "highlightedText": "werden 10 ideeën van burgers",
+    "location": "In Noord-Holland,"
+   },
+   "strasbourg": {
+    "closing": "aan een officiële discussie om educatie lokaal te verbeteren",
+    "highlightedText": "deden 40% van de ouders in de stad mee",
+    "location": "In Straatsburg,"
+   }
+  }
+ },
+ "howItWorks": {
+  "subtitle": "Here’s what you can do on Civocracy:"
+ },
+ "issue": {
+  "learn": {
+   "overview": "Discussie overzicht",
+   "readBy": "{percent}% van de bijdragen gelezen door {community}"
+  },
+  "status": {
+   "closed": "Afgerond"
+  }
+ },
+ "login": {
+  "forgotPassword": "Wachtwoord vergeten?",
+  "register": "Nog geen account?",
+  "title": "Meld je aan"
+ },
+ "moderation": {
+  "form": {
+   "abusive": "aanstootgevend",
+   "advertising": "reclame",
+   "inappropriate": "ongepast",
+   "submit": "Bericht opslaan",
+   "title": "Moderatieboodschap"
+  },
+  "message": {
+   "abusive": "Dit bericht schond Civocracy's<a href='https://www.civocracy.org/code-of-conduct'>Gedragscode</a>over aanstootgevende berichten",
+   "advertising": "Dit bericht schond Civocracy's <a href=\"/code-of-conduct\" target=\"_blank\">Gedragscode</a> over reclame",
+   "inappropriate": "Dit bericht schond Civocracy's <a href='https://www.civocracy.org/code-of-conduct'>Gedragscode</a> over ongepaste berichten"
+  },
+  "p1": "Op deze website vind je een aantal discussies, projecten en uitdagingen, waar je aan mee kunt doen. Je kunt je mening uiten in een discussie, of je creativiteit en deskundigheid laten spreken.",
+  "p2": "Dit platform draait op jou en jouw bijdragen. Iedereen kan meedoen en iedereen moet zich hier op z'n gemak kunnen voelen.",
+  "p3": "Respecteer alsjeblieft deze regels en pas ze toe. Laten we constructieve discussies voeren op een coöperatieve manier.",
+  "p4": "Heeft u vragen over moderatie? Stuur dan een e-mail naar",
+  "punchline1": "Welkom bij Civocracy! Dit gaat over jou en je ideeën voor je stad/dorp, jouw gemeenschap en jouw wereld.",
+  "punchline2": "Dit zijn de 9 gouden Civocracy-principes voor een soepele weg naar impact:",
+  "punchline3": "Nou, tijd om het verschil te maken: we hebben op je gewacht! We wensen je boeiende uitwisselingen op dit platform en veel goede ideeën en betrokkenheid!",
+  "tenet1": "Formuleer je bijdragen <b>respectvol</b>. Als een bijdrage van een ander niet overeenstemt met jouw wensen/ideeën, ga hier dan op een goede manier mee om.",
+  "tenet2": "Wees zo duidelijk en <b>constructief</b> mogelijk in je bijdrage. Houd er ook rekening mee, dat ironie vaak niet begrepen wordt en/of verkeerd kan worden geïnterpreteerd.",
+  "tenet3": "Wees je bewust van <b>herhaling</b>. Misschien is jouw idee of feedback al genoemd in bijdragen van andere gebruikers. Gebruik dan de 'mee eens'-knop om de oorspronkelijke bijdrager te ondersteunen.",
+  "tenet4": "<b>Krenkende, beledigende, lasterlijke</b> en <b>racistische</b> opmerkingen worden <b>verwijderd</b> van ons platform. Ze zullen worden verwijderd door onze moderators. We staan open voor en bemoedigen een breed spectrum van meningen en overtuigingen, maar ze moeten wel met respect worden gebracht.",
+  "tenet5": "Civocracy is <b>geen reclame-platform</b>. Commerciële content zal worden verwijderd door ons moderatie-team. Verwijzingen naar je eigen, niet-commerciële websites of blogs moeten aansluiten bij de discussie en wij vragen je om deze spaarzaam in te zetten.",
+  "tenet6": {
+   "arg1": "Je argumenten kracht bij te zetten",
+   "arg2": "Erkend te worden als bijdrager van je gemeenschap.",
+   "arg3": "De persoonlijke informatie die je verstrekt bij je registratie zal nooit worden gepubliceerd of gebruikt zonder jouw toestemming.",
+   "title": "Wij raden je sterk aan om <b>je echte naam te gebruiken</b>, om:"
+  },
+  "tenet7": "Zorg ervoor dat je met jouw bijdrage geen <b>auteursrechten</b> en/of persoonlijke rechten van derden schendt.",
+  "tenet8": "Vergeet niet om de <b>bron</b> van je citaat te vermelden, als je een citaat toevoegt.",
+  "tenet9": "<b>Veel plezier</b>, leer, ontdek, deel, laat je verrassen, verbindt, en nog veel meer!",
+  "title": "Beste bijdragers en veranderaars,"
+ },
+ "participation": {
+  "addProject": "Voeg een project toe",
+  "goToSettings": "Instellingen",
+  "shareButton": "Delen"
+ },
+ "password": {
+  "change": {
+   "title": "Wijzig je wachtwoord"
+  },
+  "recovery": {
+   "title": "Stel je wachtwoord opnieuw in"
+  },
+  "reset": {
+   "title": "Kies een nieuw wachtwoord"
+  }
+ },
+ "pb": {
+  "profile": {
+   "save": "Opslaan"
+  },
+  "projects": {
+   "savedChanges": "Wijzigingen opgeslagen"
+  }
+ },
+ "placeholder": {
+  "email": "contact@voorbeeld.nl",
+  "newPassword": "Nieuw wachtwoord",
+  "newPasswordRepeat": "Herhaal nieuw wachtwoord",
+  "oldPassword": "Oud wachtwoord",
+  "password": "Voer je wachtwoord in"
+ },
+ "questionnaire": {
+  "cancelQuestionnaireButton": "Annuler",
+  "noAnswer": "Nee",
+  "question-type": {
+   "choice": "Één antwoord mogelijk",
+   "multiple_choices": "Multiple choice-vraag",
+   "range": "Bereik",
+   "statement": "Tussenpagina",
+   "text": "Antwoord in tekst",
+   "yes_no": "Ja/Nee"
+  },
+  "yesAnswer": "Ja"
+ },
+ "register": {
+  "captchaError": "Klik op het bovenstaande veld",
+  "login": "Al geregistreerd?",
+  "privacyAgreement": "Ik ben me bewust van Civocracy's <a href=\"/data-privacy\" target=\"_new\">Data & Privacy Policy</a>",
+  "termsAgreement": "Ik ga akkoord met de <a href=\"/terms-and-conditions\" target=\"_blank\">Terms & Conditions</a>",
+  "termsError": "Gelieve de bovenstaande voorwaarden te aanvaarden alvorens verder te gaan",
+  "title": "Registeren"
+ },
+ "registration-popup": {
+  "message": "Voordat je begint te bespreken hoe je stad eruit moet zien, moet je je e-mailadres bevestigen - controleer nu je inbox en we zien je hier snel weer terug.",
+  "title": "Goed dat je meedoet met Civocracy!"
+ },
+ "top-header": {
+  "organization": "Ik ben een organisatie"
+ }
+}

@@ -1,0 +1,681 @@
+
+////
+/// This stylesheet defines styles for the
+/// HOME PAGE.
+////
+.home\.index,
+.home\.user-activate,
+.home\.confirm-email,
+.home\.password-reset-popup,
+.home\.password-recovery-popup,
+.home\.login,
+.home\.register
+{
+  	.header-join .autocomplete{
+		&-holder{
+			display:inline;
+			overflow: auto;
+		}
+		&-input{
+			border: 1px solid $primary-color ;
+			background-color: rgba($dark-color, 0.4) ;
+			color: $primary-color ;
+			height: 45px;
+			text-align: center;
+			text-transform: uppercase;
+			width:75%;
+			&:active, &:hover, &:focus {
+				border: 1px solid $primary-color ;
+			}
+			&::-webkit-input-placeholder{
+			  color:$primary-color;
+			}
+			&::-moz-placeholder{
+			  color:$primary-color;
+			}
+			&:-ms-input-placeholder{
+			  color:$primary-color;
+			}
+			&:-moz-placeholder{
+			  color:$primary-color;
+			}
+		}
+		&-input-dark{
+		  border: 1px solid $dark-color ;
+			background-color: rgba(255, 255, 255, 0.2);
+		  color: $dark-color ;
+		  height: 45px;
+		  text-align: center;
+		  text-transform: uppercase;
+		  width:75%;
+		  &:active, &:hover, &:focus {
+			border: 2px solid $dark-color ;
+		  }
+		  &::-webkit-input-placeholder{
+			color:$dark-color;
+		  }
+		  &::-moz-placeholder{
+			color:$dark-color;
+		  }
+		  &:-ms-input-placeholder{
+			color:$dark-color;
+		  }
+		  &:-moz-placeholder{
+			color:$dark-color;
+		  }
+
+		}
+		&-button, &-disabled {
+			vertical-align: bottom !important ;
+		}
+	}
+	.header{
+		&-sliding{
+			&Container{
+				display: inline-block;
+				position: relative;
+				height: 31px ;
+				overflow: hidden;
+				text-shadow: none ;
+				vertical-align: text-top;
+				-webkit-transition: width .4s ease-out;
+				-moz-transition: width .4s ease-out;
+				-ms-transition: width .4s ease-out;
+				-o-transition: width .4s ease-out;
+				transition: width .4s ease-out;
+				border-bottom: solid 2px $primary-color;
+			}
+			&-list{
+				position: absolute;
+				padding-left: 0;
+				top: 0;
+				left: 0;
+				text-align: left;
+				white-space: nowrap;
+				list-style-type: none;
+				transition: all .4s ease-out;
+			}
+			&-item{
+				line-height: 32px ;
+			}
+			&-item:first-child {
+				margin-top: -1px ;
+			}
+		}
+		&-banner{
+			position:relative;
+			background-repeat: no-repeat;
+			height: 500px;
+			margin-bottom: 0px ;
+			text-align:center;
+			background-image: url(https://res.cloudinary.com/civocracy/image/upload/q_auto,f_auto/v1452776312/static/vision/bottom.jpg);
+			background-size: cover;
+			display: table;
+			width:100%;
+		}
+		&-filter{
+			position:absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0.1;
+			background: black;
+			z-index:0;
+		}
+		&-info{
+			display: table-cell;
+			position:relative;
+			width: 100%;
+			height: 100%;
+			text-align: center ;
+			vertical-align: middle;
+		}
+		&-info-center {
+			display: inline-block ;
+			text-shadow: 0px 0px 40px $dark-color;
+		}
+		&-title{
+			color: $primary-color;
+			padding-top: 20px;
+			font-weight: bold;
+			font-size: 50px;
+		}
+		&-title-black{
+			color: $dark-color;
+			font-size: 40px;
+			text-shadow: 0px 0px 40px #fff;
+		}
+		&-subtitle{
+			color: $primary-color;
+			font-size:24px;
+			line-height: 31px ;
+			margin-left: 25% ;
+			margin-top: -5px;
+			position: relative;
+			text-align: left;
+			width: 100%;
+			&-rotating-words{
+				border-bottom: solid 2px $primary-color;
+			}
+		}
+		&-join{
+			margin-top:30px;
+			max-width: 650px;
+			width: 100%;
+			display: inline-block;
+			position: relative ;
+		}
+	}
+
+	.top-header .header-title {
+		color: $secondary-color;
+		font-size: 26px;
+		padding-top: 0;
+		font-weight: normal;
+	}
+
+	.top-communities {
+		background-color: $light-color ;
+		border-bottom: 1px solid darken($light-color, 7%) ;
+		margin-bottom: 30px ;
+		.container {
+			padding: 30px 6.5% 50px ;
+      .box{
+        background-color: unset;
+      }
+		}
+
+		h3 {
+			color: $dark-color ;
+			font-size: 24px ;
+			font-weight: normal ;
+		}
+		img.top-community {
+			margin-bottom: -27px ;
+		}
+		p.caption {
+			background: rgba($dark-color,0.5) ;
+			color: $primary-color ;
+			position: relative ;
+			line-height: 27px ;
+			padding-left: 8px ;
+		}
+    p.long-name{
+      font-size: 14px;
+    }
+	}
+
+	.description{
+		&-container{
+			overflow: hidden;
+		}
+		&-header-row{
+			margin-top: 60px;
+		}
+		&-footer-row{
+			margin-bottom: 60px;
+		}
+		&-text-box{
+			text-align: left;
+			margin: -20px auto 60px;
+
+			h2{
+				margin: 0 0 25px;
+				text-align: center;
+				font-size:48px;
+				color: $secondary-color;
+				display: inline-block;
+				margin-right: 12px;
+			}
+			img{
+				margin-bottom: 22px;
+				height: 60px;
+			}
+			p{
+				color: $dark-color;
+				font-size:24px;
+				line-height: 26px;
+				margin-top: -20px;
+			}
+		}
+		&-phone{
+			position: absolute;
+			margin: -365px 0 -147px 30px;
+		}
+
+		&-item {
+			&-box {
+				margin-bottom: 40px;
+				h3 {
+					text-transform: uppercase;
+					color: $secondary-color;
+					font-size: 23px;
+					line-height: 26px;
+				}
+				i {
+					color: $secondary-color;
+					margin-right: 10px;
+					font-size: 36px;
+				}
+				p {
+					font-size: 18px;
+					line-height: 22px;
+				}
+			}
+		}
+	}
+
+	.show-element{
+		position: absolute;
+		margin: -365px 0 -147px 65px;
+		background-repeat: no-repeat;
+		opacity: 0;
+	}
+
+	.element{
+		&-active{
+			display: block;
+		}
+		&-inactive{
+			display: none ;
+			opacity: 0 ;
+		}
+	}
+
+	/* Our successes */
+
+	.stories {
+		margin-bottom: 90px ;
+		max-width: 900px ;
+
+		.stories-preview-carousel {
+			.story-preview {
+				min-height: 210px ;
+				padding: 1px ;
+
+				.success-banner {
+					background-color: $secondary-color ;
+					color: $primary-color ;
+					font-size: 14px ;
+					text-align: center ;
+					text-transform: uppercase ;
+
+					padding-right: 15px ;
+					position: absolute ;
+					top: 13px ;
+					left: -15px ;
+					width: 120px ;
+					z-index: 1000 ;
+
+					/* rotate */
+					-webkit-transform: rotate(-30deg);
+					-moz-transform: rotate(-30deg);
+					-ms-transform: rotate(-30deg);
+					-o-transform: rotate(-30deg);
+					filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+				}
+				img {
+					padding-left: 0 ;
+				}
+				.description {
+					padding-right: 0 ;
+
+					.summary, .see-more {
+						color: $dark-color ;
+					}
+					.see-more {
+						color: $gray-color ;
+						cursor: pointer ;
+						&:hover {
+							text-decoration: underline ;
+						}
+					}
+				}
+			}
+		}
+		.stories-thumbnails-carousel {
+			margin-top: 20px ;
+
+			.story-thumbnail {
+				img {
+					display: block ;
+				}
+				.title {
+					margin-top: 5px ;
+					font-size: 12px ;
+				}
+			}
+		}
+	}
+
+	/* Testimonials */
+
+  	.testimonials {
+	  overflow: auto ;
+	  margin-bottom: 20px ;
+	}
+	.testimonials-background{
+	  width: 100%;
+	  height: 100%;
+	  background-color: lighten($light-color, 7%);
+	  border-top: 1px solid $light-color;
+	  padding-top:70px;
+	  padding-bottom: 60px;
+	}
+  	.testimonials-image{
+		width:20%;
+	  	display: inline;
+		vertical-align: middle;
+		margin-right:10px;
+	}
+	.testimonials-text{
+		width:80%;
+		display: inline-block;
+		vertical-align: middle;
+	  	font-size:15px;
+	  	float:right;
+	}
+  .testimonials-text-author{
+		margin-top:5px;
+		float: left;
+		font-size: 14px;
+		color: $gray-color;
+	}
+  	.map-banner{
+	  position:relative;
+	  background-repeat: no-repeat;
+	  height: 600px;
+	  text-align:center;
+	  background-image: url("https://res.cloudinary.com/civocracy/image/upload/w_1440,q_auto,f_auto,c_fill/v1466702780/static/change.jpg");
+	  background-size: cover;
+	  display: table;
+	  width:100%;
+	}
+	.map-join{
+	  margin-top:30px;
+	  max-width: 650px;
+	  width: 100%;
+	  display: inline-block;
+	  position: relative ;
+	}
+	.map-filter{
+	  position:absolute;
+	  width: 100%;
+	  height: 100%;
+	  opacity: 0.3;
+	  background: $primary-color;
+	  z-index:0;
+	}
+	.map-info{
+	  display: table-cell;
+	  position:relative;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center ;
+	  vertical-align: middle;
+	}
+	@media screen and (max-width: 850px){
+		.autocomplete{
+			&-input{
+				width:80%;
+			}
+			&-search{
+				width: 80%;
+				padding: 5px 10px;
+				margin: 1px 11px 0;
+			}
+			&-search-item{
+				font-size: 16px;
+				line-height: 24px;
+			}
+		}
+		.header{
+			&-title{
+				color: $primary-color;
+				padding-top: 20px;
+				font-weight: bold;
+				font-size: 48px;
+			}
+			&-subtitle{
+				color: $primary-color;
+				font-size:24px;
+			}
+		}
+	  	.description-footer-row{
+		  margin-bottom: 30px;
+		}
+		.testimonials-background {
+			.stories {
+				margin: 0 50px 60px ;
+				.story-preview {
+					a:hover {
+						text-decoration: none ;
+					}
+					img {
+						margin-bottom: 20px ;
+					}
+				}
+			}
+			padding-top:60px;
+			padding-bottom: 40px;
+		}
+	}
+
+	@media screen and (max-width: 600px){
+		.header {
+			&-banner {
+				height: 300px;
+			}
+			&-title {
+				color: $primary-color;
+				padding-top: 20px;
+				font-weight: bold;
+				font-size: 36px;
+			}
+			&-subtitle {
+				color: $primary-color;
+				font-size: 18px;
+			}
+		}
+		.autocomplete{
+			&-input{
+				width:60%;
+			}
+			&-search{
+				width: 60%;
+				padding: 5px 10px;
+				margin: 1px 40px 0;
+			}
+			&-search-item{
+				font-size: 16px;
+				line-height: 24px;
+			}
+		}
+		.description{
+			&-text-box{
+				text-align: left;
+				margin: -20px auto 40px;
+
+				h2{
+					margin: 0 0 25px;
+					text-align: center;
+					font-size:36px;
+					color: $secondary-color;
+					display: inline-block;
+					margin-right: 12px;
+				}
+				p{
+					color: $dark-color;
+					font-size:18px;
+					margin-top: -20px;
+				}
+			}
+			&-phone{
+				margin: -190px 0 -147px 65px;
+			}
+			&-item-box{
+				margin-bottom: 40px;
+				h3{
+					text-transform: uppercase;
+					color: $secondary-color;
+					font-size: 18px;
+				}
+				i{
+					color:$secondary-color;
+					margin-right: 10px;
+					font-size:24px;
+				}
+				p{
+					font-size:16px;
+					line-height: 18px;
+				}
+			}
+		}
+		.story-preview {
+			img, .description {
+				float: none ;
+				padding: 0 5px ;
+				width: 100% ;
+			}
+			img { margin-bottom: 10px }
+		}
+	}
+
+	@media screen and (max-width: 450px){
+		.header {
+			&-banner {
+				height: 300px;
+			}
+			&-title {
+				color: $primary-color;
+				padding-top: 20px;
+				font-weight: bold;
+				font-size: 24px;
+			}
+			&-subtitle {
+				color: $primary-color;
+				font-size: 18px;
+			}
+		}
+		.autocomplete{
+			&-input{
+				width:60%;
+			}
+			&-search{
+				width: 60%;
+				padding: 5px 10px;
+				margin: 1px 12px 0;
+			}
+			&-search-item{
+				font-size: 14px;
+				line-height: 18px;
+			}
+		}
+		.description {
+		  &-text-box {
+			text-align: left;
+
+			h2 {
+			  margin: 0 0 25px;
+			  text-align: center;
+			  font-size: 20px;
+			  color: $secondary-color;
+			  display: inline-block;
+			  margin-right: 12px;
+			}
+			p {
+			  color: $dark-color;
+			  font-size: 14px;
+			  margin-top: -20px;
+			}
+		  }
+		  &-item-box {
+			margin-bottom: 40px;
+
+			h3 {
+			  text-transform: uppercase;
+			  color: $secondary-color;
+			  font-size: 16px;
+			}
+			i {
+			  color: $secondary-color;
+			  margin-right: 10px;
+			  font-size: 18px;
+			}
+			p {
+			  font-size: 14px;
+			  line-height: 18px;
+			}
+		  }
+		}
+	}
+
+  @media screen and (max-width:484px){
+	.testimonials-text{
+	  width:70%;
+	  font-size:16px;
+	}
+  }
+
+  @media screen and (min-width: 250px) and (max-width: 400px){
+	.testimonials-text{
+	  width:65%;
+	  font-size:14px;
+	}
+	.testimonials-text-author{
+	  font-size: 12px;
+	}
+  }
+
+	.animated {
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	@-webkit-keyframes fadeIn {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
+	@keyframes fadeIn {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
+
+	.fadeIn {
+		-webkit-animation-name: fadeIn;
+		animation-name: fadeIn;
+		-webkit-animation-delay: 0.2s; /* Chrome, Safari, Opera */
+		animation-delay: 0.2s;
+	}
+	@-webkit-keyframes fadeOut {
+		from { opacity: 1; }
+		to { opacity: 0; }
+	}
+
+	@keyframes fadeOut {
+		from { opacity: 1; }
+		to { opacity: 0; }
+	}
+
+	.fadeOut {
+		-webkit-animation-name: fadeOut;
+		animation-name: fadeOut;
+	}
+	@keyframes fadeInRight {
+		from {
+			opacity: 0;
+			-webkit-transform: translate3d(100%, 0, 0);
+			transform: translate3d(100%, 0, 0);
+		}
+		to {
+			opacity: 1;
+			-webkit-transform: none;
+			transform: none;
+		}
+	}
+
+	.fadeInRight {
+		-webkit-animation-name: fadeInRight;
+		animation-name: fadeInRight;
+	}
+}

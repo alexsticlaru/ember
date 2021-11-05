@@ -1,0 +1,76 @@
+.questionnaire-results {
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    align-items: center;
+
+    &__title-header {
+        width: 100%;
+        border-bottom: 1px solid $light-gray;
+        height: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    &__header {
+        display: flex;
+        flex-grow: 0;
+        flex-direction: column;
+        justify-content: space-between;
+        border-bottom: 1px solid $light-color;
+        height: 10rem;
+        & h1 {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__header-nav {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__body {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        max-width: 62.7rem;
+    }
+
+    &__footer {
+        display: flex;
+        flex-grow: 0;
+        padding: 4rem 0;
+    }
+
+    &__project-link {
+        width: 100%;
+        text-align: center;
+        color: $light-blue;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.questionnaire-results-phone {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        display: flex;
+        flex-grow: 0;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        & button {
+            align-self: flex-start;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        padding: 4rem 0;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,22 @@
+<div class="swiper">
+	<div id="swiperID" class="swiper-container"
+		{{did-insert this.initSwiper}}
+		{{did-update this.updateSwiper}}>
+		<div class="swiper-wrapper">
+			{{#each @items as | item | }}
+				<div class="swiper-slide">
+					{{yield item}}
+				</div>
+			{{/each}}
+		</div>
+
+		{{#if this.hasPagination}}
+			<div class="swiper-pagination"></div>
+		{{/if}}
+
+	</div>
+	{{#if this.hasNavigation}}
+		<div class="{{this.nextElClass}}"></div>
+		<div class="{{this.prevElClass}}"></div>
+	{{/if}}
+</div>

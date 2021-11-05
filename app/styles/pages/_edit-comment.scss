@@ -1,0 +1,9 @@
+.edit-comment {
+    position: relative;
+    width: 100%;
+    &__close-btn {
+        position: absolute;
+        right: 1rem;
+        top: 6px;
+    }
+}

@@ -1,0 +1,105 @@
+.social-share{
+  margin-left: 4.5rem;
+  margin-right: 4.5rem;
+  margin-bottom: 4.2rem;
+
+  &__preview{
+    margin-top: 1.7rem;
+    margin-bottom: 3.4rem;
+  }
+
+  &__preview-image{
+    width: 385px;
+    height: 191px;
+    background-color: #C4C4C4;
+  }
+
+  &__preview-title{
+    margin-top: 1rem;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.2rem;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  &__preview-description{
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.2rem;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  &__middle-container{
+    margin-top: 2.7rem;
+    margin-bottom: 2.1rem;
+  }
+
+  &__text{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: #76797B;
+  }
+
+  &__bottom-container{
+    margin-top: 4.8rem;
+    padding-top: 1.9rem;
+	border-top: 1px solid #EFEFEF;
+    text-align: center;
+  }
+
+  &__social-item-container{
+    margin-top: 1.7rem;
+  	display: flex;
+    justify-content: center;
+  }
+
+  &__social-item{
+	border: none;
+	background: none;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  }
+
+  // .facebook-icon:hover {
+  //   background: red;
+  // }
+
+  svg:hover {
+    transform: scale(1.03);
+  }
+
+  &__social-item:hover{
+    text-decoration: underline $light-black;
+  }
+
+  &__copy-url-text{
+    background: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    box-sizing: border-box;
+    border-radius: 9px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.2px;
+    color: #A9A9A9;
+    height: 4.6rem;
+	width: 100%;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  &__copy-url-button{
+    margin-top: 1rem;
+    width: 100%;
+    }
+}

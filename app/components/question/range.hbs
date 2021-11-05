@@ -1,0 +1,16 @@
+<div class="range-choice" {{did-insert this.setup}}>
+	{{yield}}
+	<div class="range-choice__container">
+		{{#each this.rangeValues as |range|}}
+			<button id="{{range}}" type="button" class="btn-civ-answer range-choice__button {{if (eq range this.selectedRangeAnswer) 'btn-civ-answer--active'}}" 
+			{{on 'click' (fn this.handleAnswer range)}}>
+				{{range}}
+			</button>
+		{{/each}}
+	</div>
+	<div class="range-choice__range-limits">
+		<p>{{t 'questionnaire.rate-feedback.not_really_good'}}</p>
+		<p>{{t 'questionnaire.rate-feedback.excellent'}}</p>
+	</div>
+</div>
+

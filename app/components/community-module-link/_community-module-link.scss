@@ -1,0 +1,25 @@
+.community-module-link {
+    display: flex;
+    flex-direction: column;
+    min-height: 9rem;
+    background: $light-color;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    padding: 1rem;
+    justify-content: space-between;
+
+    &__title {
+        font-weight: 600;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    &__btn-info {
+        margin-left: 1rem;
+    }
+}

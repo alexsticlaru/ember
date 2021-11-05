@@ -1,0 +1,66 @@
+<div class="project-members">
+	<div class="project-members__container">
+		<div class="project-members__header">
+			<div class="project-members__title">
+				{{t 'communities.members'}}
+				<span class="project-members__number">{{@project.globalRelevancy}}</span>
+			</div>
+
+			<div class="project-members__search-bar">
+				<div class="project-members__icon-search">
+					{{inline-svg '/images/modules/module-icon-search-input.svg'}}
+				</div>
+				<Input class="project-members__search-input"
+					   placeholder="{{t 'participation.searchMemberPlaceholder'}}"
+					   @value={{this.searchText}}
+					   @enter={{this.searchMembers}}
+					   @key-up={{this.searchMembersKey}}/>
+			</div>
+		</div>
+
+		<div class="project-members__list">
+			{{#if this.showAllMembers}}
+				{{#each this.filteredMembers as |member|}}
+					<div class="project-members__list-item">
+						<div class="project-members__member-info">
+							<UserAvatar @user={{member.user}} @dimensions={{35}}></UserAvatar>
+							<span class="project-members__list-username">{{member.user.fullName}}</span>
+						</div>
+						<div class="project-members__member-delete">
+							<button type="button" class="btn-civ-grey project-members__button-delete" {{on "click" (fn this.removeMember member)}}>
+								{{t 'buttons.delete'}}
+							</button>
+						</div>
+					</div>
+				{{/each}}
+			{{else}}
+				{{#each @projectMembers as |member|}}
+					<div class="project-members__list-item">
+						<div class="project-members__member-info">
+							<UserAvatar @user={{member.user}} @dimensions={{35}}></UserAvatar>
+							<span class="project-members__list-username">{{member.user.fullName}}</span>
+						</div>
+						<div class="project-members__member-delete">
+							<button type="button" class="btn-civ-grey project-members__button-delete" {{on "click" (fn this.removeMember member)}}>
+								{{t 'buttons.delete'}}
+							</button>
+						</div>
+					</div>
+				{{/each}}
+			{{/if}}
+		</div>
+
+		{{#unless this.showAllMembers}}
+			{{#if this.isLoading}}
+				<button type="button" class="btn-civ-black-reverse project-members__button-more" disabled>
+					{{t 'participation.seeMoreMembers'}}
+					<Spinner/>
+				</button>
+			{{else}}
+				<button type="button" class="btn-civ-black-reverse project-members__button-more" {{on "click" this.loadMoreMembers}}>
+					{{t 'participation.seeMoreMembers'}}
+				</button>
+			{{/if}}
+		{{/unless}}
+	</div>
+</div>

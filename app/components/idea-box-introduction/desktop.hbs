@@ -1,0 +1,36 @@
+<div class="idea-box-component__introduction-wrapper">
+	<div class="idea-box-component__introduction-container">
+		<div class="idea-box-component__breadcrumb-container">
+			<div class="idea-box-component__logo-container">
+				<CloudinaryImage @publicId={{@model.community.logo}}
+								 @options={{hash  format='png' transforms='q_auto,f_auto,c_fill'}} aria-hidden="true"/>
+			</div>
+			<span class="separator idea-box-component__separator">
+				{{inline-svg "/images/ideaBox/separator-icon.svg"}}
+			</span>
+			<BreadCrumbs @breadCrumbs={{@breadCrumbs}} class="breadcrumbs--black"/>
+		</div>
+
+		<div class="idea-box-component__container">
+			<div class="idea-box-component__title-and-description">
+				<div class="idea-box-component__line"></div>
+				<div>
+					<div class="idea-box-component__title-project">
+						<span aria-hidden="true">{{inline-svg "/images/ideaBox/idea-box-bulb-icon.svg"}}</span>
+						{{@model.participationPack.title}}
+					</div>
+					<div class="idea-box-component__description">
+						{{html-safe @model.participationPack.description}}
+					</div>
+				</div>
+			</div>
+
+			<div class="idea-box-component__right-side">
+				{{inline-svg "/images/ideaBox/mail-box-icon.svg"}}
+				<button type="button" role="button" class="btn-civ-black idea-box-component__add-idea-button" {{on "click" @openPropositionAddPopup}}>
+					<span class="idea-box-component__title-button">{{t 'ideaBox.addAnIdea'}}</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

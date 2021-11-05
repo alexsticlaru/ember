@@ -1,0 +1,71 @@
+<div style="display: flex; justify-content: center; flex-direction: column">
+	<div class="phone-proposition-add-form">
+		<div class="phone-proposition-add-form__container">
+			<div class="phone-proposition-add-form__popup-progress-bar">
+				<div class="proposition-add-form__progress" style={{this.progressBarStyle}}></div>
+			</div>
+			<div class="phone-proposition-add-form__top">
+				<div class="phone-proposition-add-form__top-header">
+					{{#if (eq this.currentStep 2)}}
+						<button type="button" class="btn-none phone-proposition-add-form__back-button" {{on 'click' (fn this.changeStep 1)}} aria-label={{t "pb.accessibility.goBack"}}>
+							<span aria-hidden="true">{{inline-svg "/images/ideaBox/back-button-icon.svg"}}</span>
+						</button>
+					{{/if}}
+					{{#if (eq this.currentStep 1)}}
+						<button type="button" class="phone-proposition-add-form__back-button btn-close" {{on 'click' this.closeSidePanel}} aria-label={{t 'buttons.close'}}>
+							<span aria-hidden="true">{{inline-svg "/images/ideaBox/back-button-icon.svg"}}</span>
+						</button>
+					{{/if}}
+					<div class="phone-proposition-add-form__header-container" style={{this.headerStyle}}>
+						<h1 class="heading-1--quaternary phone-proposition-add-form__title-popup">
+							{{t 'ideaBox.addIdeaPopUp.stepOne.titlePopUp'}}
+						</h1>
+						<div class="phone-proposition-add-form__title-popup">
+							{{t 'ideaBox.addIdeaPopUp.confidential.stepMobile'}} {{this.currentStep}}/2)
+						</div>
+						{{!--					<div class="phone-proposition-add-form__btn-wrapper">-->
+						<!--						<PopupCloseButton @closePopup={{this.closePopup}} />-->
+						<!--					</div>--}}
+					</div>
+				</div>
+				{{#if (eq this.currentStep 2)}}
+					<h1 class="phone-proposition-add-form__title-step2">For the final touch...</h1>
+					<span class="phone-proposition-add-form__description-step2">Add the cherry on top of your idea with these details.</span>
+
+				{{/if}}
+			</div>
+			{{#if (eq this.currentStep 1)}}
+				<AddPropositionStepOne
+						@propositionTitle={{this.propositionTitle}}
+						@propositionSuggestions={{this.propositionSuggestions}}
+						@propositionDescription={{this.propositionDescription}}
+						@model={{this.model}}
+						@titleError={{this.titleError}}
+						@descriptionError={{this.descriptionError}}
+						@isMobile={{true}}
+				></AddPropositionStepOne>
+			{{else if (eq this.currentStep 2)}}
+				<AddPropositionStepTwo
+						@model={{this.model}}
+						@handlePropositionThemes={{this.handlePropositionThemes}}
+						@updateLocation={{this.updateLocation}}
+						@propositionThemes={{this.propositionThemes}}
+						@isMobile={{true}}
+				></AddPropositionStepTwo>
+			{{/if}}
+		</div>
+		<div class="phone-proposition-add-form__footer {{if (eq this.currentStep 2) 'proposition-add-form__footer--end'}}">
+			{{#if (eq this.currentStep 1)}}
+				<span class="phone-proposition-add-form__obligatory-fields">{{t 'ideaBox.addIdeaPopUp.stepOne.obligatoryFields'}}</span>
+			{{/if}}
+		</div>
+		<div class="phone-proposition-add-form__footer-buttons">
+			<button type="button" class="phone-proposition-add-form__cancel-button"  {{on 'click' this.closeSidePanel}}>{{t 'ideaBox.addIdeaPopUp.stepOne.cancelButton'}}</button>
+			{{#if (eq this.currentStep 1)}}
+				<button type="button" class="btn-civ-black phone-proposition-add-form__continue-button" {{on 'click' (fn this.changeStep 2)}}>{{t 'ideaBox.addIdeaPopUp.stepOne.continueButton'}}</button>
+			{{else if (eq this.currentStep 2)}}
+				<button type="submit" class="btn-civ-black  phone-proposition-add-form__publish-button" {{on 'click' this.addProposition}}>{{t 'ideaBox.addIdeaPopUp.stepOne.submitButton'}}</button>
+			{{/if}}
+		</div>
+	</div>
+</div>

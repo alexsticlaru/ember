@@ -1,0 +1,55 @@
+.add-modules{
+	background: #FFFFFF;
+	border: 1px solid #F4F4F4;
+	box-sizing: border-box;
+	border-radius: 7.63886px;
+	text-align: center;
+	width: 25rem;
+
+		&__subtitle {
+			font-family: Sora;
+font-style: normal;
+font-weight: 600;
+font-size: 1.7rem;
+line-height: 138.9%;
+letter-spacing: 0.0126802rem;
+color: #373F41;
+margin-bottom: 1.2rem;
+padding-left: 2rem;
+padding-right: 2rem;
+
+		}
+
+		&__title {
+			font-family: Inter;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 1.3rem;
+			line-height: 2.0rem;
+			text-transform: uppercase;
+			color: #898989;
+			margin-bottom: 2rem;
+		}
+
+		&__explanation {
+			font-family: Inter;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 1.3rem;
+			line-height: 1.6rem;
+			text-align: center;
+			letter-spacing: 0.0126802rem;
+			color: #76797B;
+			margin-bottom: 1.2rem;
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+
+		&__button {
+			margin-top: 3rem;
+			margin-bottom: 1rem;
+			margin-left: auto;
+			margin-right: auto;
+			width: 16rem;
+		}
+}
